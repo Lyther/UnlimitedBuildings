@@ -1,6 +1,7 @@
 #############
 # Trade buildings
 #############
+
 building_galactic_stock_exchange = {
 	base_buildtime = @b2_time
 

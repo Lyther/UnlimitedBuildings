@@ -1,0 +1,110 @@
+#################################
+## 	Ascended Empire Buildings
+##			By Kolyn
+#################################
+
+
+@b4time = 180
+@b4cost = 150
+@b4effect = 5
+@b4upkeep = 2.5
+
+@b5time = 180
+@b5cost = 180
+@b5effect = 8
+@b5upkeep = 3
+
+@feupkeep = 4
+@feproduction = 12
+@fecost = 500
+@fetime = 730
+
+
+building_fe_automated_production = {
+	base_buildtime = @fetime
+	icon = building_fe_automated_production
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_zofe_country = no }
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_megacorp = no }
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_bureaucrat_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_megacorp = no }
+			owner = { is_gestalt = no }
+		}
+		text = job_bureaucrat_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		modifier = {
+			job_manager_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		text = job_manager_effect_desc
+	}
+	
+
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1600
+			sr_living_metal = 200	
+		}
+		upkeep = {
+			sr_dark_matter = 2
+		}
+	}
+
+	prerequisites = {
+		"tech_automated_industries_1"
+	}
+	
+}

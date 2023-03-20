@@ -25,6 +25,12 @@ If a new version of the game is released, or if you want to be compatible with a
 
 If you have more ideas for mod compatibility, or want to make other mods' buildings infinitely buildable, you can also leave a message in the Creative Workshop.
 
+List of mods that are currently compatible.
+
+* ZoFE: [The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
+* Stellaris Cultivation of Immortality: [Stellaris Cultivation of Immortality](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
+* Tidy Tradition: [Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
+
 # 无限建筑
 
 同类型的建筑有数量限制实在是太蠢了！我们可以建造数量无限的研究实验室，但是却不能建造同样多的研究中心，实在是一件很令人伤心的事情。
@@ -51,3 +57,9 @@ If you have more ideas for mod compatibility, or want to make other mods' buildi
 如果有新的游戏版本发布，或是希望与一个更老的游戏版本兼容，你可以在创意工坊留言或是私信沟通。
 
 如果你有更多的MOD兼容想法，或者希望让其他MOD的建筑也能无限建造，同样可以在创意工坊留言。
+
+目前已经兼容的MOD列表：
+
+* ZoFE：[The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
+* 群星修仙传：[群星修仙传](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
+* 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)

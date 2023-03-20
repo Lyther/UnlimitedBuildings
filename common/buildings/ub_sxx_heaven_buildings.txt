@@ -1,0 +1,38 @@
+building_sxx_tianmen = {
+	base_buildtime = 7200
+	category = government
+	position_priority = 5
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_heaven_country = yes
+		}
+		planet = {
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	allow = {
+		always = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 100000
+			minerals = 100000
+			alloys = 50000
+			sxx_stones = 200000
+		#	minor_artifacts = 20
+		}
+		upkeep = {
+			energy = 200
+			sxx_stones = 200
+		}
+	}
+
+	planet_modifier = {
+		sxx_heaven_stability_add = 25
+	}
+}

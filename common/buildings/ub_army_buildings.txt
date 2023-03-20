@@ -1,6 +1,7 @@
 #############
 # Army buildings
 #############
+
 building_military_academy = {
 	base_buildtime = @b2_time
 
@@ -12,6 +13,7 @@ building_military_academy = {
 	}
 
 	allow = {
+		has_upgraded_capital = yes
 		if = {
 			limit = {
 				exists = owner

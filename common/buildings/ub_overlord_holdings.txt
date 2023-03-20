@@ -3,6 +3,8 @@ holding_garrison = {
 	owner_type = subject_holding
 	icon = holding_overlord_garrison
 
+	category = army
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -61,6 +63,8 @@ holding_orbital_assembly_complex = {
 	owner_type = subject_holding
 	icon = holding_orbital_assembly_complex
 
+	category = manufacturing
+
 	potential = {
 		has_overlord_dlc = yes
 	}
@@ -89,6 +93,8 @@ holding_propaganda_office = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_propaganda_office
+
+	category = government
 
 	potential = {
 		has_overlord_dlc = yes
@@ -135,6 +141,8 @@ holding_satellite_campus = {
 	owner_type = subject_holding
 	icon = holding_satellite_campus
 
+	category = research
+
 	potential = {
 		has_overlord_dlc = yes
 	}
@@ -174,6 +182,8 @@ holding_emporium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_emporium
+
+	category = amenity
 
 	triggered_planet_modifier = {
 		potential = {
@@ -218,6 +228,8 @@ holding_aid_agency = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_aid_agency
+
+	category = amenity
 
 	allow = {
 		custom_tooltip = {
@@ -309,6 +321,8 @@ holding_energy_requisitorium = {
 	owner_type = subject_holding
 	icon = holding_energy_requisitorium
 
+	category = resource
+
 	potential = {
 		has_overlord_dlc = yes
 	}
@@ -358,6 +372,8 @@ holding_material_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_material_requisitorium
+
+	category = resource
 
 	potential = {
 		has_overlord_dlc = yes
@@ -412,6 +428,8 @@ holding_produce_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_produce_requisitorium
+
+	category = resource
 
 	potential = {
 		has_overlord_dlc = yes
@@ -479,9 +497,7 @@ holding_splinter_hive = {
 	owner_type = subject_holding
 	icon = holding_splinter_hive
 
-	potential = {
-		has_overlord_dlc = yes
-	}
+	category = pop_assembly
 
 	resources = {
 		category = planet_holdings
@@ -494,6 +510,7 @@ holding_splinter_hive = {
 	}
 
 	potential = {
+		has_overlord_dlc = yes
 		owner.overlord = { is_hive_empire = yes }
 	}
 
@@ -565,6 +582,8 @@ holding_distributed_processing = {
 	owner_type = subject_holding
 	icon = holding_distributed_processing
 
+	category = research
+
 	potential = {
 		owner.overlord = {
 			is_machine_empire = yes
@@ -613,6 +632,8 @@ holding_offspring_nest = {
 	owner_type = subject_holding
 	icon = building_offspring_nest
 
+	category = government
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -659,6 +680,8 @@ holding_offworld_foundry = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_offworld_foundry
+
+	category = manufacturing
 
 	potential = {
 		has_overlord_dlc = yes
@@ -778,6 +801,8 @@ holding_overlord_vigil_command = {
 	owner_type = subject_holding
 	icon = holding_overlord_vigil_command
 
+	category = army
+
 	potential = {
 		has_overlord_dlc = yes
 	}
@@ -884,6 +909,8 @@ holding_parasitic_algorithms = {
 	owner_type = subject_holding
 	icon = holding_parasitic_algorithms
 
+	category = research
+
 	potential = {
 		has_overlord_dlc = yes
 	}
@@ -954,6 +981,8 @@ holding_noble_vacation_homes = {
 	owner_type = subject_holding
 	icon = building_palace
 
+	category = amenity
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1012,6 +1041,8 @@ holding_dread_outpost = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_dread_encampment
+
+	category = army
 
 	resources = {
 		category = planet_holdings
@@ -1073,6 +1104,8 @@ holding_communal_housing_outreach = {
 	owner_type = subject_holding
 	icon = building_residence
 
+	category = amenity
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1130,6 +1163,8 @@ holding_idyllic_bloom = {
 	owner_type = subject_holding
 	icon = building_gaiaseeders_4
 
+	category = government
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1147,10 +1182,7 @@ holding_idyllic_bloom = {
 		exists = owner
 		owner.overlord = {
 			is_country_type = default
-			OR = {
-				has_valid_civic = civic_idyllic_bloom
-				has_valid_civic = civic_hive_idyllic_bloom
-			}
+			is_idyllic_bloom_empire = yes
 		}
 		NOR = {
 			is_planet_class = pc_gaia
@@ -1238,6 +1270,8 @@ holding_reemployment_center = {
 	owner_type = subject_holding
 	icon = building_posthumous_employment_center
 
+	category = pop_assembly
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1297,6 +1331,8 @@ holding_recruitment_office = {
 	owner_type = subject_holding
 	icon = holding_recruitment_office
 
+	category = army
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1351,6 +1387,8 @@ holding_park_ranger_lodge = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_park_ranger_lodge
+
+	category = amenity
 
 	resources = {
 		category = planet_holdings
@@ -1437,6 +1475,8 @@ holding_tree_of_life_sapling = {
 	owner_type = subject_holding
 	icon = holding_tree_of_life_sapling
 
+	category = resource
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1494,6 +1534,8 @@ holding_experimental_crater = {
 	owner_type = subject_holding
 	icon = holding_experimental_crater
 
+	category = research
+
 	resources = {
 		category = planet_holdings
 		produces = {
@@ -1541,6 +1583,8 @@ holding_organic_sanctuary = {
 	owner_type = subject_holding
 	icon = building_organic_sanctuary
 
+	category = unity
+
 	resources = {
 		category = planet_holdings
 		upkeep = {
@@ -1577,6 +1621,8 @@ holding_franchise_headquarters = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_franchise_headquarters
+
+	category = government
 
 	destroy_trigger = {
 		NOT = {
@@ -1706,6 +1752,8 @@ holding_sacrificial_shrine = {
 	owner_type = subject_holding
 	icon = building_sacrificial_temple_2
 
+	category = unity
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1757,6 +1805,8 @@ holding_toxic_bath = {
 	owner_type = subject_holding
 	icon = building_toxic_bath
 
+	category = amenity
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1805,6 +1855,8 @@ holding_toxic_bath_hive = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath_hive
+
+	category = amenity
 
 	resources = {
 		category = planet_holdings
@@ -1855,6 +1907,8 @@ holding_toxic_bath_machine = {
 	owner_type = subject_holding
 	icon = building_toxic_bath_machine
 
+	category = amenity
+
 	resources = {
 		category = planet_holdings
 		cost = {
@@ -1903,6 +1957,8 @@ holding_knight_commandery = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_order_holding
+
+	category = government
 
 	resources = {
 		category = planet_holdings

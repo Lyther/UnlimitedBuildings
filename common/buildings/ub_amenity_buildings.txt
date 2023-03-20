@@ -1,20 +1,37 @@
 #############
 # Amenities buildings
 #############
+
 building_clinic = {
 	base_buildtime = @b1_time
 
 	category = amenity
 
 	potential = {
-		owner = { is_regular_empire = yes }
+		owner = {
+			OR = {
+				is_regular_empire = yes
+				AND = {
+					has_origin = origin_fear_of_the_dark
+					is_country_type = primitive
+				}
+			}
+		}
 		NOT = { has_modifier = slave_colony }
 	}
 
 	destroy_trigger = {
 		exists = owner
 		OR = {
-			owner = { is_regular_empire = no }
+			owner = { 
+				NOR = {
+					is_regular_empire = yes
+					AND = {
+						has_origin = origin_fear_of_the_dark
+						is_country_type = primitive
+					}
+				}
+			}
 			has_modifier = slave_colony
 			AND = {
 				buildings_stop_pop = yes
@@ -47,6 +64,56 @@ building_clinic = {
 
 	triggered_desc = {
 		text = job_healthcare_effect_desc
+	}
+
+	on_destroy = {
+		owner = {
+			if = {
+				limit = {
+					has_event_chain = payback_out_of_warranty_chain
+				}
+				end_event_chain = payback_out_of_warranty_chain
+			}
+		}
+	}
+
+	on_repaired = {
+		if = {
+			limit = {
+				owner = {
+					has_event_chain = payback_out_of_warranty_chain
+				}
+			}
+			random_list = {
+				50 = { # still broken
+					planet.owner = {
+						country_event = { id = origin.4302 }
+					}
+				}
+				20 = { # repaired
+					planet.owner = {
+						country_event = { id = origin.4301 }
+					}
+					modifier = {
+						factor = 2
+						planet.owner = { num_research_agreements = 1 }
+					}
+					modifier = {
+						factor = 3
+						planet.owner = { num_research_agreements = 2 }
+					}
+					modifier = {
+						factor = 4
+						planet.owner = { num_research_agreements >= 3 }
+					}
+				}
+				10 = { # broken beyond repair
+					planet = {
+						planet_event = { id = origin.4303 }
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -94,6 +161,29 @@ building_ranger_lodge = {
 		}
 	}
 
+	ai_resource_production = {
+		unity = 2
+		mult = value:natural_blocker_count
+	}
+
+	ai_resource_production = {
+		unity = 1
+		trigger = { owner_has_resolution = { RES = resolution_ecology_integrated_gardens } }
+		mult = value:natural_blocker_count
+	}
+
+	ai_resource_production = {
+		unity = 1
+		trigger = { owner_has_resolution = { RES = resolution_ecology_environmental_control_board } }
+		mult = value:natural_blocker_count
+	}
+
+	ai_resource_production = {
+		unity = 1
+		trigger = { owner_has_resolution = { RES = resolution_ecology_paradise_initiative } }
+		mult = value:natural_blocker_count
+	}
+
 	planet_modifier = {
 		job_ranger_add = @b1_jobs
 		deposit_blockers_natural_unity_produces_add = 2
@@ -107,37 +197,20 @@ building_ranger_lodge = {
 	#}
 
 	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_active_resolution = resolution_ecology_integrated_gardens
-			}
-		}
+		potential = { owner_has_resolution = { RES = resolution_ecology_integrated_gardens } }
 		deposit_blockers_natural_unity_produces_add = 1
 	}
 
 	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_active_resolution = resolution_ecology_environmental_control_board
-			}
-		}
+		potential = { owner_has_resolution = { RES = resolution_ecology_environmental_control_board } }
 		deposit_blockers_natural_unity_produces_add = 1
 	}
 
 	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_active_resolution = resolution_ecology_paradise_initiative
-			}
-		}
+		potential = { owner_has_resolution = { RES = resolution_ecology_paradise_initiative } }
 		deposit_blockers_natural_unity_produces_add = 1
 	}
+
 	resources = {
 		category = planet_buildings
 		cost = {
