@@ -27,9 +27,13 @@ If you have more ideas for mod compatibility, or want to make other mods' buildi
 
 List of mods that are currently compatible.
 
-* ZoFE: [The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
-* Stellaris Cultivation of Immortality: [Stellaris Cultivation of Immortality](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
-* Tidy Tradition: [Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
+* ZoFE：[The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
+  * ZoFE: Societal Ascendance: [The Zenith of Fallen Empires: Societal Ascendance](https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457)
+
+* 群星修仙传：[群星修仙传](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
+* 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
+* Guilli's Planet Modifiers and Features: [Guilli's Planet Modifiers and Features](https://steamcommunity.com/sharedfiles/filedetails/?id=865040033)
+* Modder嘉年华-更多飞地合作企划: [Modder嘉年华-更多飞地合作企划](https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216)
 
 # 无限建筑
 
@@ -61,5 +65,8 @@ List of mods that are currently compatible.
 目前已经兼容的MOD列表：
 
 * ZoFE：[The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
+  * ZoFE: Societal Ascendance: [The Zenith of Fallen Empires: Societal Ascendance](https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457)
 * 群星修仙传：[群星修仙传](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
 * 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
+* Guilli's Planet Modifiers and Features: [Guilli's Planet Modifiers and Features](https://steamcommunity.com/sharedfiles/filedetails/?id=865040033)
+* Modder嘉年华-更多飞地合作企划: [Modder嘉年华-更多飞地合作企划](https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216)
