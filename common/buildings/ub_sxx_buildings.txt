@@ -463,9 +463,15 @@ building_sxx_stones_energy_plant = {
 			minerals = @b1_minerals
 		}
 		produces = {
+			trigger = {
+				owner = { NOT = { has_deficit = sxx_stones } }
+			}
 			energy = 1000
 		}
 		upkeep = {
+			trigger = {
+				owner = { NOT = { has_deficit = sxx_stones } }
+			}
 			sxx_stones = 250
 		}
 	}
