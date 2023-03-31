@@ -381,57 +381,6 @@ building_sxx_shengxiantai = {
 	}
 }
 
-building_sxx_lingyaoyuan = {
-	base_buildtime = @b1_time
-	category = manufacturing
-	position_priority = 115
-
-	potential = {
-		exists = owner
-		owner = { is_sxx_sect = yes }
-		NOT = { is_planet_class = pc_sxx_heaven }
-	}
-
-	allow = {
-		always = yes
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			owner = { is_sxx_sect = no }
-			is_planet_class = pc_sxx_heaven
-		}
-	}
-
-	prerequisites = { tech_sxx_lingyaoyuan }
-
-	planet_modifier = {
-		job_sxx_farmer_disciple_add = 4
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b1_minerals
-		}
-		upkeep = {
-			energy = @b1_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = job_sxx_farmer_disciple_effect_desc
-	}
-
-	ai_resource_production = {
-		trigger = {
-			always = yes
-		}
-		food = 200
-	}
-}
-
 building_sxx_stones_energy_plant = {
 	base_buildtime = @b1_time
 	category = manufacturing
