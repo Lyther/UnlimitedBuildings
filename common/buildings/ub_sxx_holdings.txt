@@ -6,7 +6,7 @@ holding_sxx_shengxiantai = {
 	category = government
 
 	potential = {
-		has_overlord_dlc = yes
+		always = yes
 	}
 
 	allow = {
@@ -53,7 +53,7 @@ holding_sxx_stones_mine = {
 	category = resource
 
 	potential = {
-		has_overlord_dlc = yes
+		always = yes
 	}
 
 	allow = {

@@ -335,3 +335,4 @@ building_low_tech_research_lab = {
 		text = job_low_tech_researcher_effect_desc
 	}
 }
+

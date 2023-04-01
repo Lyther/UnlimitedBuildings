@@ -1,0 +1,555 @@
+building_gaiaseeders_1 = {
+	base_buildtime = @b2_time
+	category = government
+	can_be_disabled = no
+	position_priority = 15
+	upgrades = { "building_gaiaseeders_2" }
+
+	potential = {
+		exists = owner
+		owner = {
+			is_country_type = default
+			OR = {
+				has_valid_civic = civic_idyllic_bloom
+				has_valid_civic = civic_hive_idyllic_bloom
+			}
+		}
+		NOR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+		}
+		is_artificial = no
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			is_planet_class = pc_gaia	# No double bonuses if player uses other tools to turn it into a Gaia world.
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_artificial = yes
+			NOT = { exists = owner }
+			owner = {
+				NOR = {
+					has_valid_civic = civic_idyllic_bloom
+					has_valid_civic = civic_hive_idyllic_bloom
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 1500
+		}
+		upkeep = {
+			energy = 20
+			multiplier = value:gaiaseeder_upkeep
+		}
+	}
+
+	planet_modifier = {
+		pop_growth_speed = 0.1
+	}
+}
+
+building_gaiaseeders_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = government
+	can_be_disabled = no
+	position_priority = 15
+	upgrades = { "building_gaiaseeders_3" }
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 1500
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 20
+			exotic_gases = @b2_rare_upkeep
+			multiplier = value:gaiaseeder_upkeep
+		}
+	}
+
+	destroy_trigger = {
+		OR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_artificial = yes
+			NOT = { exists = owner }
+			owner = {
+				NOR = {
+					has_valid_civic = civic_idyllic_bloom
+					has_valid_civic = civic_hive_idyllic_bloom
+				}
+			}
+		}
+	}
+
+	allow = {
+		can_build_gaiaseeder = yes
+	}
+
+	planet_modifier = {
+		pop_growth_speed = 0.05
+		pop_environment_tolerance = 0.1
+	}
+}
+
+building_gaiaseeders_3 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = government
+	can_be_disabled = no
+	position_priority = 15
+	upgrades = { "building_gaiaseeders_4" }
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 1500
+			exotic_gases = @b3_rare_cost
+		}
+		upkeep = {
+			energy = 20
+			exotic_gases = @b3_rare_upkeep
+			multiplier = value:gaiaseeder_upkeep
+		}
+	}
+
+	destroy_trigger = {
+		OR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_artificial = yes
+			NOT = { exists = owner }
+			owner = {
+				NOR = {
+					has_valid_civic = civic_idyllic_bloom
+					has_valid_civic = civic_hive_idyllic_bloom
+				}
+			}
+		}
+	}
+
+	allow = {
+		can_build_gaiaseeder = yes
+	}
+
+	planet_modifier = {
+		pop_environment_tolerance = 0.2
+	}
+}
+
+building_gaiaseeders_4 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = government
+	can_be_disabled = no
+	position_priority = 15
+
+	destroy_trigger = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_artificial = yes
+			NOT = { exists = owner }
+			owner = {
+				NOR = {
+					has_valid_civic = civic_idyllic_bloom
+					has_valid_civic = civic_hive_idyllic_bloom
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 1500
+			exotic_gases = @b4_rare_cost
+		}
+	}
+
+	allow = {
+		can_build_gaiaseeder = yes
+	}
+
+	triggered_desc = {
+		text = building_gaiaseeders_4_effect_desc
+	}
+}
+
+building_coordinated_fulfillment_center_1 = {
+	base_buildtime = @b1_time
+	position_priority = 15
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = { is_relentless_industrialist_empire = yes }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_planet_class = pc_time
+			is_planet_class = pc_time_replace
+			is_planet_class = pc_endless_time
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_relentless_industrialist_empire = no }
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_planet_class = pc_time
+			is_planet_class = pc_time_replace
+			is_planet_class = pc_endless_time
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_industry_district = no
+			}
+		}
+	}
+
+	prerequisites = {
+		tech_basic_industry
+	}
+
+	show_tech_unlock_if = {
+		is_relentless_industrialist_empire = yes
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	triggered_desc = {
+		trigger = {
+			NOR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_city
+				uses_district_set = habitat
+				uses_district_set = ring_world
+				uses_district_set = shattered_ring_world
+			}
+		}
+		text = building_coordinated_fulfillment_center_tooltip
+	}
+
+	planet_modifier = {
+		planet_metallurgists_produces_mult = 0.2
+		planet_artisans_produces_mult = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { has_policy_flag = relentless_industrialists_full_steam_ahead }
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.1
+			planet_artisans_produces_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_synthetic_empire = no }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.15
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_synthetic_empire = no
+				NAND = {
+					has_policy_flag = relentless_industrialists_study
+					has_country_flag = relentless_industrialists_study_completed
+				}
+			}
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.05
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_synthetic_empire = yes }
+		}
+		modifier = {
+			habitability_ceil_add = -0.075
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				owner = { is_synthetic_empire = yes }
+				NAND = {
+					has_policy_flag = relentless_industrialists_study
+					has_country_flag = relentless_industrialists_study_completed
+				}
+			}
+		}
+		modifier = {
+			habitability_ceil_add = -0.025
+		}
+	}
+
+	upgrades = {
+		building_coordinated_fulfillment_center_2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+		upkeep = {
+			unity = 10
+			trigger = {
+				owner = { has_policy_flag = relentless_industrialists_cleanup }
+			}
+		}
+	}
+
+	ai_resource_production = {
+		alloys = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = alloys
+				value >= 40
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		consumer_goods = 8
+		trigger = {
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 50
+				type = produces
+			}
+		}
+	}
+}
+
+building_coordinated_fulfillment_center_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	position_priority = 15
+
+	category = manufacturing
+	
+	potential = {
+		NOR = {
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_planet_class = pc_time
+			is_planet_class = pc_time_replace
+			is_planet_class = pc_endless_time
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_relentless_industrialist_empire = no }
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			is_planet_class = pc_gas_colony
+			is_planet_class = pc_psionic
+			is_planet_class = pc_nanites
+			is_planet_class = pc_time
+			is_planet_class = pc_time_replace
+			is_planet_class = pc_endless_time
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_industry_district = no
+			}
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	triggered_desc = {
+		trigger = {
+			NOR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_city
+				uses_district_set = habitat
+				uses_district_set = ring_world
+				uses_district_set = shattered_ring_world
+			}
+		}
+		text = building_coordinated_fulfillment_center_tooltip
+	}
+
+	planet_modifier = {
+		planet_metallurgists_produces_mult = 0.4
+		planet_artisans_produces_mult = 0.4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { has_policy_flag = relentless_industrialists_full_steam_ahead }
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.2
+			planet_artisans_produces_mult = 0.2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_synthetic_empire = no }
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.25
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_synthetic_empire = no
+				NAND = {
+					has_policy_flag = relentless_industrialists_study
+					has_country_flag = relentless_industrialists_study_completed
+				}
+			}
+		}
+		modifier = {
+			pop_growth_speed_reduction = 0.15
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_synthetic_empire = yes }
+		}
+		modifier = {
+			habitability_ceil_add = -0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				owner = { is_synthetic_empire = yes }
+				NAND = {
+					has_policy_flag = relentless_industrialists_study
+					has_country_flag = relentless_industrialists_study_completed
+				}
+			}
+		}
+		modifier = {
+			habitability_ceil_add = -0.05
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			volatile_motes = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			volatile_motes = @b3_rare_upkeep
+		}
+		upkeep = {
+			unity = 20
+			trigger = {
+				owner = { has_policy_flag = relentless_industrialists_cleanup }
+			}
+		}
+	}
+
+	prerequisites = {
+		tech_global_production_strategy
+	}
+
+	show_tech_unlock_if = {
+		is_relentless_industrialist_empire = yes
+	}
+
+	ai_resource_production = {
+		alloys = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = alloys
+				value >= 40
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		consumer_goods = 8
+		trigger = {
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 50
+				type = produces
+			}
+		}
+	}
+}

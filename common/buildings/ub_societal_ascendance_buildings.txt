@@ -251,7 +251,7 @@ building_technolith = {
 #	base_buildtime = @b7time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #	
 #	category = manufacturing
 #	
@@ -524,7 +524,7 @@ building_xeno_culture_centre = {
 #	base_buildtime = @b8time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #	
 #	category = research
 #	
@@ -582,7 +582,7 @@ building_xeno_culture_centre = {
 #	base_buildtime = @b7time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #	
 #	category = unity
 #	
@@ -846,7 +846,7 @@ building_hunting_grounds = {
 #	base_buildtime = @b7time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #	
 #	category = army
 #	
@@ -1035,7 +1035,7 @@ building_garden_of_eden = {
 #	base_buildtime = @b7time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #
 #	category = amenity
 #	
@@ -1183,7 +1183,7 @@ building_sky_trench = {
 #	base_buildtime = @b6time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #	
 #	category = unity
 #	
@@ -1363,7 +1363,7 @@ building_secret_police_hq = {
 #	base_buildtime = @b6time
 #	can_build = yes
 #	can_demolish = yes
-#	base_cap_amount = 1
+#
 #	
 #	category = unity
 #	
@@ -1546,6 +1546,84 @@ building_supreme_court = {
 		
 	prerequisites = {
 		"tech_ascended_society_2"
+	}
+	
+	ai_weight = {
+		weight = 50
+	}
+}
+
+
+
+
+##Machine Buildings
+
+building_fe_ancient_cryo_chamber = {
+	base_buildtime = 360
+	can_build = yes
+	can_demolish = yes
+	icon = building_ancient_cryo_chamber
+	
+	category = unity
+	
+	potential = {
+		exists = owner
+		owner = { 
+			is_zofe_country = yes
+			is_machine_empire = yes
+		}
+		NOT = { is_planet_class = pc_habitat }	
+		NOT = { has_modifier = resort_colony }	
+		NOT = { has_modifier = slave_colony }	
+	}	
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+	
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		AND = {
+			exists = owner
+			owner = { 
+				is_machine_empire = no
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_maintenance_drone_add = 10
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			unity = 10
+			society_research = 10
+		}
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 5
+#			sr_living_metal = 1
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		"tech_ascended_society_1"
 	}
 	
 	ai_weight = {

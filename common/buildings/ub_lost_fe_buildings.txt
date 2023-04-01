@@ -1,7 +1,7 @@
-#################################
-## 	Fallen Empire Buildings
-##			By Kolyn
-#################################
+######################################
+## 	Advanced Fallen Empire Buildings
+##				By Kolyn
+######################################
 
 
 @b4time = 180
@@ -20,68 +20,37 @@
 @fetime = 730
 
 
+# Energy Buildings
 
-#Consumer Goods
-building_fe_affluence_center = {
-	base_buildtime = @b2_time
-	can_build = yes
+building_fe_dark_matter_power_plant = {
+	base_buildtime = 1000
+	can_build = no
 	can_demolish = yes
-	icon = building_hyper_entertainment_forum
+	icon = building_fe_dark_matter_power_plant
 #
 	
-	category = manufacturing
+	category = resource
 	
 	destroy_trigger = {
 		OR = {
 			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				is_ai = yes
-				country_uses_consumer_goods = no
-			}
 			planet = {
 				free_building_slots = 0
 				owner = {
 					is_ai = yes
 					has_monthly_income = {
-						resource = consumer_goods
-						value > 5000
-					}
-				}
-			}
-		}
-	}
-	
-	destroy_trigger = {
-		OR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				is_ai = yes
-				country_uses_consumer_goods = no
-			}
-			planet = {
-				free_building_slots = 0
-				owner = {
-					is_ai = yes
-					has_monthly_income = {
-						resource = consumer_goods
-						value > 5000
+						resource = energy
+						value > 75000
 					}
 				}
 			}
 		}
 	}
 
-	
 	potential = {
 		exists = owner
-		owner = {
-			is_zofe_country = yes
-			country_uses_consumer_goods = yes
-		}
+		owner = { is_zofe_country = yes }
 		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
 		OR = {
 			NOT = { is_planet_class = pc_habitat }
 			has_planet_flag = advanced_habitat_2
@@ -90,20 +59,22 @@ building_fe_affluence_center = {
 	
 	allow = {
 		has_upgraded_capital = yes
-#		buildings_has_crystals = yes
+	}
+	
+	planet_modifier = {
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = @b3_minerals
+			minerals = 800
+			sr_living_metal = 200
 		}
 		upkeep = {
-			minerals = 25
-			energy = 10
+			sr_dark_matter = 2
 		}
 		produces = {
-			consumer_goods = 50
+			energy = 750
 		}
 		produces = {
 			trigger = {
@@ -112,7 +83,7 @@ building_fe_affluence_center = {
 					has_edict = planet_fe_buildings_boost
 				}	
 			}
-			consumer_goods = 10
+			energy = 150
 		}
 		produces = {
 			trigger = {
@@ -120,30 +91,140 @@ building_fe_affluence_center = {
 					has_active_building = building_fe_automated_production
 				}	
 			}
-			consumer_goods = 15
+			energy = 225
 		}
 	}
 		
 	upgrades = {
-		building_fe_opulent_plaza
+		building_original_empire_sun_generator
 	}
 	
 	prerequisites = {
-		"tech_fe_affluence_center"
+		tech_fe_dark_matter_power_plant
+	}
+}
+
+# Mineral Buildings
+
+building_fe_autonomous_fabricator = {
+	base_buildtime = 1000
+	can_build = no
+	can_demolish = yes
+	icon = building_fe_ancient_factory
+#
+	
+	category = resource
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			planet = {
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = minerals
+						value > 40000
+					}
+					has_monthly_income = {
+						resource = rare_crystals
+						value > 800
+					}
+					has_monthly_income = {
+						resource = exotic_gases
+						value > 800
+					}
+					has_monthly_income = {
+						resource = volatile_motes
+						value > 800
+					}
+				}
+			}
+		}	
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		NOT = { has_modifier = resort_colony }	
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	planet_modifier = {
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 200
+		}
+		upkeep = {
+			sr_dark_matter = 4
+			energy = 40
+		}
+		produces = {
+			minerals = 400
+			rare_crystals = 8
+			exotic_gases = 8
+			volatile_motes = 8			
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			minerals = 80
+			rare_crystals = 1.6
+			exotic_gases = 1.6
+			volatile_motes = 1.6	
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			minerals = 120
+			rare_crystals = 2.4
+			exotic_gases = 2.4
+			volatile_motes = 2.4	
+		}
+	}
+		
+	upgrades = {
+		building_original_empire_siphoner
+	}
+	
+	prerequisites = {
+		"tech_fe_autonomous_fabricator"
 	}	
 }
 
 # Food Buildings
 
-building_fe_nourishment_center = {
-	base_buildtime = @b2_time
-	can_build = yes
+building_fe_agri_processing_complex = {
+	base_buildtime = 1000
+	can_build = no
 	can_demolish = yes
-	icon = building_food_processing_center
+	icon = building_fe_agri_processing_complex
+	
 #
 	
 	category = resource
-
+	
 	destroy_trigger = {
 		exists = owner
 		OR = {
@@ -159,7 +240,7 @@ building_fe_nourishment_center = {
 					is_ai = yes
 					has_monthly_income = {
 						resource = food
-						value > 10000
+						value > 40000
 					}
 				}
 			}
@@ -185,7 +266,6 @@ building_fe_nourishment_center = {
 	
 	allow = {
 		has_upgraded_capital = yes
-#		buildings_has_motes = yes
 	}
 	
 	planet_modifier = {
@@ -194,13 +274,15 @@ building_fe_nourishment_center = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = @b3_minerals
+			minerals = 800
+			sr_living_metal = 200
 		}
 		upkeep = {
-			energy = 20
+			sr_dark_matter = 1
+			energy = 40
 		}
 		produces = {
-			food = 100
+			food = 400
 		}
 		produces = {
 			trigger = {
@@ -209,7 +291,7 @@ building_fe_nourishment_center = {
 					has_edict = planet_fe_buildings_boost
 				}	
 			}
-			food = 20
+			food = 80
 		}
 		produces = {
 			trigger = {
@@ -217,214 +299,26 @@ building_fe_nourishment_center = {
 					has_active_building = building_fe_automated_production
 				}	
 			}
-			food = 30
-		}	
-	}
-		
-	upgrades = {
-		building_fe_gourmet_center
-	}
-	
-	prerequisites = {
-		"tech_fe_nourishment_center"
-	}	
-}
-
-# Mineral Buildings
-
-building_fe_dimensional_fabricator = {
-	base_buildtime = @b2_time
-	can_build = yes
-	can_demolish = yes
-	icon = building_nanite_transmuter
-#
-	
-	category = resource
-	
-	destroy_trigger = {
-		OR = {
-			has_modifier = resort_colony
-			planet = {
-				free_building_slots = 0
-				owner = {
-					is_ai = yes
-					has_monthly_income = {
-						resource = minerals
-						value > 10000
-					}
-					has_monthly_income = {
-						resource = rare_crystals
-						value > 200
-					}
-					has_monthly_income = {
-						resource = exotic_gases
-						value > 200
-					}
-					has_monthly_income = {
-						resource = volatile_motes
-						value > 200
-					}
-				}
-			}
-		}	
-	}
-	
-	potential = {
-		exists = owner
-		owner = { is_zofe_country = yes }
-		NOT = { has_modifier = resort_colony }
-		OR = {
-			NOT = { is_planet_class = pc_habitat }
-			has_planet_flag = advanced_habitat_2
-		}	
-	}
-	
-	allow = {
-		has_upgraded_capital = yes
-#		buildings_has_living_metal = yes
-#		buildings_has_dark_matter = yes
-	}
-	
-	planet_modifier = {
-	}
-
-	resources = {
-		category = planet_buildings
-		produces = {
-			minerals = 100
-			rare_crystals = @b3_rare_upkeep
-			exotic_gases = @b3_rare_upkeep
-			volatile_motes = @b3_rare_upkeep
-		}
-		cost = {
-			minerals = @b3_minerals
-		}
-		upkeep = {
-			energy = 20
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_edict = planet_fe_buildings_boost
-				}	
-			}
-			minerals = 20
-			rare_crystals = 0.4
-			exotic_gases = 0.4
-			volatile_motes = 0.4	
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_fe_automated_production
-				}	
-			}
-			minerals = 30
-			rare_crystals = 0.6
-			exotic_gases = 0.6
-			volatile_motes = 0.6	
+			food = 120
 		}
 	}
 		
 	upgrades = {
-		building_fe_dimensional_harvester
+		building_original_empire_cornucopia
 	}
 	
 	prerequisites = {
-		"tech_fe_dimensional_fabricator"
+		"tech_fe_agri_processing_complex"
 	}	
 }
 
-# Energy Buildings
+#Consumer Goods
 
-building_fe_class_4_singularity = {
-	base_buildtime = @b2_time
-	can_build = yes
+building_fe_opulent_tower = {
+	base_buildtime = 1000
+	can_build = no
 	can_demolish = yes
-	icon = building_class_4_singularity
-#
-	
-	category = resource
-	
-	destroy_trigger = {
-		OR = {
-			has_modifier = resort_colony
-			planet = {
-				free_building_slots = 0
-				owner = {
-					is_ai = yes
-					has_monthly_income = {
-						resource = energy
-						value > 25000
-					}
-				}
-			}
-		}
-	}
-
-	potential = {
-		exists = owner
-		owner = { is_zofe_country = yes }
-		NOT = { has_modifier = resort_colony }
-		OR = {
-			NOT = { is_planet_class = pc_habitat }
-			has_planet_flag = advanced_habitat_2
-		}
-	}
-	
-	allow = {
-		has_upgraded_capital = yes
-#		buildings_has_exotic_gases = yes
-#		buildings_has_dark_matter = yes
-	}
-	
-	planet_modifier = {
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-		}
-		produces = {
-			energy = 250
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_edict = planet_fe_buildings_boost
-				}	
-			}
-			energy = 50
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_fe_automated_production
-				}	
-			}
-			energy = 75
-		}
-	}
-	
-	upgrades = {
-		building_fe_class_5_singularity
-	}
-	
-	prerequisites = {
-		tech_fe_class_4_singularity
-	}
-}
-
-# Alloys
-
-building_fe_nano_forge = {
-	base_buildtime = @b2_time
-	can_build = yes
-	can_demolish = yes
-	icon = building_nano_forge
+	icon = building_fe_opulent_tower
 #
 	
 	category = manufacturing
@@ -433,7 +327,99 @@ building_fe_nano_forge = {
 		OR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
-#			buildings_no_living_metal = yes
+			owner = {
+				is_ai = yes
+				country_uses_consumer_goods = no
+			}
+			planet = {
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = consumer_goods
+						value > 20000
+					}
+				}
+			}
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_zofe_country = yes
+			country_uses_consumer_goods = yes
+		}
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 200			
+		}
+		upkeep = {
+			sr_dark_matter = 2
+			minerals = 50
+			energy = 10
+		}
+		produces = {
+			consumer_goods = 200
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			consumer_goods = 40
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			consumer_goods = 60
+		}
+	}
+		
+	upgrades = {
+		building_original_empire_pleasure_palace
+	}
+	
+	prerequisites = {
+		"tech_fe_opulent_tower"
+	}	
+}
+
+
+# Alloys
+
+building_fe_quantum_forge = {
+	base_buildtime = 1000
+	can_build = no
+	can_demolish = yes
+	icon = building_fe_quantum_forge
+#
+	
+	category = manufacturing
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
 		}
 	}	
 	
@@ -450,7 +436,6 @@ building_fe_nano_forge = {
 	
 	allow = {
 		has_upgraded_capital = yes
-#		buildings_has_living_metal = yes
 	}
 	
 	planet_modifier = {
@@ -458,15 +443,17 @@ building_fe_nano_forge = {
 
 	resources = {
 		category = planet_buildings
-		produces = {
-			alloys = 25
-		}
 		cost = {
-			minerals = @b3_minerals
+			minerals = 800
+			sr_living_metal = 200
 		}
 		upkeep = {
-			minerals = 50
+			sr_dark_matter = 2
+			minerals = 60
 			energy = 10
+		}
+		produces = {
+			alloys = 100
 		}
 		produces = {
 			trigger = {
@@ -475,7 +462,7 @@ building_fe_nano_forge = {
 					has_edict = planet_fe_buildings_boost
 				}	
 			}
-			alloys = 5
+			alloys = 20
 		}
 		produces = {
 			trigger = {
@@ -483,26 +470,26 @@ building_fe_nano_forge = {
 					has_active_building = building_fe_automated_production
 				}	
 			}
-			alloys = 7.5
+			alloys = 30
 		}
 	}
 		
 	upgrades = {
-		building_fe_nano_forge_2
+		building_original_empire_star_forge
 	}
 	
 	prerequisites = {
-		tech_fe_nano_forge
+		tech_fe_quantum_forge
 	}
 }
 
 #Science Lab
 
-building_fe_master_archive = {
-	base_buildtime = @b2_time
-	can_build = yes
+building_fe_master_archive_3 = {
+	base_buildtime = @fetime
+	can_build = no
 	can_demolish = yes
-	icon = building_master_archive
+	icon = building_master_archive_3
 	
 	category = research
 	
@@ -510,8 +497,6 @@ building_fe_master_archive = {
 		OR = {
 			has_modifier = slave_colony
 			has_modifier = resort_colony
-#			buildings_no_exotic_gases = yes
-#			buildings_no_living_metal = yes
 		}
 	}
 	
@@ -520,6 +505,7 @@ building_fe_master_archive = {
 		owner = { is_zofe_country = yes }
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = slave_colony }
+
 		OR = {
 			NOT = { is_planet_class = pc_habitat }
 			has_planet_flag = advanced_habitat_2
@@ -528,8 +514,6 @@ building_fe_master_archive = {
 	
 	allow = {
 		has_upgraded_capital = yes
-#		buildings_has_exotic_gases = yes
-#		buildings_has_living_metal = yes
 	}
 	
 	triggered_desc = {
@@ -554,6 +538,10 @@ building_fe_master_archive = {
 			owner = { is_machine_empire = yes }
 		}
 		text = job_calculator_effect_desc
+	}
+	
+	planet_modifier = {
+		planet_researchers_produces_mult = 1
 	}
 	
 	triggered_planet_modifier = {
@@ -589,9 +577,9 @@ building_fe_master_archive = {
 	resources = {
 		category = planet_buildings
 		produces = {
-			physics_research = 100
-			society_research = 100
-			engineering_research = 100
+			physics_research = 150
+			society_research = 150
+			engineering_research = 150
 		}
 		cost = {
 			minerals = 1000
@@ -604,173 +592,17 @@ building_fe_master_archive = {
 	}
 		
 	upgrades = {
-		building_fe_master_archive_2
+		building_original_empire_eternal_archive
 	}
 	
 	prerequisites = {
-		tech_fe_master_archive
+		tech_fe_master_archive_3
 	}
 }
 
-#Zoo
-building_fe_xeno_preserve = {
-	base_buildtime = @b2_time
-	capital = yes
-	can_build = yes
-	can_demolish = yes
-	icon = building_fe_xeno_zoo
-	
-	potential = {
-		exists = owner
-		owner = { 
-			is_zofe_country = yes
-			is_xenophile = yes
-		}
-		OR = {
-			NOT = { is_planet_class = pc_habitat }
-			has_planet_flag = advanced_habitat_2
-		}
-	}	
-	
-	convert_to = {
-		building_hive_capital
-		building_machine_capital
-		building_capital
-	}
-	
-	planet_modifier = {
-		planet_amenities_add = 25
-		job_ae_xeno_keeper_add = 2
-		planet_housing_add = 30
-		planet_max_buildings_add = 15
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-		}
-		upkeep = {
-			energy = 10
-		}
-	}
-		
-	upgrades = {
-	}
-	
-	prerequisites = {
-		"tech_fe_xeno_preserve"
-	}
-	
-}
-
-
-
-#Housing
-
-building_fe_sky_dome = {
-	base_buildtime = @b2_time
-	can_build = yes
-	icon = building_paradise_dome
-#
-	
-	category = amenity
-	
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			AND = {
-				free_building_slots = 0
-				free_jobs < 1
-				free_housing > 10
-				owner = {
-					is_ai = yes
-				}
-			}
-			owner = { is_regular_empire = no }
-			owner = { has_valid_civic = civic_shared_burden }
-			has_modifier = slave_colony
-
-		}
-	}
-	
-	potential = {
-		OR = {
-			NOT = { is_planet_class = pc_habitat }
-			AND = {
-				has_planet_flag = advanced_habitat
-				exists = owner
-				owner = {
-					has_ascension_perk = ap_voidborn
-				}
-			}
-		}
-		NOT = { has_modifier = slave_colony }
-		exists = owner
-		owner = {
-			is_zofe_country = yes
-			is_regular_empire = yes
-			NOT = { has_valid_civic = civic_shared_burden }
-		}
-	}
-	
-	allow = {
-		has_upgraded_capital = yes
-	}
-	
-	convert_to = {
-		building_organic_paradise
-		building_drone_megastorage
-		building_expanded_warren
-		building_communal_housing_large
-	}
-	
-	planet_modifier = {
-		planet_housing_add = 20
-		planet_amenities_add = 20
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}					
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
-		}
-		upkeep = {
-			energy = 10
-		}
-	}
-	
-	upgrades = {
-	}
-	
-	prerequisites = {
-		"tech_fe_sky_dome"
-	}
-	
-	show_tech_unlock_if = {
-		owner = {
-			is_regular_empire = yes
-			NOT = { has_valid_civic = civic_shared_burden }
-		}
-	}
-}
-
-building_fe_aegis_complex = {
-	base_buildtime = @b2_time
-	can_build = yes
-	icon = building_fortress
+building_fe_aegis_complex_3 = {
+	base_buildtime = 1000
+	can_build = no
 	planetary_ftl_inhibitor = yes
 
 	potential = {
@@ -792,7 +624,7 @@ building_fe_aegis_complex = {
 			owner = { is_gestalt = no }
 		}
 		modifier = {
-			job_soldier_add = 5
+			job_soldier_add = 12
 		}
 	}
 	triggered_planet_modifier = {
@@ -801,7 +633,7 @@ building_fe_aegis_complex = {
 			owner = { is_gestalt = yes }
 		}
 		modifier = {
-			job_warrior_drone_add = 5
+			job_warrior_drone_add = 12
 		}
 	}
 
@@ -816,13 +648,11 @@ building_fe_aegis_complex = {
 	}
 	
 	upgrades = {
-		building_fe_aegis_complex_2
+		building_original_empire_star_forts
 	}
 	
 	prerequisites = {
-		"tech_fe_aegis_complex"
+		"tech_fe_aegis_complex_3"
 	}
 		
 }
-
-

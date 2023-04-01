@@ -95,6 +95,1022 @@ building_sxx_zongmen_1 = {
 	}
 }
 
+building_sxx_zongmen_2 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 600
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_zhuji_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_zhuji_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_3"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 1
+		job_sxx_deacon_add = 1
+		planet_amenities_add = 10
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 1
+			job_sxx_deacon_add = 1
+			planet_amenities_add = 10
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_1_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_1_desc
+	}
+}
+
+building_sxx_zongmen_3 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 800
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_jindan_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_jindan_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_4"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 1
+		job_sxx_deacon_add = 2
+		planet_amenities_add = 15
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 1
+			job_sxx_deacon_add = 2
+			planet_amenities_add = 15
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_1_desc
+	}
+}
+
+building_sxx_zongmen_4 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 1000
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_yuanying_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_yuanying_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_5"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 1
+		job_sxx_deacon_add = 3
+		planet_amenities_add = 20
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 1
+			job_sxx_deacon_add = 3
+			planet_amenities_add = 20
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+}
+
+building_sxx_zongmen_5 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 1200
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_huashen_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_huashen_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_6"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 2
+		job_sxx_deacon_add = 3
+		job_sxx_factotum_disciple_add = 9
+		planet_amenities_add = 25
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 2
+			job_sxx_deacon_add = 3
+			job_sxx_factotum_disciple_add = 9
+			planet_amenities_add = 25
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+		}
+		upkeep = {
+			energy = 6
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_zongmen_6 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 1400
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_lianxu_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_lianxu_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_7"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 2
+		job_sxx_deacon_add = 4
+		job_sxx_factotum_disciple_add = 12
+		planet_amenities_add = 30
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 2
+			job_sxx_deacon_add = 4
+			job_sxx_factotum_disciple_add = 12
+			planet_amenities_add = 30
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1400
+		}
+		upkeep = {
+			energy = 7
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_zongmen_7 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 1600
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_heti_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_heti_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_8"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 2
+		job_sxx_deacon_add = 5
+		job_sxx_factotum_disciple_add = 15
+		planet_amenities_add = 35
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 2
+			job_sxx_deacon_add = 5
+			job_sxx_factotum_disciple_add = 15
+			planet_amenities_add = 35
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1600
+		}
+		upkeep = {
+			energy = 8
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_zongmen_8 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 1800
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_dacheng_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_dacheng_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_9"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 2
+		job_sxx_deacon_add = 6
+		job_sxx_factotum_disciple_add = 18
+		planet_amenities_add = 40
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 2
+			job_sxx_deacon_add = 6
+			job_sxx_factotum_disciple_add = 18
+			planet_amenities_add = 40
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1800
+		}
+		upkeep = {
+			energy = 9
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_zongmen_9 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 2000
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_dujie_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_dujie_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_zongmen_10"
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 3
+		job_sxx_deacon_add = 6
+		job_sxx_factotum_disciple_add = 18
+		planet_amenities_add = 45
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 3
+			job_sxx_deacon_add = 6
+			job_sxx_factotum_disciple_add = 18
+			planet_amenities_add = 45
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 3
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_zongmen_10 = {
+	icon = building_sxx_zongmen
+	base_buildtime = 2400
+	can_build = no
+	category = government
+	position_priority = 10
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		owner = { is_sxx_final_country = yes }
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_final_country = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_elder_add = 3
+		job_sxx_deacon_add = 9
+		job_sxx_factotum_disciple_add = 27
+		planet_amenities_add = 50
+		planet_max_buildings_add = 1
+		planet_max_districts_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+		}
+		modifier = {
+			job_sxx_elder_add = 3
+			job_sxx_deacon_add = 9
+			job_sxx_factotum_disciple_add = 27
+			planet_amenities_add = 50
+			planet_max_buildings_add = 1
+			planet_max_districts_add = -1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { is_capital = yes }
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		modifier = {
+			job_sxx_pills_maker_add = 3
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2400
+		}
+		upkeep = {
+			energy = 12
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_elder_effect_2_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_sxx_pills_master }
+		}
+		text = job_sxx_pills_maker_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_deacon_effect_2_desc
+	}
+	triggered_desc = {
+		text = job_sxx_true_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
 building_sxx_xuefu_1 = {
 	icon = building_sxx_xuefu
 	base_buildtime = 500
@@ -152,16 +1168,323 @@ building_sxx_xuefu_1 = {
 		text = job_sxx_external_disciple_effect_desc
 	}
 	triggered_desc = {
-		trigger = {
-			planet = { has_sxx_lingmai = no }
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_2 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 600
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
 		}
-		text = job_sxx_factotum_disciple_effect_1_desc
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_lianxu_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_lianxu_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuefu_3"
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 2
+		job_sxx_factotum_disciple_add = 20
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 6
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
 	}
 	triggered_desc = {
-		trigger = {
-			planet = { has_sxx_lingmai = yes }
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_3 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 700
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
 		}
-		text = job_sxx_factotum_disciple_effect_2_desc
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_heti_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_heti_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuefu_4"
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 3
+		job_sxx_factotum_disciple_add = 30
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 700
+		}
+		upkeep = {
+			energy = 7
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_4 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 800
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_dacheng_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_dacheng_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuefu_5"
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 4
+		job_sxx_factotum_disciple_add = 40
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 8
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_5 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 900
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_dujie_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_dujie_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuefu_6"
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 5
+		job_sxx_factotum_disciple_add = 50
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 900
+		}
+		upkeep = {
+			energy = 9
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_6 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 1000
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_fairy_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_fairy_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 6
+		job_sxx_factotum_disciple_add = 60
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_factotum_disciple_effect_desc
 	}
 }
 
@@ -218,6 +1541,57 @@ building_sxx_xuemingbei_0 = {
 			}
 			sxx_evil_xueji_pop = yes
 		}
+	}
+
+	triggered_desc = {
+		text = building_sxx_xuemingbei_value
+	}
+	triggered_desc = {
+		text = building_sxx_xuemingbei_effect_desc
+	}
+}
+
+building_sxx_xuemingbei_1 = {
+	icon = building_sxx_xuemingbei
+	base_buildtime = 30
+	can_build = no
+	can_be_disabled = no
+	can_demolish = no
+	category = government
+	position_priority = 50
+
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_sxx_evil_way }
+		NOT = { is_planet_class = pc_sxx_heaven }
+	}
+
+	allow = {
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_valid_civic = civic_sxx_evil_way } }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 100
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	on_queued = {
+		sxx_evil_xueji_pop = yes
 	}
 
 	triggered_desc = {
@@ -285,6 +1659,182 @@ building_sxx_liandanfang_1 = {
 	}
 }
 
+building_sxx_liandanfang_2 = {
+	icon = building_sxx_liandanfang
+	base_buildtime = @b2_time
+	can_build = no
+	category = manufacturing
+	position_priority = 30
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_yuanying_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_yuanying_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_liandanfang_3"
+	}
+
+	prerequisites = {
+		"tech_sxx_liandanfang_2"
+	}
+
+	planet_modifier = {
+		job_sxx_pills_maker_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			volatile_motes = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_pills_maker_effect_desc
+	}
+}
+
+building_sxx_liandanfang_3 = {
+	icon = building_sxx_liandanfang
+	base_buildtime = @b3_time
+	can_build = no
+	category = manufacturing
+	position_priority = 30
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_heti_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_heti_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_liandanfang_4"
+	}
+
+	prerequisites = {
+		"tech_sxx_liandanfang_3"
+	}
+
+	planet_modifier = {
+		job_sxx_pills_maker_add = 3
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			volatile_motes = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			volatile_motes = @b3_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_pills_maker_effect_desc
+	}
+}
+
+building_sxx_liandanfang_4 = {
+	icon = building_sxx_liandanfang
+	base_buildtime = @b4_time
+	can_build = no
+	category = manufacturing
+	position_priority = 30
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_fairy_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_fairy_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_sxx_liandanfang_4"
+	}
+
+	planet_modifier = {
+		job_sxx_pills_maker_add = 4
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+			volatile_motes = @b4_rare_cost
+		}
+		upkeep = {
+			energy = @b4_upkeep
+			volatile_motes = @b4_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_pills_maker_effect_desc
+	}
+}
+
 building_sxx_lianqishi_1 = {
 	icon = building_sxx_lianqishi
 	base_buildtime = @b1_time
@@ -339,6 +1889,505 @@ building_sxx_lianqishi_1 = {
 
 	triggered_desc = {
 		text = job_sxx_weapon_refiner_effect_desc
+	}
+}
+
+building_sxx_lianqishi_2 = {
+	icon = building_sxx_lianqishi
+	base_buildtime = @b2_time
+	can_build = no
+	category = manufacturing
+	position_priority = 35
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_yuanying_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_yuanying_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_lianqishi_3"
+	}
+
+	prerequisites = {
+		"tech_sxx_lianqishi_2"
+	}
+
+	planet_modifier = {
+		job_sxx_weapon_refiner_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			volatile_motes = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_weapon_refiner_effect_desc
+	}
+}
+
+building_sxx_lianqishi_3 = {
+	icon = building_sxx_lianqishi
+	base_buildtime = @b3_time
+	can_build = no
+	category = manufacturing
+	position_priority = 35
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_heti_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_heti_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_lianqishi_4"
+	}
+
+	prerequisites = {
+		"tech_sxx_lianqishi_3"
+	}
+
+	planet_modifier = {
+		job_sxx_weapon_refiner_add = 3
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			volatile_motes = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			volatile_motes = @b3_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_weapon_refiner_effect_desc
+	}
+}
+
+building_sxx_lianqishi_4 = {
+	icon = building_sxx_lianqishi
+	base_buildtime = @b4_time
+	can_build = no
+	category = manufacturing
+	position_priority = 30
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_fairy_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_fairy_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_sxx_lianqishi_4"
+	}
+
+	planet_modifier = {
+		job_sxx_weapon_refiner_add = 4
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+			volatile_motes = @b4_rare_cost
+		}
+		upkeep = {
+			energy = @b4_upkeep
+			volatile_motes = @b4_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_weapon_refiner_effect_desc
+	}
+}
+
+building_sxx_stones_plant_1 = {
+	icon = building_sxx_stones_plant_1
+	base_buildtime = @b1_time
+	category = manufacturing
+	position_priority = 150
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_stones_plant_2"
+	}
+
+	prerequisites = {
+		"tech_sxx_stones_plant_1"
+	}
+
+	planet_modifier = {
+		job_sxx_stones_maker_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_maker_effect_desc
+	}
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+		sxx_stones = 20
+	}
+}
+
+building_sxx_stones_plant_2 = {
+	icon = building_sxx_stones_plant_2
+	base_buildtime = @b2_time
+	can_build = no
+	category = manufacturing
+	position_priority = 150
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	prerequisites = {
+		"tech_sxx_stones_plant_2"
+	}
+
+	planet_modifier = {
+		job_sxx_stones_maker_add = 4
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_maker_effect_desc
+	}
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+		sxx_stones = 20
+	}
+}
+
+building_sxx_stones_mine_1 = {
+	base_buildtime = @b1_time
+	is_capped_by_modifier = yes
+
+	category = resource
+	position_priority = 113
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_stones_miner_1_add = 2
+		job_sxx_secular_stones_miner_1_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_miner_1_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_secular_stones_miner_1_effect_desc
+	}
+}
+
+building_sxx_stones_mine_2 = {
+	base_buildtime = @b1_time
+	is_capped_by_modifier = yes
+
+	category = resource
+	position_priority = 112
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_stones_miner_2_add = 2
+		job_sxx_secular_stones_miner_2_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_miner_2_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_secular_stones_miner_2_effect_desc
+	}
+}
+
+building_sxx_stones_mine_3 = {
+	base_buildtime = @b1_time
+	is_capped_by_modifier = yes
+
+	category = resource
+	position_priority = 111
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_stones_miner_3_add = 2
+		job_sxx_secular_stones_miner_3_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_miner_3_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_secular_stones_miner_3_effect_desc
+	}
+}
+
+building_sxx_stones_mine_4 = {
+	base_buildtime = @b1_time
+	is_capped_by_modifier = yes
+
+	category = resource
+	position_priority = 110
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			has_modifier = resort_colony
+			has_modifier = crucible_colony
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_stones_miner_4_add = 2
+		job_sxx_secular_stones_miner_4_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_miner_4_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_secular_stones_miner_4_effect_desc
 	}
 }
 
@@ -445,14 +2494,16 @@ building_sxx_pills_processing_center = {
 	}
 
 	allow = {
-		always = yes
+		planet = { is_lianqi_planet = yes }
 	}
 
 	destroy_trigger = {
 		exists = owner
-		OR = {
-			owner = { is_sxx_sect = no }
-			is_planet_class = pc_sxx_heaven
+		planet = {
+			OR = {
+				is_lianqi_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
 		}
 	}
 
@@ -479,5 +2530,159 @@ building_sxx_pills_processing_center = {
 		rare_crystals = 2
 		exotic_gases = 2
 		volatile_motes = 2
+	}
+}
+
+building_sxx_jilegong = {
+	icon = building_organic_sanctuary
+	base_buildtime = @b1_time
+	category = government
+	position_priority = 140
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+			has_valid_civic = civic_sxx_hehuan
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		is_lianqi_planet = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_valid_civic = civic_sxx_hehuan } }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_jileshijie"
+	}
+
+	planet_modifier = {
+		job_sxx_luding_add = 5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			owner = {
+				has_policy_flag = sxx_luding_cultivable
+			}
+		}
+		text = job_sxx_luding_effect_desc_1
+	}
+	triggered_desc = {
+		trigger = {
+			owner = {
+				has_policy_flag = sxx_luding_not_cultivable
+			}
+		}
+		text = job_sxx_luding_effect_desc_2
+	}
+
+	ai_resource_production = {
+		trigger = {
+			NOR = {
+				has_building = building_sxx_jilegong
+				has_building = building_sxx_jileshijie
+			}
+		}
+		unity = 100
+		society_research = 100
+		engineering_research = 100
+		physics_research = 100
+	}
+}
+
+building_sxx_jileshijie = {
+	icon = building_paradise_dome
+	base_buildtime = @b2_time
+	can_build = no
+	category = government
+	position_priority = 140
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+			has_valid_civic = civic_sxx_hehuan
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		is_huashen_planet = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_valid_civic = civic_sxx_hehuan } }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	planet_modifier = {
+		job_sxx_luding_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			owner = {
+				has_policy_flag = sxx_luding_cultivable
+			}
+		}
+		text = job_sxx_luding_effect_desc_1
+	}
+	triggered_desc = {
+		trigger = {
+			owner = {
+				has_policy_flag = sxx_luding_not_cultivable
+			}
+		}
+		text = job_sxx_luding_effect_desc_2
+	}
+
+	ai_resource_production = {
+		trigger = {
+			NOT = {
+				has_building = building_sxx_jileshijie
+			}
+		}
+		unity = 100
+		society_research = 100
+		engineering_research = 100
+		physics_research = 100
 	}
 }
