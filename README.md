@@ -34,6 +34,7 @@ List of mods that are currently compatible.
 * 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
 * Guilli's Planet Modifiers and Features: [Guilli's Planet Modifiers and Features](https://steamcommunity.com/sharedfiles/filedetails/?id=865040033)
 * Modder嘉年华-更多飞地合作企划: [Modder嘉年华-更多飞地合作企划](https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216)
+* Even more!
 
 # 无限建筑
 
@@ -70,3 +71,4 @@ List of mods that are currently compatible.
 * 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
 * Guilli's Planet Modifiers and Features: [Guilli's Planet Modifiers and Features](https://steamcommunity.com/sharedfiles/filedetails/?id=865040033)
 * Modder嘉年华-更多飞地合作企划: [Modder嘉年华-更多飞地合作企划](https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216)
+* 还有更多！
