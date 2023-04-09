@@ -1488,120 +1488,6 @@ building_sxx_xuefu_6 = {
 	}
 }
 
-building_sxx_xuemingbei_0 = {
-	icon = building_sxx_xuemingbei
-	base_buildtime = 300
-	can_be_disabled = no
-	can_demolish = no
-	category = government
-	position_priority = 50
-
-	potential = {
-		exists = owner
-		owner = {
-			has_valid_civic = civic_sxx_evil_way
-		}
-		planet = {
-			NOT = { is_planet_class = pc_sxx_heaven }
-		}
-	}
-
-	allow = {
-		hidden_trigger = {
-			owner = { is_ai = no }
-		}
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			owner = { NOT = { has_valid_civic = civic_sxx_evil_way } }
-			is_planet_class = pc_sxx_heaven
-		}
-	}
-
-	upgrades = {
-		"building_sxx_xuemingbei_1"
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 300
-		}
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	on_queued = {
-		if = {
-			limit = {
-				has_building = building_sxx_xuemingbei_0 # 不知为何升到2级也会触发，故作限制（升级实际会触发前一个的？）
-			}
-			sxx_evil_xueji_pop = yes
-		}
-	}
-
-	triggered_desc = {
-		text = building_sxx_xuemingbei_value
-	}
-	triggered_desc = {
-		text = building_sxx_xuemingbei_effect_desc
-	}
-}
-
-building_sxx_xuemingbei_1 = {
-	icon = building_sxx_xuemingbei
-	base_buildtime = 30
-	can_build = no
-	can_be_disabled = no
-	can_demolish = no
-	category = government
-	position_priority = 50
-
-	potential = {
-		exists = owner
-		owner = { has_valid_civic = civic_sxx_evil_way }
-		NOT = { is_planet_class = pc_sxx_heaven }
-	}
-
-	allow = {
-		hidden_trigger = {
-			owner = { is_ai = no }
-		}
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			owner = { NOT = { has_valid_civic = civic_sxx_evil_way } }
-			is_planet_class = pc_sxx_heaven
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			energy = 100
-		}
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	on_queued = {
-		sxx_evil_xueji_pop = yes
-	}
-
-	triggered_desc = {
-		text = building_sxx_xuemingbei_value
-	}
-	triggered_desc = {
-		text = building_sxx_xuemingbei_effect_desc
-	}
-}
-
 building_sxx_liandanfang_1 = {
 	icon = building_sxx_liandanfang
 	base_buildtime = @b1_time
@@ -2017,7 +1903,7 @@ building_sxx_lianqishi_4 = {
 	base_buildtime = @b4_time
 	can_build = no
 	category = manufacturing
-	position_priority = 30
+	position_priority = 35
 
 	potential = {
 		exists = owner
@@ -2068,16 +1954,16 @@ building_sxx_lianqishi_4 = {
 	}
 }
 
-building_sxx_stones_plant_1 = {
-	icon = building_sxx_stones_plant_1
+building_sxx_temple = {
 	base_buildtime = @b1_time
-	category = manufacturing
-	position_priority = 150
+	category = government
+	position_priority = 40
 
 	potential = {
 		exists = owner
 		owner = {
 			is_sxx_sect = yes
+			has_valid_civic = civic_sxx_faith
 		}
 		planet = {
 			NOT = { is_planet_class = pc_sxx_heaven }
@@ -2087,21 +1973,13 @@ building_sxx_stones_plant_1 = {
 	destroy_trigger = {
 		exists = owner
 		OR = {
-			owner = { is_sxx_sect = no }
+			owner = { NOT = { has_valid_civic = civic_sxx_faith } }
 			is_planet_class = pc_sxx_heaven
 		}
 	}
 
-	upgrades = {
-		"building_sxx_stones_plant_2"
-	}
-
-	prerequisites = {
-		"tech_sxx_stones_plant_1"
-	}
-
 	planet_modifier = {
-		job_sxx_stones_maker_add = 2
+		job_sxx_believer_per_pop = 0.2
 	}
 
 	resources = {
@@ -2115,32 +1993,147 @@ building_sxx_stones_plant_1 = {
 	}
 
 	triggered_desc = {
-		text = job_sxx_stones_maker_effect_desc
+		text = job_sxx_believer_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_god_position_effect_desc
 	}
 
 	ai_resource_production = {
 		trigger = {
-			always = yes
+			is_capital = no
 		}
-		sxx_stones = 20
+		unity = 1000
 	}
 }
 
-building_sxx_stones_plant_2 = {
-	icon = building_sxx_stones_plant_2
-	base_buildtime = @b2_time
-	can_build = no
-	category = manufacturing
-	position_priority = 150
+building_sxx_xuemingbei_0 = {
+	icon = building_sxx_xuemingbei
+	base_buildtime = 300
+	can_be_disabled = no
+	can_demolish = no
+	category = government
+	position_priority = 50
 
 	potential = {
 		exists = owner
 		owner = {
-			is_sxx_sect = yes
+			has_valid_civic = civic_sxx_evil_way
 		}
 		planet = {
 			NOT = { is_planet_class = pc_sxx_heaven }
 		}
+	}
+
+	allow = {
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_valid_civic = civic_sxx_evil_way } }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuemingbei_1"
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 300
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	on_queued = {
+		if = {
+			limit = {
+				has_building = building_sxx_xuemingbei_0 # 不知为何升到2级也会触发，故作限制（升级实际会触发前一个的？）
+			}
+			sxx_evil_xueji_pop = yes
+		}
+	}
+
+	triggered_desc = {
+		text = building_sxx_xuemingbei_value
+	}
+	triggered_desc = {
+		text = building_sxx_xuemingbei_effect_desc
+	}
+}
+
+building_sxx_xuemingbei_1 = {
+	icon = building_sxx_xuemingbei
+	base_buildtime = 30
+	can_build = no
+	can_be_disabled = no
+	can_demolish = no
+	category = government
+	position_priority = 50
+
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_sxx_evil_way }
+		NOT = { is_planet_class = pc_sxx_heaven }
+	}
+
+	allow = {
+		hidden_trigger = {
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_valid_civic = civic_sxx_evil_way } }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 100
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	on_queued = {
+		sxx_evil_xueji_pop = yes
+	}
+
+	triggered_desc = {
+		text = building_sxx_xuemingbei_value
+	}
+	triggered_desc = {
+		text = building_sxx_xuemingbei_effect_desc
+	}
+}
+
+building_sxx_shengxiantai = {
+	base_buildtime = @b1_time
+	category = government
+	position_priority = 60
+
+	potential = {
+		exists = owner
+		owner = { is_sxx_sect = yes }
+		NOT = { is_planet_class = pc_sxx_heaven }
+	}
+
+	allow = {
+		always = yes
 	}
 
 	destroy_trigger = {
@@ -2151,35 +2144,122 @@ building_sxx_stones_plant_2 = {
 		}
 	}
 
-	prerequisites = {
-		"tech_sxx_stones_plant_2"
-	}
-
-	planet_modifier = {
-		job_sxx_stones_maker_add = 4
-	}
-
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = @b2_minerals
-			rare_crystals = @b2_rare_cost
+			minerals = @b1_minerals
 		}
 		upkeep = {
-			energy = @b2_upkeep
-			rare_crystals = @b2_rare_upkeep
+			energy = @b1_upkeep
+			sxx_stones = 1
 		}
 	}
 
 	triggered_desc = {
-		text = job_sxx_stones_maker_effect_desc
+		text = building_sxx_shengxiantai_effect_desc
+	}
+}
+
+building_sxx_stones_energy_plant = {
+	base_buildtime = @b1_time
+	category = manufacturing
+	position_priority = 105
+
+	potential = {
+		exists = owner
+		owner = { is_sxx_sect = yes }
+		NOT = { is_planet_class = pc_sxx_heaven }
+	}
+
+	allow = {
+		always = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	prerequisites = { tech_sxx_stones_energy_plant }
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		produces = {
+			trigger = {
+				owner = { NOT = { has_deficit = sxx_stones } }
+			}
+			energy = 1000
+		}
+		upkeep = {
+			trigger = {
+				owner = { NOT = { has_deficit = sxx_stones } }
+			}
+			sxx_stones = 250
+		}
+	}
+
+	ai_resource_production = {
+		trigger = {
+			owner = { resource_income_compare = { resource = sxx_stones value > 250 } }
+		}
+		energy = 1000
+	}
+}
+
+building_sxx_pills_processing_center = {
+	base_buildtime = @b1_time
+	category = manufacturing
+	position_priority = 106
+
+	potential = {
+		exists = owner
+		owner = { is_sxx_sect = yes }
+		NOT = { is_planet_class = pc_sxx_heaven }
+	}
+
+	allow = {
+		planet = { is_lianqi_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_lianqi_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	prerequisites = { tech_sxx_pills_processing_center }
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = building_sxx_pills_processing_center_effect_desc
 	}
 
 	ai_resource_production = {
 		trigger = {
 			always = yes
 		}
-		sxx_stones = 20
+		rare_crystals = 2
+		exotic_gases = 2
+		volatile_motes = 2
 	}
 }
 
@@ -2391,148 +2471,6 @@ building_sxx_stones_mine_4 = {
 	}
 }
 
-building_sxx_shengxiantai = {
-	base_buildtime = @b1_time
-	category = government
-	position_priority = 60
-
-	potential = {
-		exists = owner
-		owner = { is_sxx_sect = yes }
-		NOT = { is_planet_class = pc_sxx_heaven }
-	}
-
-	allow = {
-		always = yes
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			owner = { is_sxx_sect = no }
-			is_planet_class = pc_sxx_heaven
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b1_minerals
-		}
-		upkeep = {
-			energy = @b1_upkeep
-			sxx_stones = 1
-		}
-	}
-
-	triggered_desc = {
-		text = building_sxx_shengxiantai_effect_desc
-	}
-}
-
-building_sxx_stones_energy_plant = {
-	base_buildtime = @b1_time
-	category = manufacturing
-	position_priority = 120
-
-	potential = {
-		exists = owner
-		owner = { is_sxx_sect = yes }
-		NOT = { is_planet_class = pc_sxx_heaven }
-	}
-
-	allow = {
-		always = yes
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			owner = { is_sxx_sect = no }
-			is_planet_class = pc_sxx_heaven
-		}
-	}
-
-	prerequisites = { tech_sxx_stones_energy_plant }
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b1_minerals
-		}
-		produces = {
-			trigger = {
-				owner = { NOT = { has_deficit = sxx_stones } }
-			}
-			energy = 1000
-		}
-		upkeep = {
-			trigger = {
-				owner = { NOT = { has_deficit = sxx_stones } }
-			}
-			sxx_stones = 250
-		}
-	}
-
-	ai_resource_production = {
-		trigger = {
-			owner = { resource_income_compare = { resource = sxx_stones value > 250 } }
-		}
-		energy = 1000
-	}
-}
-
-building_sxx_pills_processing_center = {
-	base_buildtime = @b1_time
-	category = manufacturing
-	position_priority = 125
-
-	potential = {
-		exists = owner
-		owner = { is_sxx_sect = yes }
-		NOT = { is_planet_class = pc_sxx_heaven }
-	}
-
-	allow = {
-		planet = { is_lianqi_planet = yes }
-	}
-
-	destroy_trigger = {
-		exists = owner
-		planet = {
-			OR = {
-				is_lianqi_planet = no
-				is_planet_class = pc_sxx_heaven
-			}
-		}
-	}
-
-	prerequisites = { tech_sxx_pills_processing_center }
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b1_minerals
-		}
-		upkeep = {
-			energy = @b1_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = building_sxx_pills_processing_center_effect_desc
-	}
-
-	ai_resource_production = {
-		trigger = {
-			always = yes
-		}
-		rare_crystals = 2
-		exotic_gases = 2
-		volatile_motes = 2
-	}
-}
-
 building_sxx_jilegong = {
 	icon = building_organic_sanctuary
 	base_buildtime = @b1_time
@@ -2559,6 +2497,7 @@ building_sxx_jilegong = {
 		OR = {
 			owner = { NOT = { has_valid_civic = civic_sxx_hehuan } }
 			is_planet_class = pc_sxx_heaven
+			is_lianqi_planet = no
 		}
 	}
 
@@ -2638,6 +2577,7 @@ building_sxx_jileshijie = {
 		OR = {
 			owner = { NOT = { has_valid_civic = civic_sxx_hehuan } }
 			is_planet_class = pc_sxx_heaven
+			is_huashen_planet = no
 		}
 	}
 
@@ -2684,5 +2624,120 @@ building_sxx_jileshijie = {
 		society_research = 100
 		engineering_research = 100
 		physics_research = 100
+	}
+}
+
+building_sxx_stones_plant_1 = {
+	icon = building_sxx_stones_plant_1
+	base_buildtime = @b1_time
+	category = manufacturing
+	position_priority = 150
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	upgrades = {
+		"building_sxx_stones_plant_2"
+	}
+
+	prerequisites = {
+		"tech_sxx_stones_plant_1"
+	}
+
+	planet_modifier = {
+		job_sxx_stones_maker_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_maker_effect_desc
+	}
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+		sxx_stones = 20
+	}
+}
+
+building_sxx_stones_plant_2 = {
+	icon = building_sxx_stones_plant_2
+	base_buildtime = @b2_time
+	can_build = no
+	category = manufacturing
+	position_priority = 150
+
+	potential = {
+		exists = owner
+		owner = {
+			is_sxx_sect = yes
+		}
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_sxx_sect = no }
+			is_planet_class = pc_sxx_heaven
+		}
+	}
+
+	prerequisites = {
+		"tech_sxx_stones_plant_2"
+	}
+
+	planet_modifier = {
+		job_sxx_stones_maker_add = 4
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_stones_maker_effect_desc
+	}
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+		sxx_stones = 20
 	}
 }

@@ -1,5 +1,7 @@
 # Unlimited Buildings
 
+The development version of this mod would post on [GitHub](https://github.com/Lyther/UnlimitedBuildings). If you want to play the latest version instead of the stable version, please follow the repo and use `git pull` to get the latest commit.
+
 Having a limit on the number of buildings of the same type is just stupid! It's sad that we can build unlimited research labs, but not as many research centers.
 
 When I build a smelting planet, I end up with a lone nano-alloy furnace, and the rest of the place is filled with forts/research labs/rare resource factories. Why not let smelting planets have an unlimited number of alloy furnaces?
@@ -37,6 +39,8 @@ List of mods that are currently compatible.
 * Even more!
 
 # 无限建筑
+
+此MOD的开发版本将在[GitHub](https://github.com/Lyther/UnlimitedBuildings)进行实时更新，如果您想游玩最新的开发版本而非稳定版本，可以通过GitHub仓库的`git pull`获取最新的commit。
 
 同类型的建筑有数量限制实在是太蠢了！我们可以建造数量无限的研究实验室，但是却不能建造同样多的研究中心，实在是一件很令人伤心的事情。
 

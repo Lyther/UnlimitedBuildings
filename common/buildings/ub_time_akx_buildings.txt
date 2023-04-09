@@ -186,9 +186,24 @@ building_akx_worm_3 = {
 			}
 		}
 		custom_tooltip = {
-			fail_text = NO_TIME_BLACK_HOLE_CHAIN
+			fail_text = REQUIREMENT_OF_ORIGIN_TIME
 			owner = {
-				NOT = { has_event_chain = TIME_BLACK_HOLE_CHAIN }
+				if = {
+					limit = {
+						# 可触发“时之螶：交流”
+						has_origin = origin_time
+						ruler = {
+							has_trait = leader_trait_ruler_time
+						}
+					}
+					OR = {
+						has_tech_option = tech_time_blocker_3
+						has_technology = tech_time_blocker_3
+					}
+				}
+				else = {
+					always = yes
+				}
 			}
 		}
 	}
