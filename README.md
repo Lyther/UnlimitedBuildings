@@ -14,11 +14,11 @@ Now we can build an unlimited number of various buildings! Including.
 * Various buildings of the Corporate Branch Office, which of course can be filled with smuggling ports in the branch office.
 * Overlord buildings, where the scientific research department's glory returns again.
 * Population assembly buildings, robots to assemble more and more.
+* Lifted a series of construction restrictions on megastructures (e.g. number of stacks, clearing galaxies after construction, etc.).
 
 Buildings that are not included in the infinite buildings are.
 
 * Cultural centers purchased by the Art Association (only one can be built after buying only one).
-* Megastructure buildings (is this considered an unlockable target for infinite buildings?).
 * Starbase components (haven't found a way to build multiple hydroponic pods or fleet academies yet).
 
 ## Updates/compatibility
@@ -53,12 +53,12 @@ List of mods that are currently compatible.
 * 原版的各种星球建筑，研究中心、灵能军团、工厂等；
 * 企业分部的各种建筑，当然可以在分部里开满走私港；
 * 宗主建筑，科研部的荣光再次回归；
-* 人口组装建筑，机器人组装多多益善。
+* 人口组装建筑，机器人组装多多益善；
+* 解除了巨构建筑的一系列建造限制（如数量堆叠、建造后清空星系等）。
 
 不包含在无限建筑中的建筑有：
 
 * 艺术协会购买的文化中心（只买了一座就只能建造一座）；
-* 巨构建筑（这真的算是无限建筑的解锁目标吗？）；
 * 恒星基地组件（暂时没找到建造多个水培舱、舰队学院的办法）。
 
 ## 更新/兼容
