@@ -1,0 +1,714 @@
+#Dyson Sphere Site
+sxx_star_furnace_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			unity = 1000
+		}
+
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+		custom_tooltip = {
+			fail_text = "requires_surveyed_system"
+			NOT = {
+				any_system_planet = {
+					is_surveyed = {
+						who = prev.from
+						status = no
+					}
+				}
+			}
+		}
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "must_build_around_star"
+				is_star = yes
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				NOT = { has_anomaly = yes }
+			}
+		}
+	}
+
+	# root = system
+	# from = country
+	ai_weight = {
+		factor = 100
+
+		modifier = {
+			factor = 0.1
+			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
+		}
+
+		modifier = {
+			factor = 0.1
+			any_neighbor_system = {
+				exists = owner
+				NOT = {
+					owner = { is_same_value = from }
+				}
+			}
+		}
+	}
+
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {}
+}
+
+#Dyson Sphere Frame
+sxx_star_furnace_1 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+			sxx_stones = 5000
+			unity = 5000
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_0
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+
+	show_prereqs = yes
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.11 } }
+	}
+}
+
+#Partial Dyson Sphere
+sxx_star_furnace_2 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 200
+			minerals = 500
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 100
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_1
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.12 } }
+	}
+}
+
+#Partial Dyson Sphere
+sxx_star_furnace_3 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 400
+			minerals = 1000
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 200
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_2
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.13 } }
+	}
+}
+
+#Partial Dyson Sphere
+sxx_star_furnace_4 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 600
+			minerals = 1500
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 300
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_3
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.14 } }
+	}
+}
+
+#Dyson Sphere
+sxx_star_furnace_5 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 800
+			minerals = 2000
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 400
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_4
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.15 } }
+	}
+}
+
+#Dyson Sphere
+sxx_star_furnace_6 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 1000
+			minerals = 2500
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 500
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_5
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+	
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.16 } }
+	}
+}
+
+#Dyson Sphere
+sxx_star_furnace_7 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 1200
+			minerals = 3000
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 600
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_6
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+	
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.17 } }
+	}
+}
+
+#Dyson Sphere
+sxx_star_furnace_8 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 1400
+			minerals = 3500
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 700
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_7
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+	
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.18 } }
+	}
+}
+
+#Dyson Sphere
+sxx_star_furnace_9 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 1600
+			minerals = 4000
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 800
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_8
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+	
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = sxx_mega.19 } }
+	}
+}
+
+#Dyson Sphere
+sxx_star_furnace_10 = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			unity = 5000
+		}
+
+		produces = {
+			sxx_pills = 1800
+			minerals = 4500
+		}
+		produces = {
+			trigger = {
+				owner = { has_modifier = sxx_practice_modifier_3_9_0 }
+			}
+			sxx_pills = 900
+		}
+	}
+
+	upgrade_from = {
+		sxx_star_furnace_9
+	}
+
+	prerequisites = { "tech_sxx_star_furnace" }
+	
+	possible = {
+		custom_tooltip = {
+			text = sxx_build_furnace_need_planet
+			from = {
+				any_planet_within_border = {
+					has_modifier = sxx_furnace_build_chosen
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+
+	on_build_start = {
+		from = {
+			random_planet_within_border = {
+				limit = {
+					has_modifier = sxx_furnace_build_chosen
+				}
+				remove_modifier = sxx_furnace_build_chosen
+				set_planet_flag = sxx_planet_furnace_build_chosen
+			}
+		}
+	}
+
+	on_build_complete = {
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = sxx_mega.20 }
+		}
+	}
+}
+
+##### 未使用 #####
+
+# Permanently Ruined Dyson Sphere
+sxx_star_furnace_permanently_ruined = {
+	entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	show_galactic_map_icon = no
+
+	potential = {
+		always = no
+	}
+}
+
+# Ruined Dyson Sphere
+sxx_star_furnace_ruined = {
+	entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+
+	potential = {
+		always = no
+	}
+}
+
+# Restored Dyson Sphere
+sxx_star_furnace_restored = {
+	entity = "sxx_star_furnace_entity"
+	construction_entity = "sxx_star_furnace_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 7200
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 20000
+			unity = 7500
+		}
+
+		produces = {
+			energy = 4000
+		}
+	}
+	upgrade_from = {
+		sxx_star_furnace_ruined
+	}
+
+	possible = {
+		from = { has_technology = tech_mega_engineering }
+	}
+
+	on_build_start = {
+		fromfrom = {
+			set_graphical_culture = root.from
+		}
+	}
+
+	on_build_complete = {
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					is_ambient_object_type = large_debris_object
+					is_ambient_object_type = medium_debris_01_object
+					is_ambient_object_type = medium_debris_02_object
+					is_ambient_object_type = small_debris_object
+				}
+			}
+			destroy_ambient_object = this
+		}
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+		#	country_event = { id = utopia.2011 }
+		}
+	}
+}
