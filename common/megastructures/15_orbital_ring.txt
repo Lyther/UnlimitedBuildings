@@ -119,6 +119,7 @@ orbital_ring = {
 				effect = { }
 			}
 		}
+		remove_megastructure = fromfrom
 		from = {
 			country_event = { id = tutorial.2121 }
 		}
@@ -217,6 +218,7 @@ orbital_ring_restored = {
 			}
 			destroy_ambient_object = this
 		}
+		remove_megastructure = fromfrom
 		from = {
 			country_event = { id = tutorial.2121 }
 		}
