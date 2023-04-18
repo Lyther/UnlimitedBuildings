@@ -34,7 +34,6 @@ building_sxx_zongmen_1 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 1
 		planet_amenities_add = 5
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -45,7 +44,6 @@ building_sxx_zongmen_1 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 1
 			planet_amenities_add = 5
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -132,8 +130,6 @@ building_sxx_zongmen_2 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 1
-		job_sxx_deacon_add = 1
 		planet_amenities_add = 10
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -144,8 +140,6 @@ building_sxx_zongmen_2 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 1
-			job_sxx_deacon_add = 1
 			planet_amenities_add = 10
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -235,8 +229,6 @@ building_sxx_zongmen_3 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 1
-		job_sxx_deacon_add = 2
 		planet_amenities_add = 15
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -247,8 +239,6 @@ building_sxx_zongmen_3 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 1
-			job_sxx_deacon_add = 2
 			planet_amenities_add = 15
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -338,8 +328,6 @@ building_sxx_zongmen_4 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 1
-		job_sxx_deacon_add = 3
 		planet_amenities_add = 20
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -350,8 +338,6 @@ building_sxx_zongmen_4 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 1
-			job_sxx_deacon_add = 3
 			planet_amenities_add = 20
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -450,9 +436,6 @@ building_sxx_zongmen_5 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 2
-		job_sxx_deacon_add = 3
-		job_sxx_factotum_disciple_add = 9
 		planet_amenities_add = 25
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -463,9 +446,6 @@ building_sxx_zongmen_5 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 2
-			job_sxx_deacon_add = 3
-			job_sxx_factotum_disciple_add = 9
 			planet_amenities_add = 25
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -567,9 +547,6 @@ building_sxx_zongmen_6 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 2
-		job_sxx_deacon_add = 4
-		job_sxx_factotum_disciple_add = 12
 		planet_amenities_add = 30
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -580,9 +557,6 @@ building_sxx_zongmen_6 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 2
-			job_sxx_deacon_add = 4
-			job_sxx_factotum_disciple_add = 12
 			planet_amenities_add = 30
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -684,9 +658,6 @@ building_sxx_zongmen_7 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 2
-		job_sxx_deacon_add = 5
-		job_sxx_factotum_disciple_add = 15
 		planet_amenities_add = 35
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -697,9 +668,6 @@ building_sxx_zongmen_7 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 2
-			job_sxx_deacon_add = 5
-			job_sxx_factotum_disciple_add = 15
 			planet_amenities_add = 35
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -801,9 +769,6 @@ building_sxx_zongmen_8 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 2
-		job_sxx_deacon_add = 6
-		job_sxx_factotum_disciple_add = 18
 		planet_amenities_add = 40
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -814,9 +779,6 @@ building_sxx_zongmen_8 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 2
-			job_sxx_deacon_add = 6
-			job_sxx_factotum_disciple_add = 18
 			planet_amenities_add = 40
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -918,9 +880,6 @@ building_sxx_zongmen_9 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 3
-		job_sxx_deacon_add = 6
-		job_sxx_factotum_disciple_add = 18
 		planet_amenities_add = 45
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -931,9 +890,6 @@ building_sxx_zongmen_9 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 3
-			job_sxx_deacon_add = 6
-			job_sxx_factotum_disciple_add = 18
 			planet_amenities_add = 45
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -1031,9 +987,6 @@ building_sxx_zongmen_10 = {
 	}
 
 	planet_modifier = {
-		job_sxx_elder_add = 3
-		job_sxx_deacon_add = 9
-		job_sxx_factotum_disciple_add = 27
 		planet_amenities_add = 50
 		planet_max_buildings_add = 1
 		planet_max_districts_add = -1
@@ -1044,9 +997,6 @@ building_sxx_zongmen_10 = {
 			planet = { is_capital = yes }
 		}
 		modifier = {
-			job_sxx_elder_add = 3
-			job_sxx_deacon_add = 9
-			job_sxx_factotum_disciple_add = 27
 			planet_amenities_add = 50
 			planet_max_buildings_add = 1
 			planet_max_districts_add = -1
@@ -1119,21 +1069,21 @@ building_sxx_xuefu_1 = {
 
 	potential = {
 		exists = owner
-		owner = { is_huashen_country = yes }
+		owner = { is_jindan_country = yes }
 		planet = {
 			NOT = { is_planet_class = pc_sxx_heaven }
 		}
 	}
 
 	allow = {
-		planet = { is_huashen_planet = yes }
+		planet = { is_jindan_planet = yes }
 	}
 
 	destroy_trigger = {
 		exists = owner
 		planet = {
 			OR = {
-				is_huashen_planet = no
+				is_jindan_planet = no
 				is_planet_class = pc_sxx_heaven
 			}
 		}
@@ -1145,7 +1095,6 @@ building_sxx_xuefu_1 = {
 
 	planet_modifier = {
 		job_sxx_cultivation_tutor_add = 1
-		job_sxx_factotum_disciple_add = 10
 	}
 
 	resources = {
@@ -1167,14 +1116,127 @@ building_sxx_xuefu_1 = {
 	triggered_desc = {
 		text = job_sxx_external_disciple_effect_desc
 	}
-	triggered_desc = {
-		text = job_sxx_factotum_disciple_effect_desc
-	}
 }
 
 building_sxx_xuefu_2 = {
 	icon = building_sxx_xuefu
 	base_buildtime = 600
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = { is_yuanying_country = yes }
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_yuanying_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_yuanying_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuefu_3"
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 6
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_3 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 700
+	can_build = no
+	category = government
+	position_priority = 20
+
+	potential = {
+		exists = owner
+		owner = { is_huashen_country = yes }
+		planet = {
+			NOT = { is_planet_class = pc_sxx_heaven }
+		}
+	}
+
+	allow = {
+		planet = { is_huashen_planet = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		planet = {
+			OR = {
+				is_huashen_planet = no
+				is_planet_class = pc_sxx_heaven
+			}
+		}
+	}
+
+	upgrades = {
+		"building_sxx_xuefu_4"
+	}
+
+	planet_modifier = {
+		job_sxx_cultivation_tutor_add = 3
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 700
+		}
+		upkeep = {
+			energy = 7
+		}
+	}
+
+	triggered_desc = {
+		text = job_sxx_cultivation_tutor_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_inner_disciple_effect_desc
+	}
+	triggered_desc = {
+		text = job_sxx_external_disciple_effect_desc
+	}
+}
+
+building_sxx_xuefu_4 = {
+	icon = building_sxx_xuefu
+	base_buildtime = 800
 	can_build = no
 	category = government
 	position_priority = 20
@@ -1204,21 +1266,20 @@ building_sxx_xuefu_2 = {
 	}
 
 	upgrades = {
-		"building_sxx_xuefu_3"
+		"building_sxx_xuefu_5"
 	}
 
 	planet_modifier = {
-		job_sxx_cultivation_tutor_add = 2
-		job_sxx_factotum_disciple_add = 20
+		job_sxx_cultivation_tutor_add = 4
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = 600
+			minerals = 800
 		}
 		upkeep = {
-			energy = 6
+			energy = 8
 		}
 	}
 
@@ -1231,14 +1292,11 @@ building_sxx_xuefu_2 = {
 	triggered_desc = {
 		text = job_sxx_external_disciple_effect_desc
 	}
-	triggered_desc = {
-		text = job_sxx_factotum_disciple_effect_desc
-	}
 }
 
-building_sxx_xuefu_3 = {
+building_sxx_xuefu_5 = {
 	icon = building_sxx_xuefu
-	base_buildtime = 700
+	base_buildtime = 900
 	can_build = no
 	category = government
 	position_priority = 20
@@ -1268,21 +1326,20 @@ building_sxx_xuefu_3 = {
 	}
 
 	upgrades = {
-		"building_sxx_xuefu_4"
+		"building_sxx_xuefu_6"
 	}
 
 	planet_modifier = {
-		job_sxx_cultivation_tutor_add = 3
-		job_sxx_factotum_disciple_add = 30
+		job_sxx_cultivation_tutor_add = 5
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = 700
+			minerals = 900
 		}
 		upkeep = {
-			energy = 7
+			energy = 9
 		}
 	}
 
@@ -1295,14 +1352,11 @@ building_sxx_xuefu_3 = {
 	triggered_desc = {
 		text = job_sxx_external_disciple_effect_desc
 	}
-	triggered_desc = {
-		text = job_sxx_factotum_disciple_effect_desc
-	}
 }
 
-building_sxx_xuefu_4 = {
+building_sxx_xuefu_6 = {
 	icon = building_sxx_xuefu
-	base_buildtime = 800
+	base_buildtime = 1000
 	can_build = no
 	category = government
 	position_priority = 20
@@ -1332,21 +1386,20 @@ building_sxx_xuefu_4 = {
 	}
 
 	upgrades = {
-		"building_sxx_xuefu_5"
+		"building_sxx_xuefu_7"
 	}
 
 	planet_modifier = {
-		job_sxx_cultivation_tutor_add = 4
-		job_sxx_factotum_disciple_add = 40
+		job_sxx_cultivation_tutor_add = 6
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = 800
+			minerals = 1000
 		}
 		upkeep = {
-			energy = 8
+			energy = 10
 		}
 	}
 
@@ -1359,14 +1412,11 @@ building_sxx_xuefu_4 = {
 	triggered_desc = {
 		text = job_sxx_external_disciple_effect_desc
 	}
-	triggered_desc = {
-		text = job_sxx_factotum_disciple_effect_desc
-	}
 }
 
-building_sxx_xuefu_5 = {
+building_sxx_xuefu_7 = {
 	icon = building_sxx_xuefu
-	base_buildtime = 900
+	base_buildtime = 1100
 	can_build = no
 	category = government
 	position_priority = 20
@@ -1396,21 +1446,20 @@ building_sxx_xuefu_5 = {
 	}
 
 	upgrades = {
-		"building_sxx_xuefu_6"
+		"building_sxx_xuefu_8"
 	}
 
 	planet_modifier = {
-		job_sxx_cultivation_tutor_add = 5
-		job_sxx_factotum_disciple_add = 50
+		job_sxx_cultivation_tutor_add = 7
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = 900
+			minerals = 1100
 		}
 		upkeep = {
-			energy = 9
+			energy = 11
 		}
 	}
 
@@ -1423,14 +1472,11 @@ building_sxx_xuefu_5 = {
 	triggered_desc = {
 		text = job_sxx_external_disciple_effect_desc
 	}
-	triggered_desc = {
-		text = job_sxx_factotum_disciple_effect_desc
-	}
 }
 
-building_sxx_xuefu_6 = {
+building_sxx_xuefu_8 = {
 	icon = building_sxx_xuefu
-	base_buildtime = 1000
+	base_buildtime = 1200
 	can_build = no
 	category = government
 	position_priority = 20
@@ -1460,17 +1506,16 @@ building_sxx_xuefu_6 = {
 	}
 
 	planet_modifier = {
-		job_sxx_cultivation_tutor_add = 6
-		job_sxx_factotum_disciple_add = 60
+		job_sxx_cultivation_tutor_add = 8
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = 1000
+			minerals = 1200
 		}
 		upkeep = {
-			energy = 10
+			energy = 12
 		}
 	}
 
