@@ -9,6 +9,7 @@ building_time_hotel = {
 	potential = {
 		exists = planet
 		NOT = { has_modifier = resort_colony }
+		has_technology = tech_building_time_hotel
 	}
 	
 	destroy_trigger = {
@@ -55,10 +56,6 @@ building_time_hotel = {
 			owner = { has_ascension_perk = ap_archaeoengineers }
 		}
 		planet_jobs_produces_mult = 0.1
-	}
-
-	prerequisites = {
-		"tech_building_time_hotel"
 	}
 
 	resources = {

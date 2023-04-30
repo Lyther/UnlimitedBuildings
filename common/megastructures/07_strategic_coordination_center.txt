@@ -19,6 +19,7 @@ strategic_coordination_center_0 = {
 	}
 
 	prerequisites = { "tech_strategic_coordination" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -48,10 +49,6 @@ strategic_coordination_center_0 = {
 			custom_tooltip = {
 				fail_text = "requires_not_star"
 				is_star = no
-			}
-			custom_tooltip = {
-				fail_text = "requires_not_ring_world"
-				is_ringworld = no
 			}
 		}
 	}
@@ -106,6 +103,7 @@ strategic_coordination_center_1 = {
 	}
 
 	prerequisites = { "tech_strategic_coordination" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		country_naval_cap_add = 50
@@ -145,6 +143,7 @@ strategic_coordination_center_2 = {
 	}
 
 	prerequisites = { "tech_strategic_coordination" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		country_naval_cap_add = 100
@@ -183,6 +182,7 @@ strategic_coordination_center_3 = {
 	}
 
 	prerequisites = { "tech_strategic_coordination" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 
 	country_modifier = {
@@ -243,6 +243,8 @@ strategic_coordination_center_restored = {
 			energy = 75
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		strategic_coordination_center_ruined

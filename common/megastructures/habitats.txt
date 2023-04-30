@@ -10,6 +10,8 @@ habitat_0 = {
 	entity_offset = { x = -7 y = -7 }
 	build_time = 1800
 
+	construction_blocks_and_blocked_by = none
+
 	resources = {
 		category = megastructures_habitat
 		cost = {
@@ -17,7 +19,6 @@ habitat_0 = {
 			influence = 150
 		}
 	}
-	construction_blocks_and_blocked_by = none
 
 	potential = {
 		OR = {

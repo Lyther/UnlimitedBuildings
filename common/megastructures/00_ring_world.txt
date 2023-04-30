@@ -20,6 +20,7 @@ ring_world_1 = {
 	}
 
 	prerequisites = { "tech_ring_world" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -98,6 +99,7 @@ ring_world_2_intermediate = {
 	}
 
 	prerequisites = { "tech_ring_world" }
+	construction_blocks_and_blocked_by = none
 
 	on_build_start = {}
 	on_build_cancel = {}
@@ -146,6 +148,8 @@ ring_world_2 = {
 	entity = "ringworld_3x_seams_entity"
 	portrait = "GFX_megastructure_construction_background"
 
+	construction_blocks_and_blocked_by = none
+
 	upgrade_from = {
 		ring_world_2_intermediate
 	}
@@ -168,6 +172,8 @@ ring_world_3_intermediate = {
 			alloys = 10000
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		ring_world_2
@@ -300,6 +306,8 @@ ring_world_restored = {
 			alloys = 10000
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		ring_world_ruined

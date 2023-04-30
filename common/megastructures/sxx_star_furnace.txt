@@ -18,7 +18,12 @@ sxx_star_furnace_0 = {
 		}
 	}
 
+	potential = {
+		is_sxx_sect = yes
+	}
+
 	prerequisites = { "tech_sxx_star_furnace" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -98,6 +103,7 @@ sxx_star_furnace_1 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
+	construction_blocks_and_blocked_by = none
 
 	show_prereqs = yes
 
@@ -135,30 +141,9 @@ sxx_star_furnace_2 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
+	construction_blocks_and_blocked_by = none
 
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
-
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.12 } }
@@ -194,30 +179,9 @@ sxx_star_furnace_3 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
+	construction_blocks_and_blocked_by = none
 
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
-
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.13 } }
@@ -253,30 +217,9 @@ sxx_star_furnace_4 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
+	construction_blocks_and_blocked_by = none
 
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
-
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.14 } }
@@ -312,30 +255,9 @@ sxx_star_furnace_5 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
+	construction_blocks_and_blocked_by = none
 
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
-
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.15 } }
@@ -371,30 +293,9 @@ sxx_star_furnace_6 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
-	
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
+	construction_blocks_and_blocked_by = none
 
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.16 } }
@@ -430,30 +331,9 @@ sxx_star_furnace_7 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
-	
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
+	construction_blocks_and_blocked_by = none
 
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.17 } }
@@ -489,30 +369,9 @@ sxx_star_furnace_8 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
-	
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
+	construction_blocks_and_blocked_by = none
 
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.18 } }
@@ -548,30 +407,9 @@ sxx_star_furnace_9 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
-	
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
+	construction_blocks_and_blocked_by = none
 
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = { country_event = { id = sxx_mega.19 } }
@@ -607,30 +445,9 @@ sxx_star_furnace_10 = {
 	}
 
 	prerequisites = { "tech_sxx_star_furnace" }
-	
-	possible = {
-		custom_tooltip = {
-			text = sxx_build_furnace_need_planet
-			from = {
-				any_planet_within_border = {
-					has_modifier = sxx_furnace_build_chosen
-					NOT = { exists = owner }
-				}
-			}
-		}
-	}
+	construction_blocks_and_blocked_by = none
 
-	on_build_start = {
-		from = {
-			random_planet_within_border = {
-				limit = {
-					has_modifier = sxx_furnace_build_chosen
-				}
-				remove_modifier = sxx_furnace_build_chosen
-				set_planet_flag = sxx_planet_furnace_build_chosen
-			}
-		}
-	}
+	on_build_start = {}
 
 	on_build_complete = {
 		from = {
@@ -683,6 +500,8 @@ sxx_star_furnace_restored = {
 	upgrade_from = {
 		sxx_star_furnace_ruined
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		from = { has_technology = tech_mega_engineering }

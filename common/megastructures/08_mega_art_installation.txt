@@ -19,6 +19,7 @@ mega_art_installation_0 = {
 	}
 
 	prerequisites = { "tech_mega_art" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -48,10 +49,6 @@ mega_art_installation_0 = {
 			custom_tooltip = {
 				fail_text = "requires_not_star"
 				is_star = no
-			}
-			custom_tooltip = {
-				fail_text = "requires_not_ring_world"
-				is_ringworld = no
 			}
 		}
 	}
@@ -111,6 +108,7 @@ mega_art_installation_1 = {
 	}
 
 	prerequisites = { tech_mega_art }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		planet_amenities_mult = 0.05
@@ -150,6 +148,7 @@ mega_art_installation_2 = {
 	}
 
 	prerequisites = { "tech_mega_art" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		planet_amenities_mult = 0.10
@@ -189,6 +188,7 @@ mega_art_installation_3 = {
 	}
 
 	prerequisites = { "tech_mega_art" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 
 	country_modifier = {
@@ -231,6 +231,7 @@ mega_art_installation_4 = {
 	}
 
 	prerequisites = { "tech_mega_art" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = no
 
 	possible = {
@@ -309,6 +310,8 @@ mega_art_installation_restored = {
 			energy = 30
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		mega_art_installation_ruined

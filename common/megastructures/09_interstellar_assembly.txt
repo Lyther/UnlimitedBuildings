@@ -19,6 +19,7 @@ interstellar_assembly_0 = {
 	}
 
 	prerequisites = { "tech_interstellar_assembly" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -48,10 +49,6 @@ interstellar_assembly_0 = {
 			custom_tooltip = {
 				fail_text = "requires_not_star"
 				is_star = no
-			}
-			custom_tooltip = {
-				fail_text = "requires_not_ring_world"
-				is_ringworld = no
 			}
 		}
 	}
@@ -107,6 +104,7 @@ interstellar_assembly_1 = {
 	}
 
 	prerequisites = { "tech_interstellar_assembly" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		diplo_weight_mult = 0.10
@@ -143,6 +141,7 @@ interstellar_assembly_2 = {
 	}
 
 	prerequisites = { "tech_interstellar_assembly" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		diplo_weight_mult = 0.20
@@ -180,6 +179,7 @@ interstellar_assembly_3 = {
 	}
 
 	prerequisites = { "tech_interstellar_assembly" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		diplo_weight_mult = 0.30
@@ -217,6 +217,7 @@ interstellar_assembly_4 = {
 	}
 
 	prerequisites = { "tech_interstellar_assembly" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 
 	country_modifier = {
@@ -284,6 +285,8 @@ interstellar_assembly_restored = {
 			energy = 40
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		interstellar_assembly_ruined

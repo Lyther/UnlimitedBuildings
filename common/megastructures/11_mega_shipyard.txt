@@ -19,6 +19,7 @@ mega_shipyard_0 = {
 	}
 
 	prerequisites = { "tech_mega_shipyard" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -103,6 +104,7 @@ mega_shipyard_1 = {
 	}
 
 	prerequisites = { "tech_mega_shipyard" }
+	construction_blocks_and_blocked_by = none
 
 	ship_modifier = {
 		ship_starting_experience_add = 100
@@ -146,6 +148,7 @@ mega_shipyard_2 = {
 	}
 
 	prerequisites = { "tech_mega_shipyard" }
+	construction_blocks_and_blocked_by = none
 
 	ship_modifier = {
 		ship_starting_experience_add = 100
@@ -189,6 +192,7 @@ mega_shipyard_3 = {
 	}
 
 	prerequisites = { "tech_mega_shipyard" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 
 	ship_modifier = {
@@ -262,6 +266,8 @@ mega_shipyard_restored = {
 			energy = 40
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		mega_shipyard_ruined

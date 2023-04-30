@@ -21,6 +21,7 @@ matter_decompressor_0 = {
 	}
 
 	prerequisites = { "tech_matter_decompressor" }
+	construction_blocks_and_blocked_by = none
 
 	potential = {
 		has_gw_matter_decompressor = yes
@@ -42,10 +43,6 @@ matter_decompressor_0 = {
 					}
 				}
 			}
-		}
-		custom_tooltip = {
-			fail_text = "requires_black_hole"
-			is_star_class = sc_black_hole
 		}
 	}
 
@@ -120,6 +117,7 @@ matter_decompressor_1 = {
 	}
 
 	prerequisites = { "tech_matter_decompressor" }
+	construction_blocks_and_blocked_by = none
 
 	on_build_complete = {
 		from = { country_event = { id = mega.9010 } }
@@ -156,6 +154,7 @@ matter_decompressor_2 = {
 	}
 
 	prerequisites = { "tech_matter_decompressor" }
+	construction_blocks_and_blocked_by = none
 
 	on_build_complete = {
 		from = { country_event = { id = mega.9011 } }
@@ -193,6 +192,7 @@ matter_decompressor_3 = {
 	}
 
 	prerequisites = { "tech_matter_decompressor" }
+	construction_blocks_and_blocked_by = none
 
 	on_build_complete = {
 		from = { country_event = { id = mega.9012 } }
@@ -230,6 +230,7 @@ matter_decompressor_4 = {
 	}
 
 	prerequisites = { "tech_matter_decompressor" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 
 	on_build_complete = {
@@ -297,6 +298,8 @@ matter_decompressor_restored = {
 			energy = 100
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		matter_decompressor_ruined

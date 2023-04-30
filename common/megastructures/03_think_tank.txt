@@ -26,6 +26,7 @@ think_tank_0 = {
 	}
 
 	prerequisites = { "tech_science_nexus" }
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		exists = starbase
@@ -55,10 +56,6 @@ think_tank_0 = {
 			custom_tooltip = {
 				fail_text = "requires_not_star"
 				is_star = no
-			}
-			custom_tooltip = {
-				fail_text = "requires_not_ring_world"
-				is_ringworld = no
 			}
 		} # use these for all non-star megastructures
 	}
@@ -128,6 +125,7 @@ think_tank_1 = {
 	}
 
 	prerequisites = { "tech_science_nexus" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		all_technology_research_speed = 0.05
@@ -164,6 +162,7 @@ think_tank_2 = {
 	}
 
 	prerequisites = { "tech_science_nexus" }
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		all_technology_research_speed = 0.10
@@ -206,6 +205,7 @@ think_tank_3 = {
 	}
 
 	prerequisites = { "tech_science_nexus" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 
 	country_modifier = {
@@ -244,6 +244,7 @@ think_tank_4 = {
 	}
 
 	prerequisites = { "tech_science_nexus" }
+	construction_blocks_and_blocked_by = none
 
 	# used from script only
 	upgrade_desc = hide
@@ -307,6 +308,8 @@ think_tank_restored = {
 			physics_research = @stage_3_research_bonus
 		}
 	}
+
+	construction_blocks_and_blocked_by = none
 
 	upgrade_from = {
 		think_tank_ruined
