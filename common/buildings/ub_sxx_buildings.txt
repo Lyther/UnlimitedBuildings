@@ -2010,15 +2010,15 @@ building_sxx_temple = {
 			is_sxx_sect = yes
 			has_valid_civic = civic_sxx_faith
 		}
-		planet = {
-			NOT = { is_planet_class = pc_sxx_heaven }
-		}
+		is_lianqi_planet = yes
+		NOT = { is_planet_class = pc_sxx_heaven }
 	}
 
 	destroy_trigger = {
 		exists = owner
 		OR = {
 			owner = { NOT = { has_valid_civic = civic_sxx_faith } }
+			is_lianqi_planet = no
 			is_planet_class = pc_sxx_heaven
 		}
 	}
