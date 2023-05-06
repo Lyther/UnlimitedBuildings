@@ -1,0 +1,652 @@
+######################################
+## 	Original Empire Buildings
+##			By Kolyn
+######################################
+
+
+@b4time = 180
+@b4cost = 150
+@b4effect = 5
+@b4upkeep = 2.5
+
+@b5time = 180
+@b5cost = 180
+@b5effect = 8
+@b5upkeep = 3
+
+@feupkeep = 4
+@feproduction = 12
+@fecost = 500
+@fetime = 730
+
+
+# Energy Buildings
+
+building_original_empire_sun_generator = {
+	base_buildtime = 2000
+	can_build = no
+	can_demolish = yes
+	icon = building_original_empire_sun_generator
+#	base_cap_amount = 1
+	
+	category = resource
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			planet = {
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = energy
+						value > 100000
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+#		has_upgraded_capital = yes
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 300
+		}
+		upkeep = {
+			sr_dark_matter = 3
+		}
+		produces = {
+			energy = 1000
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			energy = 200
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			energy = 300
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		tech_original_empire_sun_generator
+	}
+}
+
+# Mineral Buildings
+
+building_original_empire_siphoner = {
+	base_buildtime = 2000
+	can_build = no
+	can_demolish = yes
+	icon = building_original_empire_siphoner
+#	base_cap_amount = 1
+	
+	category = resource
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			planet = {
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = minerals
+						value > 80000
+					}
+					has_monthly_income = {
+						resource = rare_crystals
+						value > 1600
+					}
+					has_monthly_income = {
+						resource = exotic_gases
+						value > 1600
+					}
+					has_monthly_income = {
+						resource = volatile_motes
+						value > 1600
+					}
+				}
+			}
+		}	
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		NOT = { has_modifier = resort_colony }	
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+#		has_upgraded_capital = yes
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 300
+		}
+		upkeep = {
+			sr_dark_matter = 8
+			energy = 80
+		}
+		produces = {
+			minerals = 800
+			rare_crystals = 16
+			exotic_gases = 16
+			volatile_motes = 16			
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			minerals = 160
+			rare_crystals = 3.2
+			exotic_gases = 3.2
+			volatile_motes = 3.2	
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			minerals = 240
+			rare_crystals = 4.8
+			exotic_gases = 4.8
+			volatile_motes = 4.8	
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		"tech_original_empire_siphoner"
+	}	
+}
+
+# Food Buildings
+
+building_original_empire_cornucopia = {
+	base_buildtime = 2000
+	can_build = no
+	can_demolish = yes
+	icon = building_original_empire_cornucopia
+	
+#	base_cap_amount = 1
+	
+	category = resource
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			is_planet_class = pc_machine
+			planet = {
+				NOT = { is_planet_class = pc_habitat }
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = food
+						value > 80000
+					}
+				}
+			}
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_zofe_country = yes
+			OR = {
+				country_uses_food = yes
+				is_ai = no
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+#		has_upgraded_capital = yes
+#		buildings_has_motes = yes
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 300
+		}
+		upkeep = {
+			sr_dark_matter = 2
+			energy = 80
+		}
+		produces = {
+			food = 800
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			food = 160
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			food = 240
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		"tech_original_empire_cornucopia"
+	}	
+}
+
+#Consumer Goods
+
+building_original_empire_pleasure_palace = {
+	base_buildtime = 2000
+	can_build = no
+	can_demolish = yes
+	icon = building_original_empire_pleasure_palace
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			owner = {
+				is_ai = yes
+				country_uses_consumer_goods = no
+			}
+			planet = {
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = consumer_goods
+						value > 40000
+					}
+				}
+			}
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_zofe_country = yes
+			country_uses_consumer_goods = yes
+		}
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+#		has_upgraded_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 300			
+		}
+		upkeep = {
+			sr_dark_matter = 4
+			minerals = 100
+			energy = 20
+		}
+		produces = {
+			consumer_goods = 400
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			consumer_goods = 80
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			consumer_goods = 120
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		"tech_original_empire_pleasure_palace"
+	}	
+}
+
+
+# Alloys
+
+building_original_empire_star_forge = {
+	base_buildtime = 2000
+	can_build = no
+	can_demolish = yes
+	icon = building_original_empire_star_forge
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}	
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+#		has_upgraded_capital = yes
+#		buildings_has_living_metal = yes
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			sr_living_metal = 300
+		}
+		upkeep = {
+			sr_dark_matter = 4
+			minerals = 120
+			energy = 20
+		}
+		produces = {
+			alloys = 200
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = planet_fe_buildings_boost
+				}	
+			}
+			alloys = 40
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_fe_automated_production
+				}	
+			}
+			alloys = 60
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		tech_original_empire_star_forge
+	}
+}
+
+#Science Lab
+
+building_original_empire_eternal_archive = {
+	base_buildtime = @fetime
+	can_build = no
+	can_demolish = yes
+	icon = building_original_empire_eternal_archive
+	
+	category = research
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_calculator_effect_desc
+	}
+	
+	planet_modifier = {
+		planet_researchers_produces_mult = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 10
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 10
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 10
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			physics_research = 200
+			society_research = 200
+			engineering_research = 200
+		}
+		cost = {
+			minerals = 1000
+			sr_living_metal = 200
+		}
+		upkeep = {
+			energy = 20
+		}
+		
+	}
+		
+	upgrades = {
+	
+	}
+	
+	prerequisites = {
+		tech_original_empire_eternal_archive
+	}
+}
+
+building_original_empire_star_forts = {
+	base_buildtime = 2000
+	can_build = no
+	planetary_ftl_inhibitor = yes
+
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			has_planet_flag = advanced_habitat_2
+		}
+	}
+
+	convert_to = {
+		building_fortress
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_soldier_add = 15
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_warrior_drone_add = 15
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	
+	upgrades = {
+	
+	}
+	
+	prerequisites = {
+		"tech_original_empire_star_forts"
+	}
+		
+}
+

@@ -1,0 +1,84 @@
+building_tt_art_1 = {
+	base_buildtime = 360
+	base_cap_amount = 1
+	category = unity
+	potential = {
+		exists = owner
+		owner = { has_tradition = tr_tt_art_finish }
+	}
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_tradition = tr_tt_art_finish } }
+	}
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_amenities_add = 5
+		planet_jobs_unity_produces_mult = 0.1
+	}
+	allow = {
+		has_upgraded_capital = yes
+	}
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 300
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+	upgrades = {
+		"building_tt_art_2"
+	}
+}
+building_tt_art_2 = {
+	base_buildtime = 720
+	#base_cap_amount = 1
+	can_build = no
+	category = unity
+	potential = {
+		exists = owner
+		owner = { has_tradition = tr_tt_art_finish }
+		has_building = building_tt_art_1
+	}
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_tradition = tr_tt_art_finish } }
+	}
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+			volatile_motes = 50
+			exotic_gases = 50
+			rare_crystals = 50
+		}
+		upkeep = {
+			energy = 5
+			volatile_motes = 1
+			exotic_gases = 1
+			rare_crystals = 1
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_amenities_add = 10
+		planet_jobs_unity_produces_mult = 0.2
+		planet_jobs_produces_mult = 0.05
+	}
+	ai_weight = {
+		weight = 50
+		modifier = {
+			factor = 0
+			AND = {
+				has_monthly_income = { resource = volatile_motes value <= 5 }
+				has_monthly_income = { resource = exotic_gases value <= 5 }
+				has_monthly_income = { resource = rare_crystals value <= 5 }
+			}
+		}
+	}
+}
+

@@ -1,0 +1,540 @@
+####FE Branch 4 Quantum Physics Mastery
+
+
+##Matter Generator
+#building_matter_generator = {
+#	base_buildtime = 360
+#	can_build = yes
+#	can_demolish = yes
+#	base_cap_amount = 1
+#	
+#	category = resource
+#	
+#	potential = {
+#		NOT = { has_modifier = resort_colony }
+#	}
+#	
+#	allow = {
+#		has_major_upgraded_capital = yes
+#	}
+#	
+#	resources = {
+#		category = planet_buildings
+#		cost = {
+#			minerals = 500
+#		}
+#		upkeep = {
+#			energy = 50
+#		}
+#		produces = {
+#			minerals = 40
+#		}
+#	}
+#	
+#	prerequisites = {
+#		"tech_matter_generator"
+#	}
+#	
+#}
+
+building_synthetic_dark_matter = {
+	base_buildtime = 360
+	can_build = yes
+	can_demolish = yes
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 100
+		}
+		produces = {
+#			sr_dark_matter = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_ae_dark_matter_technician_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_ae_dark_matter_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_dark_matter_technician_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_dark_matter_drone_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_ae_dark_matter_technician_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_ae_dark_matter_drone_effect_desc
+	}
+	
+	upgrades = {
+		building_synthetic_dark_matter_2
+	}
+	
+	prerequisites = {
+		"tech_synthetic_dark_matter"
+	}
+	
+
+}
+
+building_synthetic_dark_matter_2 = {
+	base_buildtime = 360
+	can_build = no
+	can_demolish = yes
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 100
+#			minerals = 50
+		}
+		produces = {
+#			sr_dark_matter = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_ae_dark_matter_technician_add = 3
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_ae_dark_matter_drone_add = 3
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_dark_matter_technician_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_dark_matter_drone_add = 1
+		}
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_ae_dark_matter_technician_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_ae_dark_matter_drone_effect_desc
+	}
+	
+	upgrades = {
+		building_synthetic_dark_matter_3
+	}
+
+	
+	prerequisites = {
+		"tech_synthetic_dark_matter_2"
+	}
+	
+
+}
+
+building_synthetic_dark_matter_3 = {
+	base_buildtime = 360
+	can_build = no
+	can_demolish = yes
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 100
+#			minerals = 50
+		}
+		produces = {
+#			sr_dark_matter = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_ae_dark_matter_technician_add = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_ae_dark_matter_drone_add = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_dark_matter_technician_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_dark_matter_drone_add = 1
+		}
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_ae_dark_matter_technician_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_ae_dark_matter_drone_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_synthetic_dark_matter_3"
+	}
+
+}
+
+
+building_synthetic_living_metal = {
+	base_buildtime = 360
+	can_build = yes
+	can_demolish = yes
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 100
+#			minerals = 50
+		}
+#		produces = {
+#			sr_living_metal = 5
+#		}
+	}	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_ae_living_metal_smith_add = 5
+		}	
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_ae_living_metal_drone_add = 5
+		}	
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_living_metal_smith_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_living_metal_drone_add = 1
+		}
+	}
+	
+#	planet_modifier = {
+#		planet_metallurgists_sr_living_metal_produces_add = 1
+#		planet_metallurgists_alloys_produces_add = -2
+#	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_ae_living_metal_smith_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_ae_living_metal_drone_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_synthetic_living_metal"
+	}
+}
+
+
+building_synthetic_zro = {
+	base_buildtime = 360
+	can_build = yes
+	can_demolish = yes
+#	base_cap_amount = 1
+	
+	category = manufacturing
+	
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 100
+#			minerals = 50
+		}
+		produces = {
+#			sr_zro = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_ae_zro_alchemist_add = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_ae_zro_drone_add = 5
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_zro_alchemist_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				has_designation = col_refinery
+				has_designation = col_habitat_refinery
+			}
+		}
+		modifier = {
+			job_ae_zro_drone_add = 1
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_ae_zro_alchemist_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_ae_zro_drone_effect_desc
+	}
+
+	
+	prerequisites = {
+		"tech_synthetic_zro"
+	}
+
+}

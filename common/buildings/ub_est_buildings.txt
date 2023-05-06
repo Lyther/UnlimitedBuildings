@@ -73,8 +73,28 @@ building_est_aesthetics_5_wonder_garden = {
 	}
 	
 	potential = {
+		planet = {
+			NOT = { 
+				has_building = building_est_aesthetics_5_wonder_monument
+				has_building_construction =  building_est_aesthetics_5_wonder_monument
+				has_building = building_est_aesthetics_5_wonder_stage
+				has_building_construction =building_est_aesthetics_5_wonder_stage
+				has_building = building_est_aesthetics_5_wonder_halls
+				has_building_construction =building_est_aesthetics_5_wonder_halls
+				has_building = building_est_aesthetics_5_wonder_museum
+				has_building_construction =building_est_aesthetics_5_wonder_museum
+			}			
+		}
 		owner = {
 			has_active_tradition = tr_est_aesthetics_5
+			Or = {
+				Not = {
+					has_country_flag = flag_est_aesthetics_5_built_garden
+				}
+				root = {
+					has_building = building_est_aesthetics_5_wonder_garden
+				}
+			}
 		}
 	}
 
@@ -112,8 +132,28 @@ building_est_aesthetics_5_wonder_monument = {
 	}
 	
 	potential = {
+		planet = {
+			NOT = { 
+				has_building = building_est_aesthetics_5_wonder_garden
+				has_building_construction = building_est_aesthetics_5_wonder_garden
+				has_building = building_est_aesthetics_5_wonder_stage
+				has_building_construction =building_est_aesthetics_5_wonder_stage
+				has_building = building_est_aesthetics_5_wonder_halls
+				has_building_construction =building_est_aesthetics_5_wonder_halls
+				has_building = building_est_aesthetics_5_wonder_museum
+				has_building_construction =building_est_aesthetics_5_wonder_museum
+			}			
+		}
 		owner = {
 			has_active_tradition = tr_est_aesthetics_5
+			Or = {
+				Not = {
+					has_country_flag = flag_est_aesthetics_5_built_monument
+				}
+				root = {
+					has_building = building_est_aesthetics_5_wonder_monument
+				}
+			}
 		}
 	}
 
@@ -151,8 +191,28 @@ building_est_aesthetics_5_wonder_stage = {
 	}
 	
 	potential = {
+		planet = {
+			NOT = {  
+				has_building = building_est_aesthetics_5_wonder_garden
+				has_building_construction = building_est_aesthetics_5_wonder_garden
+				has_building = building_est_aesthetics_5_wonder_monument
+				has_building_construction =  building_est_aesthetics_5_wonder_monument
+				has_building = building_est_aesthetics_5_wonder_halls
+				has_building_construction =building_est_aesthetics_5_wonder_halls
+				has_building = building_est_aesthetics_5_wonder_museum
+				has_building_construction =building_est_aesthetics_5_wonder_museum
+			}			
+		}
 		owner = {
 			has_active_tradition = tr_est_aesthetics_5
+			Or = {
+				Not = {
+					has_country_flag = flag_est_aesthetics_5_built_stage
+				}
+				root = {
+					has_building = building_est_aesthetics_5_wonder_stage
+				}
+			}
 		}
 	}
 
@@ -190,8 +250,28 @@ building_est_aesthetics_5_wonder_halls = {
 	}
 	
 	potential = {
+		planet = {
+			NOT = { 
+				has_building = building_est_aesthetics_5_wonder_garden
+				has_building_construction = building_est_aesthetics_5_wonder_garden
+				has_building = building_est_aesthetics_5_wonder_monument
+				has_building_construction =  building_est_aesthetics_5_wonder_monument
+				has_building = building_est_aesthetics_5_wonder_stage
+				has_building_construction =building_est_aesthetics_5_wonder_stage
+				has_building = building_est_aesthetics_5_wonder_museum
+				has_building_construction =building_est_aesthetics_5_wonder_museum
+			}			
+		}
 		owner = {
 			has_active_tradition = tr_est_aesthetics_5
+			Or = {
+				Not = {
+					has_country_flag = flag_est_aesthetics_5_built_halls
+				}
+				root = {
+					has_building = building_est_aesthetics_5_wonder_halls
+				}
+			}
 		}
 	}
 
@@ -229,8 +309,28 @@ building_est_aesthetics_5_wonder_museum = {
 	}
 	
 	potential = {
+		planet = {
+			NOT = { 
+				has_building = building_est_aesthetics_5_wonder_garden
+				has_building_construction = building_est_aesthetics_5_wonder_garden
+				has_building = building_est_aesthetics_5_wonder_monument
+				has_building_construction =  building_est_aesthetics_5_wonder_monument
+				has_building = building_est_aesthetics_5_wonder_stage
+				has_building_construction =building_est_aesthetics_5_wonder_stage
+				has_building = building_est_aesthetics_5_wonder_halls
+				has_building_construction =building_est_aesthetics_5_wonder_halls
+			}			
+		}
 		owner = {
 			has_active_tradition = tr_est_aesthetics_5
+			Or = {
+				Not = {
+					has_country_flag = flag_est_aesthetics_5_built_museum
+				}
+				root = {
+					has_building = building_est_aesthetics_5_wonder_museum
+				}
+			}
 		}
 	}
 

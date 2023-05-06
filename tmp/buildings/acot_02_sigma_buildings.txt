@@ -1,0 +1,350 @@
+
+#####################
+# STELLARITE BUILDING
+#####################
+
+building_stellarite_nexus = {
+	base_buildtime = 650
+
+	category = manufacturing
+
+	base_cap_amount = 1
+
+	potential = {
+		NOT = { has_modifier = resort_colony }	
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_ascended_capital = yes
+	}
+
+	country_modifier = {
+		country_resource_max_acot_sr_stellarite_add = 2500
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 2500
+			sr_dark_matter = 2500
+			acot_sr_dark_energy = 2500
+		}
+		produces = {
+			acot_sr_stellarite = 25
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					is_ai = no
+				}
+			}
+			acot_sr_dark_energy = 50
+			sr_dark_matter = 50
+		}	
+	}
+	
+	prerequisites = {
+		"tech_stellarite_nexus"
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			owner = {
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		modifier = {
+            factor = 10000
+            owner = {
+                has_monthly_income = {
+                    resource = acot_sr_stellarite
+                    value <= 1
+                }
+            }
+		}
+	}
+
+	ai_resource_production = {
+		acot_sr_stellarite = 500
+		trigger = {
+			always = yes
+		}
+	}
+
+}
+
+building_stellarite_generator = {
+	base_buildtime = 600
+	can_demolish = yes
+
+	base_cap_amount = 5
+
+	category = manufacturing
+	
+	potential = {
+		NOT = { has_modifier = resort_colony }	
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			NOT = {
+				has_technology = tech_stellarite_generator_ae		
+			}
+		}
+	}
+	
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	country_modifier = {
+		country_resource_max_acot_sr_stellarite_add = 500
+	}
+
+	convert_to = {
+		building_stellarite_generator_ae
+	}
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			has_technology = tech_stellarite_generator_ae
+		}
+	}
+
+	### DUE FOR REWORK
+
+	triggered_planet_modifier = {
+		potential = {
+			always = no
+			#exists = owner
+			#owner = { is_gestalt = yes }					
+		}
+		modifier = {
+			job_acot_stellaritedrone_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			always = no
+			#exists = owner
+			#owner = { is_gestalt = no }					
+		}
+		modifier = {
+			job_acot_stellariteman_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 1250
+			sr_dark_matter = 250
+			acot_sr_dark_energy = 250
+		}
+		produces = {
+			acot_sr_stellarite = 5
+		}
+		produces = {
+			trigger = {
+				has_building = building_stellarite_nexus
+			}	
+			acot_sr_stellarite = 5
+		}
+		produces = {
+			trigger = {
+				owner = {
+					is_ai = yes
+				}
+			}	
+			acot_sr_stellarite = 50
+		}
+		produces = {
+			trigger = {
+				has_modifier = acot_modifier_supercharged_reactor_stellarite
+			}	
+			acot_sr_stellarite = 15
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = acot_modifier_supercharged_reactor_stellarite
+			}	
+			sr_dark_matter = 30
+			acot_sr_dark_energy = 30
+		}
+		upkeep = {
+			energy = 10
+			alloys = 10
+			sr_dark_matter = 5
+			acot_sr_dark_energy = 5
+		}
+	}
+	
+	prerequisites = {
+		"tech_dark_matter_power_core_se"
+	}
+	
+	ai_weight = {
+		weight = 150000
+		modifier = {
+            factor = 100000
+            owner = {
+                has_monthly_income = {
+                    resource = acot_sr_stellarite
+                    value <= 3
+                }
+            }
+		}
+		modifier = {
+			factor = 0.1
+			num_buildings = {
+				type = building_stellarite_generator
+				value >= 2	
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+}
+
+building_stellarite_generator_ae = {
+	base_buildtime = 600
+	can_demolish = yes
+
+	base_cap_amount = 5
+
+	category = manufacturing
+	
+	potential = {
+		NOT = { has_modifier = resort_colony }	
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			has_technology = tech_stellarite_generator_ae	
+		}
+	}
+	
+	allow = {
+		has_ascended_capital = yes
+	}
+
+	country_modifier = {
+		country_resource_max_acot_sr_stellarite_add = 1000
+	}
+
+	convert_to = {
+		building_stellarite_generator
+	}
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = {
+				has_technology = tech_stellarite_generator_ae
+			}
+		}
+	}
+
+	### DUE FOR REWORK
+
+	triggered_planet_modifier = {
+		potential = {
+			always = no
+			#exists = owner
+			#owner = { is_gestalt = yes }					
+		}
+		modifier = {
+			job_acot_stellaritedrone_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			always = no
+			#exists = owner
+			#owner = { is_gestalt = no }					
+		}
+		modifier = {
+			job_acot_stellariteman_add = 2
+		}
+	}
+	
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 900
+			sr_dark_matter = 450
+			acot_sr_dark_energy = 450
+		}
+		produces = {
+			acot_sr_stellarite = 15
+		}
+		produces = {
+			trigger = {
+				has_building = building_stellarite_nexus
+			}	
+			acot_sr_stellarite = 15
+		}
+		produces = {
+			trigger = {
+				owner = {
+					is_ai = yes
+				}
+			}	
+			acot_sr_stellarite = 150
+		}
+		produces = {
+			trigger = {
+				has_modifier = acot_modifier_supercharged_reactor_stellarite
+			}	
+			acot_sr_stellarite = 15
+		}
+		upkeep = {
+			trigger = {
+				has_modifier = acot_modifier_supercharged_reactor_stellarite
+			}	
+			sr_dark_matter = 30
+			acot_sr_dark_energy = 30
+		}
+		upkeep = {
+			energy = 10
+			alloys = 10
+			sr_dark_matter = 10
+			acot_sr_dark_energy = 10
+		}
+	}
+	
+	prerequisites = {
+		"tech_stellarite_generator_ae"
+	}
+	
+	ai_weight = {
+		weight = 150000
+		modifier = {
+            factor = 100000
+            owner = {
+                has_monthly_income = {
+                    resource = acot_sr_stellarite
+                    value <= 3
+                }
+            }
+		}
+		modifier = {
+			factor = 0.1
+			num_buildings = {
+				type = building_stellarite_generator
+				value >= 2	
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+}

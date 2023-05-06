@@ -1,0 +1,86 @@
+# 时光监狱
+building_time_hotel = {
+	icon = holding_distributed_processing
+	base_buildtime = @b3_time
+	base_cap_amount = 1
+	position_priority = 15
+	
+	category = government
+
+	potential = {
+		exists = planet
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	destroy_trigger = {
+		has_modifier = resort_colony
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	country_modifier = {
+		planet_stability_add = 1
+		planet_crime_mult = -0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_archaeoengineers
+			}
+		}
+		planet_jobs_produces_mult = 0.02
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		all_technology_research_speed = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		all_technology_research_speed = 0.1
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_crime_mult = -0.25
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_ascension_perk = ap_archaeoengineers }
+		}
+		planet_jobs_produces_mult = 0.1
+	}
+
+	prerequisites = {
+		"tech_building_time_hotel"
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			sr_dark_matter = 50
+			minor_artifacts = 30
+		}
+		upkeep = {
+			energy = @b3_upkeep
+		}
+	}
+}

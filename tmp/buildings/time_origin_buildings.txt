@@ -1,0 +1,698 @@
+# 赞美太阳
+building_origin_praise_the_sun = {
+	icon = building_great_pyramid
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+	position_priority = 34
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = { has_origin = origin_praise_the_sun }
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				NOT = { has_origin = origin_praise_the_sun }
+			}
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		job_sun_praiser_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_authority = auth_hive_mind
+			}
+		}
+		job_hive_sun_praiser_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_authority = auth_machine_intelligence
+			}
+		}
+		job_machine_sun_praiser_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		text = job_sun_praiser_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				has_authority = auth_hive_mind
+			}
+		}
+		text = job_hive_sun_praiser_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				has_authority = auth_machine_intelligence
+			}
+		}
+		text = job_machine_sun_praiser_effect_desc
+	}
+}
+
+# 宁和之道
+building_origin_tao_of_ninghe_yin = {
+	icon = building_posthumous_employment_center
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+	position_priority = 25
+	
+	category = unity
+
+	potential = {
+		exists = planet
+		owner = { has_origin = origin_tao_of_ninghe }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = { has_origin = origin_tao_of_ninghe }
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	planet_modifier = {
+		yin_mult_modifier = -0.5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+		produces = {
+			unity = 16
+		}
+	}
+}
+
+building_origin_tao_of_ninghe_yang = {
+	icon = building_offspring_nest
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+	position_priority = 25
+	
+	category = research
+
+	potential = {
+		exists = planet
+		owner = { has_origin = origin_tao_of_ninghe }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = { has_origin = origin_tao_of_ninghe }
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	planet_modifier = {
+		yang_mult_modifier = -0.5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+		produces = {
+			physics_research = 16
+			society_research = 16
+			engineering_research = 16
+		}
+	}
+}
+
+# 娱乐至死
+building_origin_manifesti = {
+	icon = building_ancient_relics
+	base_buildtime = 3600
+	base_cap_amount = 1
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 5
+
+	category = amenity
+
+	potential = {
+		always = no
+	}
+
+	allow = {
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_manifesti
+			}
+		}
+		job_entertainer_add = 10
+		job_entertainer_per_pop = 0.1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_manifesti }
+			}
+		}
+		planet_jobs_produces_mult = -1
+		pop_amenities_usage_mult = 9
+	}
+
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			rare_crystals = @b3_rare_upkeep
+			exotic_gases = @b3_rare_upkeep
+			volatile_motes = @b3_rare_upkeep
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_manifesti }
+			}
+		}
+		text = building_origin_manifesti_effect
+	}
+}
+
+building_origin_manifesti_dream = {
+	icon = building_ancient_relics
+	base_buildtime = 3600
+	base_cap_amount = 1
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 5
+
+	category = amenity
+
+	potential = {
+		always = no
+	}
+
+	allow = {
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_origin = origin_manifesti_dream_2
+				}
+			}
+			energy = 2
+			unity = 1
+			physics_research = 1
+			society_research = 1
+			engineering_research = 1
+			multiplier = value:num_time_pop_value
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_origin = origin_manifesti_dream_2 }
+				}
+			}
+			energy = 1
+			unity = 0.5
+			physics_research = 0.5
+			society_research = 0.5
+			engineering_research = 0.5
+			multiplier = value:num_time_pop_value
+		}
+		upkeep = {
+			rare_crystals = 5
+			exotic_gases = 5
+			volatile_motes = 5
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_manifesti_dream_2
+			}
+		}
+		text = building_origin_manifesti_dream_effect_1
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_manifesti_dream_2 }
+			}
+		}
+		text = building_origin_manifesti_dream_effect_2
+	}
+}
+
+# 机械神教
+building_adeptus_mechanicus_1 = {
+	icon = building_organic_sanctuary
+	base_buildtime = @b1_time
+	position_priority = 34
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = { has_origin = origin_adeptus_mechanicus }
+
+		OR = {
+			owner = { is_ai = no }
+			has_upgraded_capital = yes
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				NOT = { owner = { has_origin = origin_adeptus_mechanicus } }
+			}
+			AND = {
+				owner = { is_ai = yes }
+				count_owned_pop = { limit = { has_citizenship_type = { type = citizenship_adeptus_mechanicus } } count <= 20 }
+				num_buildings = { type = building_adeptus_mechanicus_1 value > 3 }
+			}
+			AND = {
+				owner = { is_ai = yes }
+				count_owned_pop = { limit = { has_citizenship_type = { type = citizenship_adeptus_mechanicus } } count <= 40 }
+				num_buildings = { type = building_adeptus_mechanicus_1 value > 5 }
+			}
+		}
+	}
+
+	convert_to = {
+		building_luxury_residence
+		building_communal_housing
+		building_organic_sanctuary
+	}
+
+	planet_modifier = {
+		job_adeptus_mechanicus_add = 10
+		job_priest_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_adeptus_mechanicus_effect_desc
+	}
+	
+	triggered_desc = {
+		text = job_priest_effect_desc
+	}
+
+	upgrades = {
+		"building_adeptus_mechanicus_2"
+	}
+
+	# We need to cheat here and tell AI that this will probably give some complex output since AI can not evaluate what this building does without the pops which it cant get without the building - chicken and egg
+	ai_resource_production = {
+		unity = 10
+		physics_research = 10
+		alloys = 5
+
+		trigger = {
+			NOT = { has_building = building_adeptus_mechanicus_1 }
+		}
+	}
+
+	# Here we try to adress the second issue that the AI cant evaluate the pop job output of the bio trophy given the happiness trigger that was put inplace to guard against players exploiting bio trophies
+
+	#science
+	ai_resource_production = {
+		unity = 10
+		physics_research = 10
+
+		trigger = {
+			has_unemployed_pop_of_category = adeptus_mechanicus
+
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#alloys
+	ai_resource_production = {
+		unity = 10
+		alloys = 10
+
+		trigger = {
+			has_unemployed_pop_of_category = adeptus_mechanicus
+
+			planet_resource_compare = {
+				resource = alloys
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#cgs
+	ai_resource_production = {
+		unity = 10
+		consumer_goods = 10
+
+		trigger = {
+			has_unemployed_pop_of_category = adeptus_mechanicus
+
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 100
+				type = produces
+			}
+		}
+	}
+}
+
+building_adeptus_mechanicus_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	icon = building_paradise_dome
+	position_priority = 33
+
+	potential = {
+		exists = owner
+		owner = { has_origin = origin_adeptus_mechanicus }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		NOT = { owner = { has_origin = origin_adeptus_mechanicus } }
+	}
+
+	convert_to = {
+		building_paradise_dome
+		building_communal_housing_large
+		building_organic_paradise
+	}
+
+	planet_modifier = {
+		job_adeptus_mechanicus_add = 20
+		job_priest_add = 2
+		job_high_priest_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_adeptus_mechanicus_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_priest_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_high_priest_effect_desc
+	}
+
+	prerequisites = { "tech_paradise_dome" }
+
+	show_tech_unlock_if = {
+		owner = { has_origin = origin_adeptus_mechanicus }
+	}
+
+	# Here we try to adress the second issue that the AI cant evaluate the pop job output of the bio trophy given the happiness trigger that was put inplace to guard against players exploiting bio trophies
+
+	#science
+	ai_resource_production = {
+		unity = 20
+		physics_research = 20
+
+		trigger = {
+			has_unemployed_pop_of_category = adeptus_mechanicus
+
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#alloys
+	ai_resource_production = {
+		unity = 20
+		alloys = 20
+
+		trigger = {
+			has_unemployed_pop_of_category = adeptus_mechanicus
+
+			planet_resource_compare = {
+				resource = alloys
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#cgs
+	ai_resource_production = {
+		unity = 20
+		consumer_goods = 20
+
+		trigger = {
+			has_unemployed_pop_of_category = adeptus_mechanicus
+
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 100
+				type = produces
+			}
+		}
+	}
+}
+
+# 怪物猎人
+building_origin_monster_hunter_1 = {
+	base_buildtime = @b1_time
+	icon = building_order_holding
+	position_priority = 93
+
+	category = amenity
+
+	potential = {
+		NOT = {	has_modifier = slave_colony	}
+		owner = { is_regular_empire = yes }
+		owner = { has_origin = origin_monster_hunter }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = {
+				NOT = { has_origin = origin_monster_hunter }
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	planet_modifier = {
+		job_monster_hunter_add = @b1_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		"building_origin_monster_hunter_2"
+	}
+	
+	convert_to = {
+		building_holo_theatres
+	}
+
+	prerequisites = {
+		"tech_holo_entertainment"
+	}
+	
+	show_tech_unlock_if = {
+		has_origin = origin_monster_hunter
+	}
+
+	triggered_desc = {
+		text = job_monster_hunter_effect_desc
+	}
+}
+
+building_origin_monster_hunter_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	icon = building_order_keep
+	position_priority = 92
+
+	category = amenity
+
+	potential = {
+		has_building = building_origin_monster_hunter_1
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = {
+				NOT = { has_origin = origin_monster_hunter }
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	planet_modifier = {
+		job_monster_hunter_add = @b2_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+	
+	convert_to = {
+		building_hyper_entertainment_forum
+	}
+
+	prerequisites = {
+		"tech_hyper_entertainment_forum"
+	}
+	
+	show_tech_unlock_if = {
+		has_origin = origin_monster_hunter
+	}
+
+	triggered_desc = {
+		text = job_monster_hunter_effect_desc
+	}
+}

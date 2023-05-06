@@ -1,0 +1,504 @@
+#############
+# Army buildings
+#############
+building_avb_military_academy_2 = {
+	base_buildtime = 1000
+	can_build = no
+
+	category = army
+	
+	potential = {
+		buildings_simple_allow = yes
+		exists = owner
+		owner = { NOT = { has_valid_civic = civic_reanimated_armies } }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_ai = yes
+				has_valid_civic = civic_reanimated_armies
+			}
+		}
+	}
+
+	convert_to = {
+		building_dread_encampment
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 200
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_soldier_add = 4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_warrior_drone_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}			
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_military_academy_2"
+	}
+	
+	show_tech_unlock_if = {
+		NOT = { has_valid_civic = civic_reanimated_armies }
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_warrior_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_soldier_effect_desc
+	}
+}
+
+building_avb_dread_encampment_2 = {
+	base_buildtime = 1000
+	can_build = no
+	icon = building_dread_encampment
+
+	category = army
+	
+	potential = {
+		buildings_simple_allow = yes
+		exists = owner
+		owner = { has_valid_civic = civic_reanimated_armies }
+	}
+
+	convert_to = {
+		building_military_academy
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 220
+	}
+	
+	planet_modifier = {
+		job_necromancer_add = 4
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}			
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_military_academy_2"
+	}
+
+	show_tech_unlock_if = {
+		has_valid_civic = civic_reanimated_armies
+	}
+	
+	triggered_desc = {
+		trigger = {
+			always = yes
+		}
+		text = job_necromancer_effect_desc
+	}
+}
+
+building_avb_stronghold_3 = {
+	base_buildtime = 480
+	can_build = no
+	planetary_ftl_inhibitor = yes
+	position_priority = 100
+
+	category = army
+	
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+		OR = {
+			AND = {
+				num_buildings = { type = building_fortress value > 1 }
+				free_building_slots = 0
+				owner = { used_naval_capacity_percent < 0.4	}
+			}
+			buildings_no_motes = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_soldier_add = 5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_warrior_drone_add = 5
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			volatile_motes = 100
+		}			
+		upkeep = {
+			energy = 2
+			volatile_motes = 2
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_stronghold_3"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_warrior_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_soldier_effect_desc
+	}
+	
+	upgrades = {
+		"building_avb_stronghold_4"
+	}
+}
+
+building_avb_stronghold_4 = {
+	base_buildtime = 600
+	can_build = no
+	planetary_ftl_inhibitor = yes
+	position_priority = 100
+
+	category = army
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	upgrades = {
+		building_avb_stronghold_5
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+		OR = {
+			AND = {
+				num_buildings = { type = building_fortress value > 1 }
+				free_building_slots = 0
+				owner = { used_naval_capacity_percent < 0.4	}
+			}
+			buildings_no_motes = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_soldier_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_warrior_drone_add = 8
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1800
+			volatile_motes = 150
+		}			
+		upkeep = {
+			energy = 3
+			volatile_motes = 3
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_stronghold_4"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_warrior_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_soldier_effect_desc
+	}
+}
+
+building_avb_stronghold_5 = {
+	base_buildtime = 1200
+	can_build = no
+	planetary_ftl_inhibitor = yes
+	position_priority = 100
+
+	category = army
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+		OR = {
+			AND = {
+				num_buildings = { type = building_fortress value > 1 }
+				free_building_slots = 0
+				owner = { used_naval_capacity_percent < 0.4	}
+			}
+			buildings_no_motes = yes
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_soldier_add = 14
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_warrior_drone_add = 14
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2600
+			volatile_motes = 200
+		}			
+		upkeep = {
+			energy = 6
+			volatile_motes = 5
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_stronghold_5"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_warrior_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_soldier_effect_desc
+	}
+}
+
+building_avb_planetary_shield_generator_2 = {
+	base_buildtime = 1200	
+	can_build = no
+	position_priority = 100
+
+	category = army
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+		owner = { is_ai = no }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+	}
+	
+	upgrades = {
+		building_avb_planetary_shield_generator_3
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.65
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			exotic_gases = 50
+		}			
+		upkeep = {
+			energy = 10
+			exotic_gases = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_planetary_shield_generator_2"
+	}
+}
+
+building_avb_planetary_shield_generator_3 = {
+	base_buildtime = 2000	
+	can_build = no
+	position_priority = 100
+
+	category = army
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+		owner = { is_ai = no }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+	}
+	
+	upgrades = {
+		building_avb_dark_matter_planetary_shield_generator
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.85
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2400
+			exotic_gases = 200
+			rare_crystals = 100
+		}			
+		upkeep = {
+			energy = 20
+			exotic_gases = 12
+			rare_crystals = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_planetary_shield_generator_3"
+	}
+}
+
+building_avb_dark_matter_planetary_shield_generator = {
+	base_buildtime = 3500	
+	position_priority = 100
+	can_build = no
+
+	category = army
+	
+	allow = {
+		has_upgraded_capital_6 = yes
+		owner = { is_ai = no }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.95
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 3600
+			exotic_gases = 150
+			sr_dark_matter = 100
+		}			
+		upkeep = {
+			energy = 40
+			exotic_gases = 8
+			sr_dark_matter = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_dark_matter_planetary_shield_generator"
+	}
+}

@@ -1,0 +1,616 @@
+#############
+# Science buildings
+#############
+building_avb_research_lab_4 = {
+	base_buildtime = 720
+	can_build = no
+
+	category = research
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 12
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 12
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 12
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_gestalt_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = 150
+		}
+		upkeep = {
+			energy = 10
+			exotic_gases = 4
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				planet = {
+					has_modifier = pm_extradimensional_experimentation
+				}
+			}
+			sr_zro = 1
+		}
+	}
+	
+	upgrades = {
+		building_avb_research_lab_5
+	}
+	
+	prerequisites = {
+		"tech_avb_basic_science_lab_4"
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_regular_empire = yes } 
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_calculator_effect_desc
+	}	
+}
+
+building_avb_research_lab_5 = {
+	base_buildtime = 840
+	can_build = no
+
+	category = research
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 18
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 18
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 18
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_gestalt_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			exotic_gases = 200
+		}
+		upkeep = {
+			energy = 14
+			exotic_gases = 6
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				planet = {
+					has_modifier = pm_extradimensional_experimentation
+				}
+			}
+			sr_zro = 1
+		}
+	}
+	
+	upgrades = {
+		building_avb_research_lab_6
+	}
+	
+	prerequisites = {
+		"tech_avb_basic_science_lab_5"
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_regular_empire = yes } 
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_calculator_effect_desc
+	}	
+}
+
+building_avb_research_lab_6 = {
+	base_buildtime = 960
+	can_build = no
+
+	category = research
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 26
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 26
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 26
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_gestalt_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1400
+			exotic_gases = 250
+		}
+		upkeep = {
+			energy = 18
+			exotic_gases = 8
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				planet = {
+					has_modifier = pm_extradimensional_experimentation
+				}
+			}
+			sr_zro = 1
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_basic_science_lab_6"
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_regular_empire = yes } 
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_calculator_effect_desc
+	}	
+}
+
+building_avb_institute_2 = {
+	base_buildtime = 960
+	can_build = no
+
+	category = research
+
+	potential = {
+		NOT = { has_modifier = resort_colony }	
+		NOT = { has_modifier = slave_colony }
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			owner = {
+				is_gestalt = no
+				is_regular_empire = no
+			}
+			buildings_no_exotic_gases = yes
+		}
+	}
+	
+	convert_to = {
+		building_supercomputer
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = 100
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	
+	planet_modifier = {
+		planet_researchers_produces_mult = 0.3
+		job_head_researcher_add = 2
+	}
+	
+	prerequisites = {
+		"tech_avb_global_research_initiative_2"
+	}
+	
+	triggered_desc = {
+		text = job_head_researcher_effect_desc
+	}
+	
+	show_tech_unlock_if = { 
+		is_regular_empire = yes
+	}
+	
+	ai_resource_production = {
+		trigger = { always = yes }
+		physics_research = 3
+		society_research = 3
+		engineering_research = 3
+	}
+	ai_resource_production = {
+		trigger = {
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 20
+			}
+		}
+		physics_research = 3
+		society_research = 3
+		engineering_research = 3
+	}
+	ai_resource_production = {
+		trigger = {
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 40
+			}
+		}
+		physics_research = 3
+		society_research = 3
+		engineering_research = 3
+	}
+}
+
+building_avb_supercomputer_2 = {
+	base_buildtime = 960
+	icon = building_institute
+	can_build = no
+
+	category = research
+	
+	potential = {
+		exists = owner
+		owner = { is_gestalt = yes }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}
+
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			owner = {
+				is_gestalt = no
+				is_regular_empire = no
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = 100
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	
+	planet_modifier = {
+		planet_researchers_produces_mult = 0.3
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {	
+			job_calculator_add = 2
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_global_research_initiative_2"
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_calculator_effect_desc
+	}	
+	
+	show_tech_unlock_if = { 
+		is_gestalt = yes
+	}
+	
+	ai_resource_production = {
+		trigger = { always = yes }
+		physics_research = 3
+		society_research = 3
+		engineering_research = 3
+	}
+	ai_resource_production = {
+		trigger = {
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 20
+			}
+		}
+		physics_research = 3
+		society_research = 3
+		engineering_research = 3
+	}
+	ai_resource_production = {
+		trigger = {
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 40
+			}
+		}
+		physics_research = 3
+		society_research = 3
+		engineering_research = 3
+	}
+}

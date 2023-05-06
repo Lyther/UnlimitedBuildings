@@ -1,0 +1,1369 @@
+###########################
+# Branch Office Buildings #
+###########################
+
+## N.B.: ai_weight is still used for branch offices!
+
+## REGULAR MEGACORP ##
+building_private_mining_consortium = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+		is_artificial = no
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_city
+		}
+	}
+	planet_modifier = {
+		job_miner_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_miner_add = 1}		
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			minerals = 10
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			minerals = 10
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_food_conglomerate = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					is_anglers_empire = no
+					AND = {
+						is_anglers_empire = yes
+						PREV = { planet = { is_wet = no } }
+					}
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = {
+				has_ascension_perk = ap_universal_transactions
+			}
+			exists = owner
+			owner = {
+				OR = {
+					is_anglers_empire = no
+					AND = {
+						is_anglers_empire = yes
+						PREV = { planet = { is_wet = no } }
+					}
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_anglers_empire = yes
+				PREV = { planet = { is_wet = yes } }
+			}
+		}
+		modifier = {
+			job_angler_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_anglers_empire = yes
+				PREV = { planet = { is_wet = yes } }
+			}
+			branch_office_owner = {
+				has_ascension_perk = ap_universal_transactions
+			}
+		}
+		modifier = {
+			job_angler_add = 1
+		}
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			food = 10
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			food = 10
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}#AI has many other sources for this resource
+}
+
+building_virtual_entertainment_studios = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = {
+				has_ascension_perk = ap_universal_transactions
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			consumer_goods = 6
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			consumer_goods = 6
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value >= 10
+				}
+			}
+		}
+	}
+}
+
+building_private_shipyards = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_clerk_add = 2}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			alloys = 3
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			alloys = 3
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+building_military_contractors = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+	}
+
+	country_modifier = {
+		country_naval_cap_add = 10
+	}
+	triggered_country_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {country_naval_cap_add = 10}	
+	}
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+
+	planet_modifier = {
+		job_soldier_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_soldier_add = 1}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_public_relations_office = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_clerk_add = 2}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			unity = 12
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			unity = 12
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+building_private_research_initiative = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_clerk_add = 2}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			physics_research = 6
+			engineering_research = 6
+			society_research = 6
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			physics_research = 6
+			engineering_research = 6
+			society_research = 6
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_amusement_megaplex = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		planet_amenities_add = 10
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {planet_amenities_add = 10}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			energy = 10
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			energy = 10
+		}
+	}
+
+	ai_weight = {
+		weight = 2
+
+		modifier = {
+			weight = 0.5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = energy
+					value > 50
+				}
+			}
+		}
+	}
+}
+
+building_commercial_forum = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+	position_priority = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		branch_office_value_mult = 0.25
+		job_merchant_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_merchant_add = 1}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 50
+	}
+}
+
+building_corporate_embassy = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_building_major_capital"
+			OR = {
+				has_building = building_major_capital
+				has_building = building_system_capital
+				has_building = building_imperial_capital
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_xeno_diplomacy"
+	}
+
+	show_tech_unlock_if = {
+		is_megacorp = yes
+		is_criminal_syndicate = no
+	}
+
+	country_modifier = {
+		diplo_weight_economy_mult = 0.05
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_clerk_add = 2}		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 50
+		modifier = {
+			factor = 10
+			branch_office_owner = {
+				is_galactic_community_member = yes
+			}
+		}
+	}
+}
+
+
+
+## GOSPEL MEGACORP ##
+
+building_temple_of_prosperity = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_gospel_of_the_masses
+			is_criminal_syndicate = no
+		}
+	}
+
+	planet_modifier = {
+		job_preacher_add = 2
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_preacher_add = 2 }		
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	ai_weight = {
+		weight = 250
+	}
+}
+
+## SPECIAL ##
+
+building_executive_retreat = {
+	base_buildtime = @b3_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	prerequisites = { "tech_executive_retreat" }
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+		}
+	}
+
+	allow = {
+		num_pops >= 25
+	}
+
+	country_modifier = {
+		planet_amenities_mult = 0.1
+	}
+
+	planet_modifier = {
+		trade_value_mult = 0.05
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	ai_weight = {
+		factor = 100
+	}
+}
+
+building_xeno_tourism_agency = {
+	base_buildtime = @b3_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	prerequisites = { "tech_xeno_tourism_agency" }
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+		}
+	}
+
+	allow = {
+		num_pops >= 25
+	}
+
+	country_modifier = {
+		planet_immigration_pull_mult = 0.25
+	}
+
+	planet_modifier = {
+		trade_value_mult = 0.05
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}
+
+building_imperial_concession_port = {
+	base_buildtime = @b3_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			OR = {
+				has_modifier = imperial_charter
+				has_civic = civic_galactic_sovereign_megacorp
+			}
+		}
+	}
+
+	country_modifier = {
+		diplo_weight_economy_mult = 0.05
+	}
+
+	planet_modifier = {
+		branch_office_value_mult = 0.25
+	}
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 1000
+		}
+		produces = {
+			energy = 8
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}
+
+##########
+#新增建筑
+##########
+
+#商业租界
+building_shangyedalou = {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	position_priority = 0
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+			not = {
+				is_same_value = root.owner
+			}
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_galactic_administration
+		}
+		num_pops > 50
+	}
+	planet_modifier = {
+		planet_housing_mult = 0.25
+		planet_max_branch_office_buildings_add = 2
+		trade_value_mult = 0.25
+		job_merchant_per_pop = 0.04
+		job_clerk_per_pop = 0.08
+		planet_crime_mult = 0.5
+	}
+	country_modifier = {
+		trade_value_mult = 0.1
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+	destroy_trigger = {
+		num_pops < 50
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#移民中心
+building_toudugangkou = {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+			not = {
+				is_same_value = root.owner
+			}
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	planet_modifier = {
+		job_clerk_add = 2
+		planet_emigration_push_mult = 0.15
+		pop_growth_speed = -0.5
+		trade_value_add = -50
+	}
+	country_modifier = {
+		country_ruler_influence_produces_add = 0.25
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+		produces = {
+			unity = 10
+		}
+		produces = {
+			trigger = {
+				branch_office_owner = {
+					has_ascension_perk = ap_universal_transactions
+				}
+			}
+			unity = 10
+		}
+
+	}
+	on_built = {
+		set_planet_flag = has_yimin_feisheng
+	}
+	on_destroy = {
+		remove_planet_flag = has_yimin_feisheng
+	}
+	triggered_desc = {
+		text = building_toudugangkou_effect_desc
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#外企独资医疗诊所
+
+building_waiqiyiyuan = {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	planet_modifier = {
+		job_healthcare_add = 2
+		pop_growth_speed = 0.3
+		planet_immigration_pull_mult = 0.15
+		planet_carry_cap_add = 25
+	}
+	triggered_planet_modifier = {
+		potential = {branch_office_owner = {has_ascension_perk = ap_universal_transactions}}
+		modifier = {job_healthcare_add = 2 }		
+	}
+	country_modifier = {
+		COUNTRY_TRUST_CAP_ADD = 20
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+		produces = {
+			food = 0.5
+			society_research = 2
+			multiplier = trigger:num_pops
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#环球影视中心
+building_yingshizhongxin= {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_hyper_entertainment_forum
+		}
+	}
+	planet_modifier = {
+		pop_ethics_shift_speed_mult = 1
+		job_entertainer_add = 4		
+		planet_amenities_mult = 0.25
+	}
+	country_modifier = {
+		planet_immigration_pull_mult = 0.1
+		planet_jobs_unity_produces_mult = 0.05
+	}
+	triggered_country_modifier = {
+		potential = {
+			branch_office_owner = {
+				not = { is_same_value = root.owner}
+			}
+		}
+		country_ruler_influence_produces_add = 0.5
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+		produces = {
+			unity = 0.5
+			multiplier = trigger:num_pops
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#科研中心
+building_yanjiuzhongxin =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+			NOT = {
+				is_same_value = root.owner
+			}
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	planet_modifier = {
+		job_head_researcher_add = 1
+		job_researcher_per_pop = 0.1
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_global_research_initiative
+		}
+		num_pops > 50
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+		produces = {
+			physics_research = 1
+			society_research = 1
+			engineering_research = 1
+			multiplier = trigger:num_pops
+		}
+	}
+	destroy_trigger = {
+		num_pops < 50
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#失业劳工救济站
+building_laogongjiuji =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+			NOT = {
+				is_same_value = root.owner
+			}
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_mineral_purification_2
+			has_technology = tech_food_processing_2
+			has_technology = tech_power_hub_2
+		}
+
+	}
+	planet_modifier = {
+		job_miner_add = 4
+		job_farmer_add = 4
+		job_technician_add = 4
+	}
+	country_modifier = {
+		planet_jobs_minerals_produces_mult = 0.1
+		planet_jobs_energy_produces_mult = 0.1	
+		planet_jobs_food_produces_mult = 0.1
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 100
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+#合金精炼工厂
+building_hejingongchang =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_alloys_2
+		}
+
+	}
+	planet_modifier = {
+		planet_metallurgists_alloys_produces_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+			}
+		}
+		modifier = {
+			planet_metallurgists_minerals_upkeep_add = 4
+			job_foundry_add = @b1_jobs
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = yes
+			}
+		}
+		modifier = {
+			planet_metallurgists_food_upkeep_add = 6
+			job_catalytic_technician_add = @b1_jobs
+		}
+	}
+	country_modifier = {
+		planet_jobs_alloys_produces_mult = 0.1
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 5
+			volatile_motes  = @b2_rare_upkeep
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#星空锻船厂
+
+building_duanchuanchang =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_starbase_5
+		}
+
+	}
+	planet_modifier = {
+		job_clerk_add = 4
+	}
+
+	country_modifier = {
+		starbase_shipyard_build_speed_mult = 0.1
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#巨构处理站
+
+building_jugouzhan =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_ascension_perk = ap_master_builders
+		}
+
+	}
+	planet_modifier = {
+		job_clerk_add = 4
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = 0.1
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 6
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#驻外培训基地
+
+building_junshijidi =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	planet_modifier = {
+		job_soldier_per_pop = 0.1
+	}
+
+	country_modifier = {
+		army_starting_experience_add = 100
+		planet_army_build_speed_mult = 0.1
+		ship_starting_experience_add = 100
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 5
+			volatile_motes  = @b2_rare_upkeep
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#精尖材料研究所
+
+building_baoyangzhongxin =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	allow = {
+		branch_office_owner = {
+			has_technology = tech_shields_5
+			has_technology = tech_ship_armor_5
+		}
+
+	}
+	planet_modifier = {
+		job_clerk_add = 4
+	}
+
+	country_modifier = {
+		ship_hull_mult = 0.05
+		ship_armor_mult = 0.05
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 6
+			volatile_motes  = @b2_rare_upkeep
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#异种风俗店
+building_yizhongfengsu =  {
+	base_buildtime = @b1_time
+	owner_type = corporate
+	base_cap_amount = 1
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+			has_ascension_perk = ap_universal_transactions
+			not = {is_same_value = root.owner}
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+		}
+	}
+	planet_modifier = {
+		job_clerk_add = 2
+		pop_growth_speed = 0.25
+		pop_happiness = 0.1
+	}
+
+	country_modifier = {
+		pop_growth_speed = 0.05
+	}
+	resources = {
+		category = planet_branch_office_buildings		
+		cost = {
+			minerals = 1000
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 6
+			volatile_motes  = @b2_rare_upkeep
+		}
+	}
+	ai_weight = {
+		factor = 0
+	}
+}

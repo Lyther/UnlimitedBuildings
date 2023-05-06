@@ -1,0 +1,1411 @@
+building_akx_worm_1 = {
+	base_buildtime = @b4_time
+	base_cap_amount = 1
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 3
+	category = resource
+
+	potential = {
+		exists = planet
+		planet = { is_capital = yes }
+		owner = { is_ai = no }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	country_modifier = {
+		country_energy_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_energy_produces_mult = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_energy_produces_mult = 0.1
+	}
+
+	upgrades = {
+		building_wonder_akx_worm_1
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	destroy_trigger = {
+		planet = { is_capital = no }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+			volatile_motes = @b4_rare_cost
+		}
+		upkeep = {
+			volatile_motes = 5
+		}
+		produces = {
+			energy = 2
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_akx_worm_1_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_akx_worm_1_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_akx_worm_1_effect_ap_time
+	}
+}
+
+building_akx_worm_2 = {
+	base_buildtime = @b4_time
+	base_cap_amount = 1
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 2
+	category = unity
+
+	potential = {
+		exists = planet
+		planet = { is_capital = yes }
+		owner = { is_ai = no }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = NEED_AKX_WORM_1
+			OR = {
+				has_building = building_akx_worm_1
+				has_building = building_wonder_akx_worm_1
+			}
+		}
+	}
+	
+	country_modifier = {
+		country_unity_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_unity_produces_mult = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_unity_produces_mult = 0.1
+	}
+	
+	upgrades = {
+		building_wonder_akx_worm_2
+	}
+
+	prerequisites = {
+		"tech_akx_worm_2"
+	}
+	
+	destroy_trigger = {
+		planet = { is_capital = no }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+			rare_crystals = @b4_rare_cost
+		}
+		upkeep = {
+			rare_crystals = 5
+		}
+		produces = {
+			unity = 1
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_akx_worm_2_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_akx_worm_2_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_akx_worm_2_effect_ap_time
+	}
+}
+
+building_akx_worm_3 = {
+	base_buildtime = @b4_time
+	base_cap_amount = 1
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 1
+	category = research
+
+	potential = {
+		exists = planet
+		planet = { is_capital = yes }
+		owner = { is_ai = no }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = NEED_AKX_WORM_2
+			OR = {
+				has_building = building_akx_worm_2
+				has_building = building_wonder_akx_worm_2
+			}
+		}
+		custom_tooltip = {
+			fail_text = REQUIREMENT_OF_ORIGIN_TIME
+			owner = {
+				if = {
+					limit = {
+						# 可触发“时之螶：交流”
+						has_origin = origin_time
+						ruler = {
+							is_origin_time_ruler = yes
+						}
+					}
+					OR = {
+						has_tech_option = tech_time_blocker_3
+						has_technology = tech_time_blocker_3
+					}
+				}
+				NOT = { has_event_chain = TIME_BLACK_HOLE_CHAIN }
+			}
+		}
+	}
+	
+	country_modifier = {
+		country_physics_research_produces_mult = 0.1
+		country_society_research_produces_mult = 0.1
+		country_engineering_research_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_physics_research_produces_mult = 0.05
+		country_society_research_produces_mult = 0.05
+		country_engineering_research_produces_mult = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_physics_research_produces_mult = 0.1
+		country_society_research_produces_mult = 0.1
+		country_engineering_research_produces_mult = 0.1
+	}
+	
+	upgrades = {
+		building_wonder_akx_worm_3
+	}
+
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	destroy_trigger = {
+		planet = { is_capital = no }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+			exotic_gases = @b4_rare_cost
+		}
+		upkeep = {
+			exotic_gases = 5
+		}
+		produces = {
+			physics_research = 1
+			society_research = 1
+			engineering_research = 1
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_akx_worm_3_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_akx_worm_3_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_akx_worm_3_effect_ap_time
+	}
+}
+
+
+
+building_wonder_akx_worm_1 = {
+	icon = building_akx_worm_1
+	base_buildtime = 3600
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 3
+	category = resource
+
+	potential = {
+		exists = planet
+		has_planet_flag = time_2_planet
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	country_modifier = {
+		country_energy_produces_mult = 0.2
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_energy_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_energy_produces_mult = 0.2
+	}
+
+	prerequisites = {
+		"tech_wonder_akx_worm_1"
+	}
+	
+	destroy_trigger = {
+		planet = { is_capital = no }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 10000
+			volatile_motes = 1000
+			nanites = 1000
+			influence = 200
+		}
+		upkeep = {
+			energy = 50
+			volatile_motes = 5
+			nanites = 5
+		}
+		produces = {
+			energy = 4
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_wonder_akx_worm_1_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_akx_worm_1_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_wonder_akx_worm_1_effect_ap_time
+	}
+}
+
+building_wonder_akx_worm_2 = {
+	icon = building_akx_worm_2
+	base_buildtime = 3600
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 2
+	category = unity
+
+	potential = {
+		exists = planet
+		has_planet_flag = time_1_planet
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	country_modifier = {
+		country_unity_produces_mult = 0.2
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_unity_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_unity_produces_mult = 0.2
+	}
+
+	prerequisites = {
+		"tech_wonder_akx_worm_2"
+	}
+	
+	destroy_trigger = {
+		planet = { is_capital = no }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			unity = 4000
+			rare_crystals = 1000
+			sr_zro = 1000
+			influence = 200
+		}
+		upkeep = {
+			unity = 20
+			rare_crystals = 5
+			sr_zro = 5
+		}
+		produces = {
+			unity = 2
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_wonder_akx_worm_2_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_akx_worm_2_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_wonder_akx_worm_2_effect_ap_time
+	}
+}
+
+building_wonder_akx_worm_3 = {
+	icon = building_akx_worm_3
+	base_buildtime = 3600
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 1
+	category = research
+
+	potential = {
+		exists = planet
+		has_planet_flag = time_0_planet
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	country_modifier = {
+		country_physics_research_produces_mult = 0.2
+		country_society_research_produces_mult = 0.2
+		country_engineering_research_produces_mult = 0.2
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_physics_research_produces_mult = 0.1
+		country_society_research_produces_mult = 0.1
+		country_engineering_research_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_physics_research_produces_mult = 0.2
+		country_society_research_produces_mult = 0.2
+		country_engineering_research_produces_mult = 0.2
+	}
+
+	prerequisites = {
+		"tech_wonder_akx_worm_3"
+	}
+	
+	destroy_trigger = {
+		planet = { is_capital = no }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			consumer_goods = 4000
+			exotic_gases = 1000
+			sr_dark_matter = 1000
+			influence = 200
+		}
+		upkeep = {
+			consumer_goods = 20
+			exotic_gases = 5
+			sr_dark_matter = 5
+		}
+		produces = {
+			physics_research = 2
+			society_research = 2
+			engineering_research = 2
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_wonder_akx_worm_3_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_akx_worm_3_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_wonder_akx_worm_3_effect_ap_time
+	}
+}
+
+building_wonder_technosphere = {
+	icon = building_imperial_machine_capital
+	base_buildtime = 3600
+	base_cap_amount = 1
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 1
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		has_planet_flag = time_3_planet
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	country_modifier  = {
+		country_sr_dark_matter_produces_mult = 0.2
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_sr_dark_matter_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_sr_dark_matter_produces_mult = 0.2
+	}
+
+	prerequisites = {
+		"tech_wonder_technosphere"
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 10000
+			sr_dark_matter = 2000
+			influence = 200
+		}
+		upkeep = {
+			energy = 50
+			sr_dark_matter = 10
+		}
+		produces = {
+			sr_dark_matter = 1
+			multiplier = value:num_akx_value
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
+			}
+		}
+		text = building_wonder_technosphere_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_technosphere_effect_ap_horror
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		text = building_wonder_technosphere_effect_ap_time
+	}
+}
+
+# 彼岸之门
+building_akx_messenger = {
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	base_cap_amount = 1
+	position_priority = 4
+	
+	category = government
+	
+	potential = {
+		always = no
+	}
+	
+	destroy_trigger = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			trigger = {
+				OR = {
+					has_planet_flag = end_messenger_1
+					has_planet_flag = future_messenger_1
+				}
+			}
+			volatile_motes = 1
+			rare_crystals = 1
+			exotic_gases = 1
+		}
+		upkeep = {
+			trigger = {
+				OR = {
+					has_planet_flag = end_messenger_3
+					has_planet_flag = future_messenger_3
+				}
+			}
+			volatile_motes = 1
+			rare_crystals = 1
+			exotic_gases = 1
+		}
+	}
+	
+	country_modifier = {
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_minor_artifacts_add = 1000
+		country_resource_max_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_archaeoengineers
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.05
+		country_resource_max_minor_artifacts_add = 1000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.05
+		country_resource_max_add = 1000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_add = 2000
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_1
+		}
+		job_end_messenger_per_pop = 0.005 #200人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_2
+		}
+		job_end_messenger_per_pop = 0.005 #100人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_3
+		}
+		job_end_messenger_per_pop = 0.01 #50人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_1
+		}
+		job_future_messenger_per_pop = 0.0125 #80人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_2
+		}
+		job_future_messenger_per_pop = 0.0125 #40人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_3
+		}
+		job_future_messenger_per_pop = 0.025 #20人
+	}
+	
+	upgrades = {
+		building_akx_end_messenger
+		building_akx_future_messenger
+		building_akx_horror_messenger
+	}
+	
+	triggered_desc = {
+		trigger = {
+			NOR = {
+				has_planet_flag = end_messenger_1
+				has_planet_flag = future_messenger_1
+			}
+		}
+		text = no_messenger_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_planet_flag = end_messenger_1
+		}
+		text = job_end_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_planet_flag = future_messenger_1
+		}
+		text = job_future_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			OR = {
+				has_planet_flag = end_messenger_3
+				has_planet_flag = future_messenger_3
+			}
+		}
+		text = make_akx_messenger_desc
+	}
+}
+
+# 终末之门
+building_akx_end_messenger = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 4
+	
+	category = government
+	
+	potential = {
+		has_planet_flag = end_messenger_2
+	}
+	
+	destroy_trigger = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			volatile_motes = @b4_rare_cost
+			rare_crystals = @b4_rare_cost
+			exotic_gases = @b4_rare_cost
+		}
+		upkeep = {
+			volatile_motes = 2.5
+			rare_crystals = 2.5
+			exotic_gases = 2.5
+		}
+		upkeep = {
+			trigger = {
+				OR = {
+					has_planet_flag = end_messenger_3
+					has_planet_flag = future_messenger_3
+				}
+			}
+			volatile_motes = 2.5
+			rare_crystals = 2.5
+			exotic_gases = 2.5
+		}
+	}
+	
+	country_modifier = {
+		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_minor_artifacts_add = 2000
+		country_resource_max_add = 4000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_archaeoengineers
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_minor_artifacts_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_add = 4000
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_1
+		}
+		job_end_messenger_per_pop = 0.01 #100人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_2
+		}
+		job_end_messenger_per_pop = 0.01 #50人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_3
+		}
+		job_end_messenger_per_pop = 0.02 #25人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_1
+		}
+		job_future_messenger_per_pop = 0.0125 #80人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_2
+		}
+		job_future_messenger_per_pop = 0.0125 #40人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_3
+		}
+		job_future_messenger_per_pop = 0.025 #20人
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_planet_flag = end_messenger_1
+		}
+		text = job_end_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_planet_flag = future_messenger_1
+		}
+		text = job_future_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			OR = {
+				has_planet_flag = end_messenger_3
+				has_planet_flag = future_messenger_3
+			}
+		}
+		text = make_akx_messenger_desc
+	}
+}
+
+# 未来之门
+building_akx_future_messenger = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 4
+	
+	category = government
+	
+	potential = {
+		has_planet_flag = future_messenger_2
+	}
+	
+	destroy_trigger = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			volatile_motes = @b4_rare_cost
+			rare_crystals = @b4_rare_cost
+			exotic_gases = @b4_rare_cost
+		}
+		upkeep = {
+			volatile_motes = 2.5
+			rare_crystals = 2.5
+			exotic_gases = 2.5
+		}
+		upkeep = {
+			trigger = {
+				OR = {
+					has_planet_flag = end_messenger_3
+					has_planet_flag = future_messenger_3
+				}
+			}
+			volatile_motes = 2.5
+			rare_crystals = 2.5
+			exotic_gases = 2.5
+		}
+	}
+	
+	country_modifier = {
+		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_minor_artifacts_add = 2000
+		country_resource_max_add = 4000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_archaeoengineers
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_minor_artifacts_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_add = 4000
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_1
+		}
+		job_end_messenger_per_pop = 0.005 #200人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_2
+		}
+		job_end_messenger_per_pop = 0.005 #100人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_3
+		}
+		job_end_messenger_per_pop = 0.01 #50人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_1
+		}
+		job_future_messenger_per_pop = 0.025 #40人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_2
+		}
+		job_future_messenger_per_pop = 0.025 #20人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_3
+		}
+		job_future_messenger_per_pop = 0.05 #10人
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_planet_flag = end_messenger_1
+		}
+		text = job_end_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			has_planet_flag = future_messenger_1
+		}
+		text = job_future_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			OR = {
+				has_planet_flag = end_messenger_3
+				has_planet_flag = future_messenger_3
+			}
+		}
+		text = make_akx_messenger_desc
+	}
+}
+
+# 因果之门
+building_akx_horror_messenger = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 4
+	
+	category = government
+	
+	potential = {
+		has_planet_flag = end_messenger_2
+		has_planet_flag = future_messenger_2
+		# 彼岸之门局势结束
+		OR = {
+			has_planet_flag = end_messenger_3
+			has_planet_flag = future_messenger_3
+		}
+		owner = {
+			OR = {
+				# 负相界旅者
+				AND = {
+					has_country_flag = dimension_traveler_trait_time_secret
+					has_country_flag = dimension_traveler_trait_circle_secret
+					has_country_flag = dimension_traveler_trait_dimension_secret
+				}
+				# 神之圆环
+				has_technology = tech_coils_god_1
+				has_technology = tech_coils_god_2
+			}
+		}
+	}
+	
+	destroy_trigger = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			volatile_motes = 400
+			rare_crystals = 400
+			exotic_gases = 400
+		}
+		upkeep = {
+			volatile_motes = 5
+			rare_crystals = 5
+			exotic_gases = 5
+		}
+		upkeep = {
+			trigger = {
+				OR = {
+					has_planet_flag = end_messenger_3
+					has_planet_flag = future_messenger_3
+				}
+			}
+			volatile_motes = 5
+			rare_crystals = 5
+			exotic_gases = 5
+		}
+	}
+	
+	country_modifier = {
+		country_minor_artifacts_produces_mult = 0.25
+		country_resource_max_minor_artifacts_add = 2500
+		country_resource_max_add = 5000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_archaeoengineers
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.125
+		country_resource_max_minor_artifacts_add = 2500
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.125
+		country_resource_max_add = 2500
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.25
+		country_resource_max_add = 5000
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_1
+		}
+		job_end_messenger_per_pop = 0.01 #100人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_2
+		}
+		job_end_messenger_per_pop = 0.01 #50人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = end_messenger_3
+		}
+		job_end_messenger_per_pop = 0.02 #25人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_1
+		}
+		job_future_messenger_per_pop = 0.025 #40人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_2
+		}
+		job_future_messenger_per_pop = 0.025 #20人
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = future_messenger_3
+		}
+		job_future_messenger_per_pop = 0.05 #10人
+	}
+	
+	triggered_desc = {
+		text = job_end_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		text = job_future_messenger_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			OR = {
+				has_planet_flag = end_messenger_3
+				has_planet_flag = future_messenger_3
+			}
+		}
+		text = make_akx_messenger_desc
+	}
+}

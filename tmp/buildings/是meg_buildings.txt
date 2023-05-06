@@ -1,0 +1,350 @@
+building_megumin_empire_research = {#帝国研究总局
+	base_buildtime = @b2_time
+
+	category = government
+
+	base_cap_amount = 1
+	position_priority = 2
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+
+		exists = planet
+		planet = { is_capital = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		owner = { has_ascension_perk = ap_imperial_prerogative }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+
+	}
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { is_regular_empire = no }
+			}
+			planet = { is_capital = no }
+			
+		}
+	}
+
+	country_modifier = {
+		all_technology_research_speed = 0.2
+	}
+	planet_modifier = {
+		planet_researchers_produces_mult = 0.35
+		job_researcher_per_pop = 0.1
+		job_head_researcher_per_pop = 0.04
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			exotic_gases = 150
+		}
+		upkeep = {
+			energy = 5
+			exotic_gases = 4
+		}
+	}
+
+}
+
+building_megumin_empire_bureaucrat = {#帝国行政总局
+	base_buildtime = @b2_time
+	position_priority = 3
+	category = government
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+
+		exists = planet
+		planet = { is_capital = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		owner = { has_ascension_perk = ap_imperial_prerogative }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+
+	}
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { is_regular_empire = no }
+			}
+			planet = { is_capital = no }
+			
+		}
+	}
+
+	country_modifier = {
+		planet_stability_add = 5
+	}
+	planet_modifier = {
+		planet_stability_add = 10
+		job_noble_per_pop = 0.04
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			rare_crystals = 150
+		}
+		upkeep = {
+			energy = 5
+			rare_crystals = 4
+		}
+	}
+
+}
+
+
+building_megumin_empire_culture = {#帝国文化中心
+	base_buildtime = @b2_time
+	position_priority = 4
+	category = government
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+
+		exists = planet
+		planet = { is_capital = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		owner = { has_ascension_perk = ap_imperial_prerogative }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+
+	}
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { is_regular_empire = no }
+			}
+			planet = { is_capital = no }
+			
+		}
+	}
+
+	country_modifier = {
+		pop_amenities_usage_mult = -0.15
+		planet_jobs_unity_produces_mult = 0.25
+		pop_citizen_happiness = 0.05
+	}
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 1
+		job_culture_worker_per_pop = 0.08
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			exotic_gases = 150
+		}
+		upkeep = {
+			energy = 5
+			exotic_gases = 4
+		}
+	}
+
+}
+
+
+building_megumin_empire_safety = {#帝国安全总局
+	base_buildtime = @b2_time
+	position_priority = 5
+	category = government
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+
+		exists = planet
+		planet = { is_capital = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		owner = { has_ascension_perk = ap_imperial_prerogative }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+
+	}
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { is_regular_empire = no }
+			}
+			planet = { is_capital = no }
+			
+		}
+	}
+
+	country_modifier = {
+		planet_crime_mult = -0.1
+		planet_crime_add = -50
+		intel_decryption_add = 2
+		intel_encryption_add = 2
+		add_base_country_intel = 10
+	}
+	planet_modifier = {
+		job_enforcer_per_pop = 0.04
+		planet_crime_mult = -0.5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			rare_crystals = 150
+		}
+		upkeep = {
+			energy = 5
+			rare_crystals = 4
+		}
+	}
+}
+
+building_clone_vats = {
+	base_buildtime = @b1_time
+	category = pop_assembly
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = { has_tradition = tr_genetics_adopt }
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			owner = { is_ai = no }
+			NOT = { exists = assembling_species }
+			assembling_species = { is_organic_species = yes }
+		}
+		OR = {
+			owner = { is_ai = no }
+			NAND = {
+				free_district_slots = 0
+				free_building_slots <= 1
+				free_housing <= 0
+				free_jobs <= 0
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				owner = { is_ai = yes }
+				free_district_slots = 0
+				free_building_slots = 0
+				free_housing <= 0
+				free_jobs <= 0
+			}
+			NOT = { owner = { has_ascension_perk = ap_engineered_evolution } }
+		}
+	}
+	position_priority = 1
+	planet_modifier = {
+		planet_pop_assembly_organic_add = 3
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_genetics_efficient_cloning }
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 1.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_ascension_perk = ap_engineered_evolution			
+			}
+		}
+		planet_pop_assembly_organic_add = 1.5
+	}
+	resources = {
+		category = planet_buildings
+
+		# Base cost
+		cost = {
+			minerals = 500
+		}
+		# Org/Lith cost
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			food = 500
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			energy = 500
+		}
+
+		# Base upkeep
+		upkeep = {
+			energy = 2
+		}
+		# Org/Lith upkeep
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			food = 30
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			minerals = 30
+		}
+	}
+	
+	triggered_desc = {
+		trigger = {
+			OR = {
+				has_building = building_robot_assembly_plant
+				AND = {
+					exists = assembling_species
+					assembling_species = { is_robotic_species = yes }
+				}
+			}
+		}
+		text = tooltip_organic_and_artificial_assembly_warning
+	}
+}
+

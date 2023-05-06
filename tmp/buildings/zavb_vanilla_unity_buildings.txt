@@ -1,0 +1,427 @@
+#############
+# Unity buildings
+#############
+
+# Regular empire
+building_hypercomms_forum_override = {
+	base_buildtime = 600
+	can_build = no
+	icon = building_hypercomms_forum
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_gestalt = no
+			is_spiritualist = no
+			is_megacorp = no
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+			owner = {
+				OR = {
+					is_gestalt = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_sacred_nexus_override
+		building_hive_confluence_override
+		building_simulation_3_override
+		building_corporate_forum_override
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 8
+			rare_crystals = 2
+		}
+	}
+
+	planet_modifier = {
+		job_culture_worker_add = 8
+	}
+
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+
+	show_tech_unlock_if = {
+		is_gestalt = no
+		is_spiritualist = no
+		is_megacorp = no
+	}
+
+	triggered_desc = {
+		text = job_culture_worker_effect_desc
+	}
+	
+	upgrades = {
+		"building_avb_unity_monument_4"
+	}
+}
+
+# Spiritualists
+building_sacred_nexus_override = {
+	base_buildtime = 600
+	can_build = no
+	icon = building_sacred_nexus
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = { is_spiritualist = yes }
+		NOT = { has_modifier = slave_colony }
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_spiritualist = no }
+			buildings_no_crystals = yes
+			has_modifier = slave_colony
+		}
+	}
+
+	convert_to = {
+		building_hypercomms_forum_override
+		building_hive_confluence_override
+		building_simulation_3_override
+		building_corporate_forum_override
+	}
+
+	planet_modifier = {
+		job_priest_add = 7
+		pop_ethic_spiritualist_attraction_mult = 0.15
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 8
+			rare_crystals = 2
+		}
+	}
+
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	triggered_desc = {
+		text = job_priest_effect_desc
+	}
+	
+	upgrades = {
+		"building_avb_temple_4"
+	}
+}
+
+# Hive Minds
+building_hive_confluence_override = {
+	base_buildtime = 600
+	can_build = no
+	icon = building_hive_confluence
+
+	category = unity
+	
+	potential = {
+		exists = owner
+		owner = { 
+			is_hive_empire = yes
+		}					
+	}
+	
+	allow = {
+		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+		buildings_no_crystals = yes
+	}
+	
+	convert_to = {
+		building_sacred_nexus_override
+		building_system_conflux
+		building_hypercomms_forum_override
+		building_corporate_forum_override
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 50
+		}
+		upkeep = {
+			energy = 8
+			rare_crystals = 2
+		}		
+	}
+	
+	planet_modifier = {
+		job_synapse_drone_add = 8
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_swapped_tradition = tr_domination_synaptic_extensions
+			}					
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}	
+	
+	prerequisites = {
+		"tech_hive_confluence"
+	}	
+	
+	triggered_desc = {
+		text = job_synapse_drone_effect_desc
+	}
+	
+	upgrades = {
+		"building_avb_hive_unity_monument_4"
+	}
+
+	on_queued = {
+		planet = {
+			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
+		}
+	}
+}
+
+# Machine Empires
+building_simulation_3_override = {
+	base_buildtime = 600
+	can_build = no
+	icon = building_citadel_of_faith
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					is_machine_empire = no
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+			buildings_no_crystals = yes
+		}
+	}
+
+	convert_to = {
+		building_sacred_nexus_override
+		building_hive_confluence_override
+		building_hypercomms_forum_override
+		building_corporate_forum_override
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 8
+			rare_crystals = 2
+		}
+	}
+
+	planet_modifier = {
+		job_evaluator_add = 8
+	}
+
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+
+	show_tech_unlock_if = {
+		is_machine_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_evaluator_effect_desc
+	}
+
+	upgrades = {
+		"building_avb_machine_unity_monument_4"
+	}
+} 
+
+# Servitors
+building_organic_paradise_override = {
+	base_buildtime = 480
+	can_build = no
+	icon = building_paradise_dome
+
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_machine_servitor }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		NOT = { owner = { has_valid_civic = civic_machine_servitor } }
+	}
+
+	convert_to = {
+		building_paradise_dome_override
+		building_communal_housing_large_override
+	}
+
+	planet_modifier = {
+		#planet_housing_add = 20
+		job_bio_trophy_add = 20
+		job_maintenance_drone_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+			exotic_gases = 50
+		}
+		upkeep = {
+			energy = 5
+			exotic_gases = 1
+		}
+	}
+
+	prerequisites = { "tech_paradise_dome" }
+
+	upgrades = {
+		"building_avb_organic_sanctuary_3"
+	}
+	
+	show_tech_unlock_if = {
+		owner = { has_valid_civic = civic_machine_servitor }
+	}
+}
+
+# Megacorps
+building_corporate_forum_override = {
+	base_buildtime = 600
+	can_build = no
+	icon = building_hypercomms_forum
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_megacorp = yes
+			is_spiritualist = no
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					is_megacorp = no
+					is_spiritualist = yes
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_sacred_nexus_override
+		building_hive_confluence_override
+		building_hypercomms_forum_override
+		building_simulation_3_override
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 8
+			rare_crystals = 2
+		}
+	}
+
+	planet_modifier = {
+		job_manager_add = 8
+	}
+
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+
+	upgrades = {
+		"building_avb_corporate_monument_4"
+	}
+	
+	show_tech_unlock_if = {
+		is_megacorp = yes
+	}
+
+	triggered_desc = {
+		text = job_manager_effect_desc
+	}
+}

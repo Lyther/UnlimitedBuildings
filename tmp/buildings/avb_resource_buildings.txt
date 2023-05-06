@@ -1,0 +1,1430 @@
+#############
+# Resource buildings
+#############
+
+building_avb_hydroponics_farm_2 = {
+	base_buildtime = 720
+	can_build = no
+
+	category = resource
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				country_uses_food = yes
+				is_ai = no
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			planet = {
+				NOT = { is_planet_class = pc_habitat }
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = food
+						value > 100
+					}
+				}
+			}
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_farmer_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+			has_active_building = building_food_processing_center
+		}
+		modifier = {
+			job_farmer_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_farm_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+			has_active_building = building_food_processing_center
+		}
+		modifier = {
+			job_fe_acolyte_farm_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_origin = origin_void_dwellers }
+		}
+		modifier = {
+			job_farmer_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_agri_drone_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			has_active_building = building_food_processing_center
+		}
+		modifier = {
+			job_agri_drone_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_agri_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_farmer_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_farm_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_avb_hydroponics_2"
+	}
+
+	ai_resource_production = {
+		food = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+building_avb_food_processing_3 = {
+	base_buildtime = 640
+	can_build = no
+	category = resource
+		
+	planet_modifier = {
+		planet_farmers_food_produces_mult = 0.35
+	}
+	
+	allow = {
+		exists = owner
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					country_uses_food = no
+				}
+			}
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+			buildings_no_motes = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_farmer_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_farm_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_agri_drone_add = 2
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			volatile_motes = 100
+		}
+		upkeep = {
+			energy = 4
+			volatile_motes = 4
+		}
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_food_processing_center_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_food_processing_center_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_agri_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_farmer_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_farm_effect_desc
+	}
+	
+	upgrades = {
+		building_avb_food_processing_4
+	}
+	
+	prerequisites = {
+		"tech_avb_food_processing_3"
+	}	
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 30
+			buildings_has_motes = yes
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 6
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		food = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = food
+				value >= 24
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		food = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = food
+				value >= 48
+				type = produces
+			}
+		}
+	}
+}
+
+building_avb_food_processing_4 = {
+	base_buildtime = 1000
+	can_build = no
+	category = resource
+		
+	planet_modifier = {
+		planet_farmers_food_produces_mult = 0.45
+	}
+	
+	allow = {
+		exists = owner
+		has_upgraded_capital_4 = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+					country_uses_food = no
+				}
+			}
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+			buildings_no_motes = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_farmer_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_farm_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_agri_drone_add = 2
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			volatile_motes = 150
+		}
+		upkeep = {
+			energy = 8
+			volatile_motes = 8
+		}
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_food_processing_center_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_food_processing_center_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_agri_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_farmer_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_farm_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_avb_food_processing_4"
+	}	
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 30
+			buildings_has_motes = yes
+		}
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 50
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		food = 6
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		food = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = food
+				value >= 24
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		food = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = food
+				value >= 48
+				type = produces
+			}
+		}
+	}
+}
+
+building_avb_mineral_purification_3 = {
+	base_buildtime = 640
+	can_build = no
+	category = resource
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			buildings_no_motes = yes
+		}
+	}
+		
+	planet_modifier = {
+		planet_miners_minerals_produces_mult = 0.35
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_miner_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_mine_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_mining_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+		}
+		modifier = {
+			planet_miners_minerals_produces_mult = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+			NOR  = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_machine
+				is_planet_class = pc_hive
+				is_planet_class = pc_city
+			}
+		}
+		modifier = {
+			district_mining_max = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			volatile_motes = 100
+		}
+		cost = {
+			trigger = {
+				owner = { 
+					is_robot_empire = yes
+				}
+			}
+			minerals = 600
+			alloys = 250
+		}
+		upkeep = {
+			energy = 4
+			volatile_motes = 4
+		}
+	}
+	
+	upgrades = {
+		building_avb_mineral_purification_4
+	}
+	
+	prerequisites = {
+		"tech_avb_mineral_purification_3"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			OR = {
+				uses_district_set = standard
+				uses_district_set = hive_world
+				uses_district_set = machine_world
+			}
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_mineral_purification_hub_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_mineral_purification_hub_habitat_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			OR = {
+				uses_district_set = standard
+				uses_district_set = hive_world
+				uses_district_set = machine_world
+			}
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_mineral_purification_hub_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_mineral_purification_hub_habitat_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_mining_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_miner_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_mine_effect_desc
+	}
+
+	ai_resource_production = {
+		minerals = 6
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		minerals = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = minerals
+				value >= 24
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		minerals = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = minerals
+				value >= 48
+				type = produces
+			}
+		}
+	}
+}
+
+building_avb_mineral_purification_4 = {
+	base_buildtime = 1000
+	can_build = no
+	category = resource
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+		
+	planet_modifier = {
+		planet_miners_minerals_produces_mult = 0.45
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_miner_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_mine_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_mining_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+		}
+		modifier = {
+			planet_miners_minerals_produces_mult = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+			NOR  = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_machine
+				is_planet_class = pc_hive
+				is_planet_class = pc_city
+			}
+		}
+		modifier = {
+			district_mining_max = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			volatile_motes = 100
+		}
+		cost = {
+			trigger = {
+				owner = { 
+					is_robot_empire = yes
+				}
+			}
+			minerals = 1000
+			alloys = 500
+		}
+		upkeep = {
+			energy = 8
+			volatile_motes = 6
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_mineral_purification_4"
+	}
+	triggered_desc = {
+		trigger = {
+			OR = {
+				uses_district_set = standard
+				uses_district_set = hive_world
+				uses_district_set = machine_world
+			}
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_mineral_purification_hub_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_mineral_purification_hub_habitat_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			OR = {
+				uses_district_set = standard
+				uses_district_set = hive_world
+				uses_district_set = machine_world
+			}
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_mineral_purification_hub_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_mineral_purification_hub_habitat_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_mining_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_miner_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_mine_effect_desc
+	}
+
+	ai_resource_production = {
+		minerals = 6
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		minerals = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = minerals
+				value >= 24
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		minerals = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = minerals
+				value >= 48
+				type = produces
+			}
+		}
+	}
+}
+
+building_avb_energy_grid_3 = {
+	base_buildtime = 640
+	can_build = no
+	category = resource
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+	
+	planet_modifier = {
+		planet_technician_energy_produces_mult = 0.35
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_technician_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_generator_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_technician_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+		}
+		modifier = {
+			planet_technician_energy_produces_mult = 0.05
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+			NOR  = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_machine
+				is_planet_class = pc_hive
+				is_planet_class = pc_city
+			}
+		}
+		modifier = {
+			district_generator_max = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			exotic_gases = 100
+		}
+		cost = {
+			trigger = {
+				owner = { 
+					is_robot_empire = yes
+				}
+			}
+			minerals = 500
+			alloys = 250
+		}
+		upkeep = {
+			energy = 4
+			exotic_gases = 4
+		}
+	}	
+	
+	upgrades = {
+		building_avb_energy_grid_4
+	}
+	
+	prerequisites = {
+		"tech_avb_power_hub_3"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_energy_nexus_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_energy_nexus_habitat_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_energy_nexus_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_energy_nexus_gestalt_habitat_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_technician_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_generator_effect_desc
+	}
+
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = energy
+				value >= 24
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = energy
+				value >= 48
+				type = produces
+			}
+		}
+	}
+}
+
+building_avb_energy_grid_4 = {
+	base_buildtime = 1000
+	can_build = no
+	category = resource
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	planet_modifier = {
+		planet_technician_energy_produces_mult = 0.45
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_technician_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_generator_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_technician_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+		}
+		modifier = {
+			planet_technician_energy_produces_mult = 0.05
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_robot_empire = yes
+			}
+			NOR  = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_machine
+				is_planet_class = pc_hive
+				is_planet_class = pc_city
+			}
+		}
+		modifier = {
+			district_generator_max = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			exotic_gases = 150
+		}
+		cost = {
+			trigger = {
+				owner = { 
+					is_robot_empire = yes
+				}
+			}
+			minerals = 1000
+			alloys = 500
+		}
+		upkeep = {
+			energy = 8
+			exotic_gases = 6
+		}
+	}	
+	
+	prerequisites = {
+		"tech_avb_power_hub_4"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_energy_nexus_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = building_energy_nexus_habitat_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_energy_nexus_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			uses_district_set = habitat
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = building_energy_nexus_gestalt_habitat_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_technician_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_generator_effect_desc
+	}
+
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = energy
+				value >= 24
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = energy
+				value >= 48
+				type = produces
+			}
+		}
+	}
+}
+
+building_avb_resource_silo_2 = {
+	base_buildtime = 1000
+	can_build = no
+
+	category = resource
+	
+	potential = {
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony 
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+		buildings_simple_allow = yes
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_clerk_add = 6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+		}
+		upkeep = {
+			energy = 4
+		}		
+	}
+	
+	country_modifier = {
+		country_resource_max_add = 10000
+	}
+	
+	prerequisites = {
+		"tech_mining_3"
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_clerk_effect_desc
+	}
+}
+
+building_avb_bio_reactor_2 = {
+	base_buildtime = 960
+	can_build = no
+
+	category = resource
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_machine_empire = yes 
+				is_mechanical_empire = yes
+				is_lithoid_empire = yes
+			}
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { NOT = { has_deficit = food } }
+			}
+			energy = 80
+		}		
+		upkeep = {
+			food = 100
+		}
+	}	
+	
+	prerequisites = {
+		"tech_avb_bio_reactor_2"
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_reactor_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_reactor_building days = 390 } }
+		}
+		ELSE = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_reactor_building days = 510 } }
+			}
+		}
+	}
+}

@@ -1,0 +1,1418 @@
+#############
+# Amenities buildings
+#############
+building_avb_residence_3 = {
+	base_buildtime = 600
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		has_building = building_paradise_dome_override
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				has_planet_flag = advanced_habitat
+				exists = owner
+				owner = {
+					has_ascension_perk = ap_voidborn
+				}
+			}
+		}
+	}
+
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = { has_valid_civic = civic_shared_burden }
+			buildings_no_crystals = yes
+			has_modifier = slave_colony
+		}
+	}
+	
+	convert_to = {
+		building_organic_paradise
+		building_avb_drone_storage_3
+		building_avb_warren_3
+		building_avb_communal_housing_3
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 12
+		planet_amenities_add = 20
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 6
+			rare_crystals = 2
+		}
+	}
+	
+	upgrades = {
+		"building_avb_residence_4"
+	}
+	
+	prerequisites = {
+		"tech_avb_residence_3"
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { 
+			is_regular_empire = yes
+			NOT = { has_valid_civic = civic_shared_burden }
+		}
+	}
+}
+
+building_avb_residence_4 = {
+	base_buildtime = 1200
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		has_building = building_avb_residence_3
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				has_planet_flag = advanced_habitat
+				exists = owner
+				owner = {
+					has_ascension_perk = ap_voidborn
+				}
+			}
+		}
+	}
+
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = { has_valid_civic = civic_shared_burden }
+			buildings_no_crystals = yes
+			has_modifier = slave_colony
+		}
+	}
+	
+	convert_to = {
+		building_organic_paradise
+		building_avb_drone_storage_4
+		building_avb_warren_4
+		building_avb_communal_housing_4
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 24
+		planet_amenities_add = 35
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			rare_crystals = 150
+		}
+		upkeep = {
+			energy = 12
+			rare_crystals = 3
+		}
+	}
+	
+	upgrades = {
+		"building_avb_residence_5"
+	}
+	
+	prerequisites = {
+		"tech_avb_residence_4"
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { 
+			is_regular_empire = yes
+			NOT = { has_valid_civic = civic_shared_burden }
+		}
+	}
+}
+
+building_avb_residence_5 = {
+	base_buildtime = 2400
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		has_building = building_avb_residence_4
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				has_planet_flag = advanced_habitat
+				exists = owner
+				owner = {
+					has_ascension_perk = ap_voidborn
+				}
+			}
+		}
+	}
+
+	allow = {
+		has_upgraded_capital_6 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			owner = { has_valid_civic = civic_shared_burden }
+			buildings_no_crystals = yes
+			has_modifier = slave_colony
+		}
+	}
+	
+	convert_to = {
+		building_organic_paradise
+		building_avb_drone_storage_4
+		building_avb_warren_4
+		building_avb_communal_housing_4
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 40
+		planet_amenities_add = 60
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 4000
+			rare_crystals = 200
+		}
+		upkeep = {
+			energy = 18
+			rare_crystals = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_residence_5"
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { 
+			is_regular_empire = yes
+			NOT = { has_valid_civic = civic_shared_burden }
+		}
+	}
+}
+
+building_avb_communal_housing_3 = {
+	base_buildtime = 600
+	can_build = no
+
+	category = amenity
+
+	potential = {
+		has_building = building_communal_housing_large_override
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				has_planet_flag = advanced_habitat
+				exists = owner
+				owner = {
+					has_ascension_perk = ap_voidborn
+				}
+			}
+		}
+	}	
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { 
+			is_regular_empire = yes
+			has_valid_civic = civic_shared_burden
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+
+	show_tech_unlock_if = {
+		owner = {
+			is_regular_empire = yes
+			has_valid_civic = civic_shared_burden
+		}
+	}
+	
+	convert_to = {
+		building_avb_warren_3
+		building_avb_drone_storage_3
+		building_avb_residence_3
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 20
+		planet_amenities_add = 12
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 6
+			rare_crystals = 2
+		}
+	}
+	
+	upgrades = {
+		"building_avb_communal_housing_4"
+	}
+	
+	prerequisites = {
+		"tech_avb_residence_3"
+	}
+}
+
+building_avb_communal_housing_4 = {
+	base_buildtime = 1200
+	can_build = no
+
+	category = amenity
+
+	potential = {
+		has_building = building_avb_communal_housing_3
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				has_planet_flag = advanced_habitat
+				exists = owner
+				owner = {
+					has_ascension_perk = ap_voidborn
+				}
+			}
+		}
+	}	
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { 
+			is_regular_empire = yes
+			has_valid_civic = civic_shared_burden
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+
+	show_tech_unlock_if = {
+		owner = {
+			is_regular_empire = yes
+			has_valid_civic = civic_shared_burden
+		}
+	}
+	
+	convert_to = {
+		building_avb_drone_storage_4
+		building_avb_warren_4
+		building_avb_residence_4
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 35
+		planet_amenities_add = 24
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			rare_crystals = 150
+		}
+		upkeep = {
+			energy = 12
+			rare_crystals = 3
+		}
+	}
+	
+	upgrades = {
+		"building_avb_communal_housing_5"
+	}
+	
+	prerequisites = {
+		"tech_avb_residence_4"
+	}
+}
+
+building_avb_communal_housing_5 = {
+	base_buildtime = 2400
+	can_build = no
+
+	category = amenity
+
+	potential = {
+		has_building = building_avb_communal_housing_4
+		OR = {
+			NOT = { is_planet_class = pc_habitat }
+			AND = {
+				has_planet_flag = advanced_habitat
+				exists = owner
+				owner = {
+					has_ascension_perk = ap_voidborn
+				}
+			}
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital_6 = yes
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { 
+			is_regular_empire = yes
+			has_valid_civic = civic_shared_burden
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+
+	show_tech_unlock_if = {
+		owner = {
+			is_regular_empire = yes
+			has_valid_civic = civic_shared_burden
+		}
+	}
+	
+	convert_to = {
+		building_avb_drone_storage_4
+		building_avb_warren_4
+		building_avb_residence_4
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 60
+		planet_amenities_add = 40
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 4000
+			rare_crystals = 200
+		}
+		upkeep = {
+			energy = 18
+			rare_crystals = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_residence_5"
+	}
+}
+
+#Machine housing
+building_avb_drone_storage_3 = {
+	base_buildtime = 600
+	can_build = no
+
+	category = amenity
+
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_machine_empire = no }
+			buildings_no_crystals = yes
+		}
+	}
+	
+	convert_to = {
+		building_avb_residence_3
+		building_avb_warren_3
+		building_avb_communal_housing_3
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 16
+		planet_amenities_add = 12
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 6
+			rare_crystals = 2
+		}
+	}
+	
+	upgrades = {
+		"building_avb_drone_storage_4"
+	}
+	
+	prerequisites = {
+		"tech_self_assembling_components" 
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_drone_storage_4 = {
+	base_buildtime = 1200
+	can_build = no
+
+	category = amenity
+
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_machine_empire = no }
+			buildings_no_crystals = yes
+		}
+	}
+	
+	convert_to = {
+		building_avb_residence_4
+		building_avb_warren_4
+		building_avb_communal_housing_4
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 32
+		planet_amenities_add = 24
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			rare_crystals = 150
+		}
+		upkeep = {
+			energy = 10
+			rare_crystals = 4
+		}
+	}
+	
+	
+	prerequisites = {
+		"tech_avb_self_assembling_components_2" 
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
+}
+
+#Hive housing
+building_avb_warren_3 = {
+	base_buildtime = 600
+	can_build = no
+	
+	category = amenity
+	
+	potential = {
+		exists = owner
+		owner = { is_hive_empire = yes }
+	}
+
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { is_hive_empire = yes }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		buildings_no_crystals = yes
+	}
+	
+	convert_to = {
+		building_avb_residence_3
+		building_avb_drone_storage_3
+		building_avb_communal_housing_3
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 24
+		job_maintenance_drone_add = 4
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 6
+			rare_crystals = 2
+		}
+	}
+	
+	upgrades = {
+		"building_avb_warren_4"
+	}
+	
+	prerequisites = {
+		"tech_avb_housing_3" 
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_warren_4 = {
+	base_buildtime = 1200
+	can_build = no
+	
+	category = amenity
+	
+	potential = {
+		exists = owner
+		owner = { is_hive_empire = yes }
+	}
+
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	show_tech_unlock_if = { 
+		owner = { is_hive_empire = yes }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		buildings_no_crystals = yes
+	}
+	
+	convert_to = {
+		building_avb_residence_4
+		building_avb_drone_storage_4
+		building_avb_communal_housing_4
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 48
+		job_maintenance_drone_add = 8
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_non_swapped_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 10
+			rare_crystals = 4
+		}
+	}
+	
+	
+	prerequisites = {
+		"tech_avb_housing_4" 
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_holo_theatre_3 = {
+	base_buildtime = 600
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		NOT = {	has_modifier = slave_colony	}
+		owner = { is_regular_empire = yes }
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_exotic_gases = yes
+		}
+	}
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}					
+		}
+		modifier = {
+			job_entertainer_add = 8
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}					
+		}
+		modifier = {
+			job_duelist_add = 8
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = 100
+		}
+		upkeep = {
+			energy = 10
+			exotic_gases = 2
+		}
+	}
+	
+	upgrades = {
+		"building_avb_holo_theatre_4"
+	}
+	
+	prerequisites = {
+		"tech_avb_holo_entertainment_3"
+	}
+	
+	triggered_desc = {		
+		trigger = {
+			exists = owner
+			owner = { 
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		text = job_entertainer_effect_desc
+	}
+	
+	triggered_desc = {		
+		trigger = {
+			exists = owner
+			owner = { 
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = job_duelist_effect_desc
+	}
+	
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_holo_theatre_4 = {
+	base_buildtime = 1200
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_exotic_gases = yes
+		}
+	}	
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}					
+		}
+		modifier = {
+			job_entertainer_add = 16
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}					
+		}
+		modifier = {
+			job_duelist_add = 16
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			exotic_gases = 150
+		}
+		upkeep = {
+			energy = 14
+			exotic_gases = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_holo_entertainment_4"
+	}
+	
+	triggered_desc = {		
+		trigger = {
+			exists = owner
+			owner = { 
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		text = job_entertainer_effect_desc
+	}
+	
+	triggered_desc = {		
+		trigger = {
+			exists = owner
+			owner = { 
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = job_duelist_effect_desc
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_clinic_3 = {
+	base_buildtime = 600
+	can_build = no
+	
+	category = amenity
+	
+	potential = {
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+		building_basic_income_check = yes
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_exotic_gases = yes
+			AND = {
+				buildings_stop_pop = yes
+				owner = { is_ai = yes }
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_healthcare_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			exotic_gases = 100
+		}
+		upkeep = {
+			energy = 4
+			exotic_gases = 2
+		}
+	}
+	
+	upgrades = {
+		"building_avb_clinic_4"
+	}
+	
+	prerequisites = {
+		"tech_avb_clinic_3"
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_healthcare_effect_desc
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_clinic_4 = {
+	base_buildtime = 1200
+	can_build = no
+	
+	category = amenity
+	
+	potential = {
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+		building_basic_income_check = yes
+	}
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_exotic_gases = yes
+			AND = {
+				buildings_stop_pop = yes
+				owner = { is_ai = yes }
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_healthcare_add = 20
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+			exotic_gases = 150
+		}
+		upkeep = {
+			energy = 8
+			exotic_gases = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_clinic_4"
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_healthcare_effect_desc
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
+		}
+	}
+}
+
+building_avb_maintenance_depot_2 = {
+	base_buildtime = 800
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		owner = { is_gestalt = yes }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_gestalt = no }
+			AND = {
+				owner = { is_ai = yes }
+				free_amenities > 30
+				free_building_slots = 0
+			}
+		}
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	planet_modifier = {
+		job_maintenance_drone_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	triggered_desc = {
+		text = job_maintenance_drone_effect_desc
+	}
+}
+
+building_avb_spawning_pool_2 = {
+	base_buildtime = 800
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		owner = { is_hive_empire = yes }
+		or = {
+			num_buildings = { type = any value < 15 }
+			owner = { is_ai = no }
+		}
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+	
+	planet_modifier = {
+		job_spawning_drone_add = 4
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			exotic_gases = 50
+			volatile_motes = 25
+		}
+		upkeep = {
+			energy = 4
+			exotic_gases = 2
+			volatile_motes = 1
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_spawning_pool_2"
+	}
+	
+	triggered_desc = {
+		text = job_spawning_drone_effect_desc
+	}	
+}
+
+building_avb_slave_huts_2 = {
+	base_buildtime = 800
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		has_modifier = slave_colony
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			NOT = { has_modifier = slave_colony }
+		}
+	}
+		
+	planet_modifier = {
+		planet_housing_add = 16
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}	
+	
+	prerequisites = {
+		"tech_avb_slave_huts_2"
+	}
+}
+
+building_avb_overseer_homes_2 = {
+	base_buildtime = 800
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		has_modifier = slave_colony
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			NOT = { has_modifier = slave_colony }
+		}
+	}
+		
+	planet_modifier = {
+		planet_housing_add = 4
+		job_slave_overseer_add = 4
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}	
+}

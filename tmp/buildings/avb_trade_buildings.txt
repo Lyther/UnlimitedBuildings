@@ -1,0 +1,320 @@
+
+#############
+# Trade buildings
+#############
+building_avb_commercial_3 = {
+	base_buildtime = 600
+	can_build = no
+
+	category = trade
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+	
+	planet_modifier = {
+		job_merchant_add = 1
+		job_clerk_add = 15
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 100
+		}	
+		upkeep = {
+			energy = 4
+			rare_crystals = 2
+		}		
+	}
+	
+	upgrades = {
+		building_avb_commercial_4
+	}
+	
+	prerequisites = {
+		"tech_avb_interstellar_economics_2"
+	}
+	
+	show_tech_unlock_if = { 
+		is_regular_empire = yes
+	}
+	
+	triggered_desc = {
+		text = job_clerk_effect_desc
+	}
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+	
+	ai_resource_production = {
+		energy = 4
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			OR = {
+				num_unemployed >= 10
+				num_assigned_jobs = {
+					job = servant
+					value >= 10
+				}
+			}
+		}
+	}
+}
+
+building_avb_commercial_4 = {
+	base_buildtime = 720
+	can_build = no
+
+	category = trade
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+	
+	planet_modifier = {
+		job_merchant_add = 2
+		job_clerk_add = 20
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 150
+		}	
+		upkeep = {
+			energy = 6
+			rare_crystals = 3
+		}		
+	}
+	
+	upgrades = {
+		building_avb_commercial_5
+	}
+	
+	prerequisites = {
+		"tech_avb_interstellar_economics_3"
+	}
+	
+	show_tech_unlock_if = { 
+		is_regular_empire = yes
+	}
+	
+	triggered_desc = {
+		text = job_clerk_effect_desc
+	}
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+	
+	ai_resource_production = {
+		energy = 4
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			OR = {
+				num_unemployed >= 10
+				num_assigned_jobs = {
+					job = servant
+					value >= 10
+				}
+			}
+		}
+	}
+}
+
+building_avb_commercial_5 = {
+	base_buildtime = 840
+	can_build = no
+
+	category = trade
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+	
+	planet_modifier = {
+		job_merchant_add = 3
+		job_clerk_add = 25
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1200
+			rare_crystals = 200
+		}	
+		upkeep = {
+			energy = 8
+			rare_crystals = 4
+		}		
+	}
+	
+	prerequisites = {
+		"tech_avb_interstellar_economics_4"
+	}
+	
+	show_tech_unlock_if = { 
+		is_regular_empire = yes
+	}
+	
+	triggered_desc = {
+		text = job_clerk_effect_desc
+	}
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+	
+	ai_resource_production = {
+		energy = 4
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		energy = 6
+		trigger = {
+			OR = {
+				num_unemployed >= 10
+				num_assigned_jobs = {
+					job = servant
+					value >= 10
+				}
+			}
+		}
+	}
+}
+
+building_avb_galactic_stock_exchange_2 = {
+	base_buildtime = 960	
+	can_build = no
+
+	category = trade
+	
+	potential = {
+		NOT = { has_modifier = resort_colony }	
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+			buildings_no_crystals = yes
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+		buildings_simple_allow = yes
+	}
+	
+	planet_modifier = {
+		job_merchant_add = 4
+		trade_value_mult = 0.40
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 100
+		}
+		upkeep = {
+			energy = 10
+			rare_crystals = 2
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_galactic_markets_2"
+	}
+	
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+	
+	ai_resource_production = {
+		energy = 3
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		energy = 5
+		trigger = {
+			solar_system = {
+				has_system_trade_value >= 50
+			}
+		}
+	}
+	ai_resource_production = {
+		energy = 3
+		trigger = {
+			solar_system = {
+				has_system_trade_value >= 80
+			}
+		}
+	}
+}

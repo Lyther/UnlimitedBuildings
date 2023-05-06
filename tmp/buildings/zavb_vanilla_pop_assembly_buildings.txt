@@ -1,0 +1,190 @@
+#############
+# Machine buildings
+#############
+#
+building_robot_assembly_plant = {
+	base_buildtime = 360
+	base_cap_amount = 1
+	#icon = building_robot_assembly_plant
+	#can_build = no
+
+	category = pop_assembly
+	
+	potential = {
+		exists = owner
+		OR = {
+			owner = { is_ai = no }
+			free_building_slots > 0
+		}
+		owner = { 
+			is_regular_empire = yes 
+			NOT = { has_policy_flag = robots_outlawed }
+			OR = {
+				is_ai = no
+				NOT = { has_ascension_perk = ap_engineered_evolution }
+				is_materialist = yes
+			}
+		}
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	convert_to = {
+		building_machine_assembly_plant
+	}
+	
+	allow = {
+		hidden_trigger = {
+			OR = {
+				owner = { is_ai = no }
+				AND = {
+					num_buildings = { type = any value <= 14 }
+					NOT = { is_planet_class = pc_habitat }
+				}
+			}
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					is_regular_empire = no 
+					has_policy_flag = robots_outlawed
+				}
+			}
+			has_modifier = slave_colony
+			AND = {
+				owner = { is_ai = yes }
+				free_jobs < 1
+				OR = {
+					num_buildings = {
+						type = any
+						value = 16
+					}
+					is_planet_class = pc_habitat
+				}
+			}
+			owner = {
+				is_ai = yes
+				has_ascension_perk = ap_engineered_evolution
+				is_materialist = no
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_roboticist_add = 1
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+	
+	triggered_desc = {
+		text = job_roboticist_effect_desc
+	}	
+	triggered_desc = {
+		trigger = {
+			has_building = building_clone_vats
+		}
+		text = tooltip_organic_and_artificial_assembly_warning
+	}	
+	
+	prerequisites = {
+		"tech_robotic_workers"
+	}
+	
+	upgrades = {
+		building_avb_robot_assembly_plant_2
+		building_robot_techno_plant
+	}
+}
+
+#############
+# Machine buildings
+#############
+#
+building_machine_assembly_complex = {
+	base_buildtime = @b3_time
+	can_build = no
+	#icon = building_machine_assembly_complex
+
+	category = pop_assembly
+	
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+	
+	convert_to = {
+		#building_robot_assembly_plant_override
+		building_robot_assembly_plant
+	}
+	
+	allow = {
+		hidden_trigger = {
+			OR = {
+				owner = { is_ai = no }
+				AND = {
+					num_buildings = { type = any value <= 14 }
+					NOT = { is_planet_class = pc_habitat }
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_crystals = yes
+			owner = {
+				is_robot_empire = no
+			}
+			AND = {
+				owner = { is_ai = yes }
+				free_jobs < 1
+				OR = {
+					num_buildings = { type = any value = 16 }
+					is_planet_class = pc_habitat
+				}
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_replicator_add = 3
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			rare_crystals = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			rare_crystals = @b3_rare_upkeep
+		}
+	}
+
+	prerequisites = {
+		tech_mega_assembly
+	}	
+	
+	upgrades = {
+		building_avb_machine_assembly_plant_2
+		building_eutab_automation_sector
+		building_nanite_assembly_plant
+	}
+	
+	triggered_desc = {
+		text = job_replicator_effect_desc
+	}	
+}

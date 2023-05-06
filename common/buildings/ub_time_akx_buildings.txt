@@ -21,10 +21,20 @@ building_akx_worm_1 = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_energy_produces_mult = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_energy_produces_mult = 0.1
 	}
 
 	upgrades = {
@@ -58,10 +68,24 @@ building_akx_worm_1 = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_akx_worm_1_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_akx_worm_1_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -108,10 +132,20 @@ building_akx_worm_2 = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_unity_produces_mult = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_unity_produces_mult = 0.1
 	}
 	
 	upgrades = {
@@ -145,10 +179,24 @@ building_akx_worm_2 = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_akx_worm_2_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_akx_worm_2_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -193,7 +241,7 @@ building_akx_worm_3 = {
 						# 可触发“时之螶：交流”
 						has_origin = origin_time
 						ruler = {
-							has_trait = leader_trait_ruler_time
+							is_origin_time_ruler = yes
 						}
 					}
 					OR = {
@@ -201,9 +249,7 @@ building_akx_worm_3 = {
 						has_technology = tech_time_blocker_3
 					}
 				}
-				else = {
-					always = yes
-				}
+				NOT = { has_event_chain = TIME_BLACK_HOLE_CHAIN }
 			}
 		}
 	}
@@ -218,12 +264,24 @@ building_akx_worm_3 = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_physics_research_produces_mult = 0.05
 		country_society_research_produces_mult = 0.05
 		country_engineering_research_produces_mult = 0.05
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_physics_research_produces_mult = 0.1
+		country_society_research_produces_mult = 0.1
+		country_engineering_research_produces_mult = 0.1
 	}
 	
 	upgrades = {
@@ -259,10 +317,24 @@ building_akx_worm_3 = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_akx_worm_3_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_akx_worm_3_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -306,10 +378,20 @@ building_wonder_akx_worm_1 = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_energy_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_energy_produces_mult = 0.2
 	}
 
 	prerequisites = {
@@ -343,10 +425,24 @@ building_wonder_akx_worm_1 = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_wonder_akx_worm_1_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_akx_worm_1_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -388,10 +484,20 @@ building_wonder_akx_worm_2 = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_unity_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_unity_produces_mult = 0.2
 	}
 
 	prerequisites = {
@@ -425,10 +531,24 @@ building_wonder_akx_worm_2 = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_wonder_akx_worm_2_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_akx_worm_2_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -472,12 +592,24 @@ building_wonder_akx_worm_3 = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_physics_research_produces_mult = 0.1
 		country_society_research_produces_mult = 0.1
 		country_engineering_research_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_physics_research_produces_mult = 0.2
+		country_society_research_produces_mult = 0.2
+		country_engineering_research_produces_mult = 0.2
 	}
 
 	prerequisites = {
@@ -513,10 +645,24 @@ building_wonder_akx_worm_3 = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_wonder_akx_worm_3_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_akx_worm_3_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -558,10 +704,20 @@ building_wonder_technosphere = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ascension_perk = ap_time
+				has_ascension_perk = ap_horror
 			}
 		}
 		country_sr_dark_matter_produces_mult = 0.1
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_time
+			}
+		}
+		country_sr_dark_matter_produces_mult = 0.2
 	}
 
 	prerequisites = {
@@ -589,10 +745,24 @@ building_wonder_technosphere = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { has_ascension_perk = ap_time }
+				NOR = {
+					has_ascension_perk = ap_horror
+					has_ascension_perk = ap_time
+				}
 			}
 		}
 		text = building_wonder_technosphere_effect
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+				NOT = { has_ascension_perk = ap_time }
+			}
+		}
+		text = building_wonder_technosphere_effect_ap_horror
 	}
 	
 	triggered_desc = {
@@ -652,6 +822,8 @@ building_akx_messenger = {
 	
 	country_modifier = {
 		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_minor_artifacts_add = 1000
+		country_resource_max_add = 2000
 	}
 	
 	triggered_country_modifier = {
@@ -662,6 +834,18 @@ building_akx_messenger = {
 			}
 		}
 		country_minor_artifacts_produces_mult = 0.05
+		country_resource_max_minor_artifacts_add = 1000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.05
+		country_resource_max_add = 1000
 	}
 	
 	triggered_country_modifier = {
@@ -671,7 +855,8 @@ building_akx_messenger = {
 				has_ascension_perk = ap_time
 			}
 		}
-		country_minor_artifacts_produces_mult = 0.05
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_add = 2000
 	}
 	
 	triggered_planet_modifier = {
@@ -803,6 +988,8 @@ building_akx_end_messenger = {
 	
 	country_modifier = {
 		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_minor_artifacts_add = 2000
+		country_resource_max_add = 4000
 	}
 	
 	triggered_country_modifier = {
@@ -813,6 +1000,18 @@ building_akx_end_messenger = {
 			}
 		}
 		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_minor_artifacts_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_add = 2000
 	}
 	
 	triggered_country_modifier = {
@@ -822,7 +1021,8 @@ building_akx_end_messenger = {
 				has_ascension_perk = ap_time
 			}
 		}
-		country_minor_artifacts_produces_mult = 0.1
+		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_add = 4000
 	}
 	
 	triggered_planet_modifier = {
@@ -938,6 +1138,8 @@ building_akx_future_messenger = {
 	
 	country_modifier = {
 		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_minor_artifacts_add = 2000
+		country_resource_max_add = 4000
 	}
 	
 	triggered_country_modifier = {
@@ -948,6 +1150,18 @@ building_akx_future_messenger = {
 			}
 		}
 		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_minor_artifacts_add = 2000
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.1
+		country_resource_max_add = 2000
 	}
 	
 	triggered_country_modifier = {
@@ -957,7 +1171,8 @@ building_akx_future_messenger = {
 				has_ascension_perk = ap_time
 			}
 		}
-		country_minor_artifacts_produces_mult = 0.1
+		country_minor_artifacts_produces_mult = 0.2
+		country_resource_max_add = 4000
 	}
 	
 	triggered_planet_modifier = {
@@ -1092,6 +1307,8 @@ building_akx_horror_messenger = {
 	
 	country_modifier = {
 		country_minor_artifacts_produces_mult = 0.25
+		country_resource_max_minor_artifacts_add = 2500
+		country_resource_max_add = 5000
 	}
 	
 	triggered_country_modifier = {
@@ -1102,6 +1319,18 @@ building_akx_horror_messenger = {
 			}
 		}
 		country_minor_artifacts_produces_mult = 0.125
+		country_resource_max_minor_artifacts_add = 2500
+	}
+	
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_ascension_perk = ap_horror
+			}
+		}
+		country_minor_artifacts_produces_mult = 0.125
+		country_resource_max_add = 2500
 	}
 	
 	triggered_country_modifier = {
@@ -1111,7 +1340,8 @@ building_akx_horror_messenger = {
 				has_ascension_perk = ap_time
 			}
 		}
-		country_minor_artifacts_produces_mult = 0.125
+		country_minor_artifacts_produces_mult = 0.25
+		country_resource_max_add = 5000
 	}
 	
 	triggered_planet_modifier = {

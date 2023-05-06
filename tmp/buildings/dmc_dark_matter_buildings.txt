@@ -1,0 +1,75 @@
+building_micro_black_hole = {
+	base_buildtime = 600
+	base_cap_amount = 1
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = {
+			NOT = {
+				has_technology = tech_dark_matter_synthersizer
+			}
+		}
+	}
+
+	convert_to = {
+		building_dark_matter_synthersizer
+	}
+	
+	country_modifier = {	
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			sr_dark_matter = 5
+		}
+		produces = {
+			trigger = {
+				owner = {
+					has_technology = tech_mine_dark_energy
+				}
+			}
+			acot_sr_dark_energy = 5
+		}
+		upkeep = {
+			energy = 10
+		}
+		upkeep = {
+			trigger = {
+				owner = {
+					has_technology = tech_mine_dark_energy
+				}
+			}
+			energy = 10
+		}
+	}
+	
+	prerequisites = {
+		tech_dark_matter_generation
+	}
+	
+	ai_weight = {
+		weight = 20000
+	}
+
+	ai_resource_production = {
+		sr_dark_matter = 10
+		acot_sr_dark_energy = 10
+		trigger = {
+			always = yes
+		}
+	}
+
+	upgrades = {
+		building_dark_matter_synthersizer
+	}
+}

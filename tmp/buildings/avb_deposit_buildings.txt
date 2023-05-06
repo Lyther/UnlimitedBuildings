@@ -1,0 +1,312 @@
+#########################
+## Limited by deposits ##
+#########################
+
+building_avb_mote_harvesters_2 = {
+	base_buildtime = 960
+	can_build = no
+
+	#is_capped_by_modifier = yes
+
+	category = resource
+	
+	potential = {
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_mote_harvester_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_mote_harvesting_drone_add = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 6
+		}
+	}	
+	
+	prerequisites = {
+		"tech_avb_mote_harvesters_2"
+	}
+	
+	ai_weight = {
+		weight = 1000000
+	}
+}
+
+building_avb_gas_extractors_2 = {
+	base_buildtime = 960
+	icon = building_gas_extractors
+	can_build = no
+
+	#is_capped_by_modifier = yes
+
+	category = resource
+
+	potential = {
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_gas_extractor_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_gas_extraction_drone_add = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 6
+		}
+	}	
+	
+	prerequisites = {
+		"tech_avb_gas_extractors_2"
+	}
+	
+	ai_weight = {
+		weight = 1000000
+	}
+}
+
+building_avb_crystal_mines_2 = {
+	base_buildtime = 960
+
+	#is_capped_by_modifier = yes
+
+	category = resource
+	
+	potential = {
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_crystal_miner_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_crystal_mining_drone_add = 4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 6
+		}
+	}	
+	
+	prerequisites = {
+		"tech_avb_crystal_mines_2"
+	}
+	
+	ai_weight = {
+		weight = 1000000
+	}
+}
+
+building_avb_betharian_power_plant_2 = {
+	base_buildtime = 960
+	
+	#is_capped_by_modifier = yes
+
+	category = resource
+	
+	potential = {
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		produces = {
+			energy = 40
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_technician_add = 8
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_technician_drone_add = 8
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_technician_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_technician_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_avb_betharian_power_plant_2"
+	}
+	
+	ai_weight = {
+		weight = 1000000
+	}
+}
+
+building_avb_xeno_zoo_2 = {
+	base_buildtime = 960
+
+	#is_capped_by_modifier = yes
+
+	category = resource
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	planet_modifier = {
+		job_entertainer_add = 4
+		job_culture_worker_add = 8
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}					
+		}
+		modifier = {
+			job_duelist_add = 4
+			job_entertainer_add = -4
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_xeno_zoo_2"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_warrior_culture }
+		}
+		text = job_duelist_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
+		}
+		text = job_entertainer_effect_desc
+	}
+	
+	triggered_desc = {
+		text = job_culture_worker_effect_desc
+	}	
+
+	ai_weight = {
+		weight = 1000000
+	}
+}

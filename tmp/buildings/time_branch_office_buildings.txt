@@ -1,0 +1,689 @@
+building_time_private_mining_consortium = {
+	icon = building_private_mining_consortium
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+		is_artificial = no
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_city
+		}
+	}
+	
+	country_modifier = {
+		planet_jobs_minerals_produces_mult = 0.01
+		hypocritical_face_building_modifier = 1
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 25
+		trade_value_add = 5
+		planet_jobs_minerals_produces_mult = -0.1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			minerals = 10
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+	}
+}
+
+building_time_food_conglomerate = {
+	icon = building_food_conglomerate
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+	}
+	
+	country_modifier = {
+		planet_jobs_food_produces_mult = 0.01
+		hypocritical_face_building_modifier = 1
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 25
+		trade_value_add = 5
+		planet_jobs_food_produces_mult = -0.1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			food = 10
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+	}#AI has many other sources for this resource
+}
+
+building_time_virtual_entertainment_studios = {
+	icon = building_virtual_entertainment_studios
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		planet_jobs_consumer_goods_produces_mult = 0.01
+		hypocritical_face_building_modifier = 1
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 25
+		trade_value_add = 5
+		planet_jobs_consumer_goods_produces_mult = -0.1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			consumer_goods = 6
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 6
+		modifier = {
+			factor = 5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value >= 10
+				}
+			}
+		}
+	}
+}
+
+building_time_private_shipyards = {
+	icon = building_private_shipyards
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		planet_jobs_alloys_produces_mult = 0.01
+		hypocritical_face_building_modifier = 1
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 25
+		trade_value_add = 5
+		planet_jobs_alloys_produces_mult = -0.1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			alloys = 3
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+building_time_military_contractors = {
+	icon = building_military_contractors
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+
+	country_modifier = {
+		country_naval_cap_add = 20
+		hypocritical_face_building_modifier = 1
+	}
+	
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 40
+		job_soldier_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 50
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 30
+	}
+}
+
+building_time_public_relations_office = {
+	icon = building_public_relations_office
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		planet_jobs_unity_produces_mult = 0.01
+		hypocritical_face_building_modifier = 2
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 40
+		planet_jobs_unity_produces_mult = -0.1
+		job_clerk_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			unity = 6
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_time_private_research_initiative = {
+	icon = building_private_research_initiative
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.01
+		planet_jobs_society_research_produces_mult = 0.01
+		planet_jobs_engineering_research_produces_mult = 0.01
+		hypocritical_face_building_modifier = 2
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 40
+		planet_jobs_physics_research_produces_mult = -0.1
+		planet_jobs_society_research_produces_mult = -0.1
+		planet_jobs_engineering_research_produces_mult = -0.1
+		job_clerk_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			physics_research = 6
+			engineering_research = 6
+			society_research = 6
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+	}
+}
+
+building_time_amusement_megaplex = {
+	icon = building_amusement_megaplex
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		planet_amenities_add = 1
+		hypocritical_face_building_modifier = 2
+	}
+
+	planet_modifier = {
+		planet_stability_add = -5
+		planet_crime_add = 40
+		planet_amenities_add = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			energy = 10
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+
+		modifier = {
+			factor = 3
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = energy
+					value > 50
+				}
+			}
+		}
+	}
+}
+
+building_time_commercial_forum = {
+	icon = building_commercial_forum
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		planet_stability_add = 1
+		hypocritical_face_building_modifier = 2
+	}
+
+	planet_modifier = {
+		planet_stability_add = -10
+		planet_crime_add = 50
+		branch_office_value_mult = 0.25
+		job_merchant_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -10
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 200
+	}
+}
+
+building_time_corporate_embassy = {
+	icon = building_corporate_embassy
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_building_major_capital"
+			OR = {
+				has_building = building_major_capital
+				has_building = building_system_capital
+				has_building = building_imperial_capital
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_xeno_diplomacy"
+	}
+
+	show_tech_unlock_if = {
+		is_megacorp = yes
+		has_origin = origin_hypocritical_face
+		is_criminal_syndicate = yes
+	}
+
+	country_modifier = {
+		spy_network_levels_add = 10
+		hypocritical_face_building_modifier = 2
+	}
+
+	planet_modifier = {
+		planet_stability_add = -10
+		planet_crime_add = 40
+		pop_government_ethic_attraction = -0.25
+		job_clerk_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -10
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}
+
+building_time_temple_of_prosperity = {
+	icon = building_temple_of_prosperity
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_gospel_of_the_masses
+			has_origin = origin_hypocritical_face
+			is_criminal_syndicate = yes
+		}
+	}
+	
+	country_modifier = {
+		pop_happiness = 0.01
+		hypocritical_face_building_modifier = 2
+	}
+
+	planet_modifier = {
+		job_preacher_add = 2
+		pop_ethic_spiritualist_attraction_mult = 0.25
+		pop_happiness = -0.1
+		planet_crime_add = 25
+		planet_stability_add = -5
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_ai = yes
+			}
+		}
+		modifier = {
+			planet_stability_add = -5
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 500
+	}
+}

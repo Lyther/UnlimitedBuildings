@@ -1,0 +1,625 @@
+#############
+# Government buildings
+#############
+building_avb_noble_estates_2 = {
+	base_buildtime = 960
+	can_build = no
+
+	category = government
+	
+	potential = {
+		owner = { has_valid_civic = civic_aristocratic_elite }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		NOT = {
+			owner = { has_civic = civic_aristocratic_elite }
+		}
+	}
+	
+	planet_modifier = {
+		job_noble_add = 3
+		planet_housing_add = 3
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}			
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	triggered_desc = {
+		text = job_noble_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_avb_noble_estates_2"
+	}
+}
+
+building_avb_bureaucratic_4 = {
+	base_buildtime = 720
+	can_build = no
+
+	category = government
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_regular_empire = no }
+	}
+	
+	planet_modifier = {
+		job_bureaucrat_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 150
+		}			
+		upkeep = {
+			energy = 10
+			rare_crystals = 3
+		}
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_bureaucrat_effect_desc
+	}
+	
+	upgrades = {
+		building_avb_bureaucratic_5
+	}
+	
+	prerequisites = {
+		"tech_avb_bureaucratic_4"
+	}
+
+	on_queued = {
+		planet = {
+			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
+		}
+	}
+}
+
+building_avb_bureaucratic_5 = {
+	base_buildtime = 900
+	can_build = no
+
+	category = government
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_regular_empire = no }
+	}
+	
+	planet_modifier = {
+		job_bureaucrat_add = 14
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 200
+		}			
+		upkeep = {
+			energy = 14
+			rare_crystals = 4
+		}
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_bureaucrat_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_avb_bureaucratic_5"
+	}
+
+	on_queued = {
+		planet = {
+			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
+		}
+	}
+}
+
+building_avb_bureaucratic_4_machine = {
+	base_buildtime = 720
+	can_build = no
+	icon = building_avb_unity_monument_4
+
+	category = government
+	
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_crystals = yes
+			owner = { is_machine_empire = no }
+		}
+	}
+	
+	planet_modifier = {
+		job_coordinator_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			rare_crystals = 150
+		}			
+		upkeep = {
+			energy = 10
+			rare_crystals = 3
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_bureaucratic_4"
+	}
+	
+	show_tech_unlock_if = {
+		is_machine_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_coordinator_effect_desc
+	}
+	
+	upgrades = {
+		building_avb_bureaucratic_5_machine
+	}
+
+	on_queued = {
+		planet = {
+			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
+		}
+	}
+}
+
+building_avb_bureaucratic_5_machine = {
+	base_buildtime = 900
+	can_build = no
+	icon = building_avb_unity_monument_5
+
+	category = government
+	
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_crystals = yes
+			owner = { is_machine_empire = no }
+		}
+	}
+	
+	planet_modifier = {
+		job_coordinator_add = 14
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			rare_crystals = 200
+		}			
+		upkeep = {
+			energy = 14
+			rare_crystals = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_bureaucratic_5"
+	}
+	
+	show_tech_unlock_if = {
+		is_machine_empire = yes
+	}
+
+	triggered_desc = {
+		text = job_coordinator_effect_desc
+	}
+	
+	on_queued = {
+		planet = {
+			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
+		}
+	}
+}
+
+building_avb_slave_processing_2 = {
+	base_buildtime = 720
+	can_build = no
+
+	category = government
+
+	potential = {
+		owner = { is_regular_empire = yes }
+		owner = { has_policy_flag = slavery_allowed }
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = { # destroys if true
+		OR = {
+			owner = { is_regular_empire = no }
+			NOT = { owner = { has_policy_flag = slavery_allowed } }
+		}
+	}
+	
+	planet_modifier = {
+		planet_jobs_slave_produces_mult = 0.1
+		pop_cat_slave_political_power = -0.5
+	}	
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_slave_processing_2"
+	}
+}
+
+building_avb_enforcement_3 = {
+	base_buildtime = 640
+
+	category = government
+	can_build = no
+	
+	potential = {
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_motes = yes
+			NOT = { owner = { is_regular_empire = yes } }
+		}
+	}
+		
+	planet_modifier = {
+		job_enforcer_add = 8
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+			volatile_motes = 75
+		}
+		upkeep = {
+			energy = 6
+			volatile_motes = 2
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+	
+	triggered_desc = {
+		text = job_enforcer_effect_desc
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+	
+	upgrades = {
+		building_avb_enforcement_4
+	}
+}
+
+building_avb_enforcement_4 = {
+	base_buildtime = 800
+
+	category = government
+	can_build = no
+	
+	potential = {
+		owner = { is_regular_empire = yes }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_4 = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_motes = yes
+			NOT = { owner = { is_regular_empire = yes } }
+		}
+	}
+		
+	planet_modifier = {
+		job_enforcer_add = 12
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			volatile_motes = 100
+		}
+		upkeep = {
+			energy = 8
+			volatile_motes = 3
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_capital_4"
+	}
+	
+	triggered_desc = {
+		text = job_enforcer_effect_desc
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+}
+
+building_avb_sentinel_posts_2 = {
+	base_buildtime = 720
+	can_build = no
+
+	category = government
+	
+	potential = {
+		owner = { is_gestalt = yes }
+	}
+	
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_motes = yes
+			NOT = { owner = { is_regular_empire = yes } }
+		}
+	}
+		
+	planet_modifier = {
+		job_patrol_drone_add = 4
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+	
+	triggered_desc = {
+		text = job_patrol_drone_effect_desc
+	}
+	
+	show_tech_unlock_if = {
+		is_gestalt = yes
+	}
+}
+
+#############
+# Ascension perks
+#############
+
+building_avb_psi_corps_2 = {
+	base_buildtime = 960
+	can_build = no
+
+	category = government
+	
+	potential = {
+		owner = { has_ascension_perk = ap_mind_over_matter }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		NOT = {
+			owner = { has_ascension_perk = ap_mind_over_matter }
+		}
+	}
+
+	planet_modifier = {
+		job_telepath_add = 4
+		planet_stability_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	
+	triggered_desc = {
+		text = job_telepath_effect_desc
+	}	
+	
+	prerequisites = {
+		"tech_avb_psi_corps_2"
+	}
+}
+
+building_avb_psi_corps_3 = {
+	base_buildtime = 1920
+	can_build = no
+
+	category = government
+	
+	potential = {
+		owner = { has_ascension_perk = ap_mind_over_matter }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_upgraded_capital_6 = yes
+	}
+	
+	destroy_trigger = {
+		NOT = {
+			owner = { has_ascension_perk = ap_mind_over_matter }
+		}
+	}
+
+	planet_modifier = {
+		job_telepath_add = 8
+		planet_stability_add = 20
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 2000
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	
+	triggered_desc = {
+		text = job_telepath_effect_desc
+	}	
+	
+	prerequisites = {
+		"tech_avb_psi_corps_3"
+	}
+}
+
+building_avb_clone_vats_2 = {
+	base_buildtime = 1400
+	can_build = no
+
+	category = government
+	
+	potential = {
+		owner = { has_ascension_perk = ap_engineered_evolution }
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			owner = { is_ai = no }
+			NOT = { has_building = building_robot_assembly_plant }
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital_5 = yes
+	}
+	
+	destroy_trigger = {
+		NOT = {
+			owner = { has_ascension_perk = ap_engineered_evolution }
+		}
+	}
+
+	planet_modifier = {
+		planet_pop_assembly_organic_add = 6
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+			food = 1000
+		}	
+		upkeep = {
+			energy = 4
+			food = 60
+		}
+	}
+	
+	prerequisites = {
+		"tech_avb_clone_vats_2"
+	}
+}
