@@ -6,6 +6,7 @@ import os
 
 pattern1 = "[\r\n\t ]*base_cap_amount[ ]*=[ 0-9]*"
 pattern2 = "[\r\n\t ]*empire_limit[ ]*=[ ]*\{[\r\n\t ]*base[ ]*=[ 0-9]*[\r\n\t ]*\}"
+pattern3 = "[\r\n\t ]*empire_limit[ ]*=[ 0-9]*"
 
 def files_io(input_path, output_path):
     files = [f for f in os.listdir(input_path) if os.path.isfile(os.path.join(input_path, f))]
@@ -21,6 +22,7 @@ def text_replace(text) -> str:
     if re.search(pattern1, text) or re.search(pattern2, text):
         result = re.sub(pattern1, "", text)
         result = re.sub(pattern2, "", result)
+        result = re.sub(pattern3, "", result)
         return result
     else:
         return None

@@ -94,7 +94,6 @@ building_great_pyramid = {
 building_artist_patron = {
 	base_buildtime = @b2_time
 	can_demolish = yes
-	empire_limit = 1
 
 	category = unity
 

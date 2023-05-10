@@ -800,7 +800,6 @@ holding_overlord_vigil_command = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_overlord_vigil_command
-	empire_limit = 1
 
 	category = army
 
@@ -909,7 +908,6 @@ holding_parasitic_algorithms = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_parasitic_algorithms
-	empire_limit = 1
 
 	category = research
 
