@@ -1,4 +1,4 @@
-# Unlimited Buildings & Megastructures
+[h1]Unlimited Buildings & Megastructures[/h1]
 
 The development version of this mod would post on [url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]. If you want to play the latest version instead of the stable version, please follow the repo and use [code single]git pull[/code] to get the latest commit.
 
@@ -12,7 +12,7 @@ What's even more puzzling is that megastructures have a limit of one per megastr
 
 Therefore, the reform of the megastructure building is imperative.
 
-## Building Unlock
+[h2]Building Unlock[/h2]
 
 Now we can build an unlimited number of various buildings! Including.
 
@@ -27,7 +27,7 @@ Buildings that are not included in the infinite buildings are.
 * Cultural centers purchased by the Art Association (only one can be built after buying only one).
 * Starbase components (haven't found a way to build multiple hydroponic pods or fleet academies yet).
 
-## Megastructure
+[h2]Megastructure[/h2]
 
 All megastructures can be built with no upper limit on the number of buildings, but the limit on the number of simultaneous builds still follows the original mechanism.
 
@@ -37,7 +37,7 @@ All megastructures can be built with no upper limit on the number of buildings, 
 * Matter Decompressor: Can be stacked indefinitely.
 * Habitable Stations: Can be built on a planet's moons, can be stacked infinitely, and can be built on sectors of ringworlds.
 
-## Updates/compatibility
+[h2]Updates/compatibility[/h2]
 
 If a new version of the game is released, or if you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
 
@@ -54,7 +54,7 @@ List of mods that are currently compatible.
 * Modder嘉年华-更多飞地合作企划: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216]Modder嘉年华-更多飞地合作企划[/url]
 * Even more!
 
-# 无限建筑&巨构
+[h1]无限建筑&巨构[/h1]
 
 此MOD的开发版本将在[url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]进行实时更新，如果您想游玩最新的开发版本而非稳定版本，可以通过GitHub仓库的[code single]git pull[/code]获取最新的commit。
 
@@ -68,7 +68,7 @@ List of mods that are currently compatible.
 
 因此，巨构建筑的改革势在必行。
 
-## 建筑解锁
+[h2]建筑解锁[/h2]
 
 现在，我们可以建造数量无限的各种建筑了！包括：
 
@@ -83,7 +83,7 @@ List of mods that are currently compatible.
 * 艺术协会购买的文化中心（只买了一座就只能建造一座）；
 * 恒星基地组件（暂时没找到建造多个水培舱、舰队学院的办法）。
 
-## 巨构建筑
+[h2]巨构建筑[/h2]
 
 全部巨构建筑均可以无数量上限建造，但同时建造的数量限制仍然遵循原版机制。
 
@@ -93,7 +93,7 @@ List of mods that are currently compatible.
 * 物质解压器：可以无限堆叠。
 * 居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造。
 
-## 更新/兼容
+[h2]更新/兼容[/h2]
 
 如果有新的游戏版本发布，或是希望与一个更老的游戏版本兼容，你可以在创意工坊留言或是私信沟通。
 
