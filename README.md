@@ -33,26 +33,19 @@ All megastructures can be built with no upper limit on the number of buildings, 
 
 * Ring World: Unlocked the limit of building galaxies (double stars, triple stars, black holes), the building will not affect other planets in the galaxy, will not empty the galaxy when finished, and can be stacked infinitely.
 * Dyson Sphere: Unlocked the limit of building galaxies (binary stars, triple stars, black holes), construction will not affect planets in the galaxy, all habitable spheres are preserved and can be stacked infinitely.
-* All Planetary Star Mega Constructs: Can be built on the moons of planets and can be stacked infinitely.
+* All Planetary Star Mega Constructs: Can be built on planets' moons and stacked infinitely.
 * Matter Decompressor: Can be stacked indefinitely.
-* Habitable Stations: Can be built on a planet's moons, can be stacked infinitely, and can be built on sectors of ringworlds.
+* Habitable Stations: Can be built on a planet's moons, stacked infinitely, and built on sectors of ringworlds.
 
 ## Updates/compatibility
 
-If a new version of the game is released, or if you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
+If a new version of the game is released or you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
 
 If you have more ideas for mod compatibility, or want to make other mods' buildings infinitely buildable, you can also leave a message in the Creative Workshop.
 
-List of mods that are currently compatible.
+The compatible mods for Infinite Buildings have been split, if you subscribe to other mods, you can subscribe to Infinite Buildings compatible patches for this mod at the same time, all the Infinite Buildings compatible patches will be in the Creative Factory collection.
 
-* ZoFE：[The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
-  * ZoFE: Societal Ascendance: [The Zenith of Fallen Empires: Societal Ascendance](https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457)
-
-* 群星修仙传：[群星修仙传](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
-* 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
-* Guilli's Planet Modifiers and Features: [Guilli's Planet Modifiers and Features](https://steamcommunity.com/sharedfiles/filedetails/?id=865040033)
-* Modder嘉年华-更多飞地合作企划: [Modder嘉年华-更多飞地合作企划](https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216)
-* Even more!
+**Please note: You need to place the infinite buildings compatibility patch under the compatibilized mod when sorting. **
 
 # 无限建筑&巨构
 
@@ -99,12 +92,6 @@ List of mods that are currently compatible.
 
 如果你有更多的MOD兼容想法，或者希望让其他MOD的建筑也能无限建造，同样可以在创意工坊留言。
 
-目前已经兼容的MOD列表：
+无限建筑的兼容MOD已经拆分，如果你订阅了其他的MOD，可以同时订阅无限建筑对于此MOD的兼容补丁，全部的无限建筑兼容补丁将会在创意工厂的合集中。
 
-* ZoFE：[The Zenith of Fallen Empires](https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275)
-  * ZoFE: Societal Ascendance: [The Zenith of Fallen Empires: Societal Ascendance](https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457)
-* 群星修仙传：[群星修仙传](https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972)
-* 工整传统：[Tidy Tradition](https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459)
-* Guilli's Planet Modifiers and Features: [Guilli's Planet Modifiers and Features](https://steamcommunity.com/sharedfiles/filedetails/?id=865040033)
-* Modder嘉年华-更多飞地合作企划: [Modder嘉年华-更多飞地合作企划](https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216)
-* 还有更多！
+**请注意：排序时需要将无限建筑的兼容补丁放置于兼容MOD之下。**

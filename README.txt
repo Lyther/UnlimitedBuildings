@@ -6,9 +6,9 @@ Having a limit on the number of buildings of the same type is just stupid! Sadly
 
 When I build a smelting planet, I end up with a lone nano-alloy furnace, and the rest of the place is filled with forts/research labs/rare resource factories. Why not let smelting planets have an unlimited number of alloy furnaces?
 
-The same goes for the megastructure, over a planet where a star ring base is built, empty space is simply too good to put a habitable station, but the vanilla mechanism does not allow this. After the space civilization built the Dyson sphere, it is surprising that it would freeze all the habitable spheres in the galaxy, is it surprising that the FTL civilization does not have artificial light sources and other technologies? Likewise, after building habitation stations on planets, dead-brained scientists can't imagine that they can build sentinel arrays next to habitation stations, which they believe have crowded out the space where other megastructures would have been built, so they refuse to build other megastructures on planets where they were built.
+The same goes for the megastructure, over a planet where a star ring base is built, space is simply too good to put a habitable station, but the vanilla mechanism does not allow this. After the space civilization built the Dyson sphere, it is surprising that it would freeze all the habitable spheres in the galaxy, is it surprising that the FTL civilization does not have artificial light sources and other technologies? Likewise, after building habitation stations on planets, dead-brained scientists can't imagine that they can build sentinel arrays next to habitation stations, which they believe have crowded out the space where other megastructures would have been built, so they refuse to build other megastructures on planets where they were built.
 
-What's even more puzzling is that megastructures have a limit of one per megastructure, and even with more resources, players cannot continue to build more Dyson Spheres and Matter Decompressors, which is obviously unconscionable.
+What's even more puzzling is that megastructures have a limit of one per megastructure, and even with more resources, players cannot continue to build more Dyson Spheres and Matter Decompressors, which is unconscionable.
 
 Therefore, the reform of the megastructure building is imperative.
 
@@ -33,26 +33,19 @@ All megastructures can be built with no upper limit on the number of buildings, 
 
 * Ring World: Unlocked the limit of building galaxies (double stars, triple stars, black holes), the building will not affect other planets in the galaxy, will not empty the galaxy when finished, and can be stacked infinitely.
 * Dyson Sphere: Unlocked the limit of building galaxies (binary stars, triple stars, black holes), construction will not affect planets in the galaxy, all habitable spheres are preserved and can be stacked infinitely.
-* All Planetary Star Mega Constructs: Can be built on the moons of planets and can be stacked infinitely.
+* All Planetary Star Mega Constructs: Can be built on planets' moons and stacked infinitely.
 * Matter Decompressor: Can be stacked indefinitely.
-* Habitable Stations: Can be built on a planet's moons, can be stacked infinitely, and can be built on sectors of ringworlds.
+* Habitable Stations: Can be built on a planet's moons, stacked infinitely, and built on sectors of ringworlds.
 
 [h2]Updates/compatibility[/h2]
 
-If a new version of the game is released, or if you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
+If a new version of the game is released or you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
 
-If you have more ideas for mod compatibility, or want to make other mods' buildings infinitely buildable, you can also leave a message in the Creative Workshop.
+If you have more ideas for mod compatibility or want to make other mods' buildings infinitely buildable, you can also leave a message in the Creative Workshop.
 
-List of mods that are currently compatible.
+The compatible mods for Infinite Buildings have been split, if you subscribe to other mods, you can subscribe to Infinite Buildings compatible patches for this mod at the same time, all the Infinite Buildings compatible patches will be in the Creative Factory collection.
 
-* ZoFE：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275]The Zenith of Fallen Empires[/url]
-  * ZoFE: Societal Ascendance: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457]The Zenith of Fallen Empires: Societal Ascendance[/url]
-
-* 群星修仙传：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972]群星修仙传[/url]
-* 工整传统：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459]Tidy Tradition[/url]
-* Guilli's Planet Modifiers and Features: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=865040033]Guilli's Planet Modifiers and Features[/url]
-* Modder嘉年华-更多飞地合作企划: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216]Modder嘉年华-更多飞地合作企划[/url]
-* Even more!
+[b]Please note: You need to place the infinite buildings compatibility patch under the compatibilized mod when sorting. [/b]
 
 [h1]无限建筑&巨构[/h1]
 
@@ -99,12 +92,6 @@ List of mods that are currently compatible.
 
 如果你有更多的MOD兼容想法，或者希望让其他MOD的建筑也能无限建造，同样可以在创意工坊留言。
 
-目前已经兼容的MOD列表：
+无限建筑的兼容MOD已经拆分，如果你订阅了其他的MOD，可以同时订阅无限建筑对于此MOD的兼容补丁，全部的无限建筑兼容补丁将会在创意工厂的合集中。
 
-* ZoFE：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275]The Zenith of Fallen Empires[/url]
-  * ZoFE: Societal Ascendance: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457]The Zenith of Fallen Empires: Societal Ascendance[/url]
-* 群星修仙传：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972]群星修仙传[/url]
-* 工整传统：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459]Tidy Tradition[/url]
-* Guilli's Planet Modifiers and Features: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=865040033]Guilli's Planet Modifiers and Features[/url]
-* Modder嘉年华-更多飞地合作企划: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216]Modder嘉年华-更多飞地合作企划[/url]
-* 还有更多！
+[b]请注意：排序时需要将无限建筑的兼容补丁放置于兼容MOD之下。[/b]
