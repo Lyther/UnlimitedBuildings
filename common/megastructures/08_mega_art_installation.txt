@@ -46,10 +46,6 @@ mega_art_installation_0 = {
 				fail_text = "requires_no_anomaly"
 				NOT = { has_anomaly = yes }
 			}
-			custom_tooltip = {
-				fail_text = "requires_not_star"
-				is_star = no
-			}
 		}
 	}
 
@@ -76,7 +72,18 @@ mega_art_installation_0 = {
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_mega_art_installation
+				}
+				set_country_flag = built_mega_art_installation_contingency
+			}
+			set_country_flag = built_mega_art_installation
+		}
+	}
 }
 
 # Mega Art Installation 1
@@ -196,6 +203,7 @@ mega_art_installation_3 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = mega_art_installation_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = mega.9002 }
@@ -252,6 +260,7 @@ mega_art_installation_4 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = mega_art_installation_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = ancrel.10030 }
@@ -326,6 +335,7 @@ mega_art_installation_restored = {
 	}
 
 	on_build_complete = {
+		set_star_flag = mega_art_installation_built
 		every_system_ambient_object = {
 			limit = {
 				OR = {
@@ -402,6 +412,7 @@ mega_art_installation_restored_2 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = mega_art_installation_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = ancrel.10030 }

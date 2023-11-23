@@ -1,6 +1,6 @@
 [h1]Unlimited Buildings & Megastructures[/h1]
 
-The development version of this mod would post on [url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]. If you want to play the latest version instead of the stable version, please follow the repo and use [code single]git pull[/code] to get the latest commit.
+The development version of this mod would post on [url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]. If you want to play the latest version instead of the stable version, please follow the repo and use [code]git pull[/code] to get the latest commit.
 
 Having a limit on the number of buildings of the same type is just stupid! Sadly, we can build unlimited research labs, but not as many research centers.
 
@@ -16,47 +16,46 @@ Therefore, the reform of the megastructure building is imperative.
 
 Now we can build an unlimited number of various buildings! Including.
 
-* Various planet buildings from the original version, research centers, psychic legions, factories, etc.
-* Various buildings of the Corporate Branch Office can be filled with smuggling ports in the branch office.
-* Overlord buildings, where the scientific research department's glory returns.
-* Population assembly buildings, robots to assemble more and more.
-* Lifted a series of construction restrictions on megastructures (e.g. number of stacks, clearing galaxies after construction, etc.).
+[list]
+[*] Various planet buildings from the original version, research centers, psychic legions, factories, etc.
+[*] Various buildings of the Corporate Branch Office can be filled with smuggling ports in the branch office.
+[*] Overlord buildings, where the scientific research department's glory returns.
+[*] Population assembly buildings, robots to assemble more and more.
+[*] Lifted a series of construction restrictions on megastructures (e.g. number of stacks, clearing galaxies after construction, etc.).
+[/list]
 
 Buildings that are not included in the infinite buildings are.
 
-* Cultural centers purchased by the Art Association (only one can be built after buying only one).
-* Starbase components (haven't found a way to build multiple hydroponic pods or fleet academies yet).
+[list]
+[*] Cultural centers purchased by the Art Association (only one can be built after buying only one).
+[*] Starbase components (haven't found a way to build multiple hydroponic pods or fleet academies yet).
+[/list]
 
 [h2]Megastructure[/h2]
 
 All megastructures can be built with no upper limit on the number of buildings, but the limit on the number of simultaneous builds still follows the original mechanism.
 
-* Ring World: Unlocked the limit of building galaxies (double stars, triple stars, black holes), the building will not affect other planets in the galaxy, will not empty the galaxy when finished, and can be stacked infinitely.
-* Dyson Sphere: Unlocked the limit of building galaxies (binary stars, triple stars, black holes), construction will not affect planets in the galaxy, all habitable spheres are preserved and can be stacked infinitely.
-* All Planetary Star Mega Constructs: Can be built on the moons of planets and can be stacked infinitely.
-* Matter Decompressor: Can be stacked indefinitely.
-* Habitable Stations: Can be built on a planet's moons, can be stacked infinitely, and can be built on sectors of ringworlds.
+[list]
+[*] Ring World: Unlocked the limit of building galaxies (double stars, triple stars, black holes), the building will not affect other planets in the galaxy, will not empty the galaxy when finished, and can be stacked infinitely.
+[*] Dyson Sphere: Unlocked the limit of building galaxies (binary stars, triple stars, black holes), construction will not affect planets in the galaxy, all habitable spheres are preserved and can be stacked infinitely.
+[*] All Planetary Star Mega Constructs: Can be built on planets' moons and stacked infinitely.
+[*] Matter Decompressor: Can be stacked indefinitely.
+[*] Habitable Stations: Can be built on a planet's moons, stacked infinitely, and built on sectors of ringworlds.
+[/list]
 
 [h2]Updates/compatibility[/h2]
 
-If a new version of the game is released, or if you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
+If a new version of the game is released or you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
 
 If you have more ideas for mod compatibility, or want to make other mods' buildings infinitely buildable, you can also leave a message in the Creative Workshop.
 
-List of mods that are currently compatible.
+The compatible mods for Infinite Buildings have been split, if you subscribe to other mods, you can subscribe to Infinite Buildings compatible patches for this mod at the same time, all the Infinite Buildings compatible patches will be in the Creative Factory collection.
 
-* ZoFE：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275]The Zenith of Fallen Empires[/url]
-  * ZoFE: Societal Ascendance: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457]The Zenith of Fallen Empires: Societal Ascendance[/url]
-
-* 群星修仙传：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972]群星修仙传[/url]
-* 工整传统：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459]Tidy Tradition[/url]
-* Guilli's Planet Modifiers and Features: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=865040033]Guilli's Planet Modifiers and Features[/url]
-* Modder嘉年华-更多飞地合作企划: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216]Modder嘉年华-更多飞地合作企划[/url]
-* Even more!
+[b]Please note: You need to place the infinite buildings compatibility patch under the compatibilized mod when sorting.[/b]
 
 [h1]无限建筑&巨构[/h1]
 
-此MOD的开发版本将在[url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]进行实时更新，如果您想游玩最新的开发版本而非稳定版本，可以通过GitHub仓库的[code single]git pull[/code]获取最新的commit。
+此MOD的开发版本将在[url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]进行实时更新，如果您想游玩最新的开发版本而非稳定版本，可以通过GitHub仓库的<code>git pull</code>获取最新的commit。
 
 同类型的建筑有数量限制实在是太蠢了！我们可以建造数量无限的研究实验室，但是却不能建造同样多的研究中心，实在是一件很令人伤心的事情。
 
@@ -72,26 +71,32 @@ List of mods that are currently compatible.
 
 现在，我们可以建造数量无限的各种建筑了！包括：
 
-* 原版的各种星球建筑，研究中心、灵能军团、工厂等；
-* 企业分部的各种建筑，当然可以在分部里开满走私港；
-* 宗主建筑，科研部的荣光再次回归；
-* 人口组装建筑，机器人组装多多益善；
-* 解除了巨构建筑的一系列建造限制（如数量堆叠、建造后清空星系等）。
+[list]
+[*]原版的各种星球建筑，研究中心、灵能军团、工厂等；
+[*]企业分部的各种建筑，当然可以在分部里开满走私港；
+[*]宗主建筑，科研部的荣光再次回归；
+[*]人口组装建筑，机器人组装多多益善；
+[*]解除了巨构建筑的一系列建造限制（如数量堆叠、建造后清空星系等）。
+[/list]
 
 不包含在无限建筑中的建筑有：
 
-* 艺术协会购买的文化中心（只买了一座就只能建造一座）；
-* 恒星基地组件（暂时没找到建造多个水培舱、舰队学院的办法）。
+[list]
+[*]艺术协会购买的文化中心（只买了一座就只能建造一座）；
+[*]恒星基地组件（暂时没找到建造多个水培舱、舰队学院的办法）。
+[/list]
 
 [h2]巨构建筑[/h2]
 
 全部巨构建筑均可以无数量上限建造，但同时建造的数量限制仍然遵循原版机制。
 
-* 环形世界：解锁了建造星系限制（双恒星、三恒星、黑洞），建造不会影响星系内其他星球，建造完成不会清空星系，可以无限堆叠。
-* 戴森球：解锁了建造星系限制（双恒星、三恒星、黑洞），建造完成后不会影响星系内行星，宜居球全部保留，可以无限堆叠。
-* 所有行星级巨构：可以在星球的卫星上建造，可以无限堆叠。
-* 物质解压器：可以无限堆叠。
-* 居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造。
+[list]
+[*]环形世界：解锁了建造星系限制（双恒星、三恒星、黑洞），建造不会影响星系内其他星球，建造完成不会清空星系，可以无限堆叠。
+[*]戴森球：解锁了建造星系限制（双恒星、三恒星、黑洞），建造完成后不会影响星系内行星，宜居球全部保留，可以无限堆叠。
+[*]所有行星级巨构：可以在星球的卫星上建造，可以无限堆叠。
+[*]物质解压器：可以无限堆叠。
+[*]居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造。
+[/list]
 
 [h2]更新/兼容[/h2]
 
@@ -99,12 +104,6 @@ List of mods that are currently compatible.
 
 如果你有更多的MOD兼容想法，或者希望让其他MOD的建筑也能无限建造，同样可以在创意工坊留言。
 
-目前已经兼容的MOD列表：
+无限建筑的兼容MOD已经拆分，如果你订阅了其他的MOD，可以同时订阅无限建筑对于此MOD的兼容补丁，全部的无限建筑兼容补丁将会在创意工厂的合集中。
 
-* ZoFE：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2053987275]The Zenith of Fallen Empires[/url]
-  * ZoFE: Societal Ascendance: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2071119457]The Zenith of Fallen Empires: Societal Ascendance[/url]
-* 群星修仙传：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2865408972]群星修仙传[/url]
-* 工整传统：[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2438313459]Tidy Tradition[/url]
-* Guilli's Planet Modifiers and Features: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=865040033]Guilli's Planet Modifiers and Features[/url]
-* Modder嘉年华-更多飞地合作企划: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2839742216]Modder嘉年华-更多飞地合作企划[/url]
-* 还有更多！
+[b]请注意：排序时需要将无限建筑的兼容补丁放置于兼容MOD之下。[/b]

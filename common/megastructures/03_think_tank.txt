@@ -53,10 +53,6 @@ think_tank_0 = {
 				fail_text = "requires_no_anomaly"
 				NOT = { has_anomaly = yes }
 			}
-			custom_tooltip = {
-				fail_text = "requires_not_star"
-				is_star = no
-			}
 		} # use these for all non-star megastructures
 	}
 
@@ -92,7 +88,22 @@ think_tank_0 = {
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		set_star_flag = think_tank_built
+		fromfrom.planet = {
+			set_planet_flag = has_megastructure
+		}
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_think_tank
+				}
+				set_country_flag = built_think_tank_contingency
+			}
+			set_country_flag = built_think_tank
+		}
+	}
 }
 
 think_tank_1 = {

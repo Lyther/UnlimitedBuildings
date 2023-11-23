@@ -46,10 +46,6 @@ strategic_coordination_center_0 = {
 				fail_text = "requires_no_anomaly"
 				NOT = { has_anomaly = yes }
 			}
-			custom_tooltip = {
-				fail_text = "requires_not_star"
-				is_star = no
-			}
 		}
 	}
 
@@ -76,7 +72,18 @@ strategic_coordination_center_0 = {
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_strategic_coordination_center_site
+				}
+				set_country_flag = built_strategic_coordination_center_site_contingency
+			}
+			set_country_flag = built_strategic_coordination_center_site
+		}
+	}
 }
 
 # Strategic Coordination Center 1
@@ -113,6 +120,7 @@ strategic_coordination_center_1 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = strategic_coordination_center_built
 		from = { country_event = { id = mega.9003 } }
 	}
 }
@@ -153,6 +161,7 @@ strategic_coordination_center_2 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = strategic_coordination_center_built
 		from = { country_event = { id = mega.9004 } }
 	}
 }
@@ -193,6 +202,7 @@ strategic_coordination_center_3 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = strategic_coordination_center_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = mega.9005 }

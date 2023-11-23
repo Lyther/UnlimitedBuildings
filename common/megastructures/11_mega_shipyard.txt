@@ -76,7 +76,18 @@ mega_shipyard_0 = {
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_mega_shipyard_site
+				}
+				set_country_flag = built_mega_shipyard_site_contingency
+			}
+			set_country_flag = built_mega_shipyard_site
+		}
+	}
 }
 
 # mega_shipyard 1
@@ -208,6 +219,7 @@ mega_shipyard_3 = {
 	}
 
 	on_build_complete = {
+		set_star_flag = mega_shipyard_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = feda.3 }
@@ -296,6 +308,7 @@ mega_shipyard_restored = {
 	}
 
 	on_build_complete = {
+		set_star_flag = mega_shipyard_built
 		every_system_ambient_object = {
 			limit = {
 				is_ambient_object_type = large_debris_object

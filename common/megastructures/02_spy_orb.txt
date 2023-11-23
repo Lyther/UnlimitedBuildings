@@ -49,10 +49,6 @@ spy_orb_0 = {
 				fail_text = "requires_no_anomaly"
 				NOT = { has_anomaly = yes }
 			}
-			custom_tooltip = {
-				fail_text = "requires_not_star"
-				is_star = no
-			}
 		}
 	}
 
@@ -64,7 +60,19 @@ spy_orb_0 = {
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		set_star_flag = spy_orb_built
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_spyorb
+				}
+				set_country_flag = built_spyorb_contingency
+			}
+			set_country_flag = built_spyorb
+		}
+	}
 }
 
 spy_orb_1 = {

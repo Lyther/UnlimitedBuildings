@@ -43,6 +43,7 @@ crisis_sphere_0 = {
 					}
 				}
 			}
+			set_megastructure_flag = crisis_sphere
 		}
 	}
 }
@@ -75,6 +76,7 @@ crisis_sphere_1 = {
 	}
 
 	on_build_complete = {
+		fromfrom = { set_megastructure_flag = crisis_sphere }
 		from = {
 			country_event = { id = crisis.6005 }
 		}
@@ -109,6 +111,7 @@ crisis_sphere_2 = {
 	}
 
 	on_build_complete = {
+		fromfrom = { set_megastructure_flag = crisis_sphere }
 		from = {
 			country_event = { id = crisis.6006 }
 			country_event = { id = crisis.6150 days = 180 random = 480 }
@@ -144,6 +147,7 @@ crisis_sphere_3 = {
 	}
 
 	on_build_complete = {
+		fromfrom = { set_megastructure_flag = crisis_sphere }
 		from = {
 			country_event = { id = crisis.6007 }
 			country_event = { id = crisis.6160 days = 180 random = 480 }
@@ -172,6 +176,7 @@ crisis_sphere_4 = {
 	}
 
 	on_build_complete = {
+		fromfrom = { set_megastructure_flag = crisis_sphere }
 		from = {
 			country_event = { id = crisis.6050 }
 		}

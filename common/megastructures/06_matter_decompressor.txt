@@ -44,6 +44,10 @@ matter_decompressor_0 = {
 				}
 			}
 		}
+		custom_tooltip = {
+			fail_text = "requires_black_hole"
+			is_star_class = sc_black_hole
+		}
 	}
 
 	placement_rules = {
@@ -83,7 +87,18 @@ matter_decompressor_0 = {
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_matter_decompressor_site
+				}
+				set_country_flag = built_matter_decompressor_site_contingency
+			}
+			set_country_flag = built_matter_decompressor_site
+		}
+	}
 }
 
 # Matter Decompressor
@@ -326,6 +341,7 @@ matter_decompressor_restored = {
 			}
 			destroy_ambient_object = this
 		}
+		set_star_flag = matter_decompressor_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = mega.9101 }
