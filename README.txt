@@ -43,6 +43,38 @@ All megastructures can be built with no upper limit on the number of buildings, 
 [*] Habitable Stations: Can be built on a planet's moons, stacked infinitely, and built on sectors of ringworlds.
 [/list]
 
+[h2]Script Usage[/h2]
+
+[code]remove_building_limits.py[/code]
+
+This script automates the process of generating modified building files to remove the limitations on the number of buildings you can construct in the game. It is designed to be simple and efficient, requiring minimal input from the user.
+
+[h3]Requirements[/h3]
+
+[list]
+[*] Python 3.x
+[*] Game building files in [.txt] format
+[/list]
+
+[h3]Instructions[/h3]
+
+[list=1]
+[*] Gather all the building [.txt] files that you wish to modify and place them in a single directory (this will be your input directory).
+[*] Ensure Python 3.x is installed on your system.
+[*] Open a terminal or command prompt window.
+[*] Navigate to the directory where the script is located.
+[*] Run the script with the following command, replacing [i]<input_folder>[/i] with the path to your input directory and [i]<output_folder>[/i] with the path to your desired output directory:
+[code]python3 remove_building_limits.py <input_folder> <output_folder>[/code]
+[*] The script will process each [.txt] file and generate a new version without building limits in the specified output directory.
+[*] Once the script has finished running, copy all the files from the output directory to the [i]common/buildings[/i] folder within your game directory.
+[/list]
+
+[h3]Example[/h3]
+
+If your input directory is [i]C:\mods\input_buildings[/i] and your output directory is [i]C:\mods\output_buildings[/i], the command would be:
+
+[code]python3 remove_building_limits.py C:\mods\input_buildings C:\mods\output_buildings[/code]
+
 [h2]Updates/compatibility[/h2]
 
 If a new version of the game is released or you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
@@ -55,7 +87,7 @@ The compatible mods for Infinite Buildings have been split, if you subscribe to 
 
 [h1]无限建筑&巨构[/h1]
 
-此MOD的开发版本将在[url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url]进行实时更新，如果您想游玩最新的开发版本而非稳定版本，可以通过GitHub仓库的<code>git pull</code>获取最新的commit。
+此MOD的开发版本将在 [url=https://github.com/Lyther/UnlimitedBuildings]GitHub[/url] 进行实时更新，如果您想游玩最新的开发版本而非稳定版本，可以通过GitHub仓库的[code]git pull[/code]获取最新的commit。
 
 同类型的建筑有数量限制实在是太蠢了！我们可以建造数量无限的研究实验室，但是却不能建造同样多的研究中心，实在是一件很令人伤心的事情。
 
@@ -72,18 +104,18 @@ The compatible mods for Infinite Buildings have been split, if you subscribe to 
 现在，我们可以建造数量无限的各种建筑了！包括：
 
 [list]
-[*]原版的各种星球建筑，研究中心、灵能军团、工厂等；
-[*]企业分部的各种建筑，当然可以在分部里开满走私港；
-[*]宗主建筑，科研部的荣光再次回归；
-[*]人口组装建筑，机器人组装多多益善；
-[*]解除了巨构建筑的一系列建造限制（如数量堆叠、建造后清空星系等）。
+[*] 原版的各种星球建筑，研究中心、灵能军团、工厂等；
+[*] 企业分部的各种建筑，当然可以在分部里开满走私港；
+[*] 宗主建筑，科研部的荣光再次回归；
+[*] 人口组装建筑，机器人组装多多益善；
+[*] 解除了巨构建筑的一系列建造限制（如数量堆叠、建造后清空星系等）。
 [/list]
 
 不包含在无限建筑中的建筑有：
 
 [list]
-[*]艺术协会购买的文化中心（只买了一座就只能建造一座）；
-[*]恒星基地组件（暂时没找到建造多个水培舱、舰队学院的办法）。
+[*] 艺术协会购买的文化中心（只买了一座就只能建造一座）；
+[*] 恒星基地组件（暂时没找到建造多个水培舱、舰队学院的办法）。
 [/list]
 
 [h2]巨构建筑[/h2]
@@ -91,12 +123,44 @@ The compatible mods for Infinite Buildings have been split, if you subscribe to 
 全部巨构建筑均可以无数量上限建造，但同时建造的数量限制仍然遵循原版机制。
 
 [list]
-[*]环形世界：解锁了建造星系限制（双恒星、三恒星、黑洞），建造不会影响星系内其他星球，建造完成不会清空星系，可以无限堆叠。
-[*]戴森球：解锁了建造星系限制（双恒星、三恒星、黑洞），建造完成后不会影响星系内行星，宜居球全部保留，可以无限堆叠。
-[*]所有行星级巨构：可以在星球的卫星上建造，可以无限堆叠。
-[*]物质解压器：可以无限堆叠。
-[*]居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造。
+[*] 环形世界：解锁了建造星系限制（双恒星、三恒星、黑洞），建造不会影响星系内其他星球，建造完成不会清空星系，可以无限堆叠。
+[*] 戴森球：解锁了建造星系限制（双恒星、三恒星、黑洞），建造完成后不会影响星系内行星，宜居球全部保留，可以无限堆叠。
+[*] 所有行星级巨构：可以在星球的卫星上建造，可以无限堆叠。
+[*] 物质解压器：可以无限堆叠。
+[*] 居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造。
 [/list]
+
+[h2]脚本使用说明[/h2]
+
+[code]remove_building_limits.py[/code]
+
+该脚本自动化生成修改过的建筑文件的过程，以移除游戏中建筑数量的限制。它的设计简单高效，用户只需提供最少的输入。
+
+[h3]要求[/h3]
+
+[list]
+[*] Python 3.x
+[*] 游戏建筑文件 [.txt] 格式
+[/list]
+
+[h3]使用指南[/h3]
+
+[list=1]
+[*] 收集所有你希望修改的建筑 [.txt] 文件，并将它们放置在一个文件夹中（这将是你的输入文件夹）。
+[*] 确保你的系统已安装 Python 3.x。
+[*] 打开一个终端或命令提示符窗口。
+[*] 导航到脚本所在的目录。
+[*] 使用以下命令运行脚本，将 [i]<input_folder>[/i] 替换为你的输入文件夹路径，将 [i]<output_folder>[/i] 替换为你希望输出的文件夹路径：
+[code]python3 remove_building_limits.py <input_folder> <output_folder>[/code]
+[*] 脚本将处理每一个 [.txt] 文件，并在指定的输出目录生成一个无建筑限制的新版本。
+[*] 脚本运行完成后，将所有文件从输出目录复制到游戏目录中的 [i]common/buildings[/i] 文件夹。
+[/list]
+
+[h3]示例[/h3]
+
+如果你的输入文件夹是 [i]C:\mods\input_buildings[/i] 而输出文件夹是 [i]C:\mods\output_buildings[/i]，命令将会是：
+
+[code]python3 remove_building_limits.py C:\mods\input_buildings C:\mods\output_buildings[/code]
 
 [h2]更新/兼容[/h2]
 
