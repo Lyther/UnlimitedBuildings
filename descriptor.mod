@@ -4,5 +4,5 @@ tags={
 }
 picture="thumbnail.png"
 name="UnlimitedBuildings"
-supported_version="3.13.*"
+supported_version="v3.13.*"
 remote_file_id="2846706267"
