@@ -1,8 +1,8 @@
-version="1.5.0"
+version="1.6.0"
 tags={
 	"Buildings"
 }
 picture="thumbnail.png"
 name="UnlimitedBuildings"
-supported_version="3.8.*"
+supported_version="3.13.*"
 remote_file_id="2846706267"

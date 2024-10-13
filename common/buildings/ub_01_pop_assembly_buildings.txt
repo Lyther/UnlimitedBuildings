@@ -16,6 +16,7 @@ building_robot_assembly_plant = {
 		}
 		owner = {
 			is_regular_empire = yes
+			is_individual_machine = no
 			NOT = { has_policy_flag = robots_outlawed }
 			OR = {
 				is_ai = no
@@ -23,7 +24,7 @@ building_robot_assembly_plant = {
 				is_materialist = yes
 			}
 		}
-		NOT = { has_modifier = slave_colony }
+		NOT = {	has_modifier = resort_colony }
 	}
 
 	convert_to = {
@@ -57,7 +58,6 @@ building_robot_assembly_plant = {
 					has_policy_flag = robots_outlawed
 				}
 			}
-			has_modifier = slave_colony
 			AND = {
 				owner = { is_ai = yes }
 				free_district_slots = 0
@@ -77,6 +77,99 @@ building_robot_assembly_plant = {
 		job_roboticist_add = 1
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_origin = origin_mechanists
+					is_individual_machine = yes
+					has_country_flag = synthetic_empire
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_unscheduled_updates
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_safe_updates
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = -0.1
+			planet_stability_add = 5
+		}
+	}
+
+	### JOB STRATA FOCUS MODIFIERS ###
+	triggered_planet_modifier = { # Synth ruler focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_rulers
+			}
+		}
+		modifier = {
+			planet_jobs_ruler_produces_mult = 0.15
+		}
+	}
+
+	triggered_planet_modifier = { # Synth specialist focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_specialists
+			}
+		}
+		modifier = {
+			planet_jobs_specialist_produces_mult = 0.05
+		}
+	}
+
+	triggered_planet_modifier = { # Synth worker focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_workers
+			}
+		}
+		modifier = {
+			planet_jobs_worker_produces_mult = 0.10
+		}
+	}
+
+	triggered_planet_modifier = { # Synth upkeep focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_upkeep
+			}
+		}
+		modifier = {
+			planet_jobs_upkeep_mult = -0.05
+		}
+	}
+
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -88,29 +181,7 @@ building_robot_assembly_plant = {
 	}
 
 	triggered_desc = {
-		trigger = {
-			OR = {
-				NOT = { exists = owner }
-				AND = {
-					exists = owner
-					owner = {
-						NOT = { has_policy_flag = roboticist_output_build_cyborgs }
-					}
-				}
-			}
-
-		}
 		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_policy_flag = roboticist_output_build_cyborgs
-			}
-		}
-		text = job_roboticist_cyborg_effect_desc
 	}
 
 	triggered_desc = {
@@ -123,9 +194,6 @@ building_robot_assembly_plant = {
 					exists = assembling_species
 					assembling_species = { is_organic_species = yes }
 					exists = owner
-					owner = {
-						NOT = { has_policy_flag = roboticist_output_build_cyborgs }
-					}
 				}
 			}
 		}
@@ -153,6 +221,7 @@ building_robot_assembly_complex = {
 		}
 		owner = {
 			is_regular_empire = yes
+			is_individual_machine = no
 			NOT = { has_policy_flag = robots_outlawed }
 			OR = {
 				is_ai = no
@@ -160,7 +229,6 @@ building_robot_assembly_complex = {
 				is_materialist = yes
 			}
 		}
-		NOT = { has_modifier = slave_colony }
 	}
 
 	convert_to = {
@@ -176,7 +244,6 @@ building_robot_assembly_complex = {
 					has_policy_flag = robots_outlawed
 				}
 			}
-			has_modifier = slave_colony
 			AND = {
 				owner = { is_ai = yes }
 				free_district_slots = 0
@@ -196,6 +263,99 @@ building_robot_assembly_complex = {
 		job_roboticist_add = 2
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_origin = origin_mechanists
+					is_individual_machine = yes
+					has_country_flag = synthetic_empire
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_unscheduled_updates
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_safe_updates
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = -0.1
+			planet_stability_add = 5
+		}
+	}
+
+	### JOB STRATA FOCUS MODIFIERS ###
+	triggered_planet_modifier = { # Synth ruler focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_rulers
+			}
+		}
+		modifier = {
+			planet_jobs_ruler_produces_mult = 0.15
+		}
+	}
+
+	triggered_planet_modifier = { # Synth specialist focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_specialists
+			}
+		}
+		modifier = {
+			planet_jobs_specialist_produces_mult = 0.05
+		}
+	}
+
+	triggered_planet_modifier = { # Synth worker focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_workers
+			}
+		}
+		modifier = {
+			planet_jobs_worker_produces_mult = 0.10
+		}
+	}
+
+	triggered_planet_modifier = { # Synth upkeep focus
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_focus_upkeep
+			}
+		}
+		modifier = {
+			planet_jobs_upkeep_mult = -0.05
+		}
+	}
+
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -213,29 +373,7 @@ building_robot_assembly_complex = {
 	}
 
 	triggered_desc = {
-		trigger = {
-			OR = {
-				NOT = { exists = owner }
-				AND = {
-					exists = owner
-					owner = {
-						NOT = { has_policy_flag = roboticist_output_build_cyborgs }
-					}
-				}
-			}
-
-		}
 		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_policy_flag = roboticist_output_build_cyborgs
-			}
-		}
-		text = job_roboticist_cyborg_effect_desc
 	}
 
 	triggered_desc = {
@@ -248,9 +386,6 @@ building_robot_assembly_complex = {
 					exists = assembling_species
 					assembling_species = { is_organic_species = yes }
 					exists = owner
-					owner = {
-						NOT = { has_policy_flag = roboticist_output_build_cyborgs }
-					}
 				}
 			}
 		}
@@ -270,8 +405,16 @@ building_machine_assembly_plant = {
 
 	potential = {
 		exists = owner
-		owner = { is_machine_empire = yes }
-		NOT = { has_modifier = crucible_colony }
+		owner = {
+			OR = {
+				is_machine_empire = yes
+				is_individual_machine = yes
+			}
+		}
+		NOR = { 
+			has_modifier = gestation_colony 
+			has_modifier = resort_colony
+		}
 	}
 
 	convert_to = {
@@ -295,7 +438,9 @@ building_machine_assembly_plant = {
 	destroy_trigger = {
 		exists = owner
 		OR = {
-			owner = { is_robot_empire = no }
+			owner = {
+				is_robot_empire = no
+			}
 			AND = {
 				owner = { is_ai = yes }
 				free_district_slots = 0
@@ -306,8 +451,42 @@ building_machine_assembly_plant = {
 		}
 	}
 
-	planet_modifier = {
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
 		job_replicator_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		job_roboticist_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
 	}
 
 	resources = {
@@ -329,7 +508,23 @@ building_machine_assembly_plant = {
 	}
 
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
 		text = job_replicator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		text = job_roboticist_individual_machine_effect_desc
 	}
 }
 
@@ -341,8 +536,16 @@ building_machine_assembly_complex = {
 
 	potential = {
 		exists = owner
-		owner = { is_machine_empire = yes }
-		NOT = { has_modifier = crucible_colony }
+		owner = {
+			OR = {
+				is_machine_empire = yes
+				is_individual_machine = yes
+			}
+		}
+		NOR = { 
+			has_modifier = gestation_colony 
+			has_modifier = resort_colony
+		}
 	}
 
 	convert_to = {
@@ -365,8 +568,42 @@ building_machine_assembly_complex = {
 		}
 	}
 
-	planet_modifier = {
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
 		job_replicator_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		job_roboticist_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
 	}
 
 	resources = {
@@ -386,7 +623,23 @@ building_machine_assembly_complex = {
 	}
 
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
 		text = job_replicator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		text = job_roboticist_individual_machine_effect_desc
 	}
 }
 
@@ -428,10 +681,40 @@ building_spawning_pool = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_cybernetics_modular_cybernetics_hive }
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
 		}
 		modifier = {
-			job_cyber_drone_add = 2
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_active_tradition = tr_cybernetics_synaptic_sub_processing }
+		}
+		modifier = {
+			job_augmentor_drone_add = 2
 		}
 	}
 
@@ -477,10 +760,10 @@ building_spawning_pool = {
 		trigger = {
 			exists = owner
 			owner = {
-				has_active_tradition = tr_cybernetics_modular_cybernetics_hive
+				has_active_tradition = tr_cybernetics_synaptic_sub_processing
 			}
 		}
-		text = job_cyber_drone_effect_desc
+		text = job_augmentor_drone_assembly_desc
 	}
 
 	triggered_desc = {
@@ -521,10 +804,10 @@ building_offspring_nest = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_cybernetics_modular_cybernetics_hive }
+			owner = { has_active_tradition = tr_cybernetics_synaptic_sub_processing }
 		}
 		modifier = {
-			job_cyber_drone_add = 2
+			job_augmentor_drone_add = 2
 		}
 	}
 
@@ -553,10 +836,10 @@ building_offspring_nest = {
 		trigger = {
 			exists = owner
 			owner = {
-				has_active_tradition = tr_cybernetics_modular_cybernetics_hive
+				has_active_tradition = tr_cybernetics_synaptic_sub_processing
 			}
 		}
-		text = job_cyber_drone_effect_desc
+		text = job_augmentor_drone_assembly_desc
 	}
 
 	triggered_desc = {
@@ -941,15 +1224,45 @@ building_clone_vats = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { has_tradition = tr_genetics_efficient_cloning }
 		}
 		modifier = {
 			planet_pop_assembly_organic_add = 1.5
 		}
 	}
-	
+
 	resources = {
-		category = planet_buildings
+		category = planet_buildings_clone_vats
 
 		# Base cost
 		cost = {
@@ -1277,29 +1590,63 @@ building_toxic_bath_machine = {
 	icon = building_toxic_bath_machine
 
 	potential = {
-		owner = {
-			is_machine_empire = yes
-			has_valid_civic = civic_machine_toxic_baths
+		OR = {
+			AND = {
+				owner = { is_machine_empire = yes }
+				owner = { has_toxic_baths = yes }
+			}
+			AND = {
+				owner = { is_individual_machine = yes }
+				owner = { has_toxic_baths = yes }
+			}
 		}
 	}
 	destroy_trigger = {
 		exists = owner
 		OR = {
-			owner = { is_machine_empire = no }
 			owner = {
-				NOT = { has_valid_civic = civic_machine_toxic_baths }
+				NOR = {
+					is_machine_empire = no
+					is_individual_machine = no
+				}
+			}
+			owner = {
+				has_toxic_baths = no
 			}
 		}
 	}
-	planet_modifier = {
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_machine_empire = yes }
+		}
 		job_bath_attendant_machine_add = @b1_jobs
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_individual_machine = yes }
+		}
+		job_bath_attendant_individual_machine_add = @b1_jobs
 	}
 
 	triggered_desc = {
 		trigger = {
 			exists = owner
+			owner = {
+				is_individual_machine = no
+			}
 		}
 		text = job_toxic_baths_effect_machine_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		text = job_toxic_baths_effect_machine_desc_2
 	}
 
 	resources = {

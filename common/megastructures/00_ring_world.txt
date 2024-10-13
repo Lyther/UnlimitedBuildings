@@ -19,11 +19,15 @@ ring_world_1 = {
 		}
 	}
 
+	custom_tooltip_requirements = "MEGASTRUCTURE_TOOLTIP_REQUIREMENTS_RING_WORLD"
+
 	prerequisites = { "tech_ring_world" }
 	construction_blocks_and_blocked_by = none
 
 	possible = {
-		exists = starbase
+		hidden_trigger = {
+			exists = starbase
+		}
 		custom_tooltip = {
 			fail_text = "requires_inside_border"
 			is_inside_border = from
@@ -71,11 +75,23 @@ ring_world_1 = {
 				}
 			}
 		}
+
+		modifier = {
+			factor = 0
+			from = {
+				has_country_flag = built_ringworld
+			}
+		}
 	}
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		set_star_flag = ring_world_built
+		from = {
+			set_country_flag = built_ringworld
+		}
+	}
 }
 
 # Temporarily used for creating specific habitable or structural sections.
@@ -148,8 +164,6 @@ ring_world_2 = {
 	entity = "ringworld_3x_seams_entity"
 	portrait = "GFX_megastructure_construction_background"
 
-	construction_blocks_and_blocked_by = none
-
 	upgrade_from = {
 		ring_world_2_intermediate
 	}
@@ -173,13 +187,12 @@ ring_world_3_intermediate = {
 		}
 	}
 
-	construction_blocks_and_blocked_by = none
-
 	upgrade_from = {
 		ring_world_2
 	}
 
 	prerequisites = { "tech_ring_world" }
+	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
 	prereq_name = "RING_WORLD_SHOW_NAME"
 
@@ -244,6 +257,9 @@ ring_world_3_intermediate = {
 				set_planet_flag = megastructure
 			}
 		}
+		fromfrom.planet = {
+			set_planet_flag = has_megastructure
+		}
 		remove_megastructure = fromfrom
 		if = {
 			limit = {
@@ -307,11 +323,10 @@ ring_world_restored = {
 		}
 	}
 
-	construction_blocks_and_blocked_by = none
-
 	upgrade_from = {
 		ring_world_ruined
 	}
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		from = {

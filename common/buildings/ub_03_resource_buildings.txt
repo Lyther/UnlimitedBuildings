@@ -4,9 +4,7 @@
 
 building_hydroponics_farm = {
 	base_buildtime = @b1_time
-
 	category = resource
-
 	potential = {
 		exists = owner
 		owner = {
@@ -15,13 +13,11 @@ building_hydroponics_farm = {
 				is_ai = no
 			}
 		}
-		NOT = { is_planet_class = pc_machine }
-		NOT = { has_modifier = resort_colony }
-	}
-
+        NOT = { is_planet_class = pc_machine }
+        NOT = { has_modifier = resort_colony }
+    }
 	allow = {
 	}
-
 	destroy_trigger = {
 		exists = owner
 		OR = {
@@ -42,72 +38,11 @@ building_hydroponics_farm = {
 			}
 		}
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				OR = {
-					is_anglers_empire = no
-					AND = {
-						is_anglers_empire = yes
-						NOT = { PREV = { planet = { is_wet = yes } } }
-					}
-				}
-			}
-		}
-		modifier = {
-			job_farmer_add = @b1_jobs
-		}
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 3
+		ANGLER_AMOUNT = 2
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_farm_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_origin = origin_void_dwellers }
-		}
-		modifier = {
-			job_farmer_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_agri_drone_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		modifier = {
-			job_angler_add = 1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -117,50 +52,6 @@ building_hydroponics_farm = {
 			energy = 2
 		}
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_agri_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-				OR = {
-					is_anglers_empire = no
-					AND = {
-						is_anglers_empire = yes
-						NOT = { PREV = { planet = { is_wet = yes } } }
-					}
-				}
-			}
-		}
-		text = job_farmer_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_farm_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		text = job_aqu_angler_effect_desc
-	}
-
 	prerequisites = {
 		"tech_hydroponics"
 	}
@@ -175,7 +66,6 @@ building_food_processing_facility = {
 		NOR = {
 			is_planet_class = pc_machine
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 
 		OR = {
@@ -195,7 +85,6 @@ building_food_processing_facility = {
 			}
 			is_planet_class = pc_machine
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 			AND = {
 				owner = {
 					is_ai = yes
@@ -205,63 +94,14 @@ building_food_processing_facility = {
 		}
 	}
 
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 1
+		ANGLER_AMOUNT = 1
+	}
+
 	planet_modifier = {
 		planet_farmers_food_produces_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				OR = {
-					is_anglers_empire = no
-					AND = {
-						is_anglers_empire = yes
-						NOT = { PREV = { planet = { is_wet = yes } } }
-					}
-				}
-			}
-		}
-		modifier = {
-			job_farmer_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_farm_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_agri_drone_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		modifier = {
-			job_angler_add = 1
-		}
 	}
 
 	resources = {
@@ -272,42 +112,6 @@ building_food_processing_facility = {
 		upkeep = {
 			energy = 2
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_agri_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_farmer_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_farm_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		text = job_aqu_angler_effect_desc
 	}
 
 	upgrades = {
@@ -348,7 +152,6 @@ building_food_processing_center = {
 			}
 			is_planet_class = pc_machine
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 	}
 
@@ -365,59 +168,10 @@ building_food_processing_center = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				OR = {
-					is_anglers_empire = no
-					AND = {
-						is_anglers_empire = yes
-						NOT = { PREV = { planet = { is_wet = yes } } }
-					}
-				}
-			}
-		}
-		modifier = {
-			job_farmer_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_farm_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_agri_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		modifier = {
-			job_angler_add = 2
-		}
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
 	}
 
 	resources = {
@@ -452,42 +206,6 @@ building_food_processing_center = {
 		}
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_agri_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_farmer_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_farm_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		text = job_aqu_angler_effect_desc
-	}
-
 	prerequisites = {
 		"tech_food_processing_2"
 	}
@@ -502,7 +220,6 @@ building_baol_organic_plant = {
 		NOR = {
 			is_planet_class = pc_machine
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 	}
 
@@ -515,7 +232,6 @@ building_baol_organic_plant = {
 			}
 			is_planet_class = pc_machine
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 	}
 
@@ -561,61 +277,10 @@ building_baol_organic_plant = {
 		planet_farmers_energy_produces_add = 1
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				OR = {
-					is_anglers_empire = no
-					AND = {
-						is_anglers_empire = yes
-						PREV = {
-							planet = { is_wet = no }
-						}
-					}
-				}
-			}
-		}
-		modifier = {
-			job_farmer_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_farm_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_agri_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		modifier = {
-			job_angler_add = 2
-		}
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
 	}
 
 	resources = {
@@ -627,42 +292,6 @@ building_baol_organic_plant = {
 		upkeep = {
 			energy = 2
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_agri_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_farmer_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_farm_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		text = job_aqu_angler_effect_desc
 	}
 
 	prerequisites = {
@@ -688,7 +317,6 @@ building_mineral_purification_plant = {
 	destroy_trigger = {
 		OR = {
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 			AND = {
 				exists = owner
 				owner = {
@@ -702,16 +330,21 @@ building_mineral_purification_plant = {
 	potential = {
 		NOR = {
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 
 		NOR = { # Ringworlds don't have mines
 			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_cybrex
 		}
-		OR = { # Habitats only have mines if they're built on an appropriate deposit
+		OR = {
 			NOT = { is_planet_class = pc_habitat }
-			has_planet_flag = mining_habitat
+			AND = {
+				is_planet_class = pc_habitat
+				check_modifier_value = {
+					modifier = district_hab_mining_max
+					value > 0
+				}
+			}
 		}
 		OR = {
 			owner = {
@@ -725,62 +358,9 @@ building_mineral_purification_plant = {
 		planet_miners_minerals_produces_add = 1
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		modifier = {
-			job_miner_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_mine_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_mining_drone_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_scrap_miner_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_scrap_miner_drone_add = 1
-		}
+	inline_script = {
+		script = jobs/miners_add
+		AMOUNT = 1
 	}
 
 	triggered_planet_modifier = {
@@ -828,51 +408,6 @@ building_mineral_purification_plant = {
 	upgrades = {
 		building_mineral_purification_hub
 	}
-
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_mining_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_miner_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_mine_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_scrap_miner_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_scrap_miner_effect_desc
-	}
 }
 
 building_mineral_purification_hub = {
@@ -895,14 +430,12 @@ building_mineral_purification_hub = {
 		has_upgraded_capital = yes
 		NOR = {
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 	}
 
 	destroy_trigger = {
 		OR = {
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 			AND = {
 				exists = owner
 				owner = {
@@ -942,61 +475,9 @@ building_mineral_purification_hub = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		modifier = {
-			job_miner_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_mine_add = 2
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_mining_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_scrap_miner_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_scrap_miner_drone_add = 2
-		}
+	inline_script = {
+		script = jobs/miners_add
+		AMOUNT = 2
 	}
 
 	triggered_planet_modifier = {
@@ -1062,51 +543,6 @@ building_mineral_purification_hub = {
 	prerequisites = {
 		tech_mineral_purification_2
 	}
-
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_mining_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_miner_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_mine_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_scrap_miner_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_scrap_miner_effect_desc
-	}
 }
 
 building_energy_grid = {
@@ -1117,7 +553,6 @@ building_energy_grid = {
 		OR = {
 			OR = {
 				has_modifier = resort_colony
-				has_modifier = crucible_colony
 			}
 			AND = {
 				exists = owner
@@ -1132,15 +567,16 @@ building_energy_grid = {
 	potential = {
 		NOR = {
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 		}
 		OR = {
 			NOT = { is_planet_class = pc_habitat }
 			AND = {
-				exists = owner
-				owner = { is_gestalt = yes }
+				is_planet_class = pc_habitat
+				check_modifier_value = {
+					modifier = district_hab_energy_max
+					value > 0
+				}
 			}
-			has_planet_flag = energy_habitat
 		}
 		OR = {
 			owner = {
@@ -1154,37 +590,9 @@ building_energy_grid = {
 		planet_technician_energy_produces_add = 1
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		modifier = {
-			job_technician_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_generator_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_technician_drone_add = 1
-		}
+	inline_script = {
+		script = jobs/technicians_add
+		AMOUNT = 1
 	}
 
 	triggered_planet_modifier = {
@@ -1231,31 +639,6 @@ building_energy_grid = {
 	upgrades = {
 		building_energy_nexus
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_technician_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_technician_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_generator_effect_desc
-	}
 }
 
 building_energy_nexus = {
@@ -1270,7 +653,6 @@ building_energy_nexus = {
 	destroy_trigger = {
 		OR = {
 			has_modifier = resort_colony
-			has_modifier = crucible_colony
 			AND = {
 				exists = owner
 				owner = {
@@ -1294,37 +676,9 @@ building_energy_nexus = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		modifier = {
-			job_technician_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_generator_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_technician_drone_add = 2
-		}
+	inline_script = {
+		script = jobs/technicians_add
+		AMOUNT = 2
 	}
 
 	triggered_planet_modifier = {
@@ -1380,31 +734,6 @@ building_energy_nexus = {
 	prerequisites = {
 		tech_power_hub_2
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_technician_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_technician_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_generator_effect_desc
-	}
 }
 
 building_resource_silo = {
@@ -1416,7 +745,6 @@ building_resource_silo = {
 		NOR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
-			has_modifier = crucible_colony
 		}
 	}
 
@@ -1508,21 +836,39 @@ building_resource_silo = {
 }
 
 building_bio_reactor = {
-	base_buildtime = 240
+	base_buildtime = @b1_time
 
 	category = resource
 
 	potential = {
 		exists = owner
-		owner = {
-			OR = {
-				is_machine_empire = yes
-				is_mechanical_empire = yes
-				is_lithoid_empire = yes
+		NOR = {
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+		}
+
+		OR = {
+			owner = {
+				is_ai = no
 			}
-			OR = {
-				owner = { is_ai = no }
-				owner = { country_uses_food = no }
+			has_any_farming_district_or_buildings = yes
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
 			}
 		}
 	}
@@ -1530,22 +876,99 @@ building_bio_reactor = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			minerals = 200
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				owner = { NOT = { has_deficit = food } }
-			}
-			energy = 20
+			minerals = @b1_minerals
 		}
 		upkeep = {
-			food = 25
+			food = @b1_upkeep
 		}
+	}
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 1
+		ANGLER_AMOUNT = 1
+	}
+
+	planet_modifier = {
+		planet_farmers_food_produces_add = -2
+		planet_farmers_energy_produces_add = 2
+	}
+
+	upgrades = {
+		building_bio_reactor_2
 	}
 
 	prerequisites = {
 		"tech_bio_reactor"
+	}
+}
+
+building_bio_reactor_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = resource
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	potential = {
+		exists = owner
+		NOR = {
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+		}
+
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			has_any_farming_district_or_buildings = yes
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			food = @b2_upkeep
+		}
+	}
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	planet_modifier = {
+		planet_farmers_food_produces_add = -3
+		planet_farmers_energy_produces_add = 2
+		planet_farmers_exotic_gases_produces_add = 0.1
+	}
+
+	prerequisites = {
+		tech_bio_reactor_2
 	}
 }
 

@@ -20,6 +20,8 @@ matter_decompressor_0 = {
 		}
 	}
 
+	custom_tooltip_requirements = "MEGASTRUCTURE_TOOLTIP_REQUIREMENTS_MATTER_DECOMPRESSOR"
+
 	prerequisites = { "tech_matter_decompressor" }
 	construction_blocks_and_blocked_by = none
 
@@ -28,7 +30,9 @@ matter_decompressor_0 = {
 	}
 
 	possible = {
-		exists = starbase
+		hidden_trigger = {
+			exists = starbase
+		}
 		custom_tooltip = {
 			fail_text = "requires_inside_border"
 			is_inside_border = from
@@ -56,7 +60,6 @@ matter_decompressor_0 = {
 				fail_text = "requires_no_anomaly"
 				NOT = { has_anomaly = yes }
 			}
-			is_star_class = sc_black_hole
 		}
 	}
 
@@ -79,11 +82,37 @@ matter_decompressor_0 = {
 				}
 			}
 		}
+
+		modifier = {
+			factor = 0
+			from = {
+				has_country_flag = built_matter_decompressor_site
+			}
+		}
 	}
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_matter_decompressor_site
+				}
+				set_country_flag = built_matter_decompressor_site_contingency
+			}
+			set_country_flag = built_matter_decompressor_site
+		}
+		fromfrom.planet = {
+			if = {
+				limit = { has_orbital_station = yes }
+				orbital_station = {
+					dismantle = yes
+				}
+			}
+		}
+	}
 }
 
 # Matter Decompressor
@@ -230,10 +259,11 @@ matter_decompressor_4 = {
 	}
 
 	prerequisites = { "tech_matter_decompressor" }
-	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
+	construction_blocks_and_blocked_by = none
 
 	on_build_complete = {
+		set_star_flag = matter_decompressor_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = mega.9013 }
@@ -299,11 +329,10 @@ matter_decompressor_restored = {
 		}
 	}
 
-	construction_blocks_and_blocked_by = none
-
 	upgrade_from = {
 		matter_decompressor_ruined
 	}
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		from = { has_technology = tech_mega_engineering }
@@ -326,6 +355,7 @@ matter_decompressor_restored = {
 			}
 			destroy_ambient_object = this
 		}
+		set_star_flag = matter_decompressor_built
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = mega.9101 }

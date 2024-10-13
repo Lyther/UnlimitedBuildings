@@ -25,11 +25,15 @@ think_tank_0 = {
 		}
 	}
 
+	custom_tooltip_requirements = "MEGASTRUCTURE_TOOLTIP_REQUIREMENTS_ONE_PER_COUNTRY"
+
 	prerequisites = { "tech_science_nexus" }
 	construction_blocks_and_blocked_by = none
 
 	possible = {
-		exists = starbase
+		hidden_trigger = {
+			exists = starbase
+		}
 		custom_tooltip = {
 			fail_text = "requires_inside_border"
 			is_inside_border = from
@@ -88,11 +92,33 @@ think_tank_0 = {
 				}
 			}
 		}
+
+		modifier = {
+			factor = 0
+			from = {
+				has_country_flag = built_think_tank
+			}
+		}
 	}
 
 	on_build_start = {}
 	on_build_cancel = {}
-	on_build_complete = {}
+	on_build_complete = {
+		set_star_flag = think_tank_built
+		fromfrom.planet = {
+			set_planet_flag = has_megastructure
+		}
+		from = {
+			if = {
+				limit = {
+					has_relic = r_contingency_core
+					has_country_flag = built_think_tank
+				}
+				set_country_flag = built_think_tank_contingency
+			}
+			set_country_flag = built_think_tank
+		}
+	}
 }
 
 think_tank_1 = {
@@ -205,8 +231,8 @@ think_tank_3 = {
 	}
 
 	prerequisites = { "tech_science_nexus" }
-	construction_blocks_and_blocked_by = none
 	show_prereqs = yes
+	construction_blocks_and_blocked_by = none
 
 	country_modifier = {
 		all_technology_research_speed = 0.15
@@ -309,11 +335,10 @@ think_tank_restored = {
 		}
 	}
 
-	construction_blocks_and_blocked_by = none
-
 	upgrade_from = {
 		think_tank_ruined
 	}
+	construction_blocks_and_blocked_by = none
 
 	possible = {
 		from = { has_technology = tech_mega_engineering }

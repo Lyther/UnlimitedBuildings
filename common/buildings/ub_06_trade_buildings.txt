@@ -10,7 +10,10 @@ building_commercial_zone = {
 	potential = {
 		exists = owner
 		owner = { is_regular_empire = yes }
-		NOT = { has_modifier = slave_colony }
+		NOR = { 
+			has_modifier = slave_colony 
+			has_modifier = penal_colony	
+		}
 		NOT = { has_building = building_low_tech_capital }
 	}
 
@@ -19,6 +22,7 @@ building_commercial_zone = {
 		OR = {
 			owner = { is_regular_empire = no }
 			has_modifier = slave_colony
+			has_modifier = penal_colony	
 		}
 	}
 
@@ -33,11 +37,8 @@ building_commercial_zone = {
 	}
 
 	planet_modifier = {
-		job_clerk_add = 3
-	}
-
-	triggered_desc = {
-		text = job_clerk_effect_desc
+		job_clerk_add = 2
+		job_trader_add = 1
 	}
 
 	triggered_planet_modifier = {
@@ -48,18 +49,16 @@ building_commercial_zone = {
 			}
 		}
 		modifier = {
-			job_merchant_add = 1
+			job_trader_add = 1
 		}
 	}
 
 	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_mercantile_commercial_enterprise
-			}
-		}
-		text = job_merchant_effect_desc
+		text = job_clerk_effect_desc
+	}
+
+	triggered_desc = {
+		text = job_trader_effect_desc
 	}
 
 	prerequisites = {
@@ -84,7 +83,10 @@ building_commercial_megaplex = {
 	potential = {
 		exists = owner
 		owner = { is_regular_empire = yes }
-		NOT = { has_modifier = slave_colony }
+		NOR = { 
+			has_modifier = slave_colony 
+			has_modifier = penal_colony	
+		}
 		has_building = building_commercial_zone
 	}
 
@@ -93,6 +95,7 @@ building_commercial_megaplex = {
 		OR = {
 			owner = { is_regular_empire = no }
 			has_modifier = slave_colony
+			has_modifier = penal_colony	
 		}
 	}
 
@@ -109,8 +112,8 @@ building_commercial_megaplex = {
 	}
 
 	planet_modifier = {
-		job_clerk_add = 6
-		job_merchant_add = 1
+		job_clerk_add = 4
+		job_trader_add = 2
 	}
 
 	triggered_planet_modifier = {
@@ -121,7 +124,7 @@ building_commercial_megaplex = {
 			}
 		}
 		modifier = {
-			job_merchant_add = 1
+			job_trader_add = 2
 		}
 	}
 
@@ -130,7 +133,7 @@ building_commercial_megaplex = {
 	}
 
 	triggered_desc = {
-		text = job_merchant_effect_desc
+		text = job_trader_effect_desc
 	}
 
 	prerequisites = {
@@ -161,8 +164,11 @@ building_galactic_stock_exchange = {
 	category = trade
 
 	potential = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		NOR = { 
+			has_modifier = resort_colony 
+			has_modifier = slave_colony 
+			has_modifier = penal_colony	
+		}
 	}
 
 	allow = {
@@ -189,12 +195,13 @@ building_galactic_stock_exchange = {
 			owner = { is_regular_empire = no }
 			has_modifier = slave_colony
 			has_modifier = resort_colony
+			has_modifier = penal_colony	
 		}
 	}
 
 
 	planet_modifier = {
-		job_merchant_add = 2
+		job_merchant_add = 1
 		trade_value_mult = 0.20
 	}
 
