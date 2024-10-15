@@ -1,0 +1,419 @@
+### COST
+@apsr23part1cost_minerals = 2500
+@apsr23part1cost_knowledges = 0	
+@apsr23part1cost_time = 750		
+
+@apsr23part2cost_minerals = 5000
+@apsr23part2cost_knowledges = 100
+@apsr23part2cost_time = 1000		
+
+@apsr23part3cost_minerals = 10000
+@apsr23part3cost_knowledges = 500
+@apsr23part3cost_time = 1500				
+
+
+### UPKEEP
+@apsr23part1upkeep_energy = 3
+@apsr23part1upkeep_minerals = 2
+
+@apsr23part2upkeep_energy = 6	
+@apsr23part2upkeep_minerals = 6
+
+@apsr23part3upkeep_energy = 15
+@apsr23part3upkeep_minerals = 20
+
+
+
+
+apsr23_building_part1 = {
+	base_buildtime = @apsr23part1cost_time
+	icon = apsr23_building_part1
+	
+	is_capped_by_modifier = no
+
+	category = manufacturing
+	
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		apsr_buildings_allow = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr23_planet_modifier"
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	# Настройка усиления производства
+	planet_modifier = {
+		apsr23_planet_processing_type_volatile_motes_produces_add = 0.13
+		apsr23_planet_processing_type_exotic_gases_produces_add = 0.13
+		apsr23_planet_processing_type_rare_crystals_produces_add = 0.13
+		apsr23_planet_processing_type_minerals_upkeep_add = 2
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			minerals = @apsr23part1cost_minerals
+			apsr_knowledge = @apsr23part1cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr23part1upkeep_energy
+			minerals = @apsr23part1upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 0.3
+		}
+	}
+	
+	upgrades = {
+		"apsr23_building_part2"
+	}	
+	
+	prerequisites = {
+		"tech_apsr23_building_part1"
+	}
+}
+
+apsr23_building_part2 = {
+	base_buildtime = @apsr23part2cost_time
+	icon = apsr23_building_part2
+	
+	is_capped_by_modifier = no
+
+	category = manufacturing
+		
+	can_build = no
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr23_planet_modifier"
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	# Настройка усиления производства
+	planet_modifier = {
+		apsr23_planet_processing_type_volatile_motes_produces_add = 0.15
+		apsr23_planet_processing_type_exotic_gases_produces_add = 0.15
+		apsr23_planet_processing_type_rare_crystals_produces_add = 0.15
+		apsr23_planet_processing_type_minerals_upkeep_add = 4
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				has_tradition = tr_modularity_finish
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_sr_living_metal_produces_add = 0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				has_tradition = tr_nanotech_finish
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_nanites_produces_add = 0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				has_tradition = tr_psionics_finish
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_sr_zro_produces_add = 0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				NOR = {
+					has_tradition = tr_modularity_finish
+					has_tradition = tr_nanotech_finish
+					has_tradition = tr_psionics_finish					
+				}
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_sr_dark_matter_produces_add = 0.1
+		}
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			minerals = @apsr23part2cost_minerals
+			apsr_knowledge = @apsr23part2cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr23part2upkeep_energy
+			minerals = @apsr23part2upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 1.2
+		}
+	}
+	
+	upgrades = {
+		"apsr23_building_part3"
+	}	
+	
+	prerequisites = {
+		"tech_apsr23_building_part2"
+	}
+}
+
+apsr23_building_part3 = {
+	base_buildtime = @apsr23part3cost_time
+	icon = apsr23_building_part3
+	
+	is_capped_by_modifier = no
+
+	category = manufacturing
+		
+	can_build = no
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr23_planet_modifier"
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	# Настройка усиления производства
+	planet_modifier = {
+		apsr23_planet_processing_type_volatile_motes_produces_add = 0.23
+		apsr23_planet_processing_type_exotic_gases_produces_add = 0.23
+		apsr23_planet_processing_type_rare_crystals_produces_add = 0.23
+		apsr23_planet_processing_type_minerals_upkeep_add = 8
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				has_tradition = tr_modularity_finish
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_sr_living_metal_produces_add = 0.25
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				has_tradition = tr_nanotech_finish
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_nanites_produces_add = 0.25
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				has_tradition = tr_psionics_finish
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_sr_zro_produces_add = 0.25
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = "apsr23_planet_modifier"
+			exists = owner
+			owner = {
+				NOR = {
+					has_tradition = tr_modularity_finish
+					has_tradition = tr_nanotech_finish
+					has_tradition = tr_psionics_finish					
+				}
+			}
+		}
+		modifier = {
+			apsr23_planet_processing_type_sr_dark_matter_produces_add = 0.25
+		}
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			minerals = @apsr23part3cost_minerals
+			apsr_knowledge = @apsr23part3cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr23part3upkeep_energy
+			minerals = @apsr23part3upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 3.0
+		}
+	}
+	
+	prerequisites = {
+		"tech_apsr23_building_part3"
+	}
+}

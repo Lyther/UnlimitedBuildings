@@ -2,7 +2,7 @@ holding_garrison = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_overlord_garrison
-
+	position_priority = 54
 	category = army
 
 	resources = {
@@ -62,7 +62,7 @@ holding_orbital_assembly_complex = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_orbital_assembly_complex
-
+	position_priority = 55
 	category = manufacturing
 
 	potential = {
@@ -94,7 +94,7 @@ holding_propaganda_office = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_propaganda_office
-
+	position_priority = 56
 	category = government
 
 	potential = {
@@ -141,7 +141,7 @@ holding_satellite_campus = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_satellite_campus
-
+	position_priority = 57
 	category = research
 
 	potential = {
@@ -183,7 +183,7 @@ holding_emporium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_emporium
-
+	position_priority = 58
 	category = amenity
 
 	triggered_planet_modifier = {
@@ -229,7 +229,7 @@ holding_aid_agency = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_aid_agency
-
+	position_priority = 59
 	category = amenity
 
 	allow = {
@@ -321,7 +321,7 @@ holding_energy_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_energy_requisitorium
-
+	position_priority = 60
 	category = resource
 
 	potential = {
@@ -373,7 +373,7 @@ holding_material_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_material_requisitorium
-
+	position_priority = 61
 	category = resource
 
 	potential = {
@@ -429,7 +429,7 @@ holding_produce_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_produce_requisitorium
-
+	position_priority = 62
 	category = resource
 
 	potential = {
@@ -497,7 +497,7 @@ holding_splinter_hive = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_splinter_hive
-
+	position_priority = 63
 	category = pop_assembly
 
 	resources = {
@@ -582,7 +582,7 @@ holding_distributed_processing = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_distributed_processing
-
+	position_priority = 64
 	category = research
 
 	potential = {
@@ -632,7 +632,7 @@ holding_offspring_nest = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_offspring_nest
-
+	position_priority = 65
 	category = government
 
 	resources = {
@@ -681,7 +681,7 @@ holding_offworld_foundry = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_offworld_foundry
-
+	position_priority = 66
 	category = manufacturing
 
 	potential = {
@@ -801,7 +801,7 @@ holding_overlord_vigil_command = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_overlord_vigil_command
-
+	position_priority = 67
 	category = army
 
 	potential = {
@@ -909,7 +909,7 @@ holding_parasitic_algorithms = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_parasitic_algorithms
-
+	position_priority = 68
 	category = research
 
 	potential = {
@@ -982,7 +982,7 @@ holding_noble_vacation_homes = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_palace
-
+	position_priority = 69
 	category = amenity
 
 	resources = {
@@ -1043,7 +1043,7 @@ holding_dread_outpost = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_dread_encampment
-
+	position_priority = 70
 	category = army
 
 	resources = {
@@ -1105,7 +1105,7 @@ holding_communal_housing_outreach = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_residence
-
+	position_priority = 71
 	category = amenity
 
 	resources = {
@@ -1164,7 +1164,7 @@ holding_idyllic_bloom = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_gaiaseeders_4
-
+	position_priority = 72
 	category = government
 
 	resources = {
@@ -1271,7 +1271,7 @@ holding_reemployment_center = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_posthumous_employment_center
-
+	position_priority = 73
 	category = pop_assembly
 
 	resources = {
@@ -1332,7 +1332,7 @@ holding_recruitment_office = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_recruitment_office
-
+	position_priority = 74
 	category = army
 
 	resources = {
@@ -1389,7 +1389,7 @@ holding_park_ranger_lodge = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_park_ranger_lodge
-
+	position_priority = 75
 	category = amenity
 
 	resources = {
@@ -1476,7 +1476,7 @@ holding_tree_of_life_sapling = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_tree_of_life_sapling
-
+	position_priority = 76
 	category = resource
 
 	resources = {
@@ -1535,7 +1535,7 @@ holding_experimental_crater = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_experimental_crater
-
+	position_priority = 77
 	category = research
 
 	resources = {
@@ -1584,7 +1584,7 @@ holding_organic_sanctuary = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_organic_sanctuary
-
+	position_priority = 78
 	category = unity
 
 	resources = {
@@ -1623,7 +1623,7 @@ holding_franchise_headquarters = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_franchise_headquarters
-
+	position_priority = 79
 	category = government
 
 	destroy_trigger = {
@@ -1753,7 +1753,7 @@ holding_sacrificial_shrine = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_sacrificial_temple_2
-
+	position_priority = 80
 	category = unity
 
 	resources = {
@@ -1806,7 +1806,7 @@ holding_toxic_bath = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath
-
+	position_priority = 81
 	category = amenity
 
 	resources = {
@@ -1857,7 +1857,7 @@ holding_toxic_bath_hive = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath_hive
-
+	position_priority = 82
 	category = amenity
 
 	resources = {
@@ -1908,7 +1908,7 @@ holding_toxic_bath_machine = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath_machine
-
+	position_priority = 83
 	category = amenity
 
 	resources = {
@@ -1959,7 +1959,7 @@ holding_knight_commandery = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_order_holding
-
+	position_priority = 84
 	category = government
 
 	resources = {
@@ -2030,7 +2030,7 @@ holding_transcendental_retreat = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_transcendental_retreat
-
+	position_priority = 85
 	category = amenity
 
 	resources = {

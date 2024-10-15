@@ -1,0 +1,101 @@
+namespace = ub_singularity_sphere
+
+country_event = {
+	id = ub_singularity_sphere.0
+	title = "ub_singularity_sphere.0.name"
+	desc = "ub_singularity_sphere.0.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = building_singularity_sphere
+	}
+
+	option = {
+		name = ub_singularity_sphere.0.a
+	}
+}
+
+country_event = {
+	id = ub_singularity_sphere.1
+	title = "ub_singularity_sphere.1.name"
+	desc = "ub_singularity_sphere.1.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = building_singularity_sphere
+	}
+
+	option = {
+		name = ub_singularity_sphere.1.a
+	}
+}
+
+country_event = {
+	id = ub_singularity_sphere.2
+	title = "ub_singularity_sphere.2.name"
+	desc = "ub_singularity_sphere.2.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = building_singularity_sphere
+	}
+
+	option = {
+		name = ub_singularity_sphere.2.a
+	}
+}
+
+country_event = {
+	id = ub_singularity_sphere.3
+	title = "ub_singularity_sphere.3.name"
+	desc = "ub_singularity_sphere.3.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = building_singularity_sphere
+	}
+
+	option = {
+		name = ub_singularity_sphere.3.a
+	}
+}
+
+country_event = {
+	id = ub_singularity_sphere.4
+	title = "ub_singularity_sphere.4.name"
+	desc = "ub_singularity_sphere.4.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_country_flag = building_singularity_sphere
+		set_country_flag = built_singularity_sphere
+		change_variable = {
+			which = singularity_sphere_counter
+			value = 1
+		}
+		add_modifier = {
+			modifier = singularity_sphere_modifier
+			days = -1
+			multiplier = singularity_sphere_counter
+		}
+	}
+
+	option = {
+		name = ub_singularity_sphere.4.a
+	}
+}

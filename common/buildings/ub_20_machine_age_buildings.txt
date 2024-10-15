@@ -4,7 +4,7 @@
 
 building_augmentation_bazaars = {
 	base_buildtime = @b2_time
-
+	position_priority = 8
 	category = trade
 
 	potential = {
@@ -113,7 +113,7 @@ building_augmentation_bazaars = {
 
 building_transcendental_retreat = {
 	base_buildtime = @b2_time
-
+	position_priority = 9
 	category = pop_assembly
 
 	potential = {
@@ -189,7 +189,7 @@ building_transcendental_retreat = {
 
 building_hive_transcendental_retreat = {
 	base_buildtime = @b2_time
-
+	position_priority = 10
 	category = pop_assembly
 
 	potential = {
@@ -1658,6 +1658,7 @@ building_lathe_super_capital = {
 building_lathe_resonator = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 11
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1706,6 +1707,7 @@ building_lathe_resonator = {
 building_lathe_stabilisator = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 12
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1742,6 +1744,7 @@ building_lathe_stabilisator = {
 building_lathe_overclocker = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 13
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1792,6 +1795,7 @@ building_lathe_overclocker = {
 building_lathe_preserver = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 14
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1832,6 +1836,7 @@ building_lathe_preserver = {
 building_lathe_reactor = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 15
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1869,6 +1874,7 @@ building_lathe_reactor = {
 building_lathe_life_support = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 16
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1910,6 +1916,7 @@ building_lathe_life_support = {
 building_lathe_cogitator = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 17
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1964,6 +1971,7 @@ building_lathe_cogitator = {
 building_lathe_validator = {
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
+	position_priority = 18
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -2019,6 +2027,7 @@ building_lathe_validator = {
 
 building_augmentation_center = {
 	base_buildtime = @b3_time
+	position_priority = 19
 
 	desc = { # Regular empire, default
 		trigger = {
@@ -2309,6 +2318,7 @@ building_augmentation_center = {
 
 building_cyberdome = { # Cyber Imperial Collectivist
 	base_buildtime = @b3_time
+	position_priority = 20
 
 	desc = {
 		text = building_cyberdome_desc
@@ -2382,6 +2392,7 @@ building_cyberdome = { # Cyber Imperial Collectivist
 
 building_identity_complex = {
 	base_buildtime = @b3_time
+	position_priority = 21
 
 	desc = {
 		text = building_identity_complex_desc
@@ -2441,7 +2452,7 @@ building_identity_complex = {
 # Synth MegaCorp Physical Branch Office Building
 building_ai_emporium = {
 	base_buildtime = @b2_time
-
+	position_priority = 22
 	owner_type = corporate
 
 	category = resource
@@ -2525,7 +2536,7 @@ building_ai_emporium = {
 # Synth MegaCorp Virtual Branch Office Building
 building_clear_thought_clinic = {
 	base_buildtime = @b2_time
-
+	position_priority = 23
 	owner_type = corporate
 
 	category = resource
@@ -2658,7 +2669,7 @@ building_clear_thought_clinic = {
 
 building_nanolab_1 = {
 	base_buildtime = @b2_time
-
+	position_priority = 24
 	category = research
 
 	potential = {
@@ -2740,7 +2751,7 @@ building_nanolab_1 = {
 building_nanolab_2 = {
 	base_buildtime = @b3_time
 	can_build = no
-
+	position_priority = 25
 	category = research
 
 	potential = {
@@ -2817,7 +2828,7 @@ building_nanolab_2 = {
 
 building_nanotech_cauldron = {
 	base_buildtime = @b2_time
-
+	position_priority = 26
 	category = manufacturing
 
 	potential = {

@@ -3,7 +3,7 @@
 #############
 building_commercial_zone = {
 	base_buildtime = @b1_time
-
+	position_priority = 57
 	exempt_from_ai_planet_specialization = no
 	category = trade
 
@@ -77,7 +77,7 @@ building_commercial_zone = {
 building_commercial_megaplex = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 58
 	category = trade
 
 	potential = {
@@ -160,7 +160,7 @@ building_commercial_megaplex = {
 
 building_galactic_stock_exchange = {
 	base_buildtime = @b2_time
-
+	position_priority = 59
 	category = trade
 
 	potential = {

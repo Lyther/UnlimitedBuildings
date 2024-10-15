@@ -94,7 +94,7 @@ think_tank_0 = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_think_tank
 			}

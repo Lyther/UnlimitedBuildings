@@ -95,7 +95,7 @@ cosmogenesis_world_0 = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = cosmogenesis_world_built
 			}

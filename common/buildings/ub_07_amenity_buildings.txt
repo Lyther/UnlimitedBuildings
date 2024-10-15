@@ -3,7 +3,7 @@
 #############
 building_luxury_residence = {
 	base_buildtime = @b1_time
-
+	position_priority = 1
 	category = amenity
 
 	potential = {
@@ -86,7 +86,7 @@ building_luxury_residence = {
 building_paradise_dome = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 2
 	category = amenity
 
 	potential = {
@@ -170,7 +170,7 @@ building_paradise_dome = {
 building_communal_housing = {
 	base_buildtime = @b1_time
 	icon = building_residence
-
+	position_priority = 3
 	category = amenity
 
 	potential = {
@@ -255,7 +255,7 @@ building_communal_housing_large = {
 	base_buildtime = @b2_time
 	can_build = no
 	icon = building_paradise_dome
-
+	position_priority = 4
 	category = amenity
 
 	potential = {
@@ -347,7 +347,7 @@ building_communal_housing_large = {
 #Machine housing
 building_drone_storage = {
 	base_buildtime = @b1_time
-
+	position_priority = 5
 	category = amenity
 
 	potential = {
@@ -401,7 +401,7 @@ building_drone_storage = {
 building_drone_megastorage = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 6
 	category = amenity
 
 	allow = {
@@ -459,7 +459,7 @@ building_drone_megastorage = {
 #Hive housing
 building_hive_warren = {
 	base_buildtime = @b1_time
-
+	position_priority = 7
 	category = amenity
 
 	potential = {
@@ -501,7 +501,7 @@ building_hive_warren = {
 building_expanded_warren = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 8
 	category = amenity
 
 	potential = {
@@ -564,7 +564,7 @@ building_expanded_warren = {
 
 building_holo_theatres = {
 	base_buildtime = @b1_time
-
+	position_priority = 9
 	category = amenity
 
 	potential = {
@@ -665,7 +665,7 @@ building_holo_theatres = {
 building_hyper_entertainment_forum = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 10
 	category = amenity
 
 	potential = {
@@ -764,7 +764,7 @@ building_hyper_entertainment_forum = {
 
 building_clinic = {
 	base_buildtime = @b1_time
-
+	position_priority = 11
 	category = amenity
 
 	potential = {
@@ -952,7 +952,7 @@ building_clinic = {
 building_hospital = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 12
 	category = amenity
 
 	potential = {
@@ -1056,7 +1056,7 @@ building_hospital = {
 building_maintenance_depot = {
 	base_buildtime = 240
 	can_build = no
-
+	position_priority = 13
 	category = amenity
 
 	potential = {
@@ -1097,7 +1097,7 @@ building_maintenance_depot = {
 building_overseer_homes = {
 	base_buildtime = 240
 	icon = building_residence
-
+	position_priority = 14
 	category = amenity
 
 	potential = {
@@ -1132,6 +1132,7 @@ building_ranger_lodge = {
 	base_buildtime = @b1_time
 	category = amenity
 	icon = holding_park_ranger_lodge
+	position_priority = 15
 	potential = {
 		NOT = {	has_modifier = slave_colony	}
 		owner = {
@@ -1271,6 +1272,7 @@ building_toxic_bath = {
 	base_buildtime = @b1_time
 	category = amenity
 	icon = building_toxic_bath
+	position_priority = 16
 
 	potential = {
 		NOT = { has_modifier = slave_colony }

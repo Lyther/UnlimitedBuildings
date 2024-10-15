@@ -5,6 +5,7 @@
 building_hydroponics_farm = {
 	base_buildtime = @b1_time
 	category = resource
+	position_priority = 24
 	potential = {
 		exists = owner
 		owner = {
@@ -60,6 +61,7 @@ building_hydroponics_farm = {
 building_food_processing_facility = {
 	base_buildtime = @b1_time
 	category = resource
+	position_priority = 25
 
 	potential = {
 		exists = owner
@@ -127,6 +129,7 @@ building_food_processing_center = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = resource
+	position_priority = 26
 
 	allow = {
 		exists = owner
@@ -214,6 +217,7 @@ building_food_processing_center = {
 building_baol_organic_plant = {
 	base_buildtime = @b2_time
 	category = resource
+	position_priority = 27
 
 	potential = {
 		exists = owner
@@ -313,6 +317,7 @@ building_mineral_purification_plant = {
 
 	base_buildtime = @b1_time
 	category = resource
+	position_priority = 28
 
 	destroy_trigger = {
 		OR = {
@@ -425,6 +430,7 @@ building_mineral_purification_hub = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = resource
+	position_priority = 29
 
 	allow = {
 		has_upgraded_capital = yes
@@ -548,6 +554,7 @@ building_mineral_purification_hub = {
 building_energy_grid = {
 	base_buildtime = @b1_time
 	category = resource
+	position_priority = 30
 
 	destroy_trigger = {
 		OR = {
@@ -645,6 +652,7 @@ building_energy_nexus = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = resource
+	position_priority = 31
 
 	allow = {
 		has_upgraded_capital = yes
@@ -738,7 +746,7 @@ building_energy_nexus = {
 
 building_resource_silo = {
 	base_buildtime = 180
-
+	position_priority = 32
 	category = resource
 
 	potential = {
@@ -837,7 +845,7 @@ building_resource_silo = {
 
 building_bio_reactor = {
 	base_buildtime = @b1_time
-
+	position_priority = 33
 	category = resource
 
 	potential = {
@@ -907,6 +915,7 @@ building_bio_reactor_2 = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = resource
+	position_priority = 34
 
 	allow = {
 		has_upgraded_capital = yes

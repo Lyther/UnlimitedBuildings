@@ -3,7 +3,7 @@
 #############
 building_research_lab_1 = {
 	base_buildtime = @b1_time
-
+	position_priority = 50
 	exempt_from_ai_planet_specialization = no
 
 	category = research
@@ -51,7 +51,7 @@ building_research_lab_1 = {
 building_research_lab_2 = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 51
 	category = research
 
 	allow = {
@@ -95,7 +95,7 @@ building_research_lab_2 = {
 building_research_lab_3 = {
 	base_buildtime = @b3_time
 	can_build = no
-
+	position_priority = 52
 	category = research
 
 	allow = {
@@ -176,7 +176,7 @@ building_research_lab_3 = {
 
 building_institute = {
 	base_buildtime = @b2_time
-
+	position_priority = 53
 	category = research
 
 	potential = {
@@ -256,7 +256,7 @@ building_institute = {
 building_supercomputer = {
 	base_buildtime = @b2_time
 	icon = building_institute
-
+	position_priority = 54
 	category = research
 
 	potential = {
@@ -343,7 +343,7 @@ building_supercomputer = {
 
 building_archaeostudies_faculty = {
 	base_buildtime = @b2_time
-
+	position_priority = 55
 	category = research
 
 	potential = {
@@ -416,7 +416,7 @@ building_archaeostudies_faculty = {
 
 building_vultaum_reality_computer = {
 	base_buildtime = @b2_time
-
+	position_priority = 56
 	category = research
 
 	potential = {

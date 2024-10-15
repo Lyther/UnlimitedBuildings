@@ -13,6 +13,7 @@ building_paragon_memory_vaults = {
 	can_be_ruined = yes
 	can_be_disabled = yes
 	is_essential = yes
+	position_priority = 91
 	destroy_trigger = {
 		exists = owner
 		owner = {
@@ -153,7 +154,7 @@ building_the_beholder = {
 	icon = building_temple_of_whispers
 	can_build = no
 	can_demolish = no
-
+	position_priority = 92
 	category = manufacturing
 
 	destroy_trigger = {

@@ -1,0 +1,651 @@
+### COST 
+
+# этап 1
+@apsr15part1cost_energy = 1000	
+@apsr15part1cost_minerals = 1500
+@apsr15part1cost_knowledges = 0	
+@apsr15part1cost_time = 500
+
+# этап 2
+@apsr15part2cost_energy = 5000	
+@apsr15part2cost_minerals = 5000
+@apsr15part2cost_knowledges = 10	
+@apsr15part2cost_time = 1000
+
+# этап 3
+@apsr15part3cost_energy = 10000	
+@apsr15part3cost_minerals = 10000
+@apsr15part3cost_knowledges = 100	
+@apsr15part3cost_time = 1500
+
+
+### UPKEEP
+
+# этап 1
+@apsr15part1upkeep_energy = 4
+@apsr15part1upkeep_minerals = 4
+
+# этап 2
+@apsr15part2upkeep_energy = 10	
+@apsr15part2upkeep_minerals = 10	
+
+# этап 3
+@apsr15part3upkeep_energy = 25
+@apsr15part3upkeep_minerals = 25
+
+
+
+
+### STAGE 1 ###
+
+apsr15_building_part1 = {
+	base_buildtime = @apsr15part1cost_time
+	icon = apsr15_building_part1
+	
+	is_capped_by_modifier = no
+
+	category = government
+	
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		apsr_buildings_allow = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr15_planet_modifier"
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	# Настройка усиления производства
+	
+	planet_modifier = {
+		apsr_district_resource_15_max = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				OR = {
+					AND = {
+						is_gestalt = no
+						NOR = {
+							is_individual_machine = yes
+							has_country_flag = synthetic_empire
+							is_lithoid_empire = yes 
+						}
+					}
+					AND = {
+						is_hive_empire = yes 
+						is_lithoid_empire = no 
+					}
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 6
+			apsr15_planet_engineer_type_minerals_produces_add = 5
+			apsr15_planet_engineer_type_food_produces_add = 5
+		}
+	}
+	# машинный интеллект
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				OR = {
+					is_individual_machine = yes
+					has_country_flag = synthetic_empire
+					is_machine_empire = yes 
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 10
+			apsr15_planet_engineer_type_minerals_produces_add = 6
+		}
+	}	
+	# литоиды 
+	triggered_planet_modifier = {
+		potential = {	
+			exists = owner
+			owner = { 
+				is_lithoid_empire = yes
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 6
+			apsr15_planet_engineer_type_minerals_produces_add = 10
+		}
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			energy = @apsr15part1cost_energy
+			minerals = @apsr15part1cost_minerals
+			apsr_knowledge = @apsr15part1cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr15part1upkeep_energy
+			minerals = @apsr15part1upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 0.3
+		}
+	}
+	
+	upgrades = {
+		"apsr15_building_part2"
+	}	
+	
+	prerequisites = {
+		"tech_apsr15_building_part1"
+	}
+}
+
+
+
+### STAGE 2 ###
+
+apsr15_building_part2 = {
+	base_buildtime = @apsr15part2cost_time
+	icon = apsr15_building_part2
+	
+	is_capped_by_modifier = no
+
+	category = resource
+		
+	can_build = no
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr15_planet_modifier"
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	### Настройка усиления производства - по выбору игрока
+	
+	planet_modifier = {
+		apsr_district_resource_15_max = 2
+	}
+	
+	## выбор БАЗОВЫЕ РЕСУРСЫ 	
+	# с едой
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_1
+				NOT = {
+					is_lithoid_empire = yes 
+				}
+				OR = {
+					AND = {
+						is_gestalt = no
+						NOR = {
+							is_individual_machine = yes
+							has_country_flag = synthetic_empire
+						}
+					}
+					is_hive_empire = yes 
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 6
+			apsr15_planet_engineer_type_minerals_produces_add = 5
+			apsr15_planet_engineer_type_food_produces_add = 5
+		}
+	}
+	# без еды
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_1
+				OR = {
+					is_machine_empire = yes 
+					is_individual_machine = yes
+					has_country_flag = synthetic_empire
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 10
+			apsr15_planet_engineer_type_minerals_produces_add = 6
+		}
+	}	
+	# литоиды 
+	triggered_planet_modifier = {
+		potential = {	
+			exists = owner
+			owner = { 
+				AND = {
+					is_lithoid_empire = yes 
+					has_country_flag = apsr15_resource_type_1
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 6
+			apsr15_planet_engineer_type_minerals_produces_add = 10
+		}
+	}	
+	
+	## выбор ПРОДВИНУТЫЕ РЕСУРСЫ 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				AND = {
+					is_gestalt = no
+					has_country_flag = apsr15_resource_type_2
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_consumer_goods_produces_add = 5
+			apsr15_planet_engineer_type_alloys_produces_add = 3
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {	
+			exists = owner
+			owner = { 
+				AND = {
+					is_gestalt = yes 
+					has_country_flag = apsr15_resource_type_2
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_alloys_produces_add = 5.5
+		}
+	}
+	
+	## выбор РЕДКИЕ РЕСУРСЫ
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				AND = {
+					has_country_flag = apsr15_resource_type_3
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_rare_crystals_produces_add = 0.7
+			apsr15_planet_engineer_type_volatile_motes_produces_add = 0.7
+			apsr15_planet_engineer_type_exotic_gases_produces_add = 0.7
+		}
+	}	
+	
+	## выбор НАУКА И ЕДИНСТВО
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				AND = {
+					has_country_flag = apsr15_resource_type_4
+				}
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_physics_research_produces_add = 4
+			apsr15_planet_engineer_type_engineering_research_produces_add = 4
+			apsr15_planet_engineer_type_society_research_produces_add = 4
+			apsr15_planet_engineer_type_unity_produces_add = 4
+		}
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			energy = @apsr15part2cost_energy
+			minerals = @apsr15part2cost_minerals
+			apsr_knowledge = @apsr15part2cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr15part2upkeep_energy
+			minerals = @apsr15part2upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 1.2
+		}
+	}
+	
+	upgrades = {
+		"apsr15_building_part3"
+	}	
+	
+	prerequisites = {
+		"tech_apsr15_building_part2"
+	}
+}
+
+
+### STAGE 3 ###
+
+apsr15_building_part3 = {
+	base_buildtime = @apsr15part3cost_time
+	icon = apsr15_building_part3
+	
+	is_capped_by_modifier = no
+
+	category = resource
+		
+	can_build = no
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr15_planet_modifier"
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	### Настройка усиления производства - по выбору игрока
+	
+	planet_modifier = {
+		apsr_district_resource_15_max = 4
+	}
+	
+	## выбор БАЗОВЫЕ РЕСУРСЫ - ЭНЕРГИЯ 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_1_1
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_energy_produces_add = 16
+		}
+	}
+	
+	## выбор БАЗОВЫЕ РЕСУРСЫ - МИНЕРАЛЫ
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_1_2
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_minerals_produces_add = 16
+		}
+	}
+	
+	## выбор БАЗОВЫЕ РЕСУРСЫ - ЕДА
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_1_3
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_food_produces_add = 16
+		}
+	}
+	
+	## выбор ПРОДВИНУТЫЕ РЕСУРСЫ - ТОВАРЫ
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_2_1
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_consumer_goods_produces_add = 11
+		}
+	}
+	
+	## выбор ПРОДВИНУТЫЕ РЕСУРСЫ - СПЛАВЫ
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_2_2
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_alloys_produces_add = 5.5
+		}
+	}
+	
+	## выбор РЕДКИЕ РЕСУРСЫ - ПЫЛИНКИ
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_3_1
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_volatile_motes_produces_add = 2
+		}
+	}
+	
+	## выбор РЕДКИЕ РЕСУРСЫ - ГАЗЫ
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_3_2
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_exotic_gases_produces_add = 2
+		}
+	}
+	
+	## выбор РЕДКИЕ РЕСУРСЫ - КРИСТАЛЛЫ
+	# обычная империя
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_3_3
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_rare_crystals_produces_add = 2
+		}
+	}
+	
+	## выбор НАУКА
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_4_1
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_physics_research_produces_add = 5.5
+			apsr15_planet_engineer_type_engineering_research_produces_add = 5.5
+			apsr15_planet_engineer_type_society_research_produces_add = 5.5
+		}
+	}
+	
+	## выбор ЕДИНСТВО
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_country_flag = apsr15_resource_type_4_2
+			}
+		}
+		modifier = {
+			apsr15_planet_engineer_type_unity_produces_add = 16
+		}
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			energy = @apsr15part3cost_energy
+			minerals = @apsr15part3cost_minerals
+			apsr_knowledge = @apsr15part3cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr15part3upkeep_energy
+			minerals = @apsr15part3upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 3.0
+		}
+	}
+	
+	prerequisites = {
+		"tech_apsr15_building_part3"
+	}
+}

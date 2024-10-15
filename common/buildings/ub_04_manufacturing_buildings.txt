@@ -4,6 +4,7 @@
 building_foundry_1 = {
 	base_buildtime = @b1_time
 	category = manufacturing
+	position_priority = 35
 
 	potential = {
 		NOR = {
@@ -60,6 +61,7 @@ building_foundry_2 = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = manufacturing
+	position_priority = 36
 
 	allow = {
 		has_upgraded_capital = yes
@@ -136,6 +138,7 @@ building_foundry_3 = {
 	base_buildtime = @b3_time
 	can_build = no
 	category = manufacturing
+	position_priority = 37
 
 	allow = {
 		has_major_upgraded_capital = yes
@@ -254,6 +257,7 @@ building_foundry_3 = {
 building_factory_1 = {
 	base_buildtime = @b1_time
 	category = manufacturing
+	position_priority = 38
 
 	potential = {
 		exists = owner
@@ -339,6 +343,7 @@ building_factory_2 = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = manufacturing
+	position_priority = 39
 
 	allow = {
 		has_upgraded_capital = yes
@@ -408,7 +413,7 @@ building_factory_2 = {
 building_factory_3 = {
 	base_buildtime = @b3_time
 	can_build = no
-
+	position_priority = 40
 	category = manufacturing
 
 	allow = {
@@ -506,7 +511,7 @@ building_factory_3 = {
 
 building_refinery = {
 	base_buildtime = @b2_time
-
+	position_priority = 41
 	exempt_from_ai_planet_specialization = no
 	category = manufacturing
 
@@ -539,7 +544,7 @@ building_refinery = {
 
 building_chemical_plant = {
 	base_buildtime = @b2_time
-
+	position_priority = 42
 	exempt_from_ai_planet_specialization = no
 	category = manufacturing
 
@@ -572,7 +577,7 @@ building_chemical_plant = {
 
 building_crystal_plant = {
 	base_buildtime = @b2_time
-
+	position_priority = 43
 	exempt_from_ai_planet_specialization = no
 	category = manufacturing
 
@@ -609,7 +614,7 @@ building_crystal_plant = {
 
 building_nanite_transmuter = {
 	base_buildtime = @b3_time
-
+	position_priority = 44
 	category = manufacturing
 
 	potential = {
@@ -679,7 +684,7 @@ building_nanite_transmuter = {
 building_ministry_production = {
 	base_buildtime = @b2_time
 	icon = building_production_center
-
+	position_priority = 45
 	category = manufacturing
 
 	potential = {
@@ -770,7 +775,7 @@ building_ministry_production = {
 
 building_production_center = {
 	base_buildtime = @b2_time
-
+	position_priority = 46
 	category = manufacturing
 
 	potential = {
@@ -924,7 +929,7 @@ building_production_center = {
 
 building_coordinated_fulfillment_center_1 = {
 	base_buildtime = @b1_time
-
+	position_priority = 47
 	category = manufacturing
 
 	potential = {
@@ -1090,7 +1095,7 @@ building_coordinated_fulfillment_center_1 = {
 building_coordinated_fulfillment_center_2 = {
 	base_buildtime = @b2_time
 	can_build = no
-
+	position_priority = 48
 	category = manufacturing
 
 	destroy_trigger = {
@@ -1238,7 +1243,7 @@ building_coordinated_fulfillment_center_2 = {
 
 building_archaeo_refinery = {
 	base_buildtime = @b3_time
-
+	position_priority = 49
 	category = manufacturing
 
 	potential = {

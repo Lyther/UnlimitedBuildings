@@ -93,7 +93,7 @@ spy_orb_0 = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_spyorb
 			}

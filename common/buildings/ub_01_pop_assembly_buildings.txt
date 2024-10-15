@@ -4,7 +4,7 @@
 
 building_robot_assembly_plant = {
 	base_buildtime = @b1_time
-
+	position_priority = 1
 	category = pop_assembly
 
 	potential = {
@@ -209,7 +209,7 @@ building_robot_assembly_complex = {
 	icon = building_machine_assembly_complex
 	base_buildtime = @b3_time
 	can_build = no
-
+	position_priority = 2
 	category = pop_assembly
 
 	potential = {
@@ -400,7 +400,7 @@ building_robot_assembly_complex = {
 building_machine_assembly_plant = {
 	icon = building_robot_assembly_plant
 	base_buildtime = @b1_time
-
+	position_priority = 3
 	category = pop_assembly
 
 	potential = {
@@ -531,7 +531,7 @@ building_machine_assembly_plant = {
 building_machine_assembly_complex = {
 	base_buildtime = @b3_time
 	can_build = no
-
+	position_priority = 4
 	category = pop_assembly
 
 	potential = {
@@ -649,7 +649,7 @@ building_machine_assembly_complex = {
 
 building_spawning_pool = {
 	base_buildtime = @b1_time
-
+	position_priority = 5
 	category = pop_assembly
 
 	potential = {
@@ -773,7 +773,7 @@ building_spawning_pool = {
 
 building_offspring_nest = {
 	base_buildtime = @b1_time
-
+	position_priority = 6
 	category = pop_assembly
 
 	potential = {
@@ -1180,7 +1180,7 @@ building_necrophage_house_of_apotheosis = {
 
 building_clone_vats = {
 	base_buildtime = @b1_time
-
+	position_priority = 7
 	category = pop_assembly
 
 	potential = {
@@ -1450,7 +1450,7 @@ building_clone_army_clone_vat = {
 
 building_posthumous_employment_center = {
 	base_buildtime = @b1_time
-
+	position_priority = 8
 	category = pop_assembly
 
 	potential = {
@@ -1530,6 +1530,7 @@ building_toxic_bath_hive = {
 	base_buildtime = @b1_time
 	category = amenity
 	icon = building_toxic_bath_hive
+	position_priority = 9
 
 	potential = {
 		owner = {
@@ -1588,6 +1589,7 @@ building_toxic_bath_machine = {
 	base_buildtime = @b1_time
 	category = amenity
 	icon = building_toxic_bath_machine
+	position_priority = 10
 
 	potential = {
 		OR = {

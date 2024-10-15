@@ -5,6 +5,7 @@
 building_storm_attraction_center = {
 	base_buildtime = @b1_time
 	category = research
+	position_priority = 96
 
 	potential = {
 		NOR = {
@@ -133,6 +134,7 @@ building_advanced_storm_attraction_center = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = research
+	position_priority = 97
 
 	resources = {
 		category = planet_buildings_storm_tech
@@ -211,6 +213,7 @@ building_advanced_storm_attraction_center = {
 building_storm_repellent_center = {
 	base_buildtime = @b1_time
 	category = research
+	position_priority = 98
 
 	prerequisites = {
 		"tech_storm_manipulation"
@@ -297,6 +300,7 @@ building_advanced_storm_repellent_center = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = research
+	position_priority = 99
 
 	resources = {
 		category = planet_buildings_storm_tech
@@ -333,6 +337,7 @@ building_advanced_storm_repellent_center = {
 building_storm_resistant_production = {
 	base_buildtime = @b1_time
 	category = resource
+	position_priority = 1
 
 	potential = {
 		if = {
@@ -458,6 +463,7 @@ building_advanced_storm_resistant_production = {
 	base_buildtime = @b2_time
 	can_build = no
 	category = resource
+	position_priority = 2
 
 	potential = {
 		if = {
@@ -580,7 +586,7 @@ building_advanced_storm_resistant_production = {
 building_adakkaria_patriotic_institute = {
 	base_buildtime = @b3_time
 	category = resource
-
+	position_priority = 3
 	can_build = yes
 	can_demolish = no
 	can_be_disabled = yes
@@ -643,6 +649,7 @@ building_adakkaria_patriotic_institute = {
 building_astrometeorology_observation_center = {
 	base_buildtime = @b1_time
 	category = research
+	position_priority = 4
 
 	potential = {
 		exists = owner
@@ -708,6 +715,7 @@ building_astrometeorology_observation_center = {
 building_storm_summoning_theater = {
 	base_buildtime = @b1_time
 	category = amenity
+	position_priority = 5
 
 	potential = {
 		exists = owner
@@ -772,6 +780,7 @@ building_storm_holo_theater = {
 	base_buildtime = @b2_time
 	category = amenity
 	can_build = no
+	position_priority = 6
 
 	potential = {
 		exists = owner
@@ -853,6 +862,7 @@ building_storm_grand_theater = {
 	base_buildtime = @b3_time
 	category = amenity
 	can_build = no
+	position_priority = 7
 
 	potential = {
 		exists = owner

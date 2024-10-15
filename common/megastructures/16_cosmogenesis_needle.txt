@@ -44,6 +44,10 @@ cosmogenesis_needle = {
 		}
 	}
 
+	ai_weight = {
+		factor = 0
+	}
+
 	on_build_complete = {
 		create_fleet = {
 			name = "NAME_Cosmogenesis_Sphere"

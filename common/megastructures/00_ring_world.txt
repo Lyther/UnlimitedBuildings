@@ -77,7 +77,7 @@ ring_world_1 = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_ringworld
 			}
@@ -87,7 +87,7 @@ ring_world_1 = {
 	on_build_start = {}
 	on_build_cancel = {}
 	on_build_complete = {
-		set_star_flag = ring_world_built
+		set_star_flag = built_ringworld
 		from = {
 			set_country_flag = built_ringworld
 		}
@@ -346,7 +346,7 @@ ring_world_restored = {
 	}
 
 	ai_weight = {
-		weight = 300
+		factor = 300
 		modifier = {
 			weight = 0
 			from = { is_country_type = fallen_empire }

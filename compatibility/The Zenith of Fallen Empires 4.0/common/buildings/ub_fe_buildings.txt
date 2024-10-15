@@ -1,0 +1,2183 @@
+#################################
+## 	Fallen Empire Buildings
+##			By Kolyn
+#################################
+
+
+@b4time = 180
+@b4cost = 150
+@b4effect = 5
+@b4upkeep = 2.5
+
+@b5time = 180
+@b5cost = 180
+@b5effect = 8
+@b5upkeep = 3
+
+@feupkeep = 4
+@feproduction = 12
+@fecost = 500
+@fetime = 730
+
+# Energy Buildings
+
+building_fallen_class_4_singularity = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 18
+#
+	
+	category = resource
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+#			planet = {
+#				free_building_slots = 0
+#				owner = {
+#					is_ai = yes
+#					has_monthly_income = {
+#						resource = energy
+#						value > 25000
+#					}
+#				}
+#			}
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					OR = {
+						has_technology = tech_fallen_class_4_singularity
+						AND = {
+							zofe_sandbox = yes
+							has_country_flag = class_4_singularity_can_build
+						}
+						has_origin = origin_ringworld_empire
+					}
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			owner = {
+				OR = {
+					check_variable = { which = class_4_singularity_build_count value >= 1 }
+					AND = {
+						zofe_sandbox = yes
+						is_fallen_empire = yes
+					}
+					has_technology = tech_fallen_class_4_singularity
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_zofe_automated_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		produces = {
+			energy = 250
+		}
+	}
+	
+	upgrades = {
+		building_fallen_class_5_singularity
+	}
+	
+	on_queued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				subtract_variable = { which = class_4_singularity_build_count value = 1 }
+			}
+		}
+	}
+
+	on_unqueued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				change_variable = { which = class_4_singularity_build_count value = 1 }
+			}
+		}
+	}
+
+	show_in_tech = tech_fallen_class_4_singularity
+}
+
+# Mineral Buildings
+
+building_fallen_dimensional_fabricator = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 19
+#
+	
+	category = resource
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+#			planet = {
+#				free_building_slots = 0
+#				owner = {
+#					is_ai = yes
+#					has_monthly_income = {
+#						resource = minerals
+#						value > 10000
+#					}
+#					has_monthly_income = {
+#						resource = rare_crystals
+#						value > 200
+#					}
+#					has_monthly_income = {
+#						resource = exotic_gases
+#						value > 200
+#					}
+#					has_monthly_income = {
+#						resource = volatile_motes
+#						value > 200
+#					}
+#				}
+#			}
+		}	
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					OR = {
+						has_technology = tech_fallen_dimensional_fabricator
+						AND = {
+							zofe_sandbox = yes
+							has_country_flag = dimensional_fabricator_can_build
+						}
+						has_origin = origin_ringworld_empire
+					}
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			owner = {
+				OR = {
+					check_variable = { which = dimensional_fabricator_build_count value >= 1 }
+					AND = {
+						zofe_sandbox = yes
+						is_fallen_empire = yes
+					}
+					has_technology = tech_fallen_dimensional_fabricator
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_zofe_automated_buildings
+		produces = {
+			minerals = 100
+			rare_crystals = @b3_rare_upkeep
+			exotic_gases = @b3_rare_upkeep
+			volatile_motes = @b3_rare_upkeep
+		}
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+		
+	upgrades = {
+		building_fallen_dimensional_harvester
+	}
+	
+	on_queued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				subtract_variable = { which = dimensional_fabricator_build_count value = 1 }
+			}
+		}
+	}
+
+	on_unqueued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				change_variable = { which = dimensional_fabricator_build_count value = 1 }
+			}
+		}
+	}
+
+	show_in_tech = tech_fallen_dimensional_fabricator
+}
+
+# Food Buildings
+
+building_fallen_nourishment_center = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	icon = building_fallen_nourishment_center
+	position_priority = 20
+#
+	
+	category = resource
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			is_planet_class = pc_machine
+#			planet = {
+#				NOT = { is_planet_class = pc_habitat }
+#				free_building_slots = 0
+#				owner = {
+#					is_ai = yes
+#					has_monthly_income = {
+#						resource = food
+#						value > 10000
+#					}
+#				}
+#			}
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					OR = {
+						has_technology = tech_fallen_nourishment_center
+						AND = {
+							zofe_sandbox = yes
+							has_country_flag = nourishment_center_can_build
+						}
+					}
+				}
+			}
+		}
+		# NOT = { is_planet_class = pc_machine }
+		NOR = {
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			owner = {
+				OR = {
+					check_variable = { which = nourishment_center_build_count value >= 1 }
+					AND = {
+						zofe_sandbox = yes
+						is_fallen_empire = yes
+					}
+					has_technology = tech_fallen_nourishment_center
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_zofe_automated_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 5
+		}
+		produces = {
+			food = 100
+		}
+	}
+		
+	upgrades = {
+		building_fallen_gourmet_center
+	}
+	
+	on_queued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				subtract_variable = { which = nourishment_center_build_count value = 1 }
+			}
+		}
+	}
+
+	on_unqueued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				change_variable = { which = nourishment_center_build_count value = 1 }
+			}
+		}
+	}
+
+	show_in_tech = tech_fallen_nourishment_center
+}
+
+
+#Consumer Goods
+building_fallen_affluence_center = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	icon = building_fallen_affluence_center
+	position_priority = 21
+#
+	
+	category = manufacturing
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			owner = {
+				is_ai = yes
+				country_uses_consumer_goods = no
+			}
+#			planet = {
+#				free_building_slots = 0
+#				owner = {
+#					is_ai = yes
+#					has_monthly_income = {
+#						resource = consumer_goods
+#						value > 5000
+#					}
+#				}
+#			}
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					OR = {
+						has_technology = tech_fallen_affluence_center
+						AND = {
+							zofe_sandbox = yes
+							has_country_flag = affluence_center_can_build
+						}
+					}
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			owner = {
+				OR = {
+					check_variable = { which = affluence_center_build_count value >= 1 }
+					AND = {
+						zofe_sandbox = yes
+						is_fallen_empire = yes
+					}
+					has_technology = tech_fallen_affluence_center
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_zofe_automated_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			minerals = 50
+			energy = 5
+		}
+		produces = {
+			consumer_goods = 50
+		}
+	}
+
+	planet_modifier = {
+		planet_amenities_add = 10
+	}
+
+	upgrades = {
+		building_fallen_opulent_plaza
+	}
+	
+	on_queued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				subtract_variable = { which = affluence_center_build_count value = 1 }
+			}
+		}
+	}
+
+	on_unqueued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				change_variable = { which = affluence_center_build_count value = 1 }
+			}
+		}
+	}
+
+	show_in_tech = tech_fallen_affluence_center
+}
+
+# Alloys
+
+building_fallen_nano_forge = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	icon = building_fallen_nano_forge
+	position_priority = 22
+#
+	
+	category = manufacturing
+	
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}	
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					OR = {
+						has_technology = tech_fallen_nano_forge
+						AND = {
+							zofe_sandbox = yes
+							has_country_flag = nano_forge_can_build
+						}
+					}
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			exists = owner
+			owner = {
+				OR = {
+					check_variable = { which = nano_forge_upgrade_count value >= 1 }
+					AND = {
+						zofe_sandbox = yes
+						is_fallen_empire = yes
+					}
+					has_technology = tech_fallen_nano_forge
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_zofe_automated_buildings
+		produces = {
+			alloys = 25
+		}
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			minerals = 50
+			energy = 5
+		}
+	}
+		
+	upgrades = {
+		building_fallen_nano_forge_2
+	}
+	
+	on_queued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				subtract_variable = { which = nano_forge_upgrade_count value = 1 }
+			}
+		}
+	}
+
+	on_unqueued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				change_variable = { which = nano_forge_upgrade_count value = 1 }
+			}
+		}
+	}
+
+	show_in_tech = tech_fallen_nano_forge
+}
+
+#Zoo
+building_fallen_xeno_preserve = {
+	base_buildtime = @zofe_b1_time
+	capital = yes
+	can_build = yes
+	can_demolish = yes
+	icon = building_fallen_xeno_preserve
+	position_priority = 0
+
+	category = amenity
+	
+	potential = {
+		exists = owner
+		owner = { 
+			is_zofe_country = yes
+			is_xenophile = yes
+		}
+	}	
+	
+	convert_to = {
+		building_hive_capital
+		building_machine_capital
+		building_capital
+	}
+	
+	planet_modifier = {
+		planet_amenities_add = 25
+		job_ae_xeno_keeper_add = 2
+		planet_housing_add = 30
+		planet_max_buildings_add = 15
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+		
+	upgrades = {
+	}
+	
+	prerequisites = {
+		"tech_fallen_xeno_preserve"
+	}
+	
+}
+
+#Housing
+
+building_fallen_sky_dome = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	position_priority = 23
+#
+	
+	category = amenity
+	
+	destroy_trigger = {
+		always = no
+	}
+	
+	potential = {
+		NOT = { has_modifier = slave_colony }
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					OR = {
+						has_technology = tech_fallen_sky_dome
+						AND = {
+							zofe_sandbox = yes
+							has_country_flag = skydome_can_build
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			exists = owner
+			owner = {
+				OR = {
+					check_variable = { which = skydome_build_count value >= 1 }
+					AND = {
+						zofe_sandbox = yes
+						is_fallen_empire = yes
+					}
+					has_technology = tech_fallen_sky_dome
+				}
+			}
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 20
+		planet_amenities_add = 20
+		pop_environment_tolerance = 0.05
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_rogue_servitor = yes
+			}
+		}
+		job_bio_trophy_add = 20
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost_low
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	
+	on_queued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				subtract_variable = { which = skydome_build_count value = 1 }
+			}
+		}
+	}
+
+	on_unqueued = {
+		if = {
+			limit = {
+				zofe_sandbox = yes
+			}
+			owner = {
+				change_variable = { which = skydome_build_count value = 1 }
+			}
+		}
+	}
+
+	upgrades = {
+		building_fallen_sky_dome_2
+	}
+	
+	show_in_tech = tech_fallen_sky_dome
+}
+
+building_fallen_aegis_complex = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	icon = building_fallen_aegis_complex
+	planetary_ftl_inhibitor = yes
+	position_priority = 100
+
+	category = army
+
+	potential = {
+		exists = owner
+		owner = { 
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_aegis_complex
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				OR = {
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = yes
+					}
+					is_fallen_empire = yes
+				}	
+			}
+		}
+		modifier = {
+			job_fe_protector_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				OR = {
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = yes
+					}
+					is_fallen_empire = yes
+				}	
+			}
+		}
+		text = job_fe_protector_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_fallen_empire_machine = yes
+			}
+		}
+		modifier = {
+			job_fe_guardian_bot_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire_machine = yes
+			}
+		}
+		text = job_fe_guardian_bot_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					AND = {
+						is_gestalt = no
+						is_fallen_empire = no
+						is_zofe_oe = no
+					}
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = no
+					}
+				}
+			}
+		}
+		modifier = {
+			job_soldier_add = 4
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				OR = {
+					AND = {
+						is_gestalt = no
+						is_fallen_empire = no
+						is_zofe_oe = no
+					}
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = no
+					}
+				}
+			}
+		}
+		text = job_soldier_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes
+				is_fallen_empire_machine = no
+			}
+		}
+		modifier = {
+			job_warrior_drone_add = 4
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes
+				is_fallen_empire_machine = no
+			}
+		}
+		text = job_warrior_drone_effect_desc
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost_low
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+	
+	upgrades = {
+		building_fallen_aegis_complex_2
+	}
+	
+	show_in_tech = tech_fallen_aegis_complex
+}
+
+building_fallen_lab = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 24
+
+	category = research
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_lab
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 6
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 6
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 6
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_galactic_community_member = yes
+			}
+			is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			has_modifier = pm_extradimensional_experimentation
+		}
+		modifier = {
+			job_dimensional_portal_researcher_gestalt_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_calculator_effect_desc
+	}
+
+	upgrades = {
+		building_fallen_lab_2
+	}
+
+	show_in_tech = tech_fallen_lab
+}
+
+building_fallen_administration = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 25
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = no
+			is_machine_empire = no
+			is_spiritualist = no
+			has_make_spiritualist_perk = no
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_administration
+				}
+			}
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_regular_empire = no
+				is_spiritualist = yes
+				has_make_spiritualist_perk = yes
+			}
+		}
+	}
+
+	convert_to = {
+		building_fallen_administration_hive
+		building_fallen_temple
+		building_fallen_administration_machine
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 15
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire = yes
+			}
+		}
+		modifier = {
+			job_fe_overseer_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire = yes
+			}
+		}
+		text = job_fe_overseer_effect_desc
+	}
+
+	inline_script = {
+		script = jobs/zofe_bureaucrats_add
+		AMOUNT = @fe_jobs
+	}
+
+	upgrades = {
+		building_fallen_administration_2
+	}
+
+	show_in_tech = tech_fallen_administration
+
+	show_tech_unlock_if = {
+		is_hive_empire = no
+		is_machine_empire = no
+		is_spiritualist = no
+		has_make_spiritualist_perk = no
+	}
+}
+
+building_fallen_administration_hive = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 26
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_administration
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+
+	convert_to = {
+		building_fallen_administration
+		building_fallen_temple
+		building_fallen_administration_machine
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 15
+		}
+	}
+
+	planet_modifier = {
+		job_synapse_drone_add = @fe_jobs
+	}
+
+	upgrades = {
+		building_fallen_administration_hive_2
+	}
+
+	triggered_desc = {
+		text = job_synapse_drone_effect_desc
+	}
+
+	show_in_tech = tech_fallen_administration
+
+	show_tech_unlock_if = {
+		is_hive_empire = yes
+	}
+}
+
+building_fallen_administration_machine = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 27
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_administration
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_machine_empire = no }
+	}
+
+	convert_to = {
+		building_fallen_administration
+		building_fallen_temple
+		building_fallen_administration_hive
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 15
+		}
+	}
+
+	planet_modifier = {
+		job_coordinator_add = @fe_jobs
+	}
+
+	upgrades = {
+		building_fallen_administration_machine_2
+	}
+
+	triggered_desc = {
+		text = job_coordinator_effect_desc
+	}
+
+	show_in_tech = tech_fallen_administration
+
+	show_tech_unlock_if = {
+		is_machine_empire = yes
+	}
+}
+
+building_fallen_temple = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 28
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_spiritualist = yes
+				has_make_spiritualist_perk = yes
+			}
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_administration
+				}
+			}
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_spiritualist = no }
+	}
+
+	convert_to = {
+		building_fallen_administration
+		building_fallen_administration_machine
+		building_fallen_administration_hive
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 15
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_fallen_empire = yes
+			}
+		}
+		modifier = {
+			job_fe_sky_cardinal_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire = yes
+			}
+		}
+		text = job_fe_sky_cardinal_effect_desc
+	}
+
+	inline_script = {
+		script = jobs/zofe_priests_add
+		AMOUNT = @fe_jobs
+	}
+
+	upgrades = {
+		building_fallen_temple_2
+	}
+
+	show_in_tech = tech_fallen_administration
+
+	show_tech_unlock_if = {
+		OR = {
+			is_spiritualist = yes
+			has_make_spiritualist_perk = yes
+		}
+	}
+}
+
+building_fallen_assembly = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 29
+
+	category = pop_assembly
+
+	potential = {
+		exists = owner
+		OR = {
+			AND = {
+				OR = {
+					owner = { is_ai = no }
+					NOT = { exists = assembling_species }
+					assembling_species = { is_robotic_species = yes }
+				}
+				owner = {
+					is_regular_empire = yes
+					NOT = { has_policy_flag = robots_outlawed }
+					OR = {
+						NOT = { has_ascension_perk = ap_engineered_evolution }
+						is_materialist = yes
+					}
+				}
+			}
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_assembly
+				}
+			}
+		}
+
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			is_zofe_country = no
+			OR = {
+				is_regular_empire = no
+				has_policy_flag = robots_outlawed
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			sr_living_metal = 2
+			energy = 50
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_origin = origin_mechanists
+					is_individual_machine = yes
+					has_country_flag = synthetic_empire
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_unscheduled_updates
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = synth_safe_updates
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = -0.1
+			planet_stability_add = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = no
+			}
+		}
+		modifier = {
+			job_roboticist_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = no
+			}
+		}
+		text = job_roboticist_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			job_replicator_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		text = job_replicator_effect_desc
+	}
+
+	upgrades = {
+		building_fallen_assembly_2
+	}
+
+	show_in_tech = tech_fallen_assembly
+}
+
+building_fallen_clone_vat = {
+	icon = building_fallen_clone_vat
+	base_buildtime = @zofe_b1_time
+	position_priority = 100
+
+	category = pop_assembly
+
+	potential = {
+		exists = owner
+		owner = {
+			AND = {
+				has_tradition = tr_genetics_adopt
+				has_technology = tech_fallen_clone_vat
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+		OR = {
+			owner = { is_ai = no }
+			NOT = { exists = assembling_species }
+			assembling_species = { is_organic_species = yes }
+		}
+		OR = {
+			owner = { is_ai = no }
+			NAND = {
+				free_district_slots = 0
+				free_building_slots <= 1
+				free_housing <= 0
+				free_jobs <= 0
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				owner = { is_ai = yes }
+				free_district_slots = 0
+				free_building_slots = 0
+				free_housing <= 0
+				free_jobs <= 0
+			}
+			NOT = {
+				owner = { 
+					has_tradition = tr_genetics_adopt 
+				} 
+			}
+		}
+	}
+
+	on_built = {
+		set_planet_flag = can_organic_assemble_flag
+	}
+
+	on_destroy = {
+		remove_planet_flag = can_organic_assemble_flag
+	}
+
+	planet_modifier = {
+		planet_pop_assembly_organic_add = 5.5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_genetics_efficient_cloning }
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 1.5
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+
+		# Base cost
+		cost = {
+			minerals = @zofe_b1_cost
+			sr_living_metal = @zofe_b2_cost_lm
+		}
+		# Org/Lith cost
+		# cost = {
+		# 	trigger = {
+		# 		exists = owner
+		# 		owner = { is_lithoid_empire = no }
+		# 	}
+		# 	food = 500
+		# }
+		# cost = {
+		# 	trigger = {
+		# 		exists = owner
+		# 		owner = { is_lithoid_empire = yes }
+		# 	}
+		# 	energy = 500
+		# }
+
+		# Base upkeep
+		upkeep = {
+			sr_living_metal = 4
+			energy = 100
+		}
+		# Org/Lith upkeep
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			food = 60
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			minerals = 60
+		}
+	}
+	show_in_tech = tech_fallen_clone_vat
+}
+
+building_fallen_clinic = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 30
+
+	category = amenity
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_regular_empire = yes
+				is_hive_empire = yes
+			}
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_clinic
+				}
+			}
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			exotic_gases = 2
+			energy = 15
+		}
+	}
+
+	country_modifier = {
+		leader_lifespan_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = no
+			}
+		}
+		modifier = {
+			job_spawning_drone_add = 2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = no
+			}
+		}
+		text = job_spawning_drone_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_healthcare_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_healthcare_effect_desc
+	}
+
+	upgrades = {
+		building_fallen_clinic_2
+	}
+
+	show_in_tech = tech_fallen_clinic
+}
+
+building_fallen_market = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 31
+
+	category = trade
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = no
+			is_machine_empire = no
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_market
+				}
+			}
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = no
+			is_zofe_country = no
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 15
+		}
+	}
+
+	planet_modifier = {
+		job_merchant_add = 4
+	}
+
+	triggered_desc = {
+		text = job_merchant_effect_desc
+	}
+
+	upgrades = {
+		building_fallen_market_2
+	}
+
+	show_in_tech = tech_fallen_market
+}
+
+building_fallen_security = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 32
+
+	category = government
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_security
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				OR = {
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = yes
+					}
+					is_fallen_empire = yes
+				}	
+			}
+		}
+		modifier = {
+			job_fe_overseer_add = 2
+			job_fe_protector_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				OR = {
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = yes
+					}
+					is_fallen_empire = yes
+				}	
+			}
+		}
+		text = job_fe_overseer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				OR = {
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = yes
+					}
+					is_fallen_empire = yes
+				}	
+			}
+		}
+		text = job_fe_protector_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_fallen_empire_machine = yes
+			}
+		}
+		modifier = {
+			job_fe_guardian_bot_add = 3
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_fallen_empire_machine = yes
+			}
+		}
+		text = job_fe_guardian_bot_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					AND = {
+						is_regular_empire = yes
+						is_fallen_empire = no
+						is_zofe_oe = no
+					}
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = no
+					}
+				}
+			}
+		}
+		modifier = {
+			job_enforcer_add = 3
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				OR = {
+					AND = {
+						is_regular_empire = yes
+						is_fallen_empire = no
+						is_zofe_oe = no
+					}
+					AND = {
+						is_zofe_oe = yes
+						zofe_sandbox = no
+					}
+				}
+			}
+		}
+		text = job_enforcer_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_fallen_empire_machine = no
+			}
+		}
+		modifier = {
+			job_patrol_drone_add = 3
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_fallen_empire_machine = no
+			}
+		}
+		text = job_patrol_drone_effect_desc
+	}
+
+	upgrades = {
+		building_fallen_security_2
+	}
+
+	show_in_tech = tech_fallen_security
+}
+
+building_fallen_silo = {
+	base_buildtime = @zofe_b1_time
+	can_build = yes
+	can_demolish = yes
+	position_priority = 33
+
+	category = resource
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					zofe_sandbox = yes
+					is_fallen_empire = yes
+				}
+				AND = {
+					is_fallen_empire = no
+					has_technology = tech_fallen_silo
+				}
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @zofe_b1_cost
+		}
+		upkeep = {
+			energy = 15
+		}
+	}
+
+	country_modifier = {
+		country_resource_max_add = 50000
+	}
+
+	upgrades = {
+		building_fallen_silo_2
+	}
+
+	show_in_tech = tech_fallen_silo
+}

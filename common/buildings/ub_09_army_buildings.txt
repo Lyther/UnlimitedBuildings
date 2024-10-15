@@ -5,6 +5,7 @@ building_military_academy = {
 	base_buildtime = @b2_time
 	can_be_ruined = no
 	category = army
+	position_priority = 94
 
 	potential = {
 		exists = owner
@@ -126,6 +127,7 @@ building_dread_encampment = {
 	base_buildtime = @b2_time
 	can_be_ruined = no
 	category = army
+	position_priority = 95
 
 	potential = {
 		exists = owner

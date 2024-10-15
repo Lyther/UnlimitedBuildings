@@ -78,7 +78,7 @@ mega_art_installation_0 = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_mega_art_installation
 			}

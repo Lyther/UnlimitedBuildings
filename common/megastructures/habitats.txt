@@ -116,7 +116,7 @@ habitat_central_complex = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_habitat_central_complex
 			}
@@ -270,7 +270,7 @@ major_orbital = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_major_orbital
 			}
@@ -406,7 +406,7 @@ minor_orbital = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_minor_orbital
 			}

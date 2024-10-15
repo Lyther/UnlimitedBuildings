@@ -140,7 +140,7 @@ building_primitive_factory = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 98
 	category = manufacturing
 
 	potential = {
@@ -180,7 +180,7 @@ building_primitive_mine = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 99
 	category = resource
 
 	potential = {
@@ -229,7 +229,7 @@ building_primitive_power_plant = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 1
 	category = resource
 
 	potential = {
@@ -269,7 +269,7 @@ building_primitive_farm = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 2
 	category = resource
 
 	potential = {
@@ -399,7 +399,7 @@ building_urban_dwellings = {
 	can_demolish = yes
 	can_be_ruined = no
 	icon = building_residence
-
+	position_priority = 3
 	category = amenity
 
 	potential = {
@@ -438,7 +438,7 @@ building_pre_ftl_radio_telescope = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 4
 	category = research
 
 	potential = {
@@ -528,7 +528,7 @@ building_hive_primitive_dwellings = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 5
 	category = amenity
 
 	potential = {
@@ -626,7 +626,7 @@ building_hive_primitive_factory = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 6
 	category = manufacturing
 
 	potential = {
@@ -667,7 +667,7 @@ building_hive_primitive_mine = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 7
 	category = resource
 
 	potential = {
@@ -717,7 +717,7 @@ building_hive_primitive_power_plant = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 8
 	category = resource
 
 	potential = {
@@ -758,7 +758,7 @@ building_hive_primitive_farm = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 9
 	category = resource
 
 	potential = {
@@ -887,7 +887,7 @@ building_hive_urban_dwellings = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 10
 	category = amenity
 
 	potential = {
@@ -927,7 +927,7 @@ building_primitive_clinic = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 11
 	category = amenity
 
 	potential = {
@@ -997,7 +997,7 @@ building_solarpunk_gaiaseeder = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 12
 	category = amenity
 
 	potential = {
@@ -1051,7 +1051,7 @@ building_solarpunk_ranger_lodge = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 13
 	category = amenity
 
 	potential = {
@@ -1105,7 +1105,7 @@ building_solarpunk_sapling = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 14
 	category = amenity
 
 	potential = {
@@ -1160,7 +1160,7 @@ building_solarpunk_organic_paradise = {
 	can_build = no
 	can_demolish = yes
 	can_be_ruined = no
-
+	position_priority = 15
 	category = amenity
 
 	potential = {

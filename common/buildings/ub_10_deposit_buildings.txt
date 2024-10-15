@@ -144,7 +144,7 @@
 
 building_betharian_power_plant = {
 	base_buildtime = @b1_time
-
+	position_priority = 96
 	is_capped_by_modifier = yes
 
 	category = resource
@@ -182,6 +182,7 @@ building_betharian_power_plant = {
 building_xeno_zoo = {
 	base_buildtime = @b1_time
 	category = amenity
+	position_priority = 97
 
 	potential = {
 		exists = owner

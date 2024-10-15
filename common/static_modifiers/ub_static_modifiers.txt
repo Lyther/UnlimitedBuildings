@@ -1,0 +1,7 @@
+singularity_sphere_modifier = {
+	planet_jobs_produces_mult = 1.00
+	planet_buildings_produces_mult = 1.00
+	starbase_constructions_produces_mult = 1.00
+	station_gatherers_produces_mult = 1.00
+	station_researchers_produces_mult = 1.00
+}

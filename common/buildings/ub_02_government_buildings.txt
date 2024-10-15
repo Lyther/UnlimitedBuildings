@@ -4,7 +4,7 @@
 building_noble_estates = {
 	base_buildtime = @b2_time
 	icon = building_palace
-
+	position_priority = 11
 	category = government
 
 	potential = {
@@ -66,7 +66,7 @@ building_noble_estates = {
 
 building_slave_processing = {
 	base_buildtime = @b1_time
-
+	position_priority = 12
 	category = government
 
 	potential = {
@@ -133,7 +133,7 @@ building_slave_processing = {
 
 building_precinct_house = {
 	base_buildtime = @b1_time
-
+	position_priority = 13
 	category = government
 
 	potential = {
@@ -198,7 +198,7 @@ building_precinct_house = {
 
 building_hall_judgment = {
 	base_buildtime = @b2_time
-
+	position_priority = 14
 	category = government
 	can_build = no
 
@@ -250,7 +250,7 @@ building_hall_judgment = {
 
 building_sentinel_posts = {
 	base_buildtime = @b1_time
-
+	position_priority = 15
 	category = government
 
 	potential = {
@@ -307,7 +307,7 @@ building_sentinel_posts = {
 
 building_order_keep = {
 	base_buildtime = 180
-
+	position_priority = 16
 	can_demolish = no
 	can_be_disabled = no
 
@@ -385,7 +385,7 @@ building_order_castle = {
 	can_demolish = no
 	can_be_disabled = no
 	can_build = no
-
+	position_priority = 17
 	category = government
 
 	destroy_trigger = {
@@ -436,7 +436,7 @@ building_order_castle = {
 #Psionic path
 building_psi_corps = {
 	base_buildtime = @b2_time
-
+	position_priority = 18
 	category = government
 
 	potential = {
@@ -493,7 +493,7 @@ building_psi_corps = {
 
 building_embassy = {
 	base_buildtime = @b2_time
-
+	position_priority = 19
 	category = government
 
 	potential = {
@@ -574,7 +574,7 @@ building_embassy = {
 building_grand_embassy = {
 	base_buildtime = @b3_time
 	can_build = no
-
+	position_priority = 20
 	category = government
 
 	potential = {
@@ -652,6 +652,7 @@ building_gaiaseeders_1 = {
 	category = government
 	can_be_disabled = no
 	upgrades = { "building_gaiaseeders_2" }
+	position_priority = 21
 
 	potential = {
 		exists = owner
@@ -710,6 +711,7 @@ building_gaiaseeders_2 = {
 	category = government
 	can_be_disabled = no
 	upgrades = { "building_gaiaseeders_3" }
+	position_priority = 22
 
 	resources = {
 		category = planet_buildings
@@ -753,6 +755,7 @@ building_gaiaseeders_3 = {
 	category = government
 	can_be_disabled = no
 	upgrades = { "building_gaiaseeders_4" }
+	position_priority = 23
 
 	resources = {
 		category = planet_buildings

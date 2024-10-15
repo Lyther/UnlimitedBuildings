@@ -78,7 +78,7 @@ mega_shipyard_0 = {
 		}
 
 		modifier = {
-			factor = 0
+			weight = 0
 			from = {
 				has_country_flag = built_mega_shipyard_site
 			}

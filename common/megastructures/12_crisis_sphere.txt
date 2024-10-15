@@ -27,6 +27,10 @@ crisis_sphere_0 = {
 		is_ai = no
 	}
 
+	ai_weight = {
+		factor = 0
+	}
+
 	on_build_complete = {
 		fromfrom = {
 			solar_system.star = {
