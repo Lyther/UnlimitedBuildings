@@ -1,51 +1,62 @@
 # Unlimited Buildings & Megastructures
 
-The development version of this mod would post on [GitHub](https://github.com/Lyther/UnlimitedBuildings). If you want to play the latest version instead of the stable version, please follow the repo and use `git pull` to get the latest commit.
+The development version of this mod is available on [GitHub](https://github.com/Lyther/UnlimitedBuildings) for real-time updates. If you want to play the latest development version instead of the stable release, you can use `git pull` to get the latest commit from the GitHub repository.
 
-Having a limit on the number of buildings of the same type is just stupid! Sadly, we can build unlimited research labs, but not as many research centers.
+Having a limit on the number of buildings of the same type is absurd! We can build unlimited research labs, but can't build as many research centers, which is frustrating.
 
-When I build a smelting planet, I end up with a lone nano-alloy furnace, and the rest of the place is filled with forts/research labs/rare resource factories. Why not let smelting planets have an unlimited number of alloy furnaces?
+When I build a smelting planet, I end up with a lone nano-alloy furnace, while the rest of the space is filled with fortresses, research labs, and rare resource factories. Why not allow smelting planets to have unlimited alloy furnaces?
 
-The same goes for the megastructure, over a planet where a star ring base is built, empty space is simply too good to put a habitable station, but the vanilla mechanism does not allow this. After the space civilization built the Dyson sphere, it is surprising that it would freeze all the habitable spheres in the galaxy, is it surprising that the FTL civilization does not have artificial light sources and other technologies? Likewise, after building habitation stations on planets, dead-brained scientists can't imagine that they can build sentinel arrays next to habitation stations, which they believe have crowded out the space where other megastructures would have been built, so they refuse to build other megastructures on planets where they were built.
+The same goes for megastructures. In the vanilla game, over a planet with a star ring base, the empty space is perfect for placing a habitable station, yet the game doesn't allow it. After a Dyson Sphere is built, it freezes all habitable planets in the system, as if a faster-than-light civilization lacks artificial lighting and other technologies! Similarly, once habitation stations are built, stubborn scientists cannot imagine constructing sentinel arrays next to them because they believe the habitation stations occupy the space for other megastructures, refusing to allow any additional constructions.
 
-What's even more puzzling is that megastructures have a limit of one per megastructure, and even with more resources, players cannot continue to build more Dyson Spheres and Matter Decompressors, which is obviously unconscionable.
+Even more baffling is the limitation of one megastructure per type. No matter how many resources you have, players cannot build more Dyson Spheres or Matter Decompressors, which is illogical.
 
-Therefore, the reform of the megastructure building is imperative.
+Therefore, a reform of the megastructure system is essential.
 
 ## Building Unlock
 
-Now we can build an unlimited number of various buildings! Including.
+Now, we can build unlimited numbers of various buildings, including:
 
-* Various planet buildings from the original version, research centers, psychic legions, factories, etc.
-* Various buildings of the Corporate Branch Office can be filled with smuggling ports in the branch office.
-* Overlord buildings, where the scientific research department's glory returns.
-* Population assembly buildings, robots to assemble more and more.
-* Lifted a series of construction restrictions on megastructures (e.g. number of stacks, clearing galaxies after construction, etc.).
+* All original planetary buildings such as research centers, psychic legions, and factories.
+* Various Corporate Branch Office buildings, allowing branch offices to be filled with smuggling ports.
+* Overlord buildings, bringing back the glory of the Science Department.
+* Population assembly buildings—assemble as many robots as you want.
+* A series of construction restrictions on megastructures has been lifted (e.g., stacking limit, galaxy clearing upon completion, etc.).
 
-Buildings that are not included in the infinite buildings are.
+Buildings not included in the unlimited build list are:
 
-* Cultural centers purchased by the Art Association (only one can be built after buying only one).
-* Starbase components (haven't found a way to build multiple hydroponic pods or fleet academies yet).
+* Cultural centers purchased from the Art Association (only one can be built after purchasing one).
+* Starbase components (so far, there is no way to build multiple hydroponic bays or fleet academies).
 
-## Megastructure
+## Megastructures
 
-All megastructures can be built with no upper limit on the number of buildings, but the limit on the number of simultaneous builds still follows the original mechanism.
+All megastructures can be built without an upper limit on the number of constructions, though the limit on simultaneous builds still follows the original game mechanics.
 
-* Ring World: Unlocked the limit of building galaxies (double stars, triple stars, black holes), the building will not affect other planets in the galaxy, will not empty the galaxy when finished, and can be stacked infinitely.
-* Dyson Sphere: Unlocked the limit of building galaxies (binary stars, triple stars, black holes), construction will not affect planets in the galaxy, all habitable spheres are preserved and can be stacked infinitely.
-* All Planetary Star Mega Constructs: Can be built on planets' moons and stacked infinitely.
-* Matter Decompressor: Can be stacked indefinitely.
-* Habitable Stations: Can be built on a planet's moons, stacked infinitely, and built on sectors of ringworlds.
+> If you don't need this feature, delete the `common/megastructures` folder in the mod directory.
 
-## Updates/compatibility
+* Ring World: Unlocked the limit on building in galaxy types (binary stars, triple stars, black holes), construction won't affect other planets in the system, won't clear the galaxy upon completion, and can be stacked infinitely.
+* Dyson Sphere: Unlocked the limit on building in galaxy types (binary stars, triple stars, black holes), construction won't affect planets in the system, all habitable planets are preserved, and it can be stacked infinitely.
+* Matter Decompressor: Unlocked the limit on building in galaxy types (binary stars, triple stars, black holes), and it can be stacked infinitely.
+* All Planetary Star Megastructures: Can be built on planetary moons and stacked infinitely.
+* Habitable Stations: Can be built on planetary moons, stacked infinitely, and built on ringworld sections. Research, energy, mining districts, and rare resource gathering buildings are all unlocked by default.
+* Star Ring Base: Can be built on uncolonized habitable planets or restored on previously uncolonized planets.
 
-If a new version of the game is released or you want to be compatible with an older version, you can leave a comment or private message in the Creative Workshop.
+**Note: Most megastructures allow AI empires to only build one; in rare cases, AI empires (especially Fallen Empires) may still build multiple megastructures.**
 
-If you have more ideas for mod compatibility, or want to make other mods' buildings infinitely buildable, you can also leave a message in the Creative Workshop.
+## Updates/Compatibility
 
-The compatible mods for Infinite Buildings have been split, if you subscribe to other mods, you can subscribe to Infinite Buildings compatible patches for this mod at the same time, all the Infinite Buildings compatible patches will be in the Creative Factory collection.
+If a new game version is released or you wish to be compatible with an older version, you can leave a comment or private message in the Steam Workshop.
 
-**Please note: You need to place the infinite buildings compatibility patch under the compatibilized mod when sorting. **
+If you have more ideas for mod compatibility or want other mods' buildings to be buildable without limits, feel free to leave a message in the Steam Workshop.
+
+The compatible mods for Unlimited Buildings have been split into separate files. You can find a `compatibility` folder within the mod directory, containing compatibility patches for supported mods. You can replace the necessary files as needed (ensure you have the prerequisite mods installed to use Unlimited Buildings' compatibility features). **Typically, the mod directory is located at `Steam/steamapps/workshop/content/281990/2846706267`.**
+
+**Please note: When sorting mods, place Unlimited Buildings below other mods that require compatibility.**
+
+### Automatic Mod Compatibility
+
+The `remove_building_limits.py` file in the mod directory is used to automatically remove building limits. The script performs simple regular expression replacements, which works for most cases. When using it, specify the input folder (the building folder where you want to remove limits) and the output folder (where the modified files will be placed). Move the files from the output folder to `common/buildings` to complete compatibility.
+
+If you've added compatibility for more mods, your pull requests are very welcome and much appreciated.
 
 # 无限建筑&巨构
 
@@ -78,13 +89,18 @@ The compatible mods for Infinite Buildings have been split, if you subscribe to 
 
 ## 巨构建筑
 
-全部巨构建筑均可以无数量上限建造，但同时建造的数量限制仍然遵循原版机制。
+全部巨构建筑均可以无数量上限建造，且不再有同时建造的数量限制。
+
+> 如果您不需要此功能，请在MOD目录下删除`common/megastructures`文件夹。
 
 * 环形世界：解锁了建造星系限制（双恒星、三恒星、黑洞），建造不会影响星系内其他星球，建造完成不会清空星系，可以无限堆叠。
 * 戴森球：解锁了建造星系限制（双恒星、三恒星、黑洞），建造完成后不会影响星系内行星，宜居球全部保留，可以无限堆叠。
+* 物质解压器：解锁了建造星系限制（双恒星、三恒星、黑洞），可以无限堆叠。
 * 所有行星级巨构：可以在星球的卫星上建造，可以无限堆叠。
-* 物质解压器：可以无限堆叠。
-* 居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造。
+* 居住站：可以在星球的卫星上建造，可以无限堆叠，可以在环形世界的区段上建造，默认解锁研究、发电、采矿区划，且可以建造稀有资源采集建筑。
+* 星环基地：可以在无人居住的宜居球上建造，或是修复未殖民星球上的星环基地。
+
+**注意：大部分的巨构建筑仅允许AI帝国建造一个，少数情况下仍会出现AI帝国（尤其是复兴帝国）建造多个巨构的现象。**
 
 ## 更新/兼容
 
@@ -92,6 +108,12 @@ The compatible mods for Infinite Buildings have been split, if you subscribe to 
 
 如果你有更多的MOD兼容想法，或者希望让其他MOD的建筑也能无限建造，同样可以在创意工坊留言。
 
-无限建筑的兼容MOD已经拆分，如果你订阅了其他的MOD，可以同时订阅无限建筑对于此MOD的兼容补丁，全部的无限建筑兼容补丁将会在创意工厂的合集中。
+无限建筑的兼容MOD已经拆分，您可以在MOD目录下找到名为`compatibility`的文件夹，内部为所支持的MOD。您可以根据自己的需要自行进行覆盖（需要安装前置MOD，才能正常使用无限建筑的兼容性功能）。**通常而言，MOD目录位于`Steam/steamapps/workshop/content/281990/2846706267`。**
 
-**请注意：排序时需要将无限建筑的兼容补丁放置于兼容MOD之下。**
+**请注意：排序时需要将无限建筑放置于其他需要兼容的MOD之下。**
+
+### 自动进行MOD兼容
+
+在MOD目录下的`remove_building_limits.py`文件用于自动移除建筑的数量限制，脚本只进行简单的正则表达式替换，大多数情况足以胜任。使用时需要指定输入文件夹（需要移除限制的建筑文件夹）和输出文件夹（移除后的文件会放置在里面）。将输出文件夹中的文件移动进`common/buildings`即可完成兼容。
+
+如果您完成了更多MOD的兼容性，非常荣幸能得到您的pull requests，十分感谢。
