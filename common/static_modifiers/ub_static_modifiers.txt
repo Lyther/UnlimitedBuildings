@@ -1,4 +1,5 @@
 singularity_sphere_modifier = {
+	megastructures_produces_mult = 1.00
 	planet_jobs_produces_mult = 1.00
 	planet_buildings_produces_mult = 1.00
 	starbase_constructions_produces_mult = 1.00

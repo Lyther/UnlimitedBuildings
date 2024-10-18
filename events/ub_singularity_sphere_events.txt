@@ -84,9 +84,20 @@ country_event = {
 	immediate = {
 		remove_country_flag = building_singularity_sphere
 		set_country_flag = built_singularity_sphere
-		change_variable = {
-			which = singularity_sphere_counter
-			value = 1
+		if = {
+			limit = {
+				is_variable_set = singularity_sphere_counter
+			}
+			multiply_variable = {
+				which = singularity_sphere_counter
+				value = 2
+			}
+		}
+		else = {
+			set_variable = {
+				which = singularity_sphere_counter
+				value = 1
+			}
 		}
 		add_modifier = {
 			modifier = singularity_sphere_modifier

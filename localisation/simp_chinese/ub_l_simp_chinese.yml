@@ -1,8 +1,10 @@
 ﻿l_simp_chinese:
+ mod_megastructures_produces_mult: "巨型结构的§H产出§!"
  singularity_sphere_ruined: "奇点引擎：废墟"
  singularity_sphere_ruined_DESC: "当奇点引擎被摧毁后，只剩下废墟，曾经突破现实的力量不复存在。它成为一个不稳定的空间区域，残存的能量依旧影响周围的宇宙结构，偶尔会出现难以预测的空间异常。这片废墟象征着曾经无限的潜能与技术的巅峰，但也提醒着人们滥用超越现实的力量可能带来的毁灭性后果。"
  singularity_sphere_0: "奇点引擎：量子核心激活"
  singularity_sphere_0_DESC: "开始构建奇点引擎的核心系统，启动基本的量子功能。"
+ singularity_sphere_0_MEGASTRUCTURE_DETAILS: "奇点引擎是一种超越现实的技术，能够操控时间、空间和能量的根本机制，实现绝对的现实主宰。"
  singularity_sphere_1: "奇点引擎：维度扭曲生成"
  singularity_sphere_1_DESC: "奇点引擎开始影响空间维度，产生局部的时空扭曲。"
  singularity_sphere_2: "奇点引擎：多重现实干涉"

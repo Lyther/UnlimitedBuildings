@@ -33,7 +33,7 @@ apsr5_building_part1 = {
 
 	category = amenity
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -146,7 +146,7 @@ apsr5_building_part2 = {
 	category = amenity
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -264,7 +264,7 @@ apsr5_building_part3 = {
 	category = amenity
 	
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49

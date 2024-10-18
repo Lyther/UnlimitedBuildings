@@ -32,7 +32,7 @@ apsr3_building_part1 = {
 
 	category = research
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -129,7 +129,7 @@ apsr3_building_part2 = {
 	category = research
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -226,7 +226,7 @@ apsr3_building_part3 = {
 	category = research
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49

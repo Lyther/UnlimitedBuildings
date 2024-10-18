@@ -17,7 +17,7 @@ apsr10_building_part1 = {
 
 	category = resource
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49

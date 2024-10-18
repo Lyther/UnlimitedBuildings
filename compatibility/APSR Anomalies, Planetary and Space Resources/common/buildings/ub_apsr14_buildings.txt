@@ -54,7 +54,7 @@ apsr14_building_part_b1 = {
 
 	category = amenity
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -157,7 +157,7 @@ apsr14_building_part_b2 = {
 	category = amenity
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -258,7 +258,7 @@ apsr14_building_part_b3 = {
 	category = amenity
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -371,7 +371,7 @@ apsr14_building_part_m1 = {
 
 	category = pop_assembly
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -475,7 +475,7 @@ apsr14_building_part_m2 = {
 	category = pop_assembly
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -600,7 +600,7 @@ apsr14_building_part_m3 = {
 	category = pop_assembly
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -741,7 +741,7 @@ apsr14_building_part_mech_conversion = {
 	category = resource
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49

@@ -33,7 +33,7 @@ apsr12_building_part1 = {
 
 	category = government
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -148,7 +148,7 @@ apsr12_building_part2 = {
 	category = government
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -268,7 +268,7 @@ apsr12_building_part3 = {
 	category = government
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49

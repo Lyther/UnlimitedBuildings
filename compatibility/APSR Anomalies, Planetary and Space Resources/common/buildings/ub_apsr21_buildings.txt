@@ -41,7 +41,7 @@ apsr21_building_part_b1 = {
 
 	category = manufacturing
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -137,7 +137,7 @@ apsr21_building_part_b2 = {
 	category = manufacturing
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -233,7 +233,7 @@ apsr21_building_part_b3 = {
 	category = manufacturing
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -347,7 +347,7 @@ apsr21_building_part_m1 = {
 
 	category = manufacturing
 	
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -443,7 +443,7 @@ apsr21_building_part_m2 = {
 	category = manufacturing
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49
@@ -539,7 +539,7 @@ apsr21_building_part_m3 = {
 	category = manufacturing
 		
 	can_build = no
-	can_demolish = no
+	can_demolish = yes
 #	can_be_ruined = no
 #	can_be_disabled = no
 	position_priority = 49

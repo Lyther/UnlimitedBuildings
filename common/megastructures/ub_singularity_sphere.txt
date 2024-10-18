@@ -34,16 +34,52 @@ singularity_sphere_0 = {
 		}
 	}
 
+	dismantle_cost = {
+		category = megastructures
+		cost = {
+			astral_threads = 100
+		}
+	}
+
+	dismantle_time = 1200
+
+	dismantle_potential = {
+		always = yes
+	}
+
+	dismantle_possible = {
+		can_dismantle_megastructure = {
+			TECH = tech_mega_engineering
+		}
+	}
+
+	on_dismantle_complete = {
+		remove_star_flag = singularity_sphere_built
+		from = {
+			add_resource = {
+				energy = 500000
+				minerals = 500000
+				food = 500000
+				consumer_goods = 200000
+				alloys = 100000
+				exotic_gases = 50000
+				rare_crystals = 50000
+				volatile_motes = 50000
+				sr_dark_matter = 20000
+				sr_living_metal = 20000
+				sr_zro = 20000
+				nanites = 10000
+				mult = modifier:megastructure_dismantle_refund_mult
+			}
+		}
+	}
+
 	country_modifier = {
-		planet_jobs_produces_mult = 0.25
-		planet_buildings_produces_mult = 0.25
-		starbase_constructions_produces_mult = 0.25
-		station_gatherers_produces_mult = 0.25
-		station_researchers_produces_mult = 0.25
+		megastructure_build_speed_mult = 0.25
+		planet_building_build_speed_mult = 0.25
 	}
 
 	prerequisites = { "tech_mega_engineering" }
-	upgrade_from = { singularity_sphere_ruined }
 	construction_blocks_and_blocked_by = none
 
 	possible = {
@@ -155,12 +191,50 @@ singularity_sphere_1 = {
 		}
 	}
 
+	dismantle_cost = {
+		category = megastructures
+		cost = {
+			astral_threads = 100
+		}
+	}
+
+	dismantle_time = 1200
+
+	dismantle_potential = {
+		always = yes
+	}
+
+	dismantle_possible = {
+		can_dismantle_megastructure = {
+			TECH = tech_mega_engineering
+		}
+	}
+
+	on_dismantle_complete = {
+		remove_star_flag = singularity_sphere_built
+		from = {
+			add_resource = {
+				energy = 500000
+				minerals = 500000
+				food = 500000
+				consumer_goods = 200000
+				alloys = 100000
+				exotic_gases = 50000
+				rare_crystals = 50000
+				volatile_motes = 50000
+				sr_dark_matter = 20000
+				sr_living_metal = 20000
+				sr_zro = 20000
+				nanites = 10000
+				mult = modifier:megastructure_dismantle_refund_mult
+			}
+		}
+	}
+
 	country_modifier = {
-		planet_jobs_produces_mult = 0.50
-		planet_buildings_produces_mult = 0.50
-		starbase_constructions_produces_mult = 0.50
-		station_gatherers_produces_mult = 0.50
-		station_researchers_produces_mult = 0.50
+		megastructure_build_speed_mult = 0.50
+		planet_building_build_speed_mult = 0.50
+		planet_decision_enact_speed_mult = 0.50
 	}
 
 	prerequisites = { "tech_mega_engineering" }
@@ -237,12 +311,52 @@ singularity_sphere_2 = {
 		}
 	}
 
+	dismantle_cost = {
+		category = megastructures
+		cost = {
+			astral_threads = 100
+		}
+	}
+
+	dismantle_time = 1200
+
+	dismantle_potential = {
+		always = yes
+	}
+
+	dismantle_possible = {
+		can_dismantle_megastructure = {
+			TECH = tech_mega_engineering
+		}
+	}
+
+	on_dismantle_complete = {
+		remove_star_flag = singularity_sphere_built
+		from = {
+			add_resource = {
+				energy = 500000
+				minerals = 500000
+				food = 500000
+				consumer_goods = 200000
+				alloys = 100000
+				exotic_gases = 50000
+				rare_crystals = 50000
+				volatile_motes = 50000
+				sr_dark_matter = 20000
+				sr_living_metal = 20000
+				sr_zro = 20000
+				nanites = 10000
+				mult = modifier:megastructure_dismantle_refund_mult
+			}
+		}
+	}
+
 	country_modifier = {
-		planet_jobs_produces_mult = 0.75
-		planet_buildings_produces_mult = 0.75
-		starbase_constructions_produces_mult = 0.75
-		station_gatherers_produces_mult = 0.75
-		station_researchers_produces_mult = 0.75
+		megastructure_build_speed_mult = 0.75
+		planet_building_build_speed_mult = 0.75
+		planet_decision_enact_speed_mult = 0.75
+		starbase_building_build_speed_mult = 0.75
+		starbase_module_build_speed_mult = 0.75
 	}
 
 	prerequisites = { "tech_mega_engineering" }
@@ -319,12 +433,53 @@ singularity_sphere_3 = {
 		}
 	}
 
+	dismantle_cost = {
+		category = megastructures
+		cost = {
+			astral_threads = 100
+		}
+	}
+
+	dismantle_time = 1200
+
+	dismantle_potential = {
+		always = yes
+	}
+
+	dismantle_possible = {
+		can_dismantle_megastructure = {
+			TECH = tech_mega_engineering
+		}
+	}
+
+	on_dismantle_complete = {
+		remove_star_flag = singularity_sphere_built
+		from = {
+			add_resource = {
+				energy = 500000
+				minerals = 500000
+				food = 500000
+				consumer_goods = 200000
+				alloys = 100000
+				exotic_gases = 50000
+				rare_crystals = 50000
+				volatile_motes = 50000
+				sr_dark_matter = 20000
+				sr_living_metal = 20000
+				sr_zro = 20000
+				nanites = 10000
+				mult = modifier:megastructure_dismantle_refund_mult
+			}
+		}
+	}
+
 	country_modifier = {
-		planet_jobs_produces_mult = 1.00
-		planet_buildings_produces_mult = 1.00
-		starbase_constructions_produces_mult = 1.00
-		station_gatherers_produces_mult = 1.00
-		station_researchers_produces_mult = 1.00
+		megastructure_build_speed_mult = 1.00
+		planet_building_build_speed_mult = 1.00
+		planet_decision_enact_speed_mult = 1.00
+		starbase_building_build_speed_mult = 1.00
+		starbase_defensive_war_ship_build_speed_mult = 1.00
+		starbase_module_build_speed_mult = 1.00
 	}
 
 	prerequisites = { "tech_mega_engineering" }
@@ -401,12 +556,55 @@ singularity_sphere_4 = {
 		}
 	}
 
+	dismantle_cost = {
+		category = megastructures
+		cost = {
+			astral_threads = 100
+		}
+	}
+
+	dismantle_time = 1200
+
+	dismantle_potential = {
+		always = yes
+	}
+
+	dismantle_possible = {
+		can_dismantle_megastructure = {
+			TECH = tech_mega_engineering
+		}
+	}
+
+	on_dismantle_complete = {
+		remove_star_flag = singularity_sphere_built
+		from = {
+			add_resource = {
+				energy = 500000
+				minerals = 500000
+				food = 500000
+				consumer_goods = 200000
+				alloys = 100000
+				exotic_gases = 50000
+				rare_crystals = 50000
+				volatile_motes = 50000
+				sr_dark_matter = 20000
+				sr_living_metal = 20000
+				sr_zro = 20000
+				nanites = 10000
+				mult = modifier:megastructure_dismantle_refund_mult
+			}
+		}
+	}
+
 	country_modifier = {
-		planet_jobs_produces_mult = 1.00
-		planet_buildings_produces_mult = 1.00
-		starbase_constructions_produces_mult = 1.00
-		station_gatherers_produces_mult = 1.00
-		station_researchers_produces_mult = 1.00
+		megastructure_build_speed_mult = 1.00
+		planet_building_build_speed_mult = 1.00
+		planet_decision_enact_speed_mult = 1.00
+		starbase_building_build_speed_mult = 1.00
+		starbase_defensive_war_ship_build_speed_mult = 1.00
+		starbase_module_build_speed_mult = 1.00
+		starbase_shipyard_build_speed_mult = 1.00
+		starbase_upgrade_speed_mult = 1.00
 	}
 
 	prerequisites = { "tech_mega_engineering" }
