@@ -1,5 +1,6 @@
 namespace = ub_singularity_sphere
 
+# Constructed Singularity Sphere Stage 0
 country_event = {
 	id = ub_singularity_sphere.0
 	title = "ub_singularity_sphere.0.name"
@@ -9,7 +10,31 @@ country_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		from = { is_megastructure_type = singularity_sphere_0 }
+	}
+
 	immediate = {
+		fromfrom = { save_event_target_as = singularity_sphere_system }
+		every_relation = {
+			limit = {
+				is_ai = no
+				has_communications = root
+				OR = {
+					has_intel_level = {
+						who = root
+						category = economy
+						level >= 1
+					}
+					has_intel_level = {
+						who = root
+						category = technology
+						level >= 1
+					}
+				}
+			}
+			country_event = { id = ub_singularity_sphere.5 }
+		}
 		set_country_flag = building_singularity_sphere
 	}
 
@@ -18,6 +43,7 @@ country_event = {
 	}
 }
 
+# Upgrade to Singularity Sphere Stage 1
 country_event = {
 	id = ub_singularity_sphere.1
 	title = "ub_singularity_sphere.1.name"
@@ -26,6 +52,10 @@ country_event = {
 	show_sound = event_default
 
 	is_triggered_only = yes
+
+	trigger = {
+		from = { is_megastructure_type = singularity_sphere_1 }
+	}
 
 	immediate = {
 		set_country_flag = building_singularity_sphere
@@ -36,6 +66,7 @@ country_event = {
 	}
 }
 
+# Upgrade to Singularity Sphere Stage 2
 country_event = {
 	id = ub_singularity_sphere.2
 	title = "ub_singularity_sphere.2.name"
@@ -44,6 +75,10 @@ country_event = {
 	show_sound = event_default
 
 	is_triggered_only = yes
+
+	trigger = {
+		from = { is_megastructure_type = singularity_sphere_2 }
+	}
 
 	immediate = {
 		set_country_flag = building_singularity_sphere
@@ -54,6 +89,7 @@ country_event = {
 	}
 }
 
+# Upgrade to Singularity Sphere Stage 3
 country_event = {
 	id = ub_singularity_sphere.3
 	title = "ub_singularity_sphere.3.name"
@@ -62,6 +98,10 @@ country_event = {
 	show_sound = event_default
 
 	is_triggered_only = yes
+
+	trigger = {
+		from = { is_megastructure_type = singularity_sphere_3 }
+	}
 
 	immediate = {
 		set_country_flag = building_singularity_sphere
@@ -72,6 +112,7 @@ country_event = {
 	}
 }
 
+# Finish Singularity Sphere Construction
 country_event = {
 	id = ub_singularity_sphere.4
 	title = "ub_singularity_sphere.4.name"
@@ -80,6 +121,10 @@ country_event = {
 	show_sound = event_default
 
 	is_triggered_only = yes
+
+	trigger = {
+		from = { is_megastructure_type = singularity_sphere_4 }
+	}
 
 	immediate = {
 		remove_country_flag = building_singularity_sphere
@@ -108,5 +153,155 @@ country_event = {
 
 	option = {
 		name = ub_singularity_sphere.4.a
+	}
+}
+
+# Start Building Singularity Sphere Notification
+country_event = {
+	id = ub_singularity_sphere.5
+	title = "ub_singularity_sphere.5.name"
+	desc = {
+		text = "ub_singularity_sphere.5.desc.a"
+		trigger = {
+			has_country_flag = building_singularity_sphere
+			NOT = { has_country_flag = built_singularity_sphere }
+		}
+	}
+	desc = {
+		text = "ub_singularity_sphere.5.desc.b"
+		trigger = {
+			has_country_flag = built_singularity_sphere
+		}
+	}
+	desc = {
+		text = "ub_singularity_sphere.5.desc.c"
+		trigger = {
+			has_crisis_level = crisis_level_5
+		}
+	}
+	desc = {
+		text = "ub_singularity_sphere.5.desc.d"
+	}
+	picture = GFX_evt_dyson_sphere
+	show_sound = event_mega_structure_other_empire_build_start
+
+	is_triggered_only = yes
+
+	option = {
+		name = ub_singularity_sphere.5.a
+		custom_tooltip = ub_singularity_sphere.5.a.desc
+	}
+	option = {
+		name = ub_singularity_sphere.5.b
+		custom_tooltip = ub_singularity_sphere.5.b.desc
+		hidden_effect = {
+			add_opinion_modifier = {
+				who = from
+				modifier = opinion_building_singularity_sphere
+			}
+			from = {
+				country_event = {
+					id = ub_singularity_sphere.6
+				}
+			}
+		}
+	}
+	option = {
+		name = ub_singularity_sphere.5.c
+		custom_tooltip = ub_singularity_sphere.5.c.desc
+		hidden_effect = {
+			declare_war = {
+				target = from
+				attacker_war_goal = wg_humiliation
+			}
+		}
+	}
+}
+
+# Send Diplomatic Condemnation
+country_event = {
+	id = ub_singularity_sphere.6
+	title = "ub_singularity_sphere.6.name"
+	desc = "ub_singularity_sphere.6.desc"
+	picture = GFX_diplomacy_harm_relation
+	show_sound = incoming_diplomatic_shroud_amb
+
+	is_triggered_only = yes
+
+	option = {
+		name = ub_singularity_sphere.6.a
+		custom_tooltip = ub_singularity_sphere.6.a.desc
+		add_resource = {
+			influence = -100
+		}
+	}
+	option = {
+		name = ub_singularity_sphere.6.b
+		custom_tooltip = ub_singularity_sphere.6.b.desc
+		hidden_effect = {
+			add_opinion_modifier = {
+				who = from
+				modifier = opinion_condemned_building_singularity_sphere
+			}
+			from = {
+				country_event = {
+					id = ub_singularity_sphere.7
+				}
+			}
+		}
+	}
+	option = {
+		name = ub_singularity_sphere.6.c
+		custom_tooltip = ub_singularity_sphere.6.c.desc
+		hidden_effect = {
+			declare_war = {
+				target = from
+				attacker_war_goal = wg_humiliation
+			}
+		}
+	}
+}
+
+# Refuse Diplomatic Condemnation
+country_event = {
+	id = ub_singularity_sphere.7
+	title = "ub_singularity_sphere.7.name"
+	desc = "ub_singularity_sphere.7.desc"
+	picture = GFX_diplomacy_harm_relation
+	show_sound = incoming_diplomatic_shroud_amb
+
+	is_triggered_only = yes
+
+	option = {
+		name = ub_singularity_sphere.7.a
+		custom_tooltip = ub_singularity_sphere.7.a.desc
+		add_resource = {
+			influence = -100
+		}
+	}
+	option = {
+		name = ub_singularity_sphere.7.b
+		custom_tooltip = ub_singularity_sphere.7.b.desc
+		hidden_effect = {
+			add_opinion_modifier = {
+				who = from
+				modifier = opinion_refused_condemnation_building_singularity_sphere
+			}
+			from = {
+				country_event = {
+					id = ub_singularity_sphere.6
+				}
+			}
+		}
+	}
+	option = {
+		name = ub_singularity_sphere.7.c
+		custom_tooltip = ub_singularity_sphere.7.c.desc
+		hidden_effect = {
+			declare_war = {
+				target = from
+				attacker_war_goal = wg_humiliation
+			}
+		}
 	}
 }

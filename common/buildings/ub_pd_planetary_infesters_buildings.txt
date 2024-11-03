@@ -1,0 +1,64 @@
+### Planetary Infesters
+ub_building_pd_planet_infester_1 = {
+	icon = building_pd_planet_infester_1
+	base_buildtime = 900
+	category = government
+	can_be_disabled = no
+	upgrades = { "building_pd_planet_infester_2" }
+
+	potential = {
+		exists = owner
+		owner = {
+			is_country_type = default
+			has_civic = civic_hive_pd_planetary_infesters
+		}
+		pd_is_planet_class_all = yes
+		OR = {
+			has_building = building_pd_planet_infester_1
+			has_building_construction = building_pd_planet_infester_1
+			has_building = building_pd_planet_infester_2
+			has_building_construction = building_pd_planet_infester_2
+			has_building = building_pd_planet_infester_3
+			has_building_construction = building_pd_planet_infester_3
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		exists = owner
+		owner = {
+			is_country_type = default
+			has_civic = civic_hive_pd_planetary_infesters
+		}
+	}
+
+	destroy_trigger = {
+		OR = {
+			pd_is_planet_class_all = no
+			NOT = { exists = owner }
+			owner = {
+				NOT = { has_civic = civic_hive_pd_planetary_infesters }
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 2000
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+
+	planet_modifier = {
+		pop_environment_tolerance = 0.2
+	}
+
+	on_destroy = {
+		pd_aw_back_to_normal_view_effect = yes
+	}
+
+	is_essential = yes
+}

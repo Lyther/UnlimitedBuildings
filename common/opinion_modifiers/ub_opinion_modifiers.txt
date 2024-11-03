@@ -1,0 +1,20 @@
+opinion_building_singularity_sphere = {
+	opinion = {
+		base = -50
+	}
+	decay = 10
+}
+
+opinion_condemned_building_singularity_sphere = {
+	opinion = {
+		base = -50
+	}
+	decay = 10
+}
+
+opinion_refused_condemnation_building_singularity_sphere = {
+	opinion = {
+		base = -50
+	}
+	decay = 10
+}

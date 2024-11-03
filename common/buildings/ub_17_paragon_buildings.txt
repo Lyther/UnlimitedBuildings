@@ -6,14 +6,14 @@
 # Galactic Paragons Buildings
 #####################
 
-building_paragon_memory_vaults = {
+ub_building_paragon_memory_vaults = {
+	icon = building_paragon_memory_vaults
 	base_buildtime = @b2_time
 	category = unity
 	can_demolish = yes
 	can_be_ruined = yes
 	can_be_disabled = yes
 	is_essential = yes
-	position_priority = 91
 	destroy_trigger = {
 		exists = owner
 		owner = {
@@ -65,6 +65,13 @@ building_paragon_memory_vaults = {
 			owner = { is_memory_vault_empire = yes }
 		}
 		exists = planet
+		owner = {
+			num_buildings = {
+				type = building_paragon_memory_vaults
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	resources = {
@@ -150,12 +157,21 @@ building_paragon_memory_vaults = {
 }
 
 ### THE BEHOLDER
-building_the_beholder = {
+ub_building_the_beholder = {
 	icon = building_temple_of_whispers
-	can_build = no
-	can_demolish = no
-	position_priority = 92
+
 	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = {
+			num_buildings = {
+				type = building_the_beholder
+				value = 1
+			}
+			is_ai = no
+		}
+	}
 
 	destroy_trigger = {
 		OR = {
@@ -222,7 +238,7 @@ building_the_beholder = {
 }
 
 ### ASTROCREATOR AZARYN
-building_contained_ecosphere = {
+ub_building_contained_ecosphere = {
 	icon = building_contained_ecosphere
 	can_build = yes
 	can_demolish = yes
@@ -232,6 +248,13 @@ building_contained_ecosphere = {
 
 	potential = {
 		owner = { has_country_flag = azaryn_dead }
+		owner = {
+			num_buildings = {
+				type = building_contained_ecosphere
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	resources = {
@@ -249,4 +272,3 @@ building_contained_ecosphere = {
 		planet = { remove_modifier = contained_ecosphere_pheromones }
 	}
 }
-

@@ -1,0 +1,2435 @@
+###Rare Buildings
+
+#Continetal
+#Megaflora Buildings
+ub_building_megalfora_mine = {
+	icon = building_megalfora_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_megalfora_mine
+			has_building_construction = building_megalfora_mine
+			has_building = building_megalfora_lab
+			has_building_construction = building_megalfora_lab
+			has_building = building_megalfora_grid
+			has_building_construction = building_megalfora_grid
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_megaflora }
+		}
+	}
+}
+ub_building_megalfora_lab = {
+	icon = building_megalfora_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_megalfora_mine
+			has_building_construction = building_megalfora_mine
+			has_building = building_megalfora_lab
+			has_building_construction = building_megalfora_lab
+			has_building = building_megalfora_grid
+			has_building_construction = building_megalfora_grid
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_megaflora }
+		}
+	}
+}
+ub_building_megalfora_grid = {
+	icon = building_megalfora_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_megalfora_mine
+			has_building_construction = building_megalfora_mine
+			has_building = building_megalfora_lab
+			has_building_construction = building_megalfora_lab
+			has_building = building_megalfora_grid
+			has_building_construction = building_megalfora_grid
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_megaflora }
+		}
+	}
+}
+
+#Petrified Buildings
+ub_building_petrified_mine = {
+	icon = building_petrified_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_petrified_mine
+			has_building_construction = building_petrified_mine
+			has_building = building_petrified_guild
+			has_building_construction = building_petrified_guild
+			has_building = building_petrified_lab
+			has_building_construction = building_petrified_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_petrified }
+		}
+	}
+}
+ub_building_petrified_guild = {
+	icon = building_petrified_guild
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		owner = { is_gestalt = no }
+		OR = {
+			has_building = building_petrified_mine
+			has_building_construction = building_petrified_mine
+			has_building = building_petrified_guild
+			has_building_construction = building_petrified_guild
+			has_building = building_petrified_lab
+			has_building_construction = building_petrified_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_consumer_goods_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_petrified }
+		}
+	}
+}
+ub_building_petrified_lab = {
+	icon = building_petrified_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_petrified_mine
+			has_building_construction = building_petrified_mine
+			has_building = building_petrified_guild
+			has_building_construction = building_petrified_guild
+			has_building = building_petrified_lab
+			has_building_construction = building_petrified_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_petrified }
+		}
+	}
+}
+
+#Ocean
+#Reef Buildings
+ub_building_reef_lab = {
+	icon = building_reef_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_reef_lab
+			has_building_construction = building_reef_lab
+			has_building = building_reef_guild
+			has_building_construction = building_reef_guild
+			has_building = building_reef_mine
+			has_building_construction = building_reef_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_reef } }
+	}
+}
+ub_building_reef_guild = {
+	icon = building_reef_guild
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_reef_lab
+			has_building_construction = building_reef_lab
+			has_building = building_reef_guild
+			has_building_construction = building_reef_guild
+			has_building = building_reef_mine
+			has_building_construction = building_reef_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_consumer_goods_building"
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_reef } }
+	}
+}
+ub_building_reef_mine = {
+	icon = building_reef_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_reef_lab
+			has_building_construction = building_reef_lab
+			has_building = building_reef_guild
+			has_building_construction = building_reef_guild
+			has_building = building_reef_mine
+			has_building_construction = building_reef_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_reef }
+		}
+	}
+}
+
+#Archipelago Buildings
+ub_building_archipelago_foundry = {
+	icon = building_archipelago_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_archipelago_foundry
+			has_building_construction = building_archipelago_foundry
+			has_building = building_archipelago_farm
+			has_building_construction = building_archipelago_farm
+			has_building = building_archipelago_resort
+			has_building_construction = building_archipelago_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_archipelago } }
+	}
+}
+ub_building_archipelago_farm = {
+	icon = building_archipelago_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_archipelago_foundry
+			has_building_construction = building_archipelago_foundry
+			has_building = building_archipelago_farm
+			has_building_construction = building_archipelago_farm
+			has_building = building_archipelago_resort
+			has_building_construction = building_archipelago_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = { NOT = { has_modifier = pd_archipelago } }
+		}
+	}
+}
+ub_building_archipelago_resort = {
+	icon = building_archipelago_resort
+	base_buildtime = 600
+
+	category = trade
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_archipelago_foundry
+			has_building_construction = building_archipelago_foundry
+			has_building = building_archipelago_farm
+			has_building_construction = building_archipelago_farm
+			has_building = building_archipelago_resort
+			has_building_construction = building_archipelago_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_resort_building"
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_archipelago  } }
+	}
+}
+
+#Tropical
+#Biolumen Buildings
+ub_building_biolumen_lab = {
+	icon = building_biolumen_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_biolumen_lab
+			has_building_construction = building_biolumen_lab
+			has_building = building_biolumen_resort
+			has_building_construction = building_biolumen_resort
+			has_building = building_biolumen_farm
+			has_building_construction = building_biolumen_farm
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_biolumen }
+		}
+	}
+}
+ub_building_biolumen_resort = {
+	icon = building_biolumen_resort
+	base_buildtime = 600
+
+	category = trade
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_biolumen_lab
+			has_building_construction = building_biolumen_lab
+			has_building = building_biolumen_resort
+			has_building_construction = building_biolumen_resort
+			has_building = building_biolumen_farm
+			has_building_construction = building_biolumen_farm
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_resort_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_biolumen }
+		}
+	}
+}
+ub_building_biolumen_farm = {
+	icon = building_biolumen_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_biolumen_lab
+			has_building_construction = building_biolumen_lab
+			has_building = building_biolumen_resort
+			has_building_construction = building_biolumen_resort
+			has_building = building_biolumen_farm
+			has_building_construction = building_biolumen_farm
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = { NOT = { has_modifier = pd_biolumen } }
+		}
+	}
+}
+
+#Geothermal Buildings
+ub_building_geothermal_grid = {
+	icon = building_geothermal_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_geothermal_grid
+			has_building_construction = building_geothermal_grid
+			has_building = building_geothermal_foundry
+			has_building_construction = building_geothermal_foundry
+			has_building = building_geothermal_lab
+			has_building_construction = building_geothermal_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_geothermal }
+		}
+	}
+}
+ub_building_geothermal_foundry = {
+	icon = building_geothermal_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_geothermal_grid
+			has_building_construction = building_geothermal_grid
+			has_building = building_geothermal_foundry
+			has_building_construction = building_geothermal_foundry
+			has_building = building_geothermal_lab
+			has_building_construction = building_geothermal_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_geothermal }
+		}
+	}
+}
+ub_building_geothermal_lab = {
+	icon = building_geothermal_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_geothermal_grid
+			has_building_construction = building_geothermal_grid
+			has_building = building_geothermal_foundry
+			has_building_construction = building_geothermal_foundry
+			has_building = building_geothermal_lab
+			has_building_construction = building_geothermal_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_geothermal }
+		}
+	}
+}
+
+#Desert
+#Salt Buildings
+ub_building_salt_lab = {
+	icon = building_salt_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_salt_mine
+			has_building_construction = building_salt_mine
+			has_building = building_salt_lab
+			has_building_construction = building_salt_lab
+			has_building = building_salt_foundry
+			has_building_construction = building_salt_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_salt } }
+	}
+}
+ub_building_salt_foundry = {
+	icon = building_salt_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_salt_mine
+			has_building_construction = building_salt_mine
+			has_building = building_salt_lab
+			has_building_construction = building_salt_lab
+			has_building = building_salt_foundry
+			has_building_construction = building_salt_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_salt } }
+	}
+}
+ub_building_salt_mine = {
+	icon = building_salt_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_salt_mine
+			has_building_construction = building_salt_mine
+			has_building = building_salt_lab
+			has_building_construction = building_salt_lab
+			has_building = building_salt_foundry
+			has_building_construction = building_salt_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_salt }
+		}
+	}
+}
+
+#Aquifer Buildings
+ub_building_aquifer_farm = {
+	icon = building_aquifer_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_aquifer_farm
+			has_building_construction = building_aquifer_farm
+			has_building = building_aquifer_lab
+			has_building_construction = building_aquifer_lab
+			has_building = building_aquifer_resort
+			has_building_construction = building_aquifer_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = { NOT = { has_modifier = pd_aquifer } }
+		}
+	}
+}
+ub_building_aquifer_lab = {
+	icon = building_aquifer_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_aquifer_farm
+			has_building_construction = building_aquifer_farm
+			has_building = building_aquifer_lab
+			has_building_construction = building_aquifer_lab
+			has_building = building_aquifer_resort
+			has_building_construction = building_aquifer_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_aquifer } }
+	}
+}
+ub_building_aquifer_resort = {
+	icon = building_aquifer_resort
+	base_buildtime = 600
+
+	category = trade
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_aquifer_farm
+			has_building_construction = building_aquifer_farm
+			has_building = building_aquifer_lab
+			has_building_construction = building_aquifer_lab
+			has_building = building_aquifer_resort
+			has_building_construction = building_aquifer_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_resort_building"
+
+	destroy_trigger = {
+		planet = { NOT = { has_modifier = pd_aquifer } }
+	}
+}
+
+#Arid
+#Primal Buildings
+ub_building_primal_foundry = {
+	icon = building_primal_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_primal_foundry
+			has_building_construction = building_primal_foundry
+			has_building = building_primal_grid
+			has_building_construction = building_primal_grid
+			has_building = building_primal_mine
+			has_building_construction = building_primal_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_primal }
+		}
+	}
+}
+ub_building_primal_grid = {
+	icon = building_primal_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_primal_foundry
+			has_building_construction = building_primal_foundry
+			has_building = building_primal_grid
+			has_building_construction = building_primal_grid
+			has_building = building_primal_mine
+			has_building_construction = building_primal_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_primal }
+		}
+	}
+}
+ub_building_primal_mine = {
+	icon = building_primal_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_primal_foundry
+			has_building_construction = building_primal_foundry
+			has_building = building_primal_grid
+			has_building_construction = building_primal_grid
+			has_building = building_primal_mine
+			has_building_construction = building_primal_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_primal }
+		}
+	}
+}
+
+#Coral Buildings
+ub_building_coral_resort = {
+	icon = building_coral_resort
+	base_buildtime = 600
+
+	category = trade
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_coral_resort
+			has_building_construction = building_coral_resort
+			has_building = building_coral_lab
+			has_building_construction = building_coral_lab
+			has_building = building_coral_guild
+			has_building_construction = building_coral_guild
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_resort_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_coral }
+		}
+	}
+}
+ub_building_coral_lab = {
+	icon = building_coral_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_coral_resort
+			has_building_construction = building_coral_resort
+			has_building = building_coral_lab
+			has_building_construction = building_coral_lab
+			has_building = building_coral_guild
+			has_building_construction = building_coral_guild
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_coral }
+		}
+	}
+}
+ub_building_coral_guild = {
+	icon = building_coral_guild
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_coral_resort
+			has_building_construction = building_coral_resort
+			has_building = building_coral_lab
+			has_building_construction = building_coral_lab
+			has_building = building_coral_guild
+			has_building_construction = building_coral_guild
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_consumer_goods_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_coral }
+		}
+	}
+}
+
+#Savannah
+#Supercon Buildings
+ub_building_supercon_farm = {
+	icon = building_supercon_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_supercon_farm
+			has_building_construction = building_supercon_farm
+			has_building = building_supercon_lab
+			has_building_construction = building_supercon_lab
+			has_building = building_supercon_grid
+			has_building_construction = building_supercon_grid
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = { NOT = { has_modifier = pd_supercontinent } }
+		}
+	}
+}
+ub_building_supercon_lab = {
+	icon = building_supercon_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_supercon_farm
+			has_building_construction = building_supercon_farm
+			has_building = building_supercon_lab
+			has_building_construction = building_supercon_lab
+			has_building = building_supercon_grid
+			has_building_construction = building_supercon_grid
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_physics_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_supercontinent }
+		}
+	}
+}
+ub_building_supercon_grid = {
+	icon = building_supercon_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_supercon_farm
+			has_building_construction = building_supercon_farm
+			has_building = building_supercon_lab
+			has_building_construction = building_supercon_lab
+			has_building = building_supercon_grid
+			has_building_construction = building_supercon_grid
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_supercontinent }
+		}
+	}
+}
+
+#Sinkhole Buildings
+ub_building_pd_sinkhole_lab = {
+	icon = building_pd_sinkhole_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_pd_sinkhole_lab
+			has_building_construction = building_pd_sinkhole_lab
+			has_building = building_pd_sinkhole_mine
+			has_building_construction = building_pd_sinkhole_mine
+			has_building = building_pd_sinkhole_guild
+			has_building_construction = building_pd_sinkhole_guild
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_sinkhole }
+		}
+	}
+}
+ub_building_pd_sinkhole_mine = {
+	icon = building_pd_sinkhole_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_pd_sinkhole_lab
+			has_building_construction = building_pd_sinkhole_lab
+			has_building = building_pd_sinkhole_mine
+			has_building_construction = building_pd_sinkhole_mine
+			has_building = building_pd_sinkhole_guild
+			has_building_construction = building_pd_sinkhole_guild
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_sinkhole }
+		}
+	}
+}
+ub_building_pd_sinkhole_guild = {
+	icon = building_pd_sinkhole_guild
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_pd_sinkhole_lab
+			has_building_construction = building_pd_sinkhole_lab
+			has_building = building_pd_sinkhole_mine
+			has_building_construction = building_pd_sinkhole_mine
+			has_building = building_pd_sinkhole_guild
+			has_building_construction = building_pd_sinkhole_guild
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_consumer_goods_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_sinkhole }
+		}
+	}
+}
+
+#Arctic
+#Storm Buildings
+ub_building_storm_lab = {
+	icon = building_storm_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_storm_lab
+			has_building_construction = building_storm_lab
+			has_building = building_storm_grid
+			has_building_construction = building_storm_grid
+			has_building = building_storm_mine
+			has_building_construction = building_storm_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_physics_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_storm }
+		}
+	}
+}
+ub_building_storm_grid = {
+	icon = building_storm_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_storm_lab
+			has_building_construction = building_storm_lab
+			has_building = building_storm_grid
+			has_building_construction = building_storm_grid
+			has_building = building_storm_mine
+			has_building_construction = building_storm_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_storm }
+		}
+	}
+}
+ub_building_storm_mine = {
+	icon = building_storm_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_storm_lab
+			has_building_construction = building_storm_lab
+			has_building = building_storm_grid
+			has_building_construction = building_storm_grid
+			has_building = building_storm_mine
+			has_building_construction = building_storm_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_storm }
+		}
+	}
+}
+
+
+#Iceberg Buildings
+ub_building_iceberg_lab = {
+	icon = building_iceberg_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_iceberg_lab
+			has_building_construction = building_iceberg_lab
+			has_building = building_iceberg_farm
+			has_building_construction = building_iceberg_farm
+			has_building = building_iceberg_foundry
+			has_building_construction = building_iceberg_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_iceberg }
+		}
+	}
+}
+ub_building_iceberg_farm = {
+	icon = building_iceberg_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_iceberg_lab
+			has_building_construction = building_iceberg_lab
+			has_building = building_iceberg_farm
+			has_building_construction = building_iceberg_farm
+			has_building = building_iceberg_foundry
+			has_building_construction = building_iceberg_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = { NOT = { has_modifier = pd_iceberg } }
+		}
+	}
+}
+ub_building_iceberg_foundry = {
+	icon = building_iceberg_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_iceberg_lab
+			has_building_construction = building_iceberg_lab
+			has_building = building_iceberg_farm
+			has_building_construction = building_iceberg_farm
+			has_building = building_iceberg_foundry
+			has_building_construction = building_iceberg_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_iceberg }
+		}
+	}
+}
+
+#Tundra
+#Cryoflora Buildings
+ub_building_cryo_lab = {
+	icon = building_cryo_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_cryo_lab
+			has_building_construction = building_cryo_lab
+			has_building = building_cryo_guild
+			has_building_construction = building_cryo_guild
+			has_building = building_cryo_resort
+			has_building_construction = building_cryo_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_physics_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_cryoflora }
+		}
+	}
+
+	ai_resource_production = {
+		trigger = {
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 30
+			}
+		}
+		physics_research = 5
+		society_research = 5
+		engineering_research = 5
+	}
+}
+ub_building_cryo_guild = {
+	icon = building_cryo_guild
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_cryo_lab
+			has_building_construction = building_cryo_lab
+			has_building = building_cryo_guild
+			has_building_construction = building_cryo_guild
+			has_building = building_cryo_resort
+			has_building_construction = building_cryo_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_consumer_goods_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_cryoflora }
+		}
+	}
+}
+ub_building_cryo_resort = {
+	icon = building_cryo_resort
+	base_buildtime = 600
+
+	category = trade
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_cryo_lab
+			has_building_construction = building_cryo_lab
+			has_building = building_cryo_guild
+			has_building_construction = building_cryo_guild
+			has_building = building_cryo_resort
+			has_building_construction = building_cryo_resort
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_resort_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_cryoflora }
+		}
+	}
+}
+
+#Lichen Buildings
+ub_building_lichen_farm = {
+	icon = building_lichen_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_lichen_farm
+			has_building_construction = building_lichen_farm
+			has_building = building_lichen_grid
+			has_building_construction = building_lichen_grid
+			has_building = building_lichen_lab
+			has_building_construction = building_lichen_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	inline_script = {
+		script = jobs/farmers_add
+		FARMER_AMOUNT = 2
+		ANGLER_AMOUNT = 2
+	}
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = { NOT = { has_modifier = pd_lichen } }
+		}
+	}
+}
+ub_building_lichen_grid = {
+	icon = building_lichen_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_lichen_farm
+			has_building_construction = building_lichen_farm
+			has_building = building_lichen_grid
+			has_building_construction = building_lichen_grid
+			has_building = building_lichen_lab
+			has_building_construction = building_lichen_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_lichen }
+		}
+	}
+}
+ub_building_lichen_lab = {
+	icon = building_lichen_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_lichen_farm
+			has_building_construction = building_lichen_farm
+			has_building = building_lichen_grid
+			has_building_construction = building_lichen_grid
+			has_building = building_lichen_lab
+			has_building_construction = building_lichen_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_lichen }
+		}
+	}
+}
+
+#Alpine
+#Glacio Buildings
+ub_building_glacio_foundry = {
+	icon = building_glacio_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_glacio_foundry
+			has_building_construction = building_glacio_foundry
+			has_building = building_glacio_resort
+			has_building_construction = building_glacio_resort
+			has_building = building_glacio_mine
+			has_building_construction = building_glacio_mine
+		}
+		owner = { is_ai = no }
+	}
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_glaciovolcanic }
+		}
+	}
+}
+ub_building_glacio_resort = {
+	icon = building_glacio_resort
+	base_buildtime = 600
+
+	category = trade
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_glacio_foundry
+			has_building_construction = building_glacio_foundry
+			has_building = building_glacio_resort
+			has_building_construction = building_glacio_resort
+			has_building = building_glacio_mine
+			has_building_construction = building_glacio_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_resort_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_glaciovolcanic }
+		}
+	}
+}
+ub_building_glacio_mine = {
+	icon = building_glacio_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_glacio_foundry
+			has_building_construction = building_glacio_foundry
+			has_building = building_glacio_resort
+			has_building_construction = building_glacio_resort
+			has_building = building_glacio_mine
+			has_building_construction = building_glacio_mine
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_glaciovolcanic }
+		}
+	}
+}
+
+#Lanthanide Buildings
+ub_building_lanthanide_mine = {
+	icon = building_lanthanide_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_lanthanide_mine
+			has_building_construction = building_lanthanide_mine
+			has_building = building_lanthanide_guild
+			has_building_construction = building_lanthanide_guild
+			has_building = building_lanthanide_lab
+			has_building_construction = building_lanthanide_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			NOT = { has_modifier = pd_lanthanide }
+		}
+	}
+}
+ub_building_lanthanide_guild = {
+	icon = building_lanthanide_guild
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_lanthanide_mine
+			has_building_construction = building_lanthanide_mine
+			has_building = building_lanthanide_guild
+			has_building_construction = building_lanthanide_guild
+			has_building = building_lanthanide_lab
+			has_building_construction = building_lanthanide_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_consumer_goods_building"
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_lanthanide }
+		}
+	}
+}
+ub_building_lanthanide_lab = {
+	icon = building_lanthanide_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_lanthanide_mine
+			has_building_construction = building_lanthanide_mine
+			has_building = building_lanthanide_guild
+			has_building_construction = building_lanthanide_guild
+			has_building = building_lanthanide_lab
+			has_building_construction = building_lanthanide_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_physics_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = { has_modifier = pd_lanthanide }
+		}
+	}
+}

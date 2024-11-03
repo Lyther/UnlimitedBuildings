@@ -2,15 +2,18 @@
 #	Augmentation Bazaars	#
 #############################
 
-building_augmentation_bazaars = {
+ub_building_augmentation_bazaars = {
+	icon = building_augmentation_bazaars
 	base_buildtime = @b2_time
-	position_priority = 8
+
 	category = trade
 
 	potential = {
 		owner = { has_valid_civic = civic_augmentation_bazaars }
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = slave_colony }
+		has_building = building_augmentation_bazaars
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -111,9 +114,10 @@ building_augmentation_bazaars = {
 #	Natural Design	#
 #####################
 
-building_transcendental_retreat = {
+ub_building_transcendental_retreat = {
+	icon = building_transcendental_retreat
 	base_buildtime = @b2_time
-	position_priority = 9
+
 	category = pop_assembly
 
 	potential = {
@@ -121,6 +125,8 @@ building_transcendental_retreat = {
 		owner = { has_valid_civic = civic_natural_design }
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = slave_colony }
+		has_building = building_transcendental_retreat
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -187,9 +193,10 @@ building_transcendental_retreat = {
 	prerequisites = {}
 }
 
-building_hive_transcendental_retreat = {
+ub_building_hive_transcendental_retreat = {
+	icon = building_hive_transcendental_retreat
 	base_buildtime = @b2_time
-	position_priority = 10
+
 	category = pop_assembly
 
 	potential = {
@@ -197,6 +204,8 @@ building_hive_transcendental_retreat = {
 		owner = { has_valid_civic = civic_hive_natural_design }
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = slave_colony }
+		has_building = building_hive_transcendental_retreat
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -323,10 +332,10 @@ building_hive_transcendental_retreat = {
 #####################
 
 #Choir of the Mind
-building_amphitheater_of_the_mind = {
+ub_building_amphitheater_of_the_mind = {
+	icon = building_amphitheater_of_the_mind
 	position_priority = 100
 	base_buildtime = @b2_time
-	can_demolish = no
 
 	category = research
 
@@ -341,6 +350,19 @@ building_amphitheater_of_the_mind = {
 		owner = {
 			has_origin = origin_cybernetic_creed
 			has_country_flag = cybernetic_creed_research
+		}
+		owner = {
+			OR = {
+				num_buildings = {
+					type = building_amphitheater_of_the_mind
+					value = 1
+				}
+				num_buildings = {
+					type = building_grand_concert_hall_of_the_mind
+					value = 1
+				}
+			}
+			is_ai = no
 		}
 	}
 
@@ -421,95 +443,12 @@ building_amphitheater_of_the_mind = {
 	}
 }
 
-building_grand_concert_hall_of_the_mind = {
-	position_priority = 100
-	base_buildtime = @b3_time
-	can_build = no
-	can_demolish = no
-	category = research
-
-	allow = {
-		has_major_upgraded_capital = yes
-		hidden_trigger = {
-			exists = owner
-			owner = { has_origin = origin_cybernetic_creed }
-			NOT = {	has_building = building_grand_concert_hall_of_the_mind }
-		}
-		custom_tooltip = {
-			fail_text = not_cybernetic_creed_research
-			owner = { has_country_flag = cybernetic_creed_research }
-		}
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				OR = {
-					NOT = { has_origin = origin_cybernetic_creed }
-					AND = {
-						has_origin = origin_cybernetic_creed
-						OR = {
-							has_country_flag = cybernetic_creed_war
-							has_country_flag = cybernetic_creed_construction
-							has_country_flag = cybernetic_creed_labor
-							has_country_flag = cybernetic_creed_general
-						}
-					}
-				}
-			}
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
-		}
-		upkeep = {
-			energy = @b2_upkeep
-		}
-	}
-
-	planet_modifier = {
-		job_technophant_add = 1
-		job_researcher_add = 4
-		job_haruspex_add = 1
-	}
-
-	triggered_desc = {
-		text = job_technophant_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_researcher_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_haruspex_effect_desc
-	}
-
-	ai_resource_production = {
-		trigger = {
-			planet_resource_compare = {
-				resource = physics_research
-				value >= 30
-			}
-		}
-		physics_research = 5
-		society_research = 5
-		engineering_research = 5
-	}
-}
-
 #Templars of Steel
-building_battlement_of_steel = {
+ub_building_battlement_of_steel = {
+	icon = building_battlement_of_steel
 	position_priority = 100
 	can_be_ruined = no
 	base_buildtime = @b2_time
-	can_demolish = no
 
 	category = army
 
@@ -524,6 +463,19 @@ building_battlement_of_steel = {
 		owner = {
 			has_origin = origin_cybernetic_creed
 			has_country_flag = cybernetic_creed_war
+		}
+		owner = {
+			OR = {
+				num_buildings = {
+					type = building_battlement_of_steel
+					value = 1
+				}
+				num_buildings = {
+					type = building_grand_battlements_of_steel
+					value = 1
+				}
+			}
+			is_ai = no
 		}
 	}
 
@@ -594,86 +546,11 @@ building_battlement_of_steel = {
 	}
 }
 
-building_grand_battlements_of_steel = {
-	position_priority = 100
-	can_be_ruined = no
-	base_buildtime = @b3_time
-	can_build = no
-	can_demolish = no
-	category = army
-
-	allow = {
-		has_major_upgraded_capital = yes
-		hidden_trigger = {
-			exists = owner
-			owner = { has_origin = origin_cybernetic_creed }
-			NOT = {	has_building = building_grand_battlements_of_steel }
-		}
-		custom_tooltip = {
-			fail_text = not_cybernetic_creed_war
-			owner = { has_country_flag = cybernetic_creed_war }
-		}
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				OR = {
-					NOT = { has_origin = origin_cybernetic_creed }
-					AND = {
-						has_origin = origin_cybernetic_creed
-						OR = {
-							has_country_flag = cybernetic_creed_research
-							has_country_flag = cybernetic_creed_construction
-							has_country_flag = cybernetic_creed_labor
-							has_country_flag = cybernetic_creed_general
-						}
-					}
-				}
-			}
-		}
-	}
-
-	planetary_ftl_inhibitor = yes
-
-	planet_modifier = {
-		job_technophant_add = 1
-		job_haruspex_add = 1
-		job_soldier_add = 4
-		planet_orbital_bombardment_damage = -0.2
-	}
-
-	resources = {
-		category = planet_buildings_strongholds
-		cost = {
-			minerals = @b1_minerals
-		}
-		upkeep = {
-			energy = @b1_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = job_technophant_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_haruspex_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_soldier_effect_desc
-	}
-}
-
 #Commune of Toil
-building_sanctuary_of_toil = {
+ub_building_sanctuary_of_toil = {
+	icon = building_sanctuary_of_toil
 	position_priority = 100
 	base_buildtime = @b2_time
-	can_demolish = no
 
 	category = resource
 
@@ -688,6 +565,19 @@ building_sanctuary_of_toil = {
 		owner = {
 			has_origin = origin_cybernetic_creed
 			has_country_flag = cybernetic_creed_labor
+		}
+		owner = {
+			OR = {
+				num_buildings = {
+					type = building_sanctuary_of_toil
+					value = 1
+				}
+				num_buildings = {
+					type = building_grand_cathedral_of_toil
+					value = 1
+				}
+			}
+			is_ai = no
 		}
 	}
 
@@ -754,79 +644,11 @@ building_sanctuary_of_toil = {
 	}
 }
 
-building_grand_cathedral_of_toil = {
-	position_priority = 100
-	base_buildtime = @b2_time
-	can_build = no
-	can_demolish = no
-	category = resource
-
-	allow = {
-		has_major_upgraded_capital = yes
-		hidden_trigger = {
-			exists = owner
-			owner = { has_origin = origin_cybernetic_creed }
-			NOT = {	has_building = building_grand_cathedral_of_toil }
-		}
-		custom_tooltip = {
-			fail_text = not_cybernetic_creed_labor
-			owner = { has_country_flag = cybernetic_creed_labor }
-		}
-	}
-
-	destroy_trigger = {
-		OR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				OR = {
-					NOT = { has_origin = origin_cybernetic_creed }
-					AND = {
-						has_origin = origin_cybernetic_creed
-						OR = {
-							has_country_flag = cybernetic_creed_research
-							has_country_flag = cybernetic_creed_construction
-							has_country_flag = cybernetic_creed_war
-							has_country_flag = cybernetic_creed_general
-						}
-					}
-				}
-			}
-		}
-	}
-
-	planet_modifier = {
-		job_technophant_add = 1
-		job_haruspex_add = 1
-		planet_farmers_food_produces_add = 0.5
-		planet_technician_energy_produces_add = 0.5
-		planet_miners_minerals_produces_add = 0.5
-	}
-
-	triggered_desc = {
-		text = job_technophant_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_haruspex_effect_desc
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
-		}
-		upkeep = {
-			energy = @b2_upkeep
-		}
-	}
-}
-
 #Fellowship of the Hammer
-building_forge_of_the_fellowship = {
+ub_building_forge_of_the_fellowship = {
+	icon = building_forge_of_the_fellowship
 	position_priority = 100
 	base_buildtime = @b2_time
-	can_demolish = no
 
 	category = manufacturing
 
@@ -841,6 +663,19 @@ building_forge_of_the_fellowship = {
 		owner = {
 			has_origin = origin_cybernetic_creed
 			has_country_flag = cybernetic_creed_construction
+		}
+		owner = {
+			OR = {
+				num_buildings = {
+					type = building_forge_of_the_fellowship
+					value = 1
+				}
+				num_buildings = {
+					type = building_grand_forge_of_the_fellowship
+					value = 1
+				}
+			}
+			is_ai = no
 		}
 	}
 
@@ -1008,180 +843,11 @@ building_forge_of_the_fellowship = {
 	}
 }
 
-building_grand_forge_of_the_fellowship = {
-	position_priority = 100
-	base_buildtime = @b3_time
-	can_build = no
-	can_demolish = no
-	category = manufacturing
-
-	allow = {
-		has_major_upgraded_capital = yes
-		hidden_trigger = {
-			exists = owner
-			owner = { has_origin = origin_cybernetic_creed }
-			NOT = {	has_building = building_grand_forge_of_the_fellowship }
-		}
-		custom_tooltip = {
-			fail_text = not_cybernetic_creed_construction
-			owner = { has_country_flag = cybernetic_creed_construction }
-		}
-	}
-
-	destroy_trigger = {
-		OR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				OR = {
-					NOT = { has_origin = origin_cybernetic_creed }
-					AND = {
-						has_origin = origin_cybernetic_creed
-						OR = {
-							has_country_flag = cybernetic_creed_research
-							has_country_flag = cybernetic_creed_labor
-							has_country_flag = cybernetic_creed_war
-							has_country_flag = cybernetic_creed_general
-						}
-					}
-				}
-			}
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-		}
-		upkeep = {
-			energy = @b3_upkeep
-		}
-	}
-
-	planet_modifier = {
-		job_technophant_add = 1
-		job_haruspex_add = 1
-	}
-
-	triggered_desc = {
-		text = job_technophant_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_haruspex_effect_desc
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = no
-				is_crafter_empire = no
-			}
-		}
-		modifier = {
-			job_foundry_add = 2
-			job_artisan_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = no
-				is_crafter_empire = yes
-			}
-		}
-		modifier = {
-			job_foundry_add = 2
-			job_artificer_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = yes
-				is_crafter_empire = no
-			}
-		}
-		modifier = {
-			job_catalytic_technician_add = 2
-			job_artisan_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = yes
-				is_crafter_empire = yes
-			}
-		}
-		modifier = {
-			job_catalytic_technician_add = 2
-			job_artificer_add = 2
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = yes
-			}
-		}
-		text = job_catalytic_technician_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		text = job_foundry_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_crafter_empire = no
-			}
-		}
-		text = job_artisan_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_crafter_empire = yes
-			}
-		}
-		text = job_artisan_effect_desc
-	}
-}
-
 #United Creed
-building_the_sanctum_of_augmentation = {
+ub_building_the_sanctum_of_augmentation = {
+	icon = building_the_sanctum_of_augmentation
 	position_priority = 100
 	base_buildtime = @b2_time
-	can_demolish = no
 
 	category = unity
 
@@ -1196,6 +862,19 @@ building_the_sanctum_of_augmentation = {
 		owner = {
 			has_origin = origin_cybernetic_creed
 			has_country_flag = cybernetic_creed_general
+		}
+		owner = {
+			OR = {
+				num_buildings = {
+					type = building_the_sanctum_of_augmentation
+					value = 1
+				}
+				num_buildings = {
+					type = building_the_united_sanctum_of_augmentation
+					value = 1
+				}
+			}
+			is_ai = no
 		}
 	}
 
@@ -1265,81 +944,15 @@ building_the_sanctum_of_augmentation = {
 	}
 }
 
-building_the_united_sanctum_of_augmentation = {
-	position_priority = 100
-	base_buildtime = @b3_time
-	can_build = no
-	can_demolish = no
-	category = unity
-
-	allow = {
-		has_major_upgraded_capital = yes
-		hidden_trigger = {
-			exists = owner
-			owner = { has_origin = origin_cybernetic_creed }
-			NOT = {	has_building = building_the_united_sanctum_of_augmentation }
-		}
-		custom_tooltip = {
-			fail_text = not_cybernetic_creed_general
-			owner = { has_country_flag = cybernetic_creed_general }
-		}
-	}
-
-	destroy_trigger = {
-		OR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			owner = {
-				OR = {
-					NOT = { has_origin = origin_cybernetic_creed }
-					AND = {
-						has_origin = origin_cybernetic_creed
-						OR = {
-							has_country_flag = cybernetic_creed_research
-							has_country_flag = cybernetic_creed_labor
-							has_country_flag = cybernetic_creed_war
-							has_country_flag = cybernetic_creed_construction
-						}
-					}
-				}
-			}
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-		}
-		upkeep = {
-			energy = @b3_upkeep
-		}
-	}
-
-	planet_modifier = {
-		job_technophant_add = 2
-		job_haruspex_add = 4
-	}
-
-	triggered_desc = {
-		text = job_technophant_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_haruspex_effect_desc
-	}
-}
-
 #########################
 # Synthetic Fertility	#
 #########################
 
 #Identity Repository
-building_identity_repository = {
+ub_building_identity_repository = {
+	icon = building_identity_repository
 	base_buildtime = @b2_time
 	position_priority = 100
-	can_demolish = no
-	can_be_disabled = no
 	category = resource
 
 	category = research
@@ -1350,6 +963,8 @@ building_identity_repository = {
 			has_origin = origin_synthetic_fertility
 			NOT = { has_country_flag = synthetic_fertility_no_identity_left_behind }
 		}
+		has_building = building_identity_repository
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -1415,253 +1030,22 @@ building_identity_repository = {
 	}
 }
 
-building_abandoned_gene_clinic = {
-	icon = building_ancient_cryo_chamber
-	position_priority = 100
-	can_demolish = no
-	can_build = no
-	category = resource
-
-	category = research
-
-	potential = {
-		exists = owner
-		owner = { has_origin = origin_synthetic_fertility }
-	}
-
-	destroy_trigger = {
-		exists = owner
-		NOT = {
-			owner = { has_origin = origin_synthetic_fertility }
-		}
-	}
-
-	allow = {
-		owner = { has_origin = origin_synthetic_fertility }
-	}
-
-	triggered_desc = {
-		text = building_abandoned_gene_clinic_tt
-	}
-}
-
 #####################
 # Synaptic Lathe	#
 #####################
 
-# Habitat Administration
-building_lathe_capital = {
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-	building_sets = { cosmogenesis_world }
-
-	category = government
-
-	potential = {
-		uses_district_set = cosmogenesis_world
-		exists = owner
-	}
-
-	resources = {
-		category = planet_buildings
-		upkeep = {
-			energy = @b3_upkeep
-			alloys = 5
-		}
-	}
-
-	planet_modifier = {
-		planet_housing_add = 20
-		planet_amenities_add = 15
-		planet_stability_add = 15
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	upgrades = {
-		"building_lathe_major_capital"
-	}
-}
-
-# Habitat Central Complex
-building_lathe_major_capital = {
-	base_buildtime = @b2_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-	building_sets = { cosmogenesis_world }
-
-	category = government
-
-	potential = {
-		uses_district_set = cosmogenesis_world
-		exists = owner
-		owner = {
-			has_ascension_perk = ap_cosmogenesis
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			alloys = @b4_minerals
-		}
-		upkeep = {
-			energy = @b3_upkeep
-			alloys = 10
-		}
-	}
-
-	planet_modifier = {
-		planet_max_districts_add = 2
-		planet_housing_add = 40
-		planet_amenities_add = 30
-		planet_stability_add = 25
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	upgrades = {
-		"building_lathe_super_capital"
-	}
-
-	on_built = {
-		planet = {
-			set_planet_entity = {
-				entity = "neural_calculator_phase_2_entity"
-			}
-		}
-	}
-}
-
-# Habitat Central Complex
-building_lathe_super_capital = {
-	base_buildtime = @b3_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-	building_sets = { cosmogenesis_world }
-
-	category = government
-
-	potential = {
-		uses_district_set = cosmogenesis_world
-		exists = owner
-		owner = {
-			has_ascension_perk = ap_cosmogenesis
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			alloys = @b4_minerals
-		}
-		upkeep = {
-			energy = @b3_upkeep
-			alloys = 15
-		}
-	}
-
-	planet_modifier = {
-		planet_max_districts_add = 4
-		planet_housing_add = 100
-		planet_amenities_add = 50
-		planet_stability_add = 40
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	on_built = {
-		planet = {
-			set_planet_entity = {
-				entity = "neural_calculator_phase_3_entity"
-			}
-		}
-	}
-
-	ai_estimate_without_unemployment = yes
-	additional_ai_weight = 200
-	ai_weight_coefficient = 1.2
-}
-
-building_lathe_resonator = {
+ub_building_lathe_resonator = {
+	icon = building_lathe_resonator
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 11
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
+		num_buildings = {
+			type = building_lathe_resonator
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = resource
@@ -1704,10 +1088,10 @@ building_lathe_resonator = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_stabilisator = {
+ub_building_lathe_stabilisator = {
+	icon = building_lathe_stabilisator
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 12
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1715,6 +1099,11 @@ building_lathe_stabilisator = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_stabilisator
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = government
@@ -1741,10 +1130,10 @@ building_lathe_stabilisator = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_overclocker = {
+ub_building_lathe_overclocker = {
+	icon = building_lathe_overclocker
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 13
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1752,6 +1141,11 @@ building_lathe_overclocker = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_overclocker
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = resource
@@ -1792,10 +1186,10 @@ building_lathe_overclocker = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_preserver = {
+ub_building_lathe_preserver = {
+	icon = building_lathe_preserver
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 14
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1803,6 +1197,11 @@ building_lathe_preserver = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_preserver
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = amenity
@@ -1833,10 +1232,10 @@ building_lathe_preserver = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_reactor = {
+ub_building_lathe_reactor = {
+	icon = building_lathe_reactor
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 15
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1844,6 +1243,11 @@ building_lathe_reactor = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_reactor
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = resource
@@ -1871,10 +1275,10 @@ building_lathe_reactor = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_life_support = {
+ub_building_lathe_life_support = {
+	icon = building_lathe_life_support
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 16
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1882,6 +1286,11 @@ building_lathe_life_support = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_life_support
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = amenity
@@ -1913,10 +1322,10 @@ building_lathe_life_support = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_cogitator = {
+ub_building_lathe_cogitator = {
+	icon = building_lathe_cogitator
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 17
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1924,6 +1333,11 @@ building_lathe_cogitator = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_cogitator
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = army
@@ -1968,10 +1382,10 @@ building_lathe_cogitator = {
 	ai_weight_coefficient = 1.2
 }
 
-building_lathe_validator = {
+ub_building_lathe_validator = {
+	icon = building_lathe_validator
 	base_buildtime = @b2_time
 	building_sets = { cosmogenesis_world }
-	position_priority = 18
 
 	potential = {
 		is_planet_class = pc_cosmogenesis_world
@@ -1979,6 +1393,11 @@ building_lathe_validator = {
 		owner = {
 			has_ascension_perk = ap_cosmogenesis
 		}
+		num_buildings = {
+			type = building_lathe_validator
+			value = 2
+		}
+		owner = { is_ai = no }
 	}
 
 	category = research
@@ -2025,9 +1444,9 @@ building_lathe_validator = {
 # CYBERIZATION SITUATION
 #########################
 
-building_augmentation_center = {
+ub_building_augmentation_center = {
+	icon = building_augmentation_center
 	base_buildtime = @b3_time
-	position_priority = 19
 
 	desc = { # Regular empire, default
 		trigger = {
@@ -2110,6 +1529,8 @@ building_augmentation_center = {
 				has_active_tradition = tr_cybernetics_augmentation_centers
 			}
 		}
+		has_building = building_augmentation_center
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -2316,9 +1737,9 @@ building_augmentation_center = {
 	is_essential = yes
 }
 
-building_cyberdome = { # Cyber Imperial Collectivist
+ub_building_cyberdome = { # Cyber Imperial Collectivist
+	icon = building_cyberdome
 	base_buildtime = @b3_time
-	position_priority = 20
 
 	desc = {
 		text = building_cyberdome_desc
@@ -2332,6 +1753,8 @@ building_cyberdome = { # Cyber Imperial Collectivist
 			has_country_flag = cyber_collectivist
 		}
 		is_capital = yes
+		has_building = building_cyberdome
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -2390,9 +1813,9 @@ building_cyberdome = { # Cyber Imperial Collectivist
 # SYNTHESIZATION SITUATION
 ###########################
 
-building_identity_complex = {
+ub_building_identity_complex = {
+	icon = building_identity_complex
 	base_buildtime = @b3_time
-	position_priority = 21
 
 	desc = {
 		text = building_identity_complex_desc
@@ -2402,6 +1825,13 @@ building_identity_complex = {
 
 	potential = {
 		owner = { has_country_flag = identity_complex_available }
+		owner = {
+			num_buildings = {
+				type = building_identity_complex
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	destroy_trigger = {
@@ -2450,9 +1880,10 @@ building_identity_complex = {
 }
 
 # Synth MegaCorp Physical Branch Office Building
-building_ai_emporium = {
+ub_building_ai_emporium = {
+	icon = building_ai_emporium
 	base_buildtime = @b2_time
-	position_priority = 22
+
 	owner_type = corporate
 
 	category = resource
@@ -2463,6 +1894,7 @@ building_ai_emporium = {
 			is_synth_corporate = yes
 			has_country_flag = synth_physical
 		}
+		branch_office_owner = { is_ai = no }
 	}
 
 	allow = {
@@ -2534,9 +1966,10 @@ building_ai_emporium = {
 }
 
 # Synth MegaCorp Virtual Branch Office Building
-building_clear_thought_clinic = {
+ub_building_clear_thought_clinic = {
+	icon = building_clear_thought_clinic
 	base_buildtime = @b2_time
-	position_priority = 23
+
 	owner_type = corporate
 
 	category = resource
@@ -2547,6 +1980,7 @@ building_clear_thought_clinic = {
 			is_synth_corporate = yes
 			has_country_flag = synth_virtual
 		}
+		branch_office_owner = { is_ai = no }
 	}
 
 	triggered_planet_modifier = {
@@ -2662,207 +2096,3 @@ building_clear_thought_clinic = {
 		}
 	}
 }
-
-#################
-#	Nanotech	#
-#################
-
-building_nanolab_1 = {
-	base_buildtime = @b2_time
-	position_priority = 24
-	category = research
-
-	potential = {
-		exists = owner
-		owner = { has_tradition = tr_nanotech_adopt }
-	}
-
-	allow = {
-		exists = owner
-		owner = { has_tradition = tr_nanotech_adopt }
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			NOT = { owner = { has_tradition = tr_nanotech_adopt } }
-			has_modifier = slave_colony
-			has_modifier = resort_colony
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-			nanites = @b2_rare_cost
-		}
-		upkeep = {
-			energy = @b3_upkeep
-			nanites = @b2_rare_upkeep
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-			}
-		}
-		job_nanotech_research_unit_add = 3
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_individual_machine = yes
-			}
-		}
-		job_nanotech_researcher_add = 3
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-			}
-		}
-		text = job_nanotech_research_unit_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_individual_machine = yes
-			}
-		}
-		text = job_nanotech_researcher_effect_desc
-	}
-
-	upgrades = {
-		"building_nanolab_2"
-	}
-}
-
-building_nanolab_2 = {
-	base_buildtime = @b3_time
-	can_build = no
-	position_priority = 25
-	category = research
-
-	potential = {
-		exists = owner
-		owner = { has_tradition = tr_nanotech_1 }
-	}
-
-	allow = {
-		has_upgraded_capital = yes
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			NOT = { owner = { has_tradition = tr_nanotech_1 } }
-			has_modifier = slave_colony
-			has_modifier = resort_colony
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-			nanites = @b3_rare_cost
-		}
-		upkeep = {
-			energy = @b4_upkeep
-			nanites = @b3_rare_upkeep
-		}
-	}
-
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-			}
-		}
-		job_nanotech_research_unit_add = 6
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_individual_machine = yes
-			}
-		}
-		job_nanotech_researcher_add = 6
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-			}
-		}
-		text = job_nanotech_research_unit_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_individual_machine = yes
-			}
-		}
-		text = job_nanotech_researcher_effect_desc
-	}
-}
-
-building_nanotech_cauldron = {
-	base_buildtime = @b2_time
-	position_priority = 26
-	category = manufacturing
-
-	potential = {
-		exists = owner
-		owner = { has_tradition = tr_nanotech_2 }
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
-	}
-
-	allow = {
-		always = yes
-	}
-
-	destroy_trigger = {
-		exists = owner
-		OR = {
-			NOT = { owner = { has_tradition = tr_nanotech_2 } }
-			has_modifier = slave_colony
-			has_modifier = resort_colony
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			alloys = @b3_minerals
-		}
-		upkeep = {
-			nanites = 3
-			energy = 30
-		}
-		produces = {
-			alloys = 15
-		}
-	}
-}
-

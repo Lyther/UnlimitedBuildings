@@ -2,50 +2,18 @@
 # Event buildings
 #####################
 
-building_junkheap = {
-	capital = yes
-	can_build = no
-	can_demolish = yes
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = amenity
-
-	potential = {
-		exists = owner
-		owner = { is_country_type = ratlings }
-		NOT = { has_modifier = slave_colony }
-	}
-
-	convert_to = {
-		building_machine_capital
-		building_capital
-		building_hive_capital
-	}
-
-	planet_modifier = {
-		planet_housing_add = 15
-		planet_amenities_add = 20
-		job_ratling_scavenger_add = 10
-	}
-
-	upgrades = {
-	}
-}
-
-building_akx_worm_3 = {
+ub_building_akx_worm_3 = {
+	icon = building_akx_worm_3
 	base_buildtime = 900
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 16
+
 	category = research
 
 	potential = {
 		exists = planet
 		planet = { is_capital = yes }
 		NOT = { has_modifier = slave_colony }
+		has_building = building_akx_worm_3
+		owner = { is_ai = no }
 	}
 
 	prerequisites = {
@@ -66,35 +34,11 @@ building_akx_worm_3 = {
 	}
 }
 
-building_great_pyramid = {
-	base_buildtime = @b2_time
-	can_build = no
-	can_demolish = yes
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 17
-	category = government
-
-	potential = {
-		NOT = { has_modifier = slave_colony }
-	}
-
-	planet_modifier = {
-	}
-
-	resources = {
-		category = planet_buildings
-		produces = {
-			food = 2
-			society_research = 2
-		}
-	}
-}
-
-building_artist_patron = {
+ub_building_artist_patron = {
+	icon = building_artist_patron
 	base_buildtime = @b2_time
 	can_demolish = yes
-	position_priority = 18
+
 	category = unity
 
 	potential = {
@@ -105,6 +49,13 @@ building_artist_patron = {
 			}
 		}
 		NOT = { has_modifier = slave_colony }
+		owner = {
+			num_buildings = {
+				type = building_artist_patron
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -164,17 +115,19 @@ building_artist_patron = {
 	}
 }
 
-building_waste_reprocessing_center = {
+ub_building_waste_reprocessing_center = {
 	icon = building_waste_reprocessing_center
 	base_buildtime = @b2_time
 	can_build = yes
 	can_demolish = yes
-	position_priority = 19
+
 	category = resource
 
 	potential = {
 		owner = { has_country_flag = bought_waste_reprocessing_center }
 		NOT = { has_modifier = slave_colony }
+		has_building = building_waste_reprocessing_center
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -205,15 +158,18 @@ building_waste_reprocessing_center = {
 	}
 }
 
-building_nuumismatic_shrine = {
+ub_building_nuumismatic_shrine = {
+	icon = building_nuumismatic_shrine
 	base_buildtime = 180
 	can_demolish = yes
-	position_priority = 20
+
 	category = unity
 
 	potential = {
 		owner = { has_country_flag = nuumismatic_shrine }
 		NOT = { has_modifier = slave_colony }
+		has_building = building_nuumismatic_shrine
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -239,51 +195,10 @@ building_nuumismatic_shrine = {
 	}
 }
 
-building_crystal_plant_2 = {
-	base_buildtime = 800
-	can_build = no
-	position_priority = 21
-	category = manufacturing
-
-	potential = {
-		owner = { has_country_flag = lithoid_crystal_plant }
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-		}
-	}
-
-	allow = {
-		has_upgraded_capital = yes
-	}
-
-	inline_script = {
-		script = jobs/translucer_add
-		AMOUNT = 3
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 1000
-		}
-		upkeep = {
-			energy = 3
-		}
-	}
-
-	prerequisites = {
-		"tech_rare_crystals"
-	}
-
-	show_tech_unlock_if = {
-		owner = { has_country_flag = lithoid_crystal_plant }
-	}
-}
-
-building_composer_sanctum = {
+ub_building_composer_sanctum = {
+	icon = building_composer_sanctum
 	base_buildtime = @b3_time
-	position_priority = 22
+
 	category = government
 
 	potential = {
@@ -292,6 +207,13 @@ building_composer_sanctum = {
 		NOR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
+		}
+		owner = {
+			num_buildings = {
+				type = building_composer_sanctum
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -333,9 +255,10 @@ building_composer_sanctum = {
 	}
 }
 
-building_eater_sanctum = {
+ub_building_eater_sanctum = {
+	icon = building_eater_sanctum
 	base_buildtime = @b3_time
-	position_priority = 23
+
 	category = government
 
 	potential = {
@@ -344,6 +267,13 @@ building_eater_sanctum = {
 		NOR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
+		}
+		owner = {
+			num_buildings = {
+				type = building_eater_sanctum
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -385,9 +315,10 @@ building_eater_sanctum = {
 	}
 }
 
-building_instrument_sanctum = {
+ub_building_instrument_sanctum = {
+	icon = building_instrument_sanctum
 	base_buildtime = @b3_time
-	position_priority = 24
+
 	category = government
 
 	potential = {
@@ -396,6 +327,13 @@ building_instrument_sanctum = {
 		NOR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
+		}
+		owner = {
+			num_buildings = {
+				type = building_instrument_sanctum
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -437,9 +375,10 @@ building_instrument_sanctum = {
 	}
 }
 
-building_whisperers_sanctum = {
+ub_building_whisperers_sanctum = {
+	icon = building_whisperers_sanctum
 	base_buildtime = @b3_time
-	position_priority = 25
+
 	category = government
 
 	potential = {
@@ -448,6 +387,13 @@ building_whisperers_sanctum = {
 		NOR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
+		}
+		owner = {
+			num_buildings = {
+				type = building_whisperers_sanctum
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -531,4 +477,3 @@ building_whisperers_sanctum = {
 		text = job_telepath_effect_desc
 	}
 }
-

@@ -1,0 +1,450 @@
+###Uncommon Buildings
+
+#Tidal Locked Buildings
+ub_building_wet_td_farm = {
+	icon = building_wet_td_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_wet_td_farm
+			has_building_construction = building_wet_td_farm
+			has_building = building_wet_td_grid
+			has_building_construction = building_wet_td_grid
+			has_building = building_wet_td_bio_lab
+			has_building_construction = building_wet_td_bio_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = {
+				NOT = {
+					pd_is_planet_class_tidally_locked = yes
+				}
+			}
+		}
+	}
+}
+ub_building_wet_td_grid = {
+	icon = building_wet_td_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_wet_td_farm
+			has_building_construction = building_wet_td_farm
+			has_building = building_wet_td_grid
+			has_building_construction = building_wet_td_grid
+			has_building = building_wet_td_bio_lab
+			has_building_construction = building_wet_td_bio_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			NOT = {
+				pd_is_planet_class_tidally_locked = yes
+			}
+		}
+	}
+}
+ub_building_wet_td_bio_lab = {
+	icon = building_wet_td_bio_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_wet_td_farm
+			has_building_construction = building_wet_td_farm
+			has_building = building_wet_td_grid
+			has_building_construction = building_wet_td_grid
+			has_building = building_wet_td_bio_lab
+			has_building_construction = building_wet_td_bio_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_physics_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			NOT = {
+				pd_is_planet_class_tidally_locked = yes
+			}
+		}
+	}
+}
+
+#Karst Buildings
+ub_building_karst_grid = {
+	icon = building_karst_grid
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_karst_grid
+			has_building_construction = building_karst_grid
+			has_building = building_karst_mine
+			has_building_construction = building_karst_mine
+			has_building = building_karst_lab
+			has_building_construction = building_karst_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_energy_building"
+
+	destroy_trigger = {
+		OR = {
+			OR = {
+				has_modifier = resort_colony
+			}
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_generator_district_or_building = no
+			}
+		}
+		planet = {
+			pd_is_planet_class_cave = no
+		}
+	}
+}
+ub_building_karst_mine = {
+	icon = building_karst_mine
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_karst_grid
+			has_building_construction = building_karst_grid
+			has_building = building_karst_mine
+			has_building_construction = building_karst_mine
+			has_building = building_karst_lab
+			has_building_construction = building_karst_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_mining_building"
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_mining_district = no
+			}
+		}
+		planet = {
+			pd_is_planet_class_cave = no
+		}
+	}
+}
+ub_building_karst_lab = {
+	icon = building_karst_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_karst_grid
+			has_building_construction = building_karst_grid
+			has_building = building_karst_mine
+			has_building_construction = building_karst_mine
+			has_building = building_karst_lab
+			has_building_construction = building_karst_lab
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_engineering_building"
+	inline_script = "buildings/pd_rare_engineering_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			pd_is_planet_class_cave = no
+		}
+	}
+}
+
+#Superhabitable Buildings
+ub_building_superhab_lab = {
+	icon = building_superhab_lab
+	base_buildtime = 600
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_superhab_lab
+			has_building_construction = building_superhab_lab
+			has_building = building_superhab_farm
+			has_building_construction = building_superhab_farm
+			has_building = building_superhab_foundry
+			has_building_construction = building_superhab_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	inline_script = "buildings/pd_rare_society_building"
+	inline_script = "buildings/pd_rare_society_building"
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 800
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	destroy_trigger = {
+		planet = {
+			pd_is_planet_class_superhabitable = no
+		}
+	}
+}
+ub_building_superhab_farm = {
+	icon = building_superhab_farm
+	base_buildtime = 600
+
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_superhab_lab
+			has_building_construction = building_superhab_lab
+			has_building = building_superhab_farm
+			has_building_construction = building_superhab_farm
+			has_building = building_superhab_foundry
+			has_building_construction = building_superhab_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_farm_building"
+
+	destroy_trigger = {
+		OR = {
+			owner = {
+				is_ai = yes
+				country_uses_food = no
+			}
+			has_modifier = resort_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_farming_district_or_buildings = no
+			}
+			planet = {
+				pd_is_planet_class_superhabitable = no
+			}
+		}
+	}
+}
+ub_building_superhab_foundry = {
+	icon = building_superhab_foundry
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_superhab_lab
+			has_building_construction = building_superhab_lab
+			has_building = building_superhab_farm
+			has_building_construction = building_superhab_farm
+			has_building = building_superhab_foundry
+			has_building_construction = building_superhab_foundry
+		}
+		owner = { is_ai = no }
+	}
+
+	inline_script = "buildings/pd_rare_foundry_building"
+
+	destroy_trigger = {
+		planet = {
+			pd_is_planet_class_superhabitable = no
+		}
+	}
+}

@@ -1,0 +1,1714 @@
+###############################################################
+# Training Building
+###############################################################
+
+ub_building_acot_dm_hospital = {
+	base_buildtime = @acot_building_advanced_build_time
+
+	category = amenity
+	
+	potential = {
+		planet_owner = { is_regular_empire = yes }
+		OR = {
+			has_building = building_acot_dm_hospital
+			has_building_construction = building_acot_dm_hospital
+			has_building = building_acot_ae_hospital
+			has_building_construction = building_acot_ae_hospital
+		}
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_enigmatic_capital = yes
+	}
+	
+	destroy_trigger = {
+		planet_owner = { is_regular_empire = no }
+	}
+	
+	planet_modifier = {
+		job_acot_apothecary_add = 2
+		pop_happiness = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @acot_building_basic_alloy_cost
+			sr_dark_matter = @acot_building_basic_dm_cost
+			acot_sr_dark_energy = @acot_building_basic_de_cost
+		}
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+	
+	prerequisites = {
+		"tech_acot_dm_hospital"
+	}
+	
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+	
+	ai_weight = {
+		weight = 10
+
+		modifier = {
+			factor = 5
+			free_amenities < 2
+		}
+		# There are already unworked jobs
+		# Blocks buildings unworkable by remaining pops (slaves/robots etc)
+		# Will be improved... at some point
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+		modifier = {
+			factor = 0
+			planet_owner = {
+				has_monthly_income = {
+					resource = sr_dark_matter
+					value <= 3
+				}
+			}
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_hospital
+	}
+}
+
+ub_building_acot_dm_hive_pool = {
+	base_buildtime = 450
+
+	category = amenity
+	
+	potential = {
+		planet_owner = { is_hive_empire = yes }
+		OR = {
+			has_building = building_acot_dm_hive_pool
+			has_building_construction = building_acot_dm_hive_pool
+			has_building = building_acot_ae_hive_pool
+			has_building_construction = building_acot_ae_hive_pool
+		}
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	destroy_trigger = {
+		planet_owner = { is_hive_empire = no }
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			NAND = {
+				exists = planet_owner
+				planet_owner = { has_origin = origin_progenitor_hive }
+			}
+		}
+		job_acot_broodmother_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { has_origin = origin_progenitor_hive }
+		}
+		job_acot_offspring_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	prerequisites = { tech_acot_dm_hive_depot }
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 500
+			acot_sr_dark_energy = 100
+		}
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			energy = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+
+		modifier = {
+			factor = 5
+			free_amenities < 2
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_building = building_acot_dm_hive_pool
+				has_building = building_acot_ae_hive_pool				
+			}
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_hive_pool
+	}
+}
+
+ub_building_acot_dm_super_assembly = {
+	base_buildtime = @acot_building_advanced_build_time
+	category = pop_assembly
+	
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	potential = {
+		exists = owner
+		OR = {
+			owner = { is_ai = no }
+			NOT = { exists = assembling_species }
+			assembling_species = { is_robotic_species = yes }
+		}
+		owner = {
+			is_regular_empire = yes
+			is_individual_machine = no
+			NOT = { has_policy_flag = robots_outlawed }
+			OR = {
+				is_ai = no
+				has_genetic_ascension = no
+				is_materialist = yes
+			}
+		}
+		NOR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+		OR = {
+			has_building = building_acot_dm_super_assembly
+			has_building_construction = building_acot_dm_super_assembly
+			has_building = building_acot_dm_super_assembly_machine
+			has_building_construction = building_acot_dm_super_assembly_machine
+			has_building = building_acot_ae_super_assembly
+			has_building_construction = building_acot_ae_super_assembly
+			has_building = building_acot_ae_super_assembly_machine
+			has_building_construction = building_acot_ae_super_assembly_machine
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					is_regular_empire = no
+					has_policy_flag = robots_outlawed
+				}
+			}
+			has_modifier = slave_colony
+			AND = {
+				owner = { is_ai = yes }
+				free_district_slots = 0
+				free_building_slots = 0
+				free_housing <= 0
+				free_jobs <= 0
+			}
+			owner = {
+				is_ai = yes
+				has_genetic_ascension = yes
+				is_materialist = no
+			}
+		}
+	}
+
+	convert_to = {
+		building_acot_dm_super_assembly_machine
+	}
+
+	planet_modifier = {
+		job_acot_roboman_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_origin = origin_mechanists
+					is_individual_machine = yes
+					has_country_flag = synthetic_empire
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 800
+			sr_dark_matter = 300
+			acot_sr_dark_energy = 150
+		}
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+	
+	prerequisites = {
+		"tech_acot_dm_super_assembly"
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			OR = {
+				num_buildings = {
+					type = building_acot_dm_super_assembly
+					value >= 1		
+				}	
+				num_buildings = {
+					type = building_acot_ae_super_assembly
+					value >= 1		
+				}				
+			}
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_super_assembly
+	}
+}
+
+ub_building_acot_dm_super_assembly_machine = {
+	icon = building_acot_dm_super_assembly
+	base_buildtime = @acot_building_advanced_build_time
+
+	category = pop_assembly
+	
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_machine_empire = yes
+				is_individual_machine = yes
+			}
+		}
+		NOT = { has_modifier = gestation_colony }
+		OR = {
+			has_building = building_acot_dm_super_assembly
+			has_building_construction = building_acot_dm_super_assembly
+			has_building = building_acot_dm_super_assembly_machine
+			has_building_construction = building_acot_dm_super_assembly_machine
+			has_building = building_acot_ae_super_assembly
+			has_building_construction = building_acot_ae_super_assembly
+			has_building = building_acot_ae_super_assembly_machine
+			has_building_construction = building_acot_ae_super_assembly_machine
+		}
+		owner = { is_ai = no }
+	}
+
+	convert_to = {
+		building_acot_dm_super_assembly
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		job_acot_robodrone_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		job_acot_roboman_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	prerequisites = {
+		"tech_acot_dm_super_assembly"
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 800
+			sr_dark_matter = 300
+			acot_sr_dark_energy = 150
+		}
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+	
+	upgrades = {
+		building_acot_ae_super_assembly_machine
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			OR = {
+				num_buildings = {
+					type = building_acot_dm_super_assembly_machine
+					value >= 1		
+				}	
+				num_buildings = {
+					type = building_acot_ae_super_assembly_machine
+					value >= 1		
+				}				
+			}
+		}
+	}
+}
+
+### SOECIAL POP BUILDINGER
+
+# Biological path
+ub_building_acot_dm_clone_vats = {
+	base_buildtime = @acot_building_advanced_build_time
+
+	category = government
+
+	prerequisites = {
+		tech_acot_dm_clone_vats
+	}
+
+	potential = {
+		exists = owner
+		owner = { has_tradition = tr_genetics_adopt }
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			owner = { is_ai = no }
+			NOT = { exists = assembling_species }
+			assembling_species = { is_organic_species = yes }
+		}
+		OR = {
+			owner = { is_ai = no }
+			NAND = {
+				free_district_slots = 0
+				free_building_slots <= 1
+				free_housing <= 0
+				free_jobs <= 0
+			}
+		}
+		OR = {
+			has_building = building_acot_dm_clone_vats
+			has_building_construction = building_acot_dm_clone_vats
+			has_building = building_acot_ae_clone_vats
+			has_building_construction = building_acot_ae_clone_vats
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				owner = { is_ai = yes }
+				free_district_slots = 0
+				free_building_slots = 0
+				free_housing <= 0
+				free_jobs <= 0
+			}
+			NOT = { owner = { has_tradition = tr_genetics_adopt } }
+		}
+	}
+
+	planet_modifier = {
+		planet_pop_assembly_organic_add = 10
+		pop_growth_speed = 1.00
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 4
+		}
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @acot_building_basic_alloy_cost
+			sr_dark_matter = @acot_building_basic_dm_cost
+			acot_sr_dark_energy = @acot_building_basic_de_cost
+		}	
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			food = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			minerals = 10
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_clone_vats
+	}
+
+	ai_weight = {
+		weight = 10000
+		modifier = {
+			factor = 0
+			OR = {
+				has_building = building_acot_dm_clone_vats	
+				has_building = building_acot_ae_clone_vats	
+			}
+		}
+	}
+}
+
+# Synth path
+ub_building_acot_dm_synt_center = {
+	base_buildtime = 360
+
+	category = government
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_synt_center
+			has_building_construction = building_acot_dm_synt_center
+			has_building = building_acot_ae_synt_center
+			has_building_construction = building_acot_ae_synt_center
+		}
+		owner = { is_ai = no }
+	}
+
+	planet_modifier = {
+		planet_jobs_specialist_produces_mult = 0.10
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 50
+		}
+		planet_jobs_specialist_produces_mult = 0.10
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 100
+		}
+		planet_jobs_specialist_produces_mult = 0.10
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 150
+		}
+		planet_jobs_specialist_produces_mult = 0.10
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 200
+		}
+		planet_jobs_specialist_produces_mult = 0.10
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			engineering_research = 5
+		}
+		cost = {
+			alloys = 250
+			sr_dark_matter = 100	
+			acot_sr_dark_energy = 100
+		}	
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 5
+			acot_sr_dark_energy = 5
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_synt_center
+	}
+	
+	prerequisites = {
+		tech_acot_dm_synt_center
+	}
+
+	ai_weight = {
+		weight = 10000
+		modifier = {
+			factor = 0
+			OR = {
+				has_building = building_acot_dm_synt_center	
+				has_building = building_acot_ae_synt_center	
+			}
+		}
+	}
+}
+
+# PSIONOIDE path
+
+ub_building_acot_dm_psi_altar = {
+	base_buildtime = 360
+
+	category = government
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_psi_altar
+			has_building_construction = building_acot_dm_psi_altar
+			has_building = building_acot_ae_psi_altar
+			has_building_construction = building_acot_ae_psi_altar
+		}
+		owner = { is_ai = no }
+	}
+
+	planet_modifier = {
+		pop_growth_speed = 0.25
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			sr_zro = 5
+			unity = 25
+		}
+		cost = {
+			alloys = 250
+			sr_dark_matter = 100	
+			acot_sr_dark_energy = 100
+		}	
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 5
+			acot_sr_dark_energy = 5
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_psi_altar
+	}
+	
+	prerequisites = {
+		tech_acot_dm_psi_altar
+	}
+
+	ai_weight = {
+		weight = 10000
+		modifier = {
+			factor = 0
+			OR = {
+				has_building = building_acot_dm_psi_altar	
+				has_building = building_acot_ae_psi_altar	
+			}
+		}
+	}
+}
+
+# Machine path
+
+ub_building_acot_dm_machine_dome = {
+	base_buildtime = 360
+
+	category = government
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_machine_dome
+			has_building_construction = building_acot_dm_machine_dome
+			has_building = building_acot_ae_machine_dome
+			has_building_construction = building_acot_ae_machine_dome
+		}
+		owner = { is_ai = no }
+	}
+
+	planet_modifier = {
+		planet_jobs_complex_drone_produces_mult = 0.05
+		planet_jobs_simple_drone_produces_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 50
+		}
+		planet_jobs_complex_drone_produces_mult = 0.05
+		planet_jobs_simple_drone_produces_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 100
+		}
+		planet_jobs_complex_drone_produces_mult = 0.05
+		planet_jobs_simple_drone_produces_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 150
+		}
+		planet_jobs_complex_drone_produces_mult = 0.05
+		planet_jobs_simple_drone_produces_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_sapient_pops >= 200
+		}
+		planet_jobs_complex_drone_produces_mult = 0.05
+		planet_jobs_simple_drone_produces_mult = 0.05
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+		}
+		cost = {
+			alloys = 250
+			sr_dark_matter = 100	
+			acot_sr_dark_energy = 100
+		}	
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 5
+			acot_sr_dark_energy = 5
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_machine_dome
+	}
+	
+	prerequisites = {
+		tech_acot_dm_machine_dome
+	}
+
+	ai_weight = {
+		weight = 10000
+		modifier = {
+			factor = 0
+			OR = {
+				has_building = building_acot_dm_machine_dome	
+				has_building = building_acot_ae_machine_dome	
+			}
+		}
+	}
+}
+
+#### HIVE PATHOS
+
+ub_building_acot_dm_hive_evochamber = {
+	base_buildtime = 360
+
+	category = government
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_hive_evochamber
+			has_building_construction = building_acot_dm_hive_evochamber
+			has_building = building_acot_ae_hive_evochamber
+			has_building_construction = building_acot_ae_hive_evochamber
+		}
+		owner = { is_ai = no }
+	}
+
+	planet_modifier = {
+		pop_growth_speed = 0.50
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			society_research = 25
+			food = 50
+		}
+		cost = {
+			alloys = 250
+			sr_dark_matter = 100	
+			acot_sr_dark_energy = 100
+		}	
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 5
+			acot_sr_dark_energy = 5
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_hive_evochamber
+	}
+	
+	prerequisites = {
+		tech_acot_dm_hive_evochamber
+	}
+
+	ai_weight = {
+		weight = 10000
+		modifier = {
+			factor = 0
+			OR = {
+				has_building = building_acot_dm_hive_evochamber	
+				has_building = building_acot_ae_hive_evochamber	
+			}
+		}
+	}
+}
+
+###############################################################
+# Resource Building
+###############################################################
+
+#########################  DM AND DE  ######################################
+
+ub_building_acot_dm_dark_matter_synthersizer = {
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_dark_matter_synthersizer
+			has_building_construction = building_acot_dm_dark_matter_synthersizer
+			has_building = building_acot_ae_dark_matter_synthersizer
+			has_building_construction = building_acot_ae_dark_matter_synthersizer
+		}
+		owner = { is_ai = no }
+	}
+	
+	country_modifier = {
+		country_resource_max_acot_sr_dark_energy_add = 10000
+		country_resource_max_sr_dark_matter_add = 10000		
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 1000
+		}
+		produces = {
+			sr_dark_matter = 10
+			acot_sr_dark_energy = 10
+		}
+
+		#### DE
+
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_dm_dark_energy_pylon
+					value = 2
+				}
+			}
+			acot_sr_dark_energy = 10
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_dm_dark_energy_pylon
+					value = 3
+				}
+			}
+			acot_sr_dark_energy = 20
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_dm_dark_energy_pylon
+					value >= 4
+				}
+			}
+			acot_sr_dark_energy = 30
+		}
+
+		##### A DE
+
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_ae_dark_energy_pylon
+					value = 2
+				}
+			}
+			acot_sr_dark_energy = 15
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_ae_dark_energy_pylon
+					value = 3
+				}
+			}
+			acot_sr_dark_energy = 25
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_ae_dark_energy_pylon
+					value >= 4
+				}
+			}
+			acot_sr_dark_energy = 35
+		}
+
+		##### DM
+
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_dm_dark_matter_generator
+					value = 2
+				}
+			}
+			sr_dark_matter = 10
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_dm_dark_matter_generator
+					value = 3
+				}
+			}
+			sr_dark_matter = 20
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_dm_dark_matter_generator
+					value >= 4
+				}
+			}
+			sr_dark_matter = 30
+		}	
+		
+		##### A DM
+
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_ae_dark_matter_generator
+					value = 2
+				}
+			}
+			sr_dark_matter = 15
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_ae_dark_matter_generator
+					value = 3
+				}
+			}
+			sr_dark_matter = 25
+		}
+		produces = {
+			trigger = {
+				num_buildings = {
+					type = building_acot_ae_dark_matter_generator
+					value >= 4
+				}
+			}
+			sr_dark_matter = 35
+		}	
+
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			energy = 10
+		}
+	}
+	
+	prerequisites = {
+		"tech_acot_dm_dark_matter_synthersizer"
+	}
+	
+	ai_weight = {
+		weight = 20000
+	}
+
+	ai_resource_production = {
+		sr_dark_matter = 50
+		acot_sr_dark_energy = 50
+		trigger = {
+			always = yes
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_dark_matter_synthersizer
+	}
+}
+
+#########################  VANILLA RESOURCES  ######################################
+
+########## AMPLIFIER
+
+ub_building_acot_dm_district_amplifier = {
+	base_buildtime = @acot_building_basic_build_time
+	category = resource
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_district_amplifier
+			has_building_construction = building_acot_dm_district_amplifier
+			has_building = building_acot_ae_district_amplifier
+			has_building_construction = building_acot_ae_district_amplifier
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	country_modifier = {
+		country_resource_max_energy_add = 50000
+		country_resource_max_minerals_add = 50000
+		country_resource_max_food_add = 50000
+	}
+
+	planet_modifier = {
+		planet_technician_energy_produces_add = 4
+		planet_miners_minerals_produces_add = 4
+		planet_farmers_food_produces_add = 4
+		district_farming_max = 2
+		district_mining_max = 2
+		district_generator_max = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_acot_workerman_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_acot_workerdrone_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @acot_building_pleb_basic_alloy_cost
+			sr_dark_matter = @acot_building_pleb_basic_dm_cost	
+			acot_sr_dark_energy = @acot_building_pleb_basic_de_cost
+		}
+	}	
+	
+	prerequisites = {
+		tech_acot_dm_district_amplifier
+	}
+	
+	
+	ai_weight = {
+		weight = 3000
+		modifier = {
+			factor = 5
+			OR = {
+				num_districts = {
+					type = district_generator
+					value >= 4
+				}
+				num_districts = {
+					type = district_mining
+					value >= 4
+				}
+				num_districts = {
+					type = district_farming
+					value >= 4
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		energy = 10
+		food = 10
+		minerals = 10
+		trigger = {
+			always = yes
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_district_amplifier
+	}
+}
+
+ub_building_acot_dm_alloygood_amplifier = {
+	base_buildtime = @acot_building_basic_build_time
+	category = resource
+
+	potential = {
+		OR = {
+			has_building = building_acot_dm_alloygood_amplifier
+			has_building_construction = building_acot_dm_alloygood_amplifier
+			has_building = building_acot_ae_alloygood_amplifier
+			has_building_construction = building_acot_ae_alloygood_amplifier
+		}
+		owner = { is_ai = no }
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	country_modifier = {
+		country_resource_max_alloys_add = 50000
+		country_resource_max_consumer_goods_add = 50000
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_catalytic_empire = no }			
+		}
+		planet_metallurgists_alloys_produces_add = 2
+		planet_metallurgists_minerals_upkeep_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { 
+				is_catalytic_empire = yes 
+				is_machine_empire = no
+			}			
+		}
+		planet_metallurgists_alloys_produces_add = 2.25
+		planet_metallurgists_food_upkeep_add = 3
+	}	
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { 
+				is_catalytic_empire = yes 
+				is_machine_empire = yes
+			}			
+		}
+		planet_metallurgists_alloys_produces_add = 4
+		planet_metallurgists_food_upkeep_add = 5
+	}	
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = {  country_uses_consumer_goods = yes }		
+		}
+		planet_artisans_consumer_goods_produces_add = 6
+		planet_artisans_minerals_upkeep_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { country_uses_consumer_goods = no }		
+		}
+		planet_metallurgists_alloys_produces_add = 2
+		planet_metallurgists_minerals_upkeep_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_acot_specialman_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_acot_specialdrone_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @acot_building_basic_alloy_cost
+			sr_dark_matter = @acot_building_basic_dm_cost	
+			acot_sr_dark_energy = @acot_building_basic_de_cost
+		}
+	}	
+	
+	prerequisites = {
+		tech_acot_dm_alloygood_amplifier
+	}
+	
+	
+	ai_weight = {
+		weight = 3000
+	}
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_alloygood_amplifier
+	}
+}
+
+###############################################################
+# Research Building
+###############################################################
+
+ub_building_acot_dm_institute = {
+	base_buildtime = 520
+
+	category = research
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building_construction = building_acot_dm_institute
+			has_building_construction = building_acot_ae_institute
+		}
+		owner = {
+			OR = {
+				num_buildings = {
+					type = building_acot_dm_institute
+					value = 1
+				}
+				num_buildings = {
+					type = building_acot_ae_institute
+					value = 1
+				}
+			}
+			is_ai = no
+		}
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			physics_research = 100
+			engineering_research = 100
+			society_research = 100
+			minor_artifacts = 5
+		}
+		cost = {
+			alloys = 800
+			sr_dark_matter = 300
+			acot_sr_dark_energy = 150
+		}
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 25
+			acot_sr_dark_energy = 25
+		}
+	}
+
+	country_modifier = {
+		country_scientist_cap_add = 1
+		physics_tech_cost_mult = -0.10
+		society_tech_cost_mult = -0.10
+		engineering_tech_cost_mult = -0.10
+		all_technology_research_speed = 0.2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { 
+				is_regular_empire = yes 
+			}
+		}
+		modifier = {
+			job_acot_researcher_add = 2
+		}
+	}	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_acot_researcher_drone_add = 2
+		}
+	}	
+
+	prerequisites = {
+		"tech_acot_dm_institute"
+	}
+	
+	show_tech_unlock_if = { 
+	}
+	
+	ai_weight = {
+		weight = 1000
+		# There are already unworked jobs
+		# Blocks buildings unworkable by remaining pops (slaves/robots etc)
+		# Will be improved... at some point
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+		modifier = {
+			factor = 0
+			planet_owner = {
+				has_monthly_income = {
+					resource = energy
+					value <= 10
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet_owner = {
+				has_monthly_income = {
+					resource = sr_dark_matter
+					value <= 3
+				}
+			}	
+		}
+		modifier = {
+			factor = 0
+			planet_owner = {
+				has_monthly_income = {
+					resource = acot_sr_dark_energy
+					value <= 3
+				}
+			}	
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_institute
+	}
+}
+
+###############################################################
+# Misc Building
+###############################################################
+
+ub_building_acot_dm_psg = {
+	base_buildtime = 600	
+	position_priority = 100
+
+	category = army
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_dm_psg
+			has_building_construction = building_acot_dm_psg
+			has_building = building_acot_ae_psg
+			has_building_construction = building_acot_ae_psg
+		}
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_enigmatic_capital = yes
+		acot_has_shield_building = no
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.70
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 1000 
+			sr_dark_matter = 400
+			acot_sr_dark_energy = 200
+		}			
+		upkeep = {
+			trigger = { planet_owner = { NOT = { has_technology = tech_acot_fractured_autoharvesting } } }
+			sr_dark_matter = 5
+			acot_sr_dark_energy = 5
+		}
+	}
+	
+	prerequisites = {
+		"tech_acot_dm_psg"
+	}
+	
+	ai_weight = {
+		weight = 15000
+		modifier = {
+			factor = 0
+			planet_owner = {
+				has_monthly_income = {
+					resource = acot_sr_dark_energy
+					value <= 3
+				}
+			}
+		}
+	}
+
+	upgrades = {
+		building_acot_ae_psg
+	}
+}
+
+###############################################################
+# Defense Buildings
+###############################################################
+
+ub_building_acot_giga_fortress = {
+	base_buildtime = 1200
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 100
+
+	planetary_ftl_inhibitor = yes
+
+	category = army
+
+	potential = {
+		exists = owner
+		OR = {
+			has_building = building_acot_giga_fortress
+			has_building_construction = building_acot_giga_fortress
+			has_building = building_acot_giga_fortress_array
+			has_building_construction = building_acot_giga_fortress_array
+			has_building = building_acot_giga_fortress_lab
+			has_building_construction = building_acot_giga_fortress_lab
+			has_building = building_acot_giga_fortress_obelisk
+			has_building_construction = building_acot_giga_fortress_obelisk
+		}
+		owner = { is_ai = no }
+	}
+	
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	on_built = {
+		if = {
+			limit = {
+				NOT = {
+					any_planet_army = {
+						army_type = acot_garrison_army_giga
+					}
+				}
+			}
+			create_army = {
+				owner = planet_owner
+				type = acot_garrison_army_giga
+			}
+		}
+	}
+
+	on_destroy = {
+		if = {
+			limit = {
+				has_giga_fort = no
+			}
+			every_planet_army = {
+				limit = {
+					army_type = acot_garrison_army_giga
+				}
+				remove_army = yes
+			}
+		}
+	}
+	
+	country_modifier = {
+		country_naval_cap_add = 100
+	}
+
+	planet_modifier = {
+		planet_amenities_add = 20
+		planet_housing_add = 20
+		planet_stability_add = 50
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_ground_combat = yes
+		}
+		pop_defense_armies_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_gestalt = no }
+		}
+		job_acot_giga_fortress_operator_add = 3	
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = { is_gestalt = yes }
+		}
+		job_acot_giga_fortress_operator_drone_add = 3	
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = {
+				is_fallen_empire = yes
+			}
+		 }
+		 job_acot_giga_fortress_operator_ancient_add = 3
+	}
+
+	army_modifier = {
+		army_defense_morale_mult = 5
+		army_defense_health_mult = 2	
+		army_defense_damage_mult = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			unity = 50
+			energy = 50
+		}
+		produces = {
+			trigger = {
+				planet_owner = {
+					country_uses_food = yes
+				}
+			}
+			food = 50
+		}
+		produces = {
+			trigger = {
+				planet_owner = {
+					country_uses_food = no
+				}
+			}
+			energy = 25
+		}
+		cost = {
+			minerals = 35000
+			influence = 150
+			sr_dark_matter = 500
+			acot_sr_dark_energy = 500
+		}	
+		cost = {
+			trigger = {
+				planet_owner = {
+					is_ai = yes
+				}
+			}
+			minerals = 1250
+			influence = 25
+			sr_dark_matter = 100
+			acot_sr_dark_energy = 100
+		}			
+	}
+	
+	prerequisites = {
+		"tech_acot_giga_fortress"
+	}
+	
+	ai_weight = {
+		weight = 15000
+		modifier = {
+			factor = 0
+			planet_owner = {
+				has_monthly_income = {
+					resource = sr_dark_matter
+					value <= 3
+				}
+			}
+		}
+	}
+
+	upgrades = {
+		building_acot_giga_fortress_array
+		building_acot_giga_fortress_lab
+		building_acot_giga_fortress_obelisk
+	}
+}

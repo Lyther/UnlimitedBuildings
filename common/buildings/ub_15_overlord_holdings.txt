@@ -1,9 +1,13 @@
-holding_garrison = {
+ub_holding_garrison = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_overlord_garrison
-	position_priority = 54
+
 	category = army
+
+	potential = {
+		owner.overlord = { is_ai = no }
+	}
 
 	resources = {
 		category = planet_holdings
@@ -58,16 +62,17 @@ holding_garrison = {
 	}
 }
 
-holding_orbital_assembly_complex = {
+ub_holding_orbital_assembly_complex = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_orbital_assembly_complex
-	position_priority = 55
+
 	category = manufacturing
 
 	potential = {
 		has_overlord_dlc = yes
 		is_artificial = no
+		owner.overlord = { is_ai = no }
 	}
 
 	resources = {
@@ -90,15 +95,16 @@ holding_orbital_assembly_complex = {
 	}
 }
 
-holding_propaganda_office = {
+ub_holding_propaganda_office = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_propaganda_office
-	position_priority = 56
+
 	category = government
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -137,15 +143,16 @@ holding_propaganda_office = {
 	}
 }
 
-holding_satellite_campus = {
+ub_holding_satellite_campus = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_satellite_campus
-	position_priority = 57
+
 	category = research
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	triggered_planet_modifier = {
@@ -179,11 +186,11 @@ holding_satellite_campus = {
 	}
 }
 
-holding_emporium = {
+ub_holding_emporium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_emporium
-	position_priority = 58
+
 	category = amenity
 
 	triggered_planet_modifier = {
@@ -207,6 +214,7 @@ holding_emporium = {
 			is_machine_empire = no
 			is_hive_empire = no
 		}
+		owner.overlord = { is_ai = no }
 	}
 
 	resources = {
@@ -225,12 +233,16 @@ holding_emporium = {
 	}
 }
 
-holding_aid_agency = {
+ub_holding_aid_agency = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_aid_agency
-	position_priority = 59
+
 	category = amenity
+
+	potential = {
+		owner.overlord = { is_ai = no }
+	}
 
 	allow = {
 		custom_tooltip = {
@@ -317,15 +329,16 @@ holding_aid_agency = {
 	}
 }
 
-holding_energy_requisitorium = {
+ub_holding_energy_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_energy_requisitorium
-	position_priority = 60
+
 	category = resource
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -369,15 +382,16 @@ holding_energy_requisitorium = {
 	}
 }
 
-holding_material_requisitorium = {
+ub_holding_material_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_material_requisitorium
-	position_priority = 61
+
 	category = resource
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -425,15 +439,16 @@ holding_material_requisitorium = {
 	}
 }
 
-holding_produce_requisitorium = {
+ub_holding_produce_requisitorium = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_produce_requisitorium
-	position_priority = 62
+
 	category = resource
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -493,11 +508,11 @@ holding_produce_requisitorium = {
 	}
 }
 
-holding_splinter_hive = {
+ub_holding_splinter_hive = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_splinter_hive
-	position_priority = 63
+
 	category = pop_assembly
 
 	resources = {
@@ -513,6 +528,7 @@ holding_splinter_hive = {
 	potential = {
 		has_overlord_dlc = yes
 		owner.overlord = { is_hive_empire = yes }
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -578,11 +594,11 @@ holding_splinter_hive = {
 	}
 }
 
-holding_distributed_processing = {
+ub_holding_distributed_processing = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_distributed_processing
-	position_priority = 64
+
 	category = research
 
 	potential = {
@@ -591,6 +607,7 @@ holding_distributed_processing = {
 			NOT = { has_civic = civic_machine_servitor }
 		}
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	resources = {
@@ -628,11 +645,11 @@ holding_distributed_processing = {
 	}
 }
 
-holding_offspring_nest = {
+ub_holding_offspring_nest = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_offspring_nest
-	position_priority = 65
+
 	category = government
 
 	resources = {
@@ -651,6 +668,7 @@ holding_offspring_nest = {
 			has_origin = origin_progenitor_hive
 		}
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -677,15 +695,16 @@ holding_offspring_nest = {
 	}
 }
 
-holding_offworld_foundry = {
+ub_holding_offworld_foundry = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_offworld_foundry
-	position_priority = 66
+
 	category = manufacturing
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -797,15 +816,16 @@ holding_offworld_foundry = {
 	}
 }
 
-holding_overlord_vigil_command = {
+ub_holding_overlord_vigil_command = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_overlord_vigil_command
-	position_priority = 67
+
 	category = army
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -905,15 +925,16 @@ holding_overlord_vigil_command = {
 	}
 }
 
-holding_parasitic_algorithms = {
+ub_holding_parasitic_algorithms = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_parasitic_algorithms
-	position_priority = 68
+
 	category = research
 
 	potential = {
 		has_overlord_dlc = yes
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -978,11 +999,11 @@ holding_parasitic_algorithms = {
 	}
 }
 
-holding_noble_vacation_homes = {
+ub_holding_noble_vacation_homes = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_palace
-	position_priority = 69
+
 	category = amenity
 
 	resources = {
@@ -997,6 +1018,7 @@ holding_noble_vacation_homes = {
 
 	potential = {
 		owner.overlord = { has_valid_civic = civic_aristocratic_elite }
+		owner.overlord = { is_ai = no }
 	}
 
 	planet_modifier = {
@@ -1039,11 +1061,11 @@ holding_noble_vacation_homes = {
 	}
 }
 
-holding_dread_outpost = {
+ub_holding_dread_outpost = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_dread_encampment
-	position_priority = 70
+
 	category = army
 
 	resources = {
@@ -1060,6 +1082,7 @@ holding_dread_outpost = {
 		owner.overlord = {
 			has_valid_civic = civic_reanimated_armies
 		}
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -1101,11 +1124,11 @@ holding_dread_outpost = {
 	}
 }
 
-holding_communal_housing_outreach = {
+ub_holding_communal_housing_outreach = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_residence
-	position_priority = 71
+
 	category = amenity
 
 	resources = {
@@ -1123,6 +1146,7 @@ holding_communal_housing_outreach = {
 		NOT = {
 			owner = { has_valid_civic = civic_shared_burden }
 		}
+		owner.overlord = { is_ai = no }
 	}
 
 	planet_modifier = {
@@ -1160,11 +1184,11 @@ holding_communal_housing_outreach = {
 	}
 }
 
-holding_idyllic_bloom = {
+ub_holding_idyllic_bloom = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_gaiaseeders_4
-	position_priority = 72
+
 	category = government
 
 	resources = {
@@ -1194,6 +1218,7 @@ holding_idyllic_bloom = {
 			is_planet_class = pc_relic
 		}
 		is_artificial = no
+		owner.overlord = { is_ai = no }
 	}
 
 	planet_modifier = {
@@ -1267,11 +1292,11 @@ holding_idyllic_bloom = {
 	}
 }
 
-holding_reemployment_center = {
+ub_holding_reemployment_center = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_posthumous_employment_center
-	position_priority = 73
+
 	category = pop_assembly
 
 	resources = {
@@ -1292,6 +1317,7 @@ holding_reemployment_center = {
 		owner = {
 			is_machine_empire = no
 		}
+		owner.overlord = { is_ai = no }
 	}
 
 	triggered_planet_modifier = {
@@ -1328,11 +1354,11 @@ holding_reemployment_center = {
 	}
 }
 
-holding_recruitment_office = {
+ub_holding_recruitment_office = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_recruitment_office
-	position_priority = 74
+
 	category = army
 
 	resources = {
@@ -1347,6 +1373,7 @@ holding_recruitment_office = {
 
 	potential = {
 		owner.overlord = { has_valid_civic = civic_citizen_service }
+		owner.overlord = { is_ai = no }
 	}
 
 	triggered_planet_modifier = {
@@ -1385,11 +1412,11 @@ holding_recruitment_office = {
 	}
 }
 
-holding_park_ranger_lodge = {
+ub_holding_park_ranger_lodge = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_park_ranger_lodge
-	position_priority = 75
+
 	category = amenity
 
 	resources = {
@@ -1414,6 +1441,7 @@ holding_park_ranger_lodge = {
 			is_planet_class = pc_relic
 		}
 		is_artificial = no
+		owner.overlord = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -1472,11 +1500,11 @@ holding_park_ranger_lodge = {
 	}
 }
 
-holding_tree_of_life_sapling = {
+ub_holding_tree_of_life_sapling = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = holding_tree_of_life_sapling
-	position_priority = 76
+
 	category = resource
 
 	resources = {
@@ -1500,6 +1528,7 @@ holding_tree_of_life_sapling = {
 			is_planet_class = pc_relic
 		}
 		is_artificial = no
+		owner.overlord = { is_ai = no }
 	}
 	destroy_trigger = {
 		OR = {
@@ -1531,11 +1560,11 @@ holding_tree_of_life_sapling = {
 	}
 }
 
-holding_experimental_crater = {
+ub_holding_experimental_crater = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_experimental_crater
-	position_priority = 77
+
 	category = research
 
 	resources = {
@@ -1548,6 +1577,7 @@ holding_experimental_crater = {
 
 	potential = {
 		owner.overlord = { has_origin = origin_lithoid }
+		owner.overlord = { is_ai = no }
 	}
 
 	planet_modifier = {
@@ -1580,11 +1610,11 @@ holding_experimental_crater = {
 	}
 }
 
-holding_organic_sanctuary = {
+ub_holding_organic_sanctuary = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = building_organic_sanctuary
-	position_priority = 78
+
 	category = unity
 
 	resources = {
@@ -1597,6 +1627,7 @@ holding_organic_sanctuary = {
 	potential = {
 		owner.overlord = { has_valid_civic = civic_machine_servitor }
 		owner = { is_machine_empire = no }
+		owner.overlord = { is_ai = no }
 	}
 
 	triggered_planet_modifier = {
@@ -1619,11 +1650,11 @@ holding_organic_sanctuary = {
 	}
 }
 
-holding_franchise_headquarters = {
+ub_holding_franchise_headquarters = {
 	base_buildtime = @b2_time
 	owner_type = subject_holding
 	icon = holding_franchise_headquarters
-	position_priority = 79
+
 	category = government
 
 	destroy_trigger = {
@@ -1646,6 +1677,7 @@ holding_franchise_headquarters = {
 
 	potential = {
 		owner.overlord = { has_civic = civic_franchising }
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -1749,11 +1781,11 @@ holding_franchise_headquarters = {
 	}
 }
 
-holding_sacrificial_shrine = {
+ub_holding_sacrificial_shrine = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_sacrificial_temple_2
-	position_priority = 80
+
 	category = unity
 
 	resources = {
@@ -1769,6 +1801,7 @@ holding_sacrificial_shrine = {
 	potential = {
 		owner.overlord = { is_death_cult_empire = yes }
 		owner = { is_machine_empire = no }
+		owner.overlord = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -1802,11 +1835,11 @@ holding_sacrificial_shrine = {
 	}
 }
 
-holding_toxic_bath = {
+ub_holding_toxic_bath = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath
-	position_priority = 81
+
 	category = amenity
 
 	resources = {
@@ -1822,6 +1855,7 @@ holding_toxic_bath = {
 	potential = {
 		owner.overlord = { has_toxic_baths = yes }
 		owner = { is_gestalt = no}
+		owner.overlord = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -1853,11 +1887,11 @@ holding_toxic_bath = {
 	}
 }
 
-holding_toxic_bath_hive = {
+ub_holding_toxic_bath_hive = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath_hive
-	position_priority = 82
+
 	category = amenity
 
 	resources = {
@@ -1873,6 +1907,7 @@ holding_toxic_bath_hive = {
 	potential = {
 		owner.overlord = { has_toxic_baths = yes }
 		owner = { is_hive_empire = yes }
+		owner.overlord = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -1904,11 +1939,11 @@ holding_toxic_bath_hive = {
 	}
 }
 
-holding_toxic_bath_machine = {
+ub_holding_toxic_bath_machine = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_toxic_bath_machine
-	position_priority = 83
+
 	category = amenity
 
 	resources = {
@@ -1924,6 +1959,7 @@ holding_toxic_bath_machine = {
 	potential = {
 		owner.overlord = { has_toxic_baths = yes }
 		owner = { is_machine_empire = yes }
+		owner.overlord = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -1955,11 +1991,11 @@ holding_toxic_bath_machine = {
 	}
 }
 
-holding_knight_commandery = {
+ub_holding_knight_commandery = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_order_holding
-	position_priority = 84
+
 	category = government
 
 	resources = {
@@ -1977,6 +2013,7 @@ holding_knight_commandery = {
 			has_origin = origin_toxic_knights
 			NOT = { has_country_flag = quest_abandoned }
 		}
+		owner.overlord = { is_ai = no }
 	}
 
 	allow = {
@@ -2026,11 +2063,11 @@ holding_knight_commandery = {
 	}
 }
 
-holding_transcendental_retreat = {
+ub_holding_transcendental_retreat = {
 	base_buildtime = @b1_time
 	owner_type = subject_holding
 	icon = building_transcendental_retreat
-	position_priority = 85
+
 	category = amenity
 
 	resources = {
@@ -2047,6 +2084,7 @@ holding_transcendental_retreat = {
 		owner.overlord = {
 			is_natural_design_empire = yes
 		}
+		owner.overlord = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -2135,4 +2173,3 @@ holding_transcendental_retreat = {
 		text = job_replicator_effect_desc
 	}
 }
-

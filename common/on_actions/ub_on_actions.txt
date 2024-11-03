@@ -1,0 +1,14 @@
+on_megastructure_built = {
+	events = {
+		ub_singularity_sphere.0
+	}
+}
+
+on_megastructure_upgraded = {
+	events = {
+		ub_singularity_sphere.1
+		ub_singularity_sphere.2
+		ub_singularity_sphere.3
+		ub_singularity_sphere.4
+	}
+}

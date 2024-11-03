@@ -2,187 +2,10 @@
 ## Limited by deposits ##
 #########################
 
-# building_mote_harvesters = {
-# 	base_buildtime = @b1_time
-# 	icon = building_mote_harvesting_traps
-
-# 	is_capped_by_modifier = yes
-
-# 	category = resource
-
-# 	potential = {
-# 		always = no
-# 	}
-
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner
-# 			owner = { is_regular_empire = yes }
-# 		}
-# 		modifier = {
-# 			job_mote_harvester_add = 1
-# 		}
-# 	}
-
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner
-# 			owner = { is_gestalt = yes }
-# 		}
-# 		modifier = {
-# 			job_mote_harvesting_drone_add = 1
-# 		}
-# 	}
-
-# 	resources = {
-# 		category = planet_buildings
-# 		cost = {
-# 			minerals = 200
-# 		}
-# 		upkeep = {
-# 			energy = 1
-# 		}
-# 	}
-
-# 	#prerequisites = {
-# 	#	"tech_mine_volatile_motes"
-# 	#}
-# }
-
-# building_gas_extractors = {
-# 	base_buildtime = @b1_time
-# 	icon = building_gas_extractors
-
-# 	is_capped_by_modifier = yes
-
-# 	category = resource
-
-# 	potential = {
-# 		always = no
-# 	}
-
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner
-# 			owner = { is_regular_empire = yes }
-# 		}
-# 		modifier = {
-# 			job_gas_extractor_add = 1
-# 		}
-# 	}
-
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner
-# 			owner = { is_gestalt = yes }
-# 		}
-# 		modifier = {
-# 			job_gas_extraction_drone_add = 1
-# 		}
-# 	}
-
-# 	resources = {
-# 		category = planet_buildings
-# 		cost = {
-# 			minerals = 200
-# 		}
-# 		upkeep = {
-# 			energy = 1
-# 		}
-# 	}
-
-# 	# prerequisites = {
-# 	# 	"tech_mine_exotic_gases"
-# 	# }
-# }
-
-# building_crystal_mines = {
-# 	base_buildtime = @b1_time
-
-# 	is_capped_by_modifier = yes
-
-# 	category = resource
-
-# 	potential = {
-# 		always = no
-# 	}
-
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner
-# 			owner = { is_regular_empire = yes }
-# 		}
-# 		modifier = {
-# 			job_crystal_miner_add = 1
-# 		}
-# 	}
-
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner
-# 			owner = { is_gestalt = yes }
-# 		}
-# 		modifier = {
-# 			job_crystal_mining_drone_add = 1
-# 		}
-# 	}
-
-# 	resources = {
-# 		category = planet_buildings
-# 		cost = {
-# 			minerals = 200
-# 		}
-# 		upkeep = {
-# 			energy = 1
-# 		}
-# 	}
-
-# 	# prerequisites = {
-# 	# 	"tech_mine_rare_crystals"
-# 	# }
-# }
-
-building_betharian_power_plant = {
-	base_buildtime = @b1_time
-	position_priority = 96
-	is_capped_by_modifier = yes
-
-	category = resource
-
-	potential = {
-		NOR = {
-			has_modifier = resort_colony
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		produces = {
-			energy = 10
-		}
-	}
-
-	planet_modifier = {
-		planet_technician_energy_produces_add = 0.5
-	}
-
-	inline_script = {
-		script = jobs/technicians_add
-		AMOUNT = 4
-	}
-
-	 prerequisites = {
-	 	"tech_mine_betharian"
-	 }
-}
-
-building_xeno_zoo = {
+ub_building_xeno_zoo = {
+	icon = building_xeno_zoo
 	base_buildtime = @b1_time
 	category = amenity
-	position_priority = 97
 
 	potential = {
 		exists = owner
@@ -206,6 +29,8 @@ building_xeno_zoo = {
 				}
 			}
 		}
+		has_building = building_xeno_zoo
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -248,22 +73,13 @@ building_xeno_zoo = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_warrior_culture
-			}
-		}
-		modifier = {
-			job_duelist_add = 1
-			job_entertainer_add = -1
-		}
+	planet_modifier = {
+		job_xeno_zoo_keeper_add = 1
 	}
 
-	planet_modifier = {
-		job_entertainer_add = 1
-		job_xeno_zoo_keeper_add = 1
+	inline_script = {
+		script = jobs/entertainers_add
+		AMOUNT = 1
 	}
 
 	triggered_planet_modifier = {
@@ -306,22 +122,6 @@ building_xeno_zoo = {
 
 	triggered_desc = {
 		text = job_xeno_zoo_keeper_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
-		}
-		text = job_entertainer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_warrior_culture }
-		}
-		text = job_duelist_effect_desc
 	}
 
 	triggered_desc = {
@@ -376,4 +176,3 @@ building_xeno_zoo = {
 		text = job_livestock_zoo_beast_effect_desc
 	}
 }
-

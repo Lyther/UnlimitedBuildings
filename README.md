@@ -48,7 +48,12 @@ If a new game version is released or you wish to be compatible with an older ver
 
 If you have more ideas for mod compatibility or want other mods' buildings to be buildable without limits, feel free to leave a message in the Steam Workshop.
 
-The compatible mods for Unlimited Buildings have been split into separate files. You can find a `compatibility` folder within the mod directory, containing compatibility patches for supported mods. You can replace the necessary files as needed (ensure you have the prerequisite mods installed to use Unlimited Buildings' compatibility features). **Typically, the mod directory is located at `Steam/steamapps/workshop/content/281990/2846706267`.**
+* Unique Ascension Perks: The mod is compatible with the Unique Ascension Perks mod, allowing you to build unlimited numbers of unique ascension perks.
+* Ancient Cache of Technologies: The mod is compatible with the Ancient Cache of Technologies mod, allowing you to build unlimited numbers of ancient cache buildings.
+  * Ancient Cache of Technologies - Secrets Beyond The Gates: The mod is compatible with the Ancient Cache of Technologies mod, allowing you to build unlimited numbers of ancient cache buildings.
+* Planetary Diversity: The mod is compatible with the Planetary Diversity mod, allowing you to build unlimited numbers of unique planetary buildings.
+* APSR: Anomalies, Planetary and Space Resources: The mod is compatible with the APSR mod, allowing you to build unlimited numbers of unique planetary buildings.
+* Tidy Tradition: The mod is compatible with the Tidy Tradition mod, allowing you to build unlimited numbers of tradition buildings.
 
 **Please note: When sorting mods, place Unlimited Buildings below other mods that require compatibility.**
 
@@ -108,7 +113,12 @@ If you've added compatibility for more mods, your pull requests are very welcome
 
 如果你有更多的MOD兼容想法，或者希望让其他MOD的建筑也能无限建造，同样可以在创意工坊留言。
 
-无限建筑的兼容MOD已经拆分，您可以在MOD目录下找到名为`compatibility`的文件夹，内部为所支持的MOD。您可以根据自己的需要自行进行覆盖（需要安装前置MOD，才能正常使用无限建筑的兼容性功能）。**通常而言，MOD目录位于`Steam/steamapps/workshop/content/281990/2846706267`。**
+* Unique Ascension Perks：与Unique Ascension Perks MOD兼容，可以无限建造独特的飞升特质。
+* Ancient Cache of Technologies：与Ancient Cache of Technologies MOD兼容，可以无限建造古代缓存建筑。
+  * Ancient Cache of Technologies : Secrets Beyond The Gates：与Ancient Cache of Technologies MOD兼容，可以无限建造古代科技建筑。
+* Planetary Diversity：与Planetary Diversity MOD兼容，可以无限建造独特的行星建筑。
+* APSR: Anomalies, Planetary and Space Resources：与APSR MOD兼容，可以无限建造独特的行星建筑。
+* Tidy Tradition：与Tidy Tradition MOD兼容，可以无限建造传统建筑。
 
 **请注意：排序时需要将无限建筑放置于其他需要兼容的MOD之下。**
 

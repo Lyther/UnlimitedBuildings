@@ -1,0 +1,123 @@
+### COST 
+@apsr7cordoncost_minerals = 250	
+@apsr7cordoncost_alloys = 100
+@apsr7cordoncost_time = 200
+
+@apsr7part1cost_minerals = 2500	
+@apsr7part1cost_knowledges = 0	
+@apsr7part1cost_time = 750
+
+@apsr7part2cost_minerals = 5000	
+@apsr7part2cost_knowledges = 100
+@apsr7part2cost_time = 1000
+
+@apsr7part3cost_minerals = 10000
+@apsr7part3cost_knowledges = 500
+@apsr7part3cost_time = 1500
+
+
+### UPKEEP (2 ресурса только)
+@apsr7cordonupkeep_energy = 4
+@apsr7cordonupkeep_minerals = 3
+
+@apsr7part1upkeep_energy = 0
+@apsr7part1upkeep_minerals = 4
+
+@apsr7part2upkeep_energy = 0
+@apsr7part2upkeep_minerals = 8	
+
+@apsr7part3upkeep_energy = 0
+@apsr7part3upkeep_minerals = 20	
+
+
+
+ub_apsr7_building_cordon = {
+	base_buildtime = @apsr7cordoncost_time
+	icon = apsr7_building_cordon
+	
+	is_capped_by_modifier = no
+
+	category = resource
+	
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 1000
+
+	allow = {
+		apsr_buildings_allow = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr7_planet_modifier"
+		OR = {
+			has_building = apsr7_building_cordon
+			has_building_construction = apsr7_building_cordon
+			has_building = apsr7_building_part1
+			has_building_construction = apsr7_building_part1
+			has_building = apsr7_building_part2
+			has_building_construction = apsr7_building_part2
+			has_building = apsr7_building_part3
+			has_building_construction = apsr7_building_part3
+		}
+		owner = { is_ai = no }
+	}
+
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_hive_empire = yes 
+			}
+		}
+		modifier = {
+			job_apsr7_soldier_hive_add = 3
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_machine_empire = yes 
+			}
+		}
+		modifier = {
+			job_apsr7_soldier_machine_add = 3
+		}
+	}	
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_apsr7_soldier_normal_add = 3
+		}
+	}
+	
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			minerals = @apsr7cordoncost_minerals
+			alloys = @apsr7cordoncost_alloys
+		}
+		upkeep = {
+			energy = @apsr7cordonupkeep_energy
+			minerals = @apsr7cordonupkeep_minerals
+		}
+	}
+	
+	upgrades = {
+		"apsr7_building_part1"
+	}	
+	
+	prerequisites = {
+		"tech_apsr7_building_cordon"
+	}
+}

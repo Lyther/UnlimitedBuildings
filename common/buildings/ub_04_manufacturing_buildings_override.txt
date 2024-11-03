@@ -1,0 +1,279 @@
+#########################
+## Only adding industrialist jobs
+#########################
+
+ub_building_factory_1 = {
+	icon = building_factory_1
+	base_buildtime = @b1_time
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				country_uses_consumer_goods = yes
+				has_origin = origin_fear_of_the_dark
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = gestation_colony
+		}
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			AND = {
+				has_any_industry_district = yes
+				owner = {
+					should_ai_focus_on_trade = no
+				}
+			}
+		}
+		OR = {
+			has_building = building_factory_1
+			has_building = building_factory_2
+			has_building = building_factory_3
+		}
+		owner = { is_ai = no }
+	}
+	show_tech_unlock_if = {
+		OR = {
+			country_uses_consumer_goods = yes
+			has_origin = origin_fear_of_the_dark
+		}
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = gestation_colony
+			NOT = { exists = owner }
+			owner = {
+				NOR = {
+					country_uses_consumer_goods = yes
+					has_origin = origin_fear_of_the_dark
+				}
+			}
+			AND = {
+				owner = { is_ai = yes }
+				has_any_industry_district = no
+			}
+			owner = {
+				should_ai_focus_on_trade = yes
+				has_monthly_income = { resource = consumer_goods value > 30 }
+			}
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_crafter_empire = no
+			}
+		}
+		modifier = {
+			job_artisan_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_crafter_empire = yes
+			}
+		}
+		modifier = {
+			job_artificer_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_artisan_drone_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_ascension_perk = ap_pyramidal_society
+					has_country_flag = ap_pyramidal_society
+				}
+				is_common_empire = yes
+			}
+		}
+		modifier = {
+			job_industrialist_add = @b1_jobs
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	prerequisites = {
+		tech_basic_industry
+	}
+
+	upgrades = {
+		building_factory_2
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_crafter_empire = no
+			}
+		}
+		text = job_artisan_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_crafter_empire = yes
+			}
+		}
+		text = job_artificer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_artisan_drone_effect_desc
+	}
+}
+
+ub_building_ministry_production = {
+	base_buildtime = @b2_time
+	icon = building_production_center
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = { is_gestalt = no }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			has_any_industry_district = yes
+		}
+		has_building = building_ministry_production
+		owner = { is_ai = no }
+	}
+	show_tech_unlock_if = {
+		is_gestalt = no
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_regular_empire = no }
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			AND = {
+				owner = {
+					is_ai = yes
+				}
+				has_any_industry_district = no
+			}
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	planet_modifier = {
+		job_politician_add = 1
+		planet_metallurgists_produces_mult = 0.15
+		planet_artisans_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_ascension_perk = ap_pyramidal_society
+					has_country_flag = ap_pyramidal_society
+				}
+				is_common_empire = yes
+			}
+		}
+		modifier = {
+			job_industrialist_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			volatile_motes = @b2_rare_upkeep
+		}
+	}
+
+	prerequisites = {
+		"tech_global_production_strategy"
+	}
+
+	triggered_desc = {
+		text = job_politician_effect_desc
+	}
+
+	ai_resource_production = {
+		alloys = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = alloys
+				value >= 40
+				type = produces
+			}
+		}
+	}
+	ai_resource_production = {
+		consumer_goods = 8
+		trigger = {
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 50
+				type = produces
+			}
+		}
+	}
+}

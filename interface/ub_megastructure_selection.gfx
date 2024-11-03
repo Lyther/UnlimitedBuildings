@@ -1,6 +1,98 @@
 spriteTypes = {
+	# UB Defined Megastructures
 	spriteType = {
 		name = "GFX_singularity_sphere_0_build_icon"
-		texturefile = "gfx/interface/icons/technologies/tech_dyson_sphere.dds"
+		texturefile = "gfx/interface/icons/technologies/tech_ub_dyson_sphere.dds"
+	}
+
+	# Vanilla Megastructures
+	spriteType = {
+		name = "GFX_ub_ring_world_1_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_ring_world.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_dyson_sphere_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_dyson_sphere.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_spy_orb_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_sentry_array.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_think_tank_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_science_nexus.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_gateway_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_gateway_construction.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_matter_decompressor_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_matter_decompressor.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_strategic_coordination_center_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_strategic_coordination.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_mega_art_installation_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_mega_art.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_interstellar_assembly_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_interstellar_assembly.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_mega_shipyard_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_mega_shipyard.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_quantum_catapult_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_quantum_catapult.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_hyper_relay_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_hyper_relays.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_orbital_ring_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_orbital_ring_tier_1.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_cosmogenesis_needle_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_cosmogenesis_crisis_5.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_cosmogenesis_world_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_cosmogenesis_world.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_orbital_arc_furnace_1_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_orbital_arc_furnace.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_dyson_swarm_1_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_dyson_swarm.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_habitat_central_complex_build_icon"
+		textureFile = "gfx/interface/icons/megastructures/megastructures_build_menu/build_menu_ub_habitat_central_complex.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_major_orbital_build_icon"
+		textureFile = "gfx/interface/icons/megastructures/megastructures_build_menu/build_menu_ub_major_orbital.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ub_minor_orbital_build_icon"
+		textureFile = "gfx/interface/icons/megastructures/megastructures_build_menu/build_menu_ub_minor_orbital.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_major_orbital_knights_build_icon"
+		textureFile = "gfx/interface/icons/megastructures/megastructures_build_menu/build_menu_ub_major_orbital_knights.dds"
+	}
+	spriteType = {
+		name = "GFX_ub_grand_archive_0_build_icon"
+		textureFile = "gfx/interface/icons/technologies/tech_ub_galactic_archivism.dds"
 	}
 }

@@ -1,0 +1,485 @@
+##################################
+# Grand Archive Unique Buildings #
+##################################
+
+ub_xeno_geology_holomuseum = {
+	icon = xeno_geology_holomuseum
+	base_buildtime = @b1_time
+	category = unity
+
+	potential = {
+		owner = {
+			has_country_flag = received_collection_stage_2_reward_xeno_geology
+		}
+		owner = {
+			num_buildings = {
+				type = xeno_geology_holomuseum
+				value = 1
+			}
+			is_ai = no
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	country_modifier = {
+		xeno_geology_specimens_produces_mult = @holomuseum_specimen_produces_mult
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_geologist_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_drone_geologist_add = 2
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_geologist_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_drone_geologist_effect_desc
+	}
+}
+
+ub_aesthetic_wonders_holomuseum = {
+	icon = aesthetic_wonders_holomuseum
+	base_buildtime = @b1_time
+	category = unity
+
+	potential = {
+		owner = {
+			has_country_flag = received_collection_stage_2_reward_aesthetic_wonder
+		}
+		owner = {
+			num_buildings = {
+				type = aesthetic_wonders_holomuseum
+				value = 1
+			}
+			is_ai = no
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	country_modifier = {
+		aesthetic_wonder_specimens_produces_mult = @holomuseum_specimen_produces_mult
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_wonder_curator_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_drone_wonder_curator_add = 2
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_wonder_curator_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_drone_wonder_curator_effect_desc
+	}
+}
+
+ub_galactic_history_holomuseum = {
+	icon = galactic_history_holomuseum
+	base_buildtime = @b1_time
+	category = unity
+
+	potential = {
+		owner = {
+			has_country_flag = received_collection_stage_2_reward_historical_item
+		}
+		owner = {
+			num_buildings = {
+				type = galactic_history_holomuseum
+				value = 1
+			}
+			is_ai = no
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	country_modifier = {
+		historical_item_specimens_produces_mult = @holomuseum_specimen_produces_mult
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_historical_curator_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_drone_historical_curator_add = 2
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_historical_curator_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_drone_historical_curator_effect_desc
+	}
+}
+
+ub_wildlife_ranch = {
+	icon = wildlife_ranch
+	base_buildtime = @b1_time
+	category = amenity
+
+	potential = {
+		owner = {
+			OR = {
+				has_wrangler_job = yes
+				has_rancher_job = yes
+				has_drone_wrangler_job = yes
+			}
+		}
+		OR = {
+			has_building = wildlife_ranch
+			has_building = wildlife_ranch_2
+			has_building = wildlife_ranch_3
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		owner = {
+			has_wrangler_job = no
+			has_rancher_job = no
+			has_drone_wrangler_job = no
+		}
+	}
+
+	convert_to = {
+		hunting_grounds
+		wildlife_sanctuary
+		primal_arena
+		symbiosis_nexus
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	inline_script = {
+		script = jobs/wranglers_add
+		AMOUNT = 2
+	}
+
+	upgrades = {
+		"wildlife_ranch_2"
+	}
+}
+
+ub_hunting_grounds = {
+	icon = hunting_grounds
+	base_buildtime = @b1_time
+	category = amenity
+
+	potential = {
+		owner = {
+			OR = {
+				has_trophy_hunter_job = yes
+				has_hunter_drone_job = yes
+			}
+		}
+		OR = {
+			has_building = hunting_grounds
+			has_building = hunting_grounds_2
+			has_building = hunting_grounds_3
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		owner = {
+			has_trophy_hunter_job = no
+			has_hunter_drone_job = no
+		}
+	}
+
+	convert_to = {
+		wildlife_ranch
+		wildlife_sanctuary
+		primal_arena
+		symbiosis_nexus
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	inline_script = {
+		script = jobs/wranglers_add
+		AMOUNT = 2
+	}
+
+	upgrades = {
+		"hunting_grounds_2"
+	}
+}
+
+ub_wildlife_sanctuary = {
+	icon = wildlife_sanctuary
+	base_buildtime = @b1_time
+	category = amenity
+
+	potential = {
+		owner = {
+			has_animal_handler_job = yes
+		}
+		OR = {
+			has_building = wildlife_sanctuary
+			has_building = wildlife_sanctuary_2
+			has_building = wildlife_sanctuary_3
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		owner = {
+			has_animal_handler_job = no
+		}
+	}
+
+	convert_to = {
+		wildlife_ranch
+		hunting_grounds
+		primal_arena
+		symbiosis_nexus
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	inline_script = {
+		script = jobs/wranglers_add
+		AMOUNT = 2
+	}
+
+	upgrades = {
+		"wildlife_sanctuary_2"
+	}
+}
+
+ub_primal_arena = {
+	icon = primal_arena
+	base_buildtime = @b1_time
+	category = amenity
+
+	potential = {
+		owner = {
+			has_beastfighter_job = yes
+		}
+		OR = {
+			has_building = primal_arena
+			has_building = primal_arena_2
+			has_building = primal_arena_3
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		owner = {
+			has_beastfighter_job = no
+		}
+	}
+
+	convert_to = {
+		wildlife_ranch
+		hunting_grounds
+		wildlife_sanctuary
+		symbiosis_nexus
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	inline_script = {
+		script = jobs/wranglers_add
+		AMOUNT = 2
+	}
+
+	upgrades = {
+		"primal_arena_2"
+	}
+}
+
+ub_symbiosis_nexus = {
+	base_buildtime = @b1_time
+	category = amenity
+	icon = wildlife_sanctuary
+
+	potential = {
+		owner = {
+			has_symbiosis_integrator_job = yes
+		}
+		OR = {
+			has_building = symbiosis_nexus
+			has_building = symbiosis_nexus_2
+			has_building = symbiosis_nexus_3
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		owner = {
+			has_symbiosis_integrator_job = no
+		}
+	}
+
+	convert_to = {
+		wildlife_ranch
+		hunting_grounds
+		wildlife_sanctuary
+		primal_arena
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	inline_script = {
+		script = jobs/wranglers_add
+		AMOUNT = 2
+	}
+
+	upgrades = {
+		"symbiosis_nexus_2"
+	}
+}

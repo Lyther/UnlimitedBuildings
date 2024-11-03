@@ -1,0 +1,205 @@
+###########################
+# Fallen Empire buildings #
+###########################
+
+#### Discarded inline scripts due to them not accounting for FEs who would otherwise have tons of blank jobs
+#### Most FE Buildings will not provide jobs until they awake and begin production
+
+@fe_jobs = 6
+@fe2_jobs = 12
+100 = 100
+
+ub_building_fe_psg = {
+	base_buildtime = @b2_time	
+	position_priority = 100
+
+	category = army
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_fallen_empire = yes
+		}
+		OR = {
+			has_building = building_fe_psg
+			has_building_construction = building_fe_psg
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		always = no
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.50
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @b2_minerals
+		}
+		upkeep = {
+			sr_dark_matter = 0.5
+		}
+	}
+}
+
+
+ub_building_fe_dark_matter_synthesizer = {
+	base_buildtime = 600
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = {
+			is_fallen_empire = yes
+		}
+		OR = {
+			num_buildings = {
+				type = building_fe_dark_matter_synthesizer
+				value = 4
+			}
+			AND = {
+				num_buildings = {
+					type = building_fe_dark_matter_synthesizer
+					value = 3
+				}
+				has_building_construction = building_fe_dark_matter_synthesizer
+			}
+		}
+		owner = { is_ai = no }
+	}
+	
+	country_modifier = {
+		country_resource_max_acot_sr_dark_energy_add = 5000
+		country_resource_max_sr_dark_matter_add = 10000		
+	}
+
+	allow = {
+		has_enigmatic_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = 1000
+		}
+		produces = {
+			sr_dark_matter = 20
+			acot_sr_dark_energy = 20
+		}
+	}
+	
+	ai_weight = {
+		weight = 10000
+	}
+
+	ai_resource_production = {
+		sr_dark_matter = 50
+		acot_sr_dark_energy = 50
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+ub_building_fe_giga_fortress = {
+	base_buildtime = 1200
+	can_be_ruined = no
+	can_be_disabled = no
+	can_build = no
+	position_priority = 100
+
+	planetary_ftl_inhibitor = yes
+
+	category = army
+
+	potential = {
+		OR = {
+			has_building = building_fe_giga_fortress
+			has_building_construction = building_fe_giga_fortress
+		}
+		owner = { is_ai = no }
+	}
+
+	destroy_trigger = {
+		exists = planet_owner
+		planet_owner = {
+			is_fallen_empire = no
+		}		
+	}
+
+	allow = {
+	}
+	
+	country_modifier = {
+		country_naval_cap_add = 100
+	}
+
+	planet_modifier = {
+		planet_amenities_add = 20
+		planet_housing_add = 20
+		planet_stability_add = 50
+	}
+	
+	army_modifier = {
+		army_defense_morale_mult = 4.0
+		army_defense_health_mult = 1.0		
+		army_defense_damage_mult = 1.0
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet_owner
+			planet_owner = {
+				is_fallen_empire = yes
+			}
+		 }
+		 job_acot_giga_fortress_operator_ancient_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			unity = 50
+			energy = 50
+		}
+		produces = {
+			trigger = {
+				planet_owner = {
+					country_uses_food = yes
+				}
+			}
+			food = 50
+		}
+		produces = {
+			trigger = {
+				planet_owner = {
+					country_uses_food = no
+				}
+			}
+			energy = 25
+		}
+		cost = {
+			minerals = 35000
+			influence = 150
+			sr_dark_matter = 500
+			acot_sr_dark_energy = 500
+		}	
+		cost = {
+			trigger = {
+				planet_owner = {
+					is_ai = yes
+				}
+			}
+			minerals = 1250
+			influence = 25
+			sr_dark_matter = 100
+			acot_sr_dark_energy = 100
+		}			
+	}
+
+}

@@ -1,11 +1,11 @@
 #############
 # Army buildings
 #############
-building_military_academy = {
+ub_building_military_academy = {
+	icon = building_military_academy
 	base_buildtime = @b2_time
 	can_be_ruined = no
 	category = army
-	position_priority = 94
 
 	potential = {
 		exists = owner
@@ -13,6 +13,13 @@ building_military_academy = {
 		NOR = { 
 			has_modifier = resort_colony 
 			has_modifier = penal_colony 
+		}
+		owner = {
+			num_buildings = {
+				type = building_military_academy
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -123,15 +130,17 @@ building_military_academy = {
 	}
 }
 
-building_dread_encampment = {
+ub_building_dread_encampment = {
+	icon = building_dread_encampment
 	base_buildtime = @b2_time
 	can_be_ruined = no
 	category = army
-	position_priority = 95
 
 	potential = {
 		exists = owner
 		owner = { has_valid_civic = civic_reanimated_armies }
+		has_building = building_dread_encampment
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -160,186 +169,18 @@ building_dread_encampment = {
 	}
 }
 
-building_stronghold = {
-	base_buildtime = 240
-	position_priority = 100
-	can_be_ruined = no
-	category = army
-	exempt_from_ai_planet_specialization = no
-
-	potential = {
-		NOT = { has_modifier = resort_colony }
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = no }
-			NOT = { has_modifier = slave_colony }
-		}
-		modifier = {
-			job_soldier_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = no }
-			has_modifier = slave_colony
-		}
-		modifier = {
-			job_battle_thrall_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_warrior_drone_add = @b1_jobs
-		}
-	}
-
-	resources = {
-		category = planet_buildings_strongholds
-		cost = {
-			minerals = @b1_minerals
-		}
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	prerequisites = {
-		"tech_planetary_defenses"
-	}
-
-	upgrades = {
-		"building_fortress"
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_warrior_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = no }
-			NOT = { has_modifier = slave_colony }
-		}
-		text = job_soldier_effect_desc
-	}
-	
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = no }
-			has_modifier = slave_colony
-		}
-		text = job_battle_thrall_effect_desc
-	}
-}
-
-building_fortress = {
-	base_buildtime = @b1_time
-	can_build = no
-	planetary_ftl_inhibitor = yes
-	position_priority = 100
-	can_be_ruined = no
-	category = army
-
-	allow = {
-		has_upgraded_capital = yes
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = no }
-			NOT = { has_modifier = slave_colony }
-		}
-		modifier = {
-			job_soldier_add = @b2_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = no }
-			has_modifier = slave_colony
-		}
-		modifier = {
-			job_battle_thrall_add = @b2_jobs
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_warrior_drone_add = @b2_jobs
-		}
-	}
-
-	resources = {
-		category = planet_buildings_strongholds
-		cost = {
-			minerals = @b2_minerals
-			volatile_motes = @b2_rare_cost
-		}
-		upkeep = {
-			energy = 1
-			volatile_motes = @b2_rare_upkeep
-		}
-	}
-
-	prerequisites = {
-		"tech_global_defense_grid"
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_warrior_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = no }
-			NOT = { has_modifier = slave_colony }
-		}
-		text = job_soldier_effect_desc
-	}
-	
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = no }
-			has_modifier = slave_colony
-		}
-		text = job_battle_thrall_effect_desc
-	}
-}
-
-building_planetary_shield_generator = {
+ub_building_planetary_shield_generator = {
+	icon = building_planetary_shield_generator
 	base_buildtime = @b3_time
 	position_priority = 100
 	can_be_ruined = no
 	category = army
+
+	potential = {
+		exists = owner
+		has_building = building_planetary_shield_generator
+		owner = { is_ai = no }
+	}
 
 	allow = {
 		has_upgraded_capital = yes
@@ -415,10 +256,10 @@ building_planetary_shield_generator = {
 			AND = {
 				exists = owner
 				solar_system = {
+					exists = owner
 					owner = { num_cosmic_storms_encountered >=2 }
 				}
 			}
 		}
 	}
 }
-

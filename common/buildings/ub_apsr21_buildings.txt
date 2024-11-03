@@ -1,0 +1,265 @@
+### COST 
+@apsr21part1cost_minerals = 2500
+@apsr21part1cost_knowledges = 0	
+@apsr21part1cost_time = 750		
+
+@apsr21part2cost_minerals = 5000
+@apsr21part2cost_knowledges = 100	
+@apsr21part2cost_time = 1000		
+
+@apsr21part3cost_minerals = 10000
+@apsr21part3cost_knowledges = 500	
+@apsr21part3cost_time = 1500
+
+
+### UPKEEP 
+@apsr21part1upkeep_energy = 5
+@apsr21part1upkeep_minerals = 5
+
+@apsr21part2upkeep_energy = 15
+@apsr21part2upkeep_minerals = 15
+
+@apsr21part3upkeep_energy = 25
+@apsr21part3upkeep_minerals = 25
+
+
+
+			##################
+			###            ###
+			###	GOODS-TREE ###
+			###            ###
+			##################
+			
+
+
+
+ub_apsr21_building_part_b1 = {
+	base_buildtime = @apsr21part1cost_time
+	icon = apsr21_building_part_b1
+	
+	is_capped_by_modifier = no
+
+	category = manufacturing
+	
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		apsr_buildings_allow = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr21_planet_modifier"
+		OR = {
+			has_building = apsr21_building_part_b1
+			has_building_construction = apsr21_building_part_b1
+			has_building = apsr21_building_part_b2
+			has_building_construction = apsr21_building_part_b2
+			has_building = apsr21_building_part_b3
+			has_building_construction = apsr21_building_part_b3
+		}
+		owner = { is_ai = no }
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	# Настройка усиления производства
+	planet_modifier = {
+		apsr21_planet_artisan_type_consumer_goods_produces_add = 2
+		apsr21_planet_artisan_type_minerals_upkeep_add = 2
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			minerals = @apsr21part1cost_minerals
+			apsr_knowledge = @apsr21part1cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr21part1upkeep_energy
+			minerals = @apsr21part1upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 0.3
+		}
+	}
+	
+	upgrades = {
+		"apsr21_building_part_b2"
+	}	
+	
+	prerequisites = {
+		"tech_apsr21_building_part_b1"
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			#################
+			###           ###
+			###	MECH-TREE ###
+			###           ###
+			#################
+			
+			
+			
+ub_apsr21_building_part_m1 = {
+	base_buildtime = @apsr21part1cost_time
+	icon = apsr21_building_part_m1
+	
+	is_capped_by_modifier = no
+
+	category = manufacturing
+	
+	can_demolish = no
+#	can_be_ruined = no
+#	can_be_disabled = no
+	position_priority = 49
+	additional_ai_weight = 500
+
+	allow = {
+		apsr_buildings_allow = yes
+	}
+	
+	potential = {
+		has_modifier = "apsr21_planet_modifier"
+		OR = {
+			has_building = apsr21_building_part_m1
+			has_building_construction = apsr21_building_part_m1
+			has_building = apsr21_building_part_m2
+			has_building_construction = apsr21_building_part_m2
+			has_building = apsr21_building_part_m3
+			has_building_construction = apsr21_building_part_m3
+		}
+		owner = { is_ai = no }
+	}
+	
+	# Настройка производства ДЗ
+	triggered_planet_modifier = { # 50%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_50
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = -0.50
+		}
+	}
+	triggered_planet_modifier = { # 150%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_150
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 0.50
+		}
+	}
+	triggered_planet_modifier = { # 200%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_200
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 1.00
+		}
+	}
+	triggered_planet_modifier = { # 300%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_300
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 2.00
+		}
+	}
+	triggered_planet_modifier = { # 500%
+		potential = {
+			has_global_flag = apsr_advanced_knowledge_500
+		}
+		modifier = {
+			planet_apsr_buildings_apsr_knowledge_produces_mult = 4.00
+		}
+	}
+	
+	# Настройка усиления производства
+	planet_modifier = {
+		apsr21_planet_foundry_type_alloys_produces_add = 1
+		apsr21_planet_foundry_type_minerals_upkeep_add = 2
+	}
+	
+	#Прочее
+	resources = {
+		category = planet_apsr_buildings
+		cost = {
+			minerals = @apsr21part1cost_minerals
+			apsr_knowledge = @apsr21part1cost_knowledges
+		}
+		upkeep = {
+			energy = @apsr21part1upkeep_energy
+			minerals = @apsr21part1upkeep_minerals
+		}
+		produces = {
+			apsr_knowledge = 0.3
+		}
+	}
+	
+	upgrades = {
+		"apsr21_building_part_m2"
+	}	
+	
+	prerequisites = {
+		"tech_apsr21_building_part_m1"
+	}
+}

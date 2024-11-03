@@ -55,6 +55,7 @@ singularity_sphere_0 = {
 
 	on_dismantle_complete = {
 		remove_star_flag = singularity_sphere_built
+		from = { remove_country_flag = building_singularity_sphere }
 		from = {
 			add_resource = {
 				energy = 500000
@@ -126,6 +127,7 @@ singularity_sphere_0 = {
 
 	on_build_start = {
 		set_star_flag = singularity_sphere_construction
+		from = { set_country_flag = building_singularity_sphere }
 	}
 	on_build_cancel = {
 		remove_star_flag = singularity_sphere_construction
@@ -133,7 +135,6 @@ singularity_sphere_0 = {
 	on_build_complete = {
 		remove_star_flag = singularity_sphere_construction
 		set_star_flag = singularity_sphere_built
-		from = { country_event = { id = ub_singularity_sphere.0 } }
 		fromfrom = {
 			solar_system.star = {
 				create_ambient_object = {
@@ -212,6 +213,7 @@ singularity_sphere_1 = {
 
 	on_dismantle_complete = {
 		remove_star_flag = singularity_sphere_built
+		from = { remove_country_flag = building_singularity_sphere }
 		from = {
 			add_resource = {
 				energy = 500000
@@ -253,7 +255,6 @@ singularity_sphere_1 = {
 	}
 	on_build_complete = {
 		remove_star_flag = singularity_sphere_construction
-		from = { country_event = { id = ub_singularity_sphere.1 } }
 		fromfrom = {
 			solar_system.star = {
 				create_ambient_object = {
@@ -332,6 +333,7 @@ singularity_sphere_2 = {
 
 	on_dismantle_complete = {
 		remove_star_flag = singularity_sphere_built
+		from = { remove_country_flag = building_singularity_sphere }
 		from = {
 			add_resource = {
 				energy = 500000
@@ -375,7 +377,6 @@ singularity_sphere_2 = {
 	}
 	on_build_complete = {
 		remove_star_flag = singularity_sphere_construction
-		from = { country_event = { id = ub_singularity_sphere.2 } }
 		fromfrom = {
 			solar_system.star = {
 				create_ambient_object = {
@@ -454,6 +455,7 @@ singularity_sphere_3 = {
 
 	on_dismantle_complete = {
 		remove_star_flag = singularity_sphere_built
+		from = { remove_country_flag = building_singularity_sphere }
 		from = {
 			add_resource = {
 				energy = 500000
@@ -478,8 +480,8 @@ singularity_sphere_3 = {
 		planet_building_build_speed_mult = 1.00
 		planet_decision_enact_speed_mult = 1.00
 		starbase_building_build_speed_mult = 1.00
-		starbase_defensive_war_ship_build_speed_mult = 1.00
 		starbase_module_build_speed_mult = 1.00
+		starbase_upgrade_speed_mult = 1.00
 	}
 
 	prerequisites = { "tech_mega_engineering" }
@@ -498,7 +500,6 @@ singularity_sphere_3 = {
 	}
 	on_build_complete = {
 		remove_star_flag = singularity_sphere_construction
-		from = { country_event = { id = ub_singularity_sphere.3 } }
 		fromfrom = {
 			solar_system.star = {
 				create_ambient_object = {
@@ -577,6 +578,7 @@ singularity_sphere_4 = {
 
 	on_dismantle_complete = {
 		remove_star_flag = singularity_sphere_built
+		from = { remove_country_flag = building_singularity_sphere }
 		from = {
 			add_resource = {
 				energy = 500000
@@ -601,7 +603,6 @@ singularity_sphere_4 = {
 		planet_building_build_speed_mult = 1.00
 		planet_decision_enact_speed_mult = 1.00
 		starbase_building_build_speed_mult = 1.00
-		starbase_defensive_war_ship_build_speed_mult = 1.00
 		starbase_module_build_speed_mult = 1.00
 		starbase_shipyard_build_speed_mult = 1.00
 		starbase_upgrade_speed_mult = 1.00
@@ -625,8 +626,9 @@ singularity_sphere_4 = {
 		remove_star_flag = singularity_sphere_construction
 		fromfrom = { set_megastructure_flag = singularity_sphere }
 		from = {
-			country_event = { id = ub_singularity_sphere.4 }
 			set_country_flag = has_built_or_repaired_megastructure
+			remove_country_flag = building_singularity_sphere
+			set_country_flag = built_singularity_sphere
 		}
 	}
 }
@@ -635,6 +637,8 @@ singularity_sphere_4 = {
 singularity_sphere_ruined = {
 	entity = "dyson_sphere_destroyed_entity"
 	portrait = "GFX_megastructure_construction_background"
+
+	construction_blocks_and_blocked_by = none
 
 	potential = {
 		always = no

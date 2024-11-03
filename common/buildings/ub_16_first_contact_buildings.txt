@@ -2,11 +2,11 @@
 # Low Tech buildings
 #####################
 
-building_low_tech_scrap_refinery = {
-	can_build = no
+ub_building_low_tech_scrap_refinery = {
+	icon = building_low_tech_scrap_refinery
 	can_demolish = yes
 	can_be_ruined = yes
-	position_priority = 86
+
 	category = manufacturing
 
 	base_buildtime = @b0_time
@@ -27,6 +27,13 @@ building_low_tech_scrap_refinery = {
 			has_origin = origin_broken_shackles
 		}
 		has_deposit = d_crashed_slaver_ship
+		owner = {
+			num_buildings = {
+				type = building_low_tech_scrap_refinery
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	destroy_trigger = {
@@ -60,11 +67,11 @@ building_low_tech_scrap_refinery = {
 	}
 }
 
-building_low_tech_admin_hub = {
-	can_build = no
+ub_building_low_tech_admin_hub = {
+	icon = building_low_tech_admin_hub
 	can_demolish = yes
 	can_be_ruined = yes
-	position_priority = 87
+
 	category = unity
 
 	base_buildtime = @b0_time
@@ -87,6 +94,13 @@ building_low_tech_admin_hub = {
 		OR = {
 			has_deposit = d_crashed_slaver_ship
 			has_deposit = d_crashed_slaver_ship_memorial
+		}
+		owner = {
+			num_buildings = {
+				type = building_low_tech_admin_hub
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -160,11 +174,11 @@ building_low_tech_admin_hub = {
 
 }
 
-building_low_tech_power_plant = {
-	can_build = no
+ub_building_low_tech_power_plant = {
+	icon = building_low_tech_power_plant
 	can_demolish = yes
 	can_be_ruined = yes
-	position_priority = 88
+
 	category = resource
 
 	base_buildtime = @b0_time
@@ -185,6 +199,13 @@ building_low_tech_power_plant = {
 			has_origin = origin_broken_shackles
 		}
 		has_deposit = d_crashed_slaver_ship
+		owner = {
+			num_buildings = {
+				type = building_low_tech_power_plant
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	destroy_trigger = {
@@ -203,11 +224,11 @@ building_low_tech_power_plant = {
 	}
 }
 
-building_low_tech_farm = {
-	can_build = no
+ub_building_low_tech_farm = {
+	icon = building_low_tech_farm
 	can_demolish = yes
 	can_be_ruined = yes
-	position_priority = 89
+
 	category = resource
 
 	base_buildtime = @b0_time
@@ -228,6 +249,13 @@ building_low_tech_farm = {
 			has_origin = origin_broken_shackles
 		}
 		has_deposit = d_crashed_slaver_ship
+		owner = {
+			num_buildings = {
+				type = building_low_tech_farm
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	destroy_trigger = {
@@ -246,12 +274,9 @@ building_low_tech_farm = {
 	}
 }
 
-building_low_tech_capital = {
+ub_building_low_tech_capital = {
+	icon = building_low_tech_capital
 	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
 	position_priority = 0
 
 	category = government
@@ -264,6 +289,13 @@ building_low_tech_capital = {
 		OR = {
 			has_deposit = d_crashed_slaver_ship
 			has_deposit = d_crashed_slaver_ship_memorial
+		}
+		owner = {
+			num_buildings = {
+				type = building_low_tech_capital
+				value = 1
+			}
+			is_ai = no
 		}
 	}
 
@@ -293,11 +325,11 @@ building_low_tech_capital = {
 	}
 }
 
-building_low_tech_research_lab = {
-	can_build = no
+ub_building_low_tech_research_lab = {
+	icon = building_low_tech_research_lab
 	can_demolish = yes
 	can_be_ruined = yes
-	position_priority = 90
+
 	category = research
 
 	base_buildtime = @b0_time
@@ -318,6 +350,13 @@ building_low_tech_research_lab = {
 			has_origin = origin_broken_shackles
 		}
 		has_deposit = d_crashed_slaver_ship
+		owner = {
+			num_buildings = {
+				type = building_low_tech_research_lab
+				value = 1
+			}
+			is_ai = no
+		}
 	}
 
 	destroy_trigger = {
@@ -335,4 +374,3 @@ building_low_tech_research_lab = {
 		text = job_low_tech_researcher_effect_desc
 	}
 }
-

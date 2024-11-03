@@ -2,16 +2,21 @@
 # Cosmic storm buildings #
 ##########################
 
-building_storm_attraction_center = {
+ub_building_storm_attraction_center = {
+	icon = building_storm_attraction_center
 	base_buildtime = @b1_time
 	category = research
-	position_priority = 96
 
 	potential = {
 		NOR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
 		}
+		OR = {
+			has_building = building_storm_attraction_center
+			has_building = building_advanced_storm_attraction_center
+		}
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -130,90 +135,18 @@ building_storm_attraction_center = {
 	}
 }
 
-building_advanced_storm_attraction_center = {
-	base_buildtime = @b2_time
-	can_build = no
-	category = research
-	position_priority = 97
-
-	resources = {
-		category = planet_buildings_storm_tech
-		cost = {
-			trigger = {
-				exists = owner
-				NOT = { owner = { has_origin = origin_storm_chasers } }
-			}
-			minerals = @b2_minerals
-			rare_crystals = 50
-		}
-		cost = {
-			trigger = {
-				exists = owner
-				owner = { has_origin = origin_storm_chasers }
-			}
-			minerals = @b2_minerals
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				NOT = { owner = { has_origin = origin_storm_chasers } }
-			}
-			energy = @b1_upkeep
-			rare_crystals = 2.25
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { has_origin = origin_storm_chasers }
-			}
-			energy = @b1_upkeep
-		}
-	}
-
-	prerequisites = {
-		"tech_advanced_storm_manipulation"
-	}
-
-	allow = {
-		custom_tooltip =  {
-			fail_text = storm_attracting_allow
-			solar_system = {
-				system_has_storm_repelling_tech = no
-			}
-		}
-	}
-
-	planet_modifier = {
-		storm_attraction_field_modifier = 0.6
-	}
-
-	inline_script = {
-		script = jobs/researchers_add
-		AMOUNT = @b2_jobs
-	}
-
-	inline_script = {
-		script = cosmic_storms/StormBuildingModifiers
-	}
-
-	custom_storm_ai_weight = {
-		weight = 2
-		modifier = {
-			factor = 10
-			AND = {
-				exists = owner
-				owner = { has_origin = origin_storm_chasers }
-			}
-		}
-	}
-
-	custom_tooltip = "building_cosmic_storm_advanced_attraction_center_tt"
-}
-
-building_storm_repellent_center = {
+ub_building_storm_repellent_center = {
+	icon = building_storm_repellent_center
 	base_buildtime = @b1_time
 	category = research
-	position_priority = 98
+
+	potential = {
+		OR = {
+			has_building = building_storm_repellent_center
+			has_building = building_advanced_storm_repellent_center
+		}
+		owner = { is_ai = no }
+	}
 
 	prerequisites = {
 		"tech_storm_manipulation"
@@ -268,8 +201,8 @@ building_storm_repellent_center = {
 		modifier = {
 			add = 10
 			AND = {
-				exists = owner
 				solar_system = {
+					exists = owner
 					owner = { num_cosmic_storms_encountered >=1 }
 				}
 			}
@@ -296,48 +229,10 @@ building_storm_repellent_center = {
 	custom_tooltip = "building_cosmic_storm_repellent_center_tt"
 }
 
-building_advanced_storm_repellent_center = {
-	base_buildtime = @b2_time
-	can_build = no
-	category = research
-	position_priority = 99
-
-	resources = {
-		category = planet_buildings_storm_tech
-		cost = {
-			minerals = @b2_minerals
-			rare_crystals = 50
-		}
-		upkeep = {
-			energy = @b1_upkeep
-			rare_crystals = 2.25
-		}
-	}
-
-	prerequisites = {
-		"tech_advanced_storm_manipulation"
-	}
-
-	inline_script = {
-		script = jobs/researchers_add
-		AMOUNT = @b2_jobs
-	}
-
-	inline_script = {
-		script = cosmic_storms/StormBuildingModifiers
-	}
-
-	planet_modifier = {
-		storm_repelling_field_modifier = 0.6
-	}
-
-	custom_tooltip = "building_cosmic_storm_advanced_repellent_center_tt"
-}
-
-building_storm_resistant_production = {
+ub_building_storm_resistant_production = {
+	icon = building_storm_resistant_production
 	base_buildtime = @b1_time
 	category = resource
-	position_priority = 1
 
 	potential = {
 		if = {
@@ -346,6 +241,11 @@ building_storm_resistant_production = {
 				system_has_storm_repelling_tech = no
 			}
 		}
+		OR = {
+			has_building = building_storm_resistant_production
+			has_building = building_advanced_storm_resistant_production
+		}
+		owner = { is_ai = no }
 	}
 
 	resources = {
@@ -459,141 +359,19 @@ building_storm_resistant_production = {
 	}
 }
 
-building_advanced_storm_resistant_production = {
-	base_buildtime = @b2_time
-	can_build = no
-	category = resource
-	position_priority = 2
-
-	potential = {
-		if = {
-			limit = { owner = { is_ai = yes } }
-			solar_system = {
-				system_has_storm_repelling_tech = no
-			}
-		}
-	}
-
-	resources = {
-		category = planet_buildings_storm_tech
-		cost = {
-			minerals = @b2_minerals
-			rare_crystals = @b2_rare_cost
-		}
-		upkeep = {
-			energy = @b2_upkeep
-		}
-		upkeep = {
-			trigger = {
-				has_modifier = storm_hunkered_down_modifier
-			}
-			energy = @b2_upkeep
-		}
-	}
-
-	prerequisites = {
-		"tech_advanced_industrial_storm_protection"
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			solar_system = {
-				is_inside_storm = yes
-			}
-		}
-		modifier = {
-			planet_miners_minerals_produces_add = 2
-			planet_farmers_food_produces_add = 2
-			planet_technician_energy_produces_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = no }
-		}
-		modifier = {
-			job_clerk_add = @b2_jobs
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = no }
-		}
-		text = "job_clerk_effect_desc"
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_maintenance_drone_add = @b2_jobs
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = "job_maintenance_drone_effect_desc"
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-			    is_galactic_community_member = yes
-			}
-		}
-		modifier = {
-			planet_miners_produces_mult = 1
-			planet_farmers_produces_mult = 1
-			planet_technician_produces_mult = 1
-		}
-		mult = value:storm_building_production_multiplier
-	}
-
-	inline_script = {
-		script = cosmic_storms/StormBuildingModifiers
-	}
-
-	custom_tooltip = "building_advanced_storm_resistant_production_tt"
-
-	custom_storm_ai_weight = {
-		weight = 0
-
-		modifier = {
-			add = 20
-			AND = {
-				exists = owner
-				owner = { num_unique_cosmic_storms_encountered >= 3 }
-			}
-		}
-	}
-
-	destroy_trigger = {
-		influence_building_destruction_trigger = yes
-	}
-}
-
-building_adakkaria_patriotic_institute = {
+ub_building_adakkaria_patriotic_institute = {
+	icon = building_adakkaria_patriotic_institute
 	base_buildtime = @b3_time
 	category = resource
-	position_priority = 3
+
 	can_build = yes
-	can_demolish = no
 	can_be_disabled = yes
 
 	potential = {
 		owner = { has_country_flag = adakkaria_world_found }
 		has_planet_flag = adSul_capital
+		has_building = building_adakkaria_patriotic_institute
+		owner = { is_ai = no }
 	}
 
 	country_modifier = {
@@ -646,10 +424,10 @@ building_adakkaria_patriotic_institute = {
 	}
 }
 
-building_astrometeorology_observation_center = {
+ub_building_astrometeorology_observation_center = {
+	icon = building_astrometeorology_observation_center
 	base_buildtime = @b1_time
 	category = research
-	position_priority = 4
 
 	potential = {
 		exists = owner
@@ -660,6 +438,8 @@ building_astrometeorology_observation_center = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
 		}
+		has_building = building_astrometeorology_observation_center
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
@@ -712,16 +492,22 @@ building_astrometeorology_observation_center = {
 	}
 }
 
-building_storm_summoning_theater = {
+ub_building_storm_summoning_theater = {
+	icon = building_storm_summoning_theater
 	base_buildtime = @b1_time
 	category = amenity
-	position_priority = 5
 
 	potential = {
 		exists = owner
 		owner = {
 			is_storm_callers_empire = yes
 		}
+		OR = {
+			has_building = building_storm_summoning_theater
+			has_building = building_storm_holo_theater
+			has_building = building_storm_grand_theater
+		}
+		owner = { is_ai = no }
 	}
 
 	allow = {
@@ -775,162 +561,3 @@ building_storm_summoning_theater = {
 
 	custom_tooltip = "building_cosmic_storm_storm_summoning_theater_tt"
 }
-
-building_storm_holo_theater = {
-	base_buildtime = @b2_time
-	category = amenity
-	can_build = no
-	position_priority = 6
-
-	potential = {
-		exists = owner
-		owner = {
-			is_storm_callers_empire = yes
-		}
-	}
-
-	allow = {
-		exists = owner
-		has_upgraded_capital = yes
-		owner = {
-			is_storm_callers_empire = yes
-		}
-		solar_system = {
-			system_has_storm_repelling_tech = no
-		}
-	}
-
-	destroy_trigger = {
-		exists = owner
-		owner = {
-			is_storm_callers_empire = no
-		}
-	}
-
-	resources = {
-		category = planet_buildings_storm_tech
-		cost = {
-			minerals = @b2_minerals
-			volatile_motes = @b2_rare_cost
-		}
-		upkeep = {
-			energy = @b2_upkeep
-			volatile_motes = @b2_rare_upkeep
-		}
-	}
-
-	upgrades = {
-		"building_storm_grand_theater"
-	}
-
-	planet_modifier = {
-		job_storm_dancer_add = 4
-		storm_attraction_field_modifier = @cosmic_storm_medium_storm_attraction
-	}
-
-	triggered_desc = {
-		text = "job_storm_dancer_effect_desc"
-	}
-
-	inline_script = {
-		script = cosmic_storms/StormBuildingModifiers
-	}
-
-	custom_storm_ai_weight = {
-		weight = 0
-		modifier = {
-			add = 10
-			AND = {
-				exists = owner
-				is_colony = yes
-			}
-		}
-	}
-
-	on_built = {
-		create_influence_field_if_needed = yes
-	}
-
-	on_enabled = {
-		create_influence_field_if_needed = yes
-	}
-
-	custom_tooltip = "building_cosmic_storm_storm_holo_theater_tt"
-}
-
-building_storm_grand_theater = {
-	base_buildtime = @b3_time
-	category = amenity
-	can_build = no
-	position_priority = 7
-
-	potential = {
-		exists = owner
-		owner = {
-			is_storm_callers_empire = yes
-		}
-	}
-
-	allow = {
-		exists = owner
-		has_major_upgraded_capital = yes
-		owner = {
-			is_storm_callers_empire = yes
-		}
-		solar_system = {
-			system_has_storm_repelling_tech = no
-		}
-	}
-
-	destroy_trigger = {
-		exists = owner
-		owner = {
-			is_storm_callers_empire = no
-		}
-	}
-
-	resources = {
-		category = planet_buildings_storm_tech
-		cost = {
-			minerals = @b3_minerals
-			volatile_motes = @b3_rare_cost
-		}
-		upkeep = {
-			energy = @b3_upkeep
-			volatile_motes = @b3_rare_upkeep
-		}
-	}
-
-	planet_modifier = {
-		job_storm_dancer_add = 6
-		storm_attraction_field_modifier = @cosmic_storm_severe_storm_attraction
-	}
-
-	inline_script = {
-		script = cosmic_storms/StormBuildingModifiers
-	}
-
-	triggered_desc = {
-		text = "job_storm_dancer_effect_desc"
-	}
-	custom_storm_ai_weight = {
-		weight = 0
-		modifier = {
-			add = 10
-			exists = owner
-		}
-	}
-
-	on_built = {
-		create_influence_field_if_needed = yes
-	}
-
-	on_enabled = {
-		create_influence_field_if_needed = yes
-	}
-
-	custom_tooltip = "building_cosmic_storm_storm_grand_theater_tt"
-}
-
-# When adding more buildings here be sure to also update the list in game/common/resolutions/04_resolutions_cosmic_storms_dlc.txt
-
