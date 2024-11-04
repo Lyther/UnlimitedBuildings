@@ -22,7 +22,9 @@ ub_building_food_processing_facility = {
 		}
 		OR = {
 			has_building = building_food_processing_facility
+			has_building_construction = building_food_processing_facility
 			has_building = building_food_processing_center
+			has_building_construction = building_food_processing_center
 		}
 		owner = { is_ai = no }
 	}

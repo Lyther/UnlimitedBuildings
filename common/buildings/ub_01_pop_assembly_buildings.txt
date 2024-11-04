@@ -944,18 +944,18 @@ ub_building_clone_army_clone_vat = {
 					type = building_clone_army_clone_vat
 					value = 5
 				}
-				is_ai = no
 			}
-			AND = {
-				owner = {
-					num_buildings = {
-						type = building_clone_army_clone_vat
-						value = 4
-					}
+			owner = {
+				num_buildings = {
+					type = building_clone_army_clone_vat
+					value = 4
 				}
-				has_building_construction = building_clone_army_clone_vat
+				any_owned_planet = {
+					has_building_construction = building_clone_army_clone_vat
+				}
 			}
 		}
+		owner = { is_ai = no }
 	}
 
 	destroy_trigger = {
